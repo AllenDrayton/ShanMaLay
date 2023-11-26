@@ -12,6 +12,12 @@ const flag_textures = {
 	"pauk":preload("res://pck/assets/shankoemee/pauk-flag.png")
 }
 
+const auto89_textures = {
+	"auto8":preload("res://pck/assets/shankoemee/LoadingFrame/auto8.png"),
+	"auto9":preload("res://pck/assets/shankoemee/LoadingFrame/auto9.png")
+	
+}
+
 const multiply = {
 	2:preload("res://pck/assets/shankoemee/2x.png"),
 	3:preload("res://pck/assets/shankoemee/3x.png"),
@@ -40,6 +46,11 @@ var voices = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Connect the Signals
+	Signals.connect("clear_auto_flag", self, "_hide_auto_flag")
+	
+	
 	_load_profile_textures()
 	visible = false
 	$CountDown.connect("animation_finished",self,"_stop_count_down")
@@ -74,7 +85,7 @@ func _bet_pos():
 	return $Bet.global_position
 
 func _banker_pos():
-	return $Bet.global_position
+	return $Bet/banker_position.global_position
 
 func _hide_bet():
 	$Bet.visible = false
@@ -85,15 +96,25 @@ func _set_bet(bet):
 
 func _show_pauk(num):
 	if num >= 8:
-		$PaukFlag/Label.text = str(num) + " ayguf"
-		$PaukFlag.texture = flag_textures["auto"]
+#		$PaukFlag/Label.text = str(num) + " ayguf"
+#		$PaukFlag.texture = flag_textures["auto"]
+		if num == 8:
+			$Auto8_9.texture = auto89_textures["auto8"]
+		else:
+			$Auto8_9.texture = auto89_textures["auto9"]
+		$Auto8_9.visible = true
+		$PaukFlag.visible = false
 	else :
 		if num == 0:
 			$PaukFlag/Label.text = "bl"
 		else:
 			$PaukFlag/Label.text = str(num) + " ayguf"
 		$PaukFlag.texture = flag_textures["pauk"]
-	$PaukFlag.visible = true
+		$PaukFlag.visible = true
+		$Auto8_9.visible = false
+
+func _hide_auto_flag():
+	$Auto8_9.visible = false
 
 func _show_catch():
 	$Catch.visible = true
@@ -115,9 +136,17 @@ func _stop_count_down():
 	$CountDown.playing = false
 	$CountDown.frame = 0
 	$CountDown.visible = false
+	
 	$PlayerLoading.playing = false
 	$PlayerLoading.frame = 0
 	$PlayerLoading.visible = false
+	Signals.emit_signal("bet_pos_visible")
+	$Bet.z_index = 0
+	
+	$CardLoading.playing = false
+	$CardLoading.frame = 0
+	$CardLoading.visible = false
+	
 
 func _set_count_down(sec):
 	if sec == 0 :
@@ -128,9 +157,25 @@ func _set_count_down(sec):
 	#$CountDown.visible = true
 	#$PlayerLoading.speed_scale = 1/float(sec)
 	#$PlayerLoading.frame = 0
+	
+	
+# Player Loading
+func _player_wait_countdown(sec):
+	if sec == 0 :
+		return
 	$PlayerLoading.playing = true
 	$PlayerLoading.visible = true
+	Signals.emit_signal("bet_pos_invisible")
+	$Bet.z_index = -10
 	
+
+# Cards Loading
+func _card_wait_countdown(sec):
+	if sec == 0 :
+		return
+	$CardLoading.playing = true
+	$CardLoading.visible = true
+
 
 func _play_emoji(emoji):
 	$Emoji.play(emoji)

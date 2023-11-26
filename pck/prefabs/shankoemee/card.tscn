@@ -4,7 +4,7 @@
 [ext_resource path="res://pck/assets/common/cards/Card.png" type="Texture" id=2]
 
 [node name="card" type="Sprite"]
-scale = Vector2( 0.17, 0.17 )
-z_index = -2
+scale = Vector2( 0.145, 0.145 )
+z_index = 2
 texture = ExtResource( 2 )
 script = ExtResource( 1 )

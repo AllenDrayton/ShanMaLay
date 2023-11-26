@@ -4,6 +4,7 @@
 [ext_resource path="res://pck/prefabs/Coin.gd" type="Script" id=2]
 
 [node name="Coin" type="Sprite"]
+scale = Vector2( 0.6, 0.6 )
 z_index = 1
 texture = ExtResource( 1 )
 script = ExtResource( 2 )

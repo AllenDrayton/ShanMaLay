@@ -6,6 +6,33 @@ const CARD_DELIVER_DELAY = 0.15
 const COIN_MOVE_DELAY = 0.1
 const CARD_CHECK_TIME = 3
 
+
+# Define NodePaths for your labels
+var label_paths : Array = [
+	"DealerPot/L8",
+	"DealerPot/L7",
+	"DealerPot/L6",
+	"DealerPot/L5",
+	"DealerPot/L4",
+	"DealerPot/L3",
+	"DealerPot/L2",
+	"DealerPot/L1",
+]
+
+# Initialize the labels array
+var labels : Array = []
+
+# Bet Nodes
+#onready var bet0 = $PlayerPos.get_node(str(0)+"/Bet")
+#onready var bet1 = $PlayerPos.get_node(str(1)+"/Bet")
+#onready var bet2 = $PlayerPos.get_node(str(2)+"/Bet")
+#onready var bet3 = $PlayerPos.get_node(str(3)+"/Bet")
+#onready var bet4 = $PlayerPos.get_node(str(4)+"/Bet")
+#onready var bet5 = $PlayerPos.get_node(str(5)+"/Bet")
+#onready var bet6 = $PlayerPos.get_node(str(6)+"/Bet")
+#onready var bet7 = $PlayerPos.get_node(str(7)+"/Bet")
+#onready var bet8 = $PlayerPos.get_node(str(8)+"/Bet")
+
 # Static
 const music = preload("res://pck/assets/audio/music-2.mp3")
 
@@ -70,9 +97,31 @@ func _ready():
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
 	
+	
+	# Populate the labels array with Label nodes based on the provided paths
+	for path in label_paths:
+		var label = get_node(path)
+		assert(label is Label, "Node at path is not a Label.")
+		labels.append(label)
+	
+	
+	# Connecting Signals
+#	Signals.connect("bet_pos_invisible", self, "_hide_bet")
+#	Signals.connect("bet_pos_visible", self, "_show_bet")
+	
 #	if $"/root/ws".rejoin :
 #		$BackDrop._show("Reconnecting please wait!")
 #		return
+
+
+# Function to update labels based on a given number
+func update_labels(number):
+	# Convert the number to a string with leading zeros
+	var formatted_number = String("%08d" % number)
+	
+	# Update each label with the corresponding digit
+	for i in range(8):
+		labels[i].text = formatted_number[i]
 
 
 func _connect_ws():
@@ -197,12 +246,50 @@ func _update_room(room):
 	elif room.gameState == GameStates.wait:
 		_wait()
 
+# Hide BetNode while wait animation shows
+#func _hide_bet():
+#	for i in range(TOTAL_PLAYER):
+#		var player = playerPrefab.instance()
+#		player.get_node("Bet").z_index = -5
+##	bet0.visible = false
+##	bet1.visible = false
+##	bet2.visible = false
+##	bet3.visible = false
+##	bet4.visible = false
+##	bet5.visible = false
+##	bet6.visible = false
+##	bet7.visible = false
+##	bet8.visible = false
+#	print("Hide")
+
+
+# Show BetNode after wait animation
+#func _show_bet():
+#	for i in range(TOTAL_PLAYER):
+#		var player = playerPrefab.instance()
+#		player.get_node("Bet").z_index = 0
+##	bet0.visible = true
+##	bet1.visible = true
+##	bet2.visible = true
+##	bet3.visible = true
+##	bet4.visible = true
+##	bet5.visible = true
+##	bet6.visible = true
+##	bet7.visible = true
+##	bet8.visible = true
+#	print("Show")
+
+
 
 func _init_all():
 	for i in range(TOTAL_PLAYER):
 		var player = playerPrefab.instance()
 		player.position = $PlayerPos.get_node(str(i)).position
 		player.get_node("Bet").position = $PlayerPos.get_node(str(i)+"/Bet").position
+		player.get_node("PlayerLoading").position = $PlayerPos.get_node(str(i)+"/Bet").position
+		player.get_node("Bet/banker_position").position = $PlayerPos.get_node(str(i)+"/Bet/Load2").position
+		#player.get_node("CardLoading").position = $PlayerPos.get_node(str(i)).position
+		
 		player.get_node("Catch").connect("pressed",self,"_on_Catch_pressed",[i])
 		if i == 5 || i == 6 || i == 7 :
 			player.get_node("Catch").rect_position.x = -211
@@ -230,7 +317,7 @@ func _init_all():
 	$DrawBtns.visible = false
 	$DealerWinScene.visible = false
 	$DealerLoseScene.visible = false
-	$MenuPanel.visible = false
+	$MenuHomePanel.visible = false
 	$Rules.visible = false;
 	$CatchAllDraw.visible = false
 
@@ -257,10 +344,19 @@ func _start(room):
 	_move_all_coin_from_player_bet_to_balance()
 	_set_bet_buttons(room.minBet, room.dealerBet)
 	
+	var players = room.players
+	
 	# Set Count Down
 	var count_down = (room.wait - room.tick) * 2
-	var v = _get_vIndex(myIndex)
-	playersNode[v]._set_count_down(count_down)
+#	var v = _get_vIndex(myIndex)
+#	playersNode[v]._set_count_down(count_down)
+#	playersNode[v]._player_wait_countdown(count_down)
+	
+	for i in range(TOTAL_PLAYER):
+		var player = players[i]
+		var v = _get_vIndex(i)
+		playersNode[v]._set_count_down(count_down)
+		playersNode[v]._player_wait_countdown(count_down)
 	
 	# Dealer Count
 	if room.warning:
@@ -276,6 +372,7 @@ func _start(room):
 		$BetPanel.visible = true
 	_clear_all_player_cards()
 	_reset_all_players()
+	Signals.emit_signal("clear_auto_flag")
 
 
 func _first_deliver(room):
@@ -298,6 +395,8 @@ func _first_deliver(room):
 		var player = players[i]
 		var v = _get_vIndex(i)
 		playersNode[v]._set_count_down(count_down)
+		playersNode[v]._card_wait_countdown(count_down)
+		
 	
 	_playVoice(GameVoices.deliver)
 	$BetPanel.visible = false
@@ -372,6 +471,8 @@ func _second_deliver(room):
 			continue
 		var v = _get_vIndex(i)
 		playersNode[v]._set_count_down(count_down)
+		playersNode[v]._card_wait_countdown(count_down)
+		
 	
 	var start = room.dealerIndex + 1
 	for i in range(TOTAL_PLAYER):
@@ -435,6 +536,7 @@ func _dealer_draw(room):
 	# Set Count Down
 	var count_down = (room.wait - room.tick) * 2
 	playersNode[v]._set_count_down(count_down)
+	playersNode[v]._card_wait_countdown(count_down)
 
 
 func _end(room):
@@ -477,6 +579,7 @@ func _end(room):
 		var dealerBet = int($DealerBet/Label.text);
 		dealerBet += loseAmount
 		$DealerBet/Label.text = str(dealerBet)
+		update_labels(dealerBet)
 		#$Audio/CoinMove.play()
 		$Audio/M9CoinMove.play()
 		for i in losers:
@@ -520,6 +623,7 @@ func _end(room):
 			var dealerBet = int($DealerBet/Label.text);
 			dealerBet -= player.winAmount
 			$DealerBet/Label.text = str(dealerBet)
+			update_labels(dealerBet)
 			if i == myIndex :
 				_playVoice(GameVoices.win)
 			else :
@@ -531,6 +635,7 @@ func _end(room):
 				card._unhighlight()
 	
 	$DealerBet/Label.text = str(room.dealerBet)
+	update_labels(room.dealerBet)
 	
 	_show_all_win_lose_amount(room)
 	
@@ -624,14 +729,24 @@ func _coin_move_from_player_balance_to_bet(index):
 	var pos = playersNode[v].get_node("Profile").global_position
 	coin.playerIndex = index
 	coin.position = pos
-	var betPos = playersNode[v].get_node("Bet").global_position
-	var xRand = (randi()%40)-20
-	var yRand = (randi()%40)-20
-	var x = betPos.x + xRand
-	var y = betPos.y + yRand + 50
-	var target = Vector2(x,y)
+	var betPos = playersNode[v].get_node("Bet/coin").global_position
+#	var xRand = (randi()%40)-20
+#	var yRand = (randi()%40)-20
+#	var x = betPos.x + xRand
+#	var y = betPos.y + yRand + 50
+#	var target = Vector2(x,y)
+#	var target = betPos
+#	coin.target = target
+	var stack_interval = -5  # Adjust the vertical spacing between coins
+	# Calculate stacking offset based on the number of coins already in the container
+	#var stackingOffset = $CoinContainer.get_child_count() * stack_interval
+	var coincount = $CoinContainer.get_child_count()
+	# Set the position of the coin, including the stacking offset
+	var target = betPos + Vector2(0, stack_interval)
 	coin.target = target
+	
 	$CoinContainer.add_child(coin)
+	
 
 
 func _coin_move_from_player_to_dealer(index):
@@ -653,12 +768,13 @@ func _coin_move_from_player_to_dealer(index):
 
 func _coin_move_from_dealer_to_player(index):
 	var v = _get_vIndex(index)
-	var betPos = playersNode[v].get_node("Bet").global_position
-	var xRand = (randi()%40)-20
-	var yRand = (randi()%40)-20
-	var x = betPos.x + xRand
-	var y = betPos.y + yRand + 50
-	var target = Vector2(x,y)
+	var betPos = playersNode[v].get_node("Bet/coin").global_position
+#	var xRand = (randi()%40)-20
+#	var yRand = (randi()%40)-20
+#	var x = betPos.x + xRand
+#	var y = betPos.y + yRand + 50
+#	var target = Vector2(x,y)
+	var target = betPos
 	for coin in $CoinContainer.get_children():
 		if coin.playerIndex == -1 :
 			coin.playerIndex = index
@@ -750,6 +866,7 @@ func _hide_all_catch():
 
 func _common_update(room):
 	$DealerBet/Label.text = str(room.dealerBet)
+	update_labels(room.dealerBet)
 	
 	# Players
 	var players = room.players
@@ -877,15 +994,15 @@ func _on_Emoji_pressed(emoji):
 		}
 	}
 	send(request)
-	$EmojiPanel.visible = false
+	$EmojiHomePanel.visible = false
 	$Backdrop.visible = false
 
 
 func _on_EmojiToggle_pressed():
-	$EmojiPanel.visible = !$EmojiPanel.visible
+	$EmojiHomePanel.visible = !$EmojiHomePanel.visible
 	$Backdrop.visible = true
 	$MessagePanel.visible = false
-	$MenuPanel.visible = false
+	$MenuHomePanel.visible = false
 
 
 func _on_message_pressed(msg):
@@ -898,12 +1015,14 @@ func _on_message_pressed(msg):
 	}
 	send(request)
 	$MessagePanel.visible = false
+	$Backdrop.visible = false
 
 
 func _on_MessageToggle_pressed():
 	$MessagePanel.visible = !$MessagePanel.visible
-	$EmojiPanel.visible = false
-	$MenuPanel.visible = false
+	$EmojiHomePanel.visible = false
+	$MenuHomePanel.visible = false
+	$Backdrop.visible = true
 
 
 # ----- Button Functions -----
@@ -974,9 +1093,10 @@ func _on_Clear_pressed():
 
 
 func _on_Menu_pressed():
-	$MenuPanel.visible = !$MenuPanel.visible
-	$EmojiPanel.visible = false
+	$MenuHomePanel.visible = !$MenuHomePanel.visible
+	$EmojiHomePanel.visible = false
 	$MessagePanel.visible = false
+	$Backdrop.visible = true
 
 
 func _on_Exit_pressed():
@@ -984,12 +1104,13 @@ func _on_Exit_pressed():
 		"head":"exit",
 	}
 	send(request)
-	$MenuPanel.visible = false
+	$MenuHomePanel.visible = false
+	$Backdrop.visible = false
 
 
 func _on_Setting_pressed():
 	$Setting._show()
-	$MenuPanel.visible = false
+	$MenuHomePanel.visible = false
 
 
 func _on_GameRules_Close_pressed():
@@ -998,7 +1119,7 @@ func _on_GameRules_Close_pressed():
 
 func _on_Rules_pressed():
 	$Rules.visible = true;
-	$MenuPanel.visible = false
+	$MenuHomePanel.visible = false
 
 
 func _on_Catch_pressed(v):
