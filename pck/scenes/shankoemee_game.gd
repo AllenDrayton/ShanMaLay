@@ -6,6 +6,18 @@ const CARD_DELIVER_DELAY = 0.15
 const COIN_MOVE_DELAY = 0.1
 const CARD_CHECK_TIME = 3
 
+# Emoji Texture Dictionary
+const emoji_textures = {
+	"emoHighlight":preload("res://pck/assets/shankoemee/EmoPacks/icon-emoji1.png"),
+	"emoUnhighlight":preload("res://pck/assets/shankoemee/EmoPacks/icon-emoji2.png")
+}
+
+# Message Texture Dictionary
+const message_textures = {
+	"messHighlight":preload("res://pck/assets/shankoemee/EmoPacks/icon-message1.png"),
+	"messUnhighlight":preload("res://pck/assets/shankoemee/EmoPacks/icon-message2.png")
+}
+
 
 # Define NodePaths for your labels
 var label_paths : Array = [
@@ -192,6 +204,8 @@ func _on_server_respond(respond):
 			_handshake(body)
 		"message":
 			_message_respond(body.senderIndex, body.message)
+		"MessageInput":
+			_message_input_respond(body.senderIndex, body.msg)
 
 
 # ----- Main Functions -----
@@ -293,9 +307,11 @@ func _init_all():
 		player.get_node("Catch").connect("pressed",self,"_on_Catch_pressed",[i])
 		if i == 5 || i == 6 || i == 7 :
 			player.get_node("Catch").rect_position.x = -211
-			player.get_node("CardPos").position.x = -147.5
+			player.get_node("CardPos").position.x = -130.5
+			player.get_node("CardLoading").position.x = -130.5
 			player.get_node("Multiply").position.x = -98
-			player.get_node("PaukFlag").position.x = -135.5
+			player.get_node("PaukFlag").position.x = -120.5
+			#player.get_node("Auto8_9").position.x = -120
 		playersNode.append(player)
 		$Players.add_child(player)
 	
@@ -372,7 +388,7 @@ func _start(room):
 		$BetPanel.visible = true
 	_clear_all_player_cards()
 	_reset_all_players()
-	Signals.emit_signal("clear_auto_flag")
+	#Signals.emit_signal("clear_auto_flag")
 
 
 func _first_deliver(room):
@@ -438,11 +454,13 @@ func _first_deliver(room):
 	var pauk = _get_pauk(dealer.cards)
 	if pauk >= 8:
 		$DrawBtns.visible = false
+		Signals.two_card_auto = true
 	
 	var me = players[myIndex]
 	var myPauk = _get_pauk(me.cards)
 	if myPauk >= 8:
 		$DrawBtns.visible = false
+		Signals.two_card_auto = true
 		if myPauk == 8:
 			_playVoice(GameVoices.pauk8)
 			$Audio/M9auto89.play()
@@ -485,6 +503,7 @@ func _second_deliver(room):
 		if player.playState == PlayStates.waiting:
 			continue
 		if player.cards.size() == 3:
+			Signals.two_card_auto = false
 			var v = _get_vIndex(k)
 			var card = player.cards[2]
 			var pos = playersNode[v].get_node("CardPos").global_position
@@ -496,6 +515,7 @@ func _second_deliver(room):
 		return
 	
 	if players[myIndex].cards.size() == 3:
+		Signals.two_card_auto = false
 		yield(get_tree().create_timer(1), "timeout")
 		$CardCheck._show(players[myIndex].cards)
 		yield(get_tree().create_timer(CARD_CHECK_TIME), "timeout")
@@ -911,9 +931,12 @@ func _show_all_auto(players):
 			continue
 		var pauk = _get_pauk(player.cards)
 		if player.cards.size() == 2 && pauk >= 8:
+			Signals.two_card_auto = true
 			var v = _get_vIndex(i)
 			playersNode[v]._show_pauk(pauk)
 			_show_player_cards(i)
+		elif player.cards.size() == 2 && pauk < 8:
+			Signals.two_card_auto = false
 
 
 func _clear_all_player_cards():
@@ -996,12 +1019,18 @@ func _on_Emoji_pressed(emoji):
 	send(request)
 	$EmojiHomePanel.visible = false
 	$Backdrop.visible = false
+	$EmojiHomeToggle.visible = false
+	$MessageHomeToggle.visible = false
 
 
 func _on_EmojiToggle_pressed():
 	$EmojiHomePanel.visible = !$EmojiHomePanel.visible
+	$EmojiHomeToggle/EmojiToggle2/EmojiToggleSprite.texture = emoji_textures["emoHighlight"]
+	$MessageHomeToggle/MessageToggle2/MessageToggleSprite.texture = message_textures["messUnhighlight"]
+	$EmojiHomeToggle.visible = true
 	$Backdrop.visible = true
 	$MessagePanel.visible = false
+	$MessageHomeToggle.visible = true
 	$MenuHomePanel.visible = false
 
 
@@ -1016,6 +1045,9 @@ func _on_message_pressed(msg):
 	send(request)
 	$MessagePanel.visible = false
 	$Backdrop.visible = false
+	$EmojiHomeToggle.visible = false
+	$MessageHomeToggle.visible = false
+	
 
 
 func _on_MessageToggle_pressed():
@@ -1038,6 +1070,7 @@ func _on_Bet_pressed():
 	send(request)
 	$BetPanel.visible = false
 	$Audio/M9betMoney.play()
+	Signals.emit_signal("bet_pressed")
 
 
 func _on_Bet_select(i):
@@ -1111,6 +1144,7 @@ func _on_Exit_pressed():
 func _on_Setting_pressed():
 	$Setting._show()
 	$MenuHomePanel.visible = false
+	$Backdrop.visible = false
 
 
 func _on_GameRules_Close_pressed():
@@ -1120,6 +1154,7 @@ func _on_GameRules_Close_pressed():
 func _on_Rules_pressed():
 	$Rules.visible = true;
 	$MenuHomePanel.visible = false
+	$Backdrop.visible = false
 
 
 func _on_Catch_pressed(v):
@@ -1141,3 +1176,56 @@ func _on_CatchAllDraw_pressed():
 	}
 	send(request)
 
+
+
+
+
+
+func _on_MessageToggle2_pressed():
+	#$MessagePanel.visible = !$MessagePanel.visible
+	#$MessageHomeToggle.visible = !$MessageHomeToggle.visible
+	$EmojiHomeToggle/EmojiToggle2/EmojiToggleSprite.texture = emoji_textures["emoUnhighlight"]
+	$MessageHomeToggle/MessageToggle2/MessageToggleSprite.texture = message_textures["messHighlight"]
+	$EmojiHomePanel.visible = false
+	$MenuHomePanel.visible = false
+	$MessagePanel.visible = true
+	$Backdrop.visible = true
+
+
+func _on_EmojiToggle2_pressed():
+	#$EmojiHomePanel.visible = !$EmojiHomePanel.visible
+	#$EmojiHomeToggle.visible = !$EmojiHomeToggle.visible
+	$EmojiHomePanel.visible = true
+	$EmojiHomeToggle/EmojiToggle2/EmojiToggleSprite.texture = emoji_textures["emoHighlight"]
+	$MessageHomeToggle/MessageToggle2/MessageToggleSprite.texture = message_textures["messUnhighlight"]
+	#$EmojiHomeToggle.visible = true
+	$Backdrop.visible = true
+	$MessagePanel.visible = false
+	$MenuHomePanel.visible = false
+
+
+func _on_ReplyText_pressed(msg):
+	#var message = $MessagePanel/TexterLineEdit.text
+	msg = $MessagePanel/TexterLineEdit.text
+	print("From Game",msg)
+	var request = {
+		"head":"MessageInput",
+		"body":{
+			"senderIndex":myIndex,
+			"msg":msg
+		}
+	}
+	send(request)
+	#Signals.emit_signal("message_sent",message)
+	$MessagePanel.visible = false
+	$EmojiHomeToggle.visible = false
+	$MessageHomeToggle.visible = false
+	$Backdrop.visible = false
+	$MessagePanel/TexterLineEdit.text = ""
+	
+
+func _message_input_respond(senderIndex, msg):
+	var v = _get_vIndex(senderIndex)
+	playersNode[v]._display_input_message(msg)
+	print("From Player", msg)
+	

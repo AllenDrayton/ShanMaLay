@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/A_Mingalarpa.mp3-61b66fb25cbf63e32cda02fcd786705f.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/common/messages/A_Mingalarpa.mp3"
+dest_files=[ "res://.import/A_Mingalarpa.mp3-61b66fb25cbf63e32cda02fcd786705f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

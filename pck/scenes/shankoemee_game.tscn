@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=2]
+[gd_scene load_steps=262 format=2]
 
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
@@ -21,7 +21,7 @@
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=19]
 [ext_resource path="res://pck/scripts/shankoemee/card_check.gd" type="Script" id=20]
 [ext_resource path="res://pck/assets/common/cards/Card.png" type="Texture" id=21]
-[ext_resource path="res://pck/assets/common/panel-2.png" type="Texture" id=22]
+[ext_resource path="res://pck/assets/shankoemee/MenuPacks/tutorial.png" type="Texture" id=22]
 [ext_resource path="res://pck/assets/common/btn-3.png" type="Texture" id=23]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00004.png" type="Texture" id=24]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00003.png" type="Texture" id=25]
@@ -57,10 +57,9 @@
 [ext_resource path="res://pck/assets/shankoemee/lose-bg.png" type="Texture" id=55]
 [ext_resource path="res://pck/assets/audio/win-1.mp3" type="AudioStream" id=56]
 [ext_resource path="res://pck/assets/audio/lose-1.mp3" type="AudioStream" id=57]
-[ext_resource path="res://pck/assets/shankoemee/rules.png" type="Texture" id=58]
+[ext_resource path="res://pck/assets/shankoemee/MenuPacks/setting.png" type="Texture" id=58]
 [ext_resource path="res://pck/assets/shankoemee/menu.png" type="Texture" id=59]
-[ext_resource path="res://pck/assets/shankoemee/exit.png" type="Texture" id=60]
-[ext_resource path="res://pck/assets/shankoemee/setting.png" type="Texture" id=61]
+[ext_resource path="res://pck/assets/shankoemee/MenuPacks/Back.png" type="Texture" id=60]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=62]
 [ext_resource path="res://pck/assets/shankoemee/game_rules.png" type="Texture" id=63]
 [ext_resource path="res://pck/assets/common/panel-top.png" type="Texture" id=64]
@@ -196,14 +195,14 @@
 [ext_resource path="res://pck/assets/shankoemee/Skomi-Main/icon-skomi-table.png" type="Texture" id=194]
 [ext_resource path="res://pck/assets/shankoemee/Skomi-Main/icon-skomi-carpet.png" type="Texture" id=195]
 [ext_resource path="res://pck/assets/shankoemee/LoadingFrame/sample.png" type="Texture" id=196]
-[ext_resource path="res://pck/assets/common/messages/haha.png" type="Texture" id=197]
-[ext_resource path="res://pck/assets/common/messages/play_again.png" type="Texture" id=198]
-[ext_resource path="res://pck/assets/common/messages/hurry.png" type="Texture" id=199]
-[ext_resource path="res://pck/assets/common/messages/lose.png" type="Texture" id=200]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV4.png" type="Texture" id=197]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV2.png" type="Texture" id=198]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV5.png" type="Texture" id=199]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV1.png" type="Texture" id=200]
 [ext_resource path="res://pck/assets/common/messages/bet_more.png" type="Texture" id=201]
 [ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=202]
-[ext_resource path="res://pck/assets/common/messages/mingalar.png" type="Texture" id=203]
-[ext_resource path="res://pck/assets/common/messages/quit.png" type="Texture" id=204]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV6.png" type="Texture" id=203]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/abstractbottom.png" type="Texture" id=204]
 [ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=205]
 [ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ01-1.png.png" type="Texture" id=206]
 [ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ2-2.png.png" type="Texture" id=207]
@@ -226,6 +225,12 @@
 [ext_resource path="res://pck/assets/shankoemee/audio/music-skomi-donttakeanothercard.mp3" type="AudioStream" id=224]
 [ext_resource path="res://pck/assets/shankoemee/audio/music-skomi-auto89.mp3" type="AudioStream" id=225]
 [ext_resource path="res://pck/assets/shankoemee/LoadingFrame/bankerBar.png" type="Texture" id=226]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/enoBackground2.png" type="Texture" id=227]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/icon-emoji1.png" type="Texture" id=228]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/icon-message2.png" type="Texture" id=229]
+[ext_resource path="res://pck/scripts/EmojiButton.gd" type="Script" id=230]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV3.png" type="Texture" id=231]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/Reply.png" type="Texture" id=232]
 
 [sub_resource type="DynamicFontData" id=352]
 font_path = "res://pck/assets/common/zawgyi-one.ttf"
@@ -959,14 +964,18 @@ tracks/6/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="StyleBoxTexture" id=293]
-texture = ExtResource( 22 )
-region_rect = Rect2( 0, 0, 200, 200 )
-margin_left = 60.0
-margin_right = 60.0
-margin_top = 80.0
-margin_bottom = 60.0
-modulate_color = Color( 0.47451, 0.517647, 0.92549, 1 )
+[sub_resource type="StyleBoxFlat" id=356]
+bg_color = Color( 0.0509804, 0.12549, 0.258824, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 0.709804, 0, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxTexture" id=294]
 texture = ExtResource( 4 )
@@ -1102,13 +1111,26 @@ animations = [ {
 } ]
 
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, -10, 200, 210 )
+texture = ExtResource( 227 )
+region_rect = Rect2( 0, 0, 2536, 3344 )
 margin_left = 60.0
 margin_right = 60.0
 margin_top = 80.0
 margin_bottom = 60.0
 modulate_color = Color( 0.392157, 0.780392, 0.886275, 1 )
+
+[sub_resource type="DynamicFont" id=354]
+size = 35
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=355]
+bg_color = Color( 0.054902, 0.0313726, 0.164706, 1 )
+border_color = Color( 0.333333, 0.0823529, 0.631373, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="root" type="Node2D"]
 script = ExtResource( 15 )
@@ -1149,6 +1171,8 @@ position = Vector2( 986, 620 )
 position = Vector2( 3, -126 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/0/Bet"]
+visible = false
+position = Vector2( 32, 29 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/0/Bet"]
 position = Vector2( 30, 30 )
@@ -1160,9 +1184,11 @@ position = Vector2( 103, 143 )
 position = Vector2( 630, 625 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/1" groups=["Bet"]]
-position = Vector2( 95, -138 )
+position = Vector2( 100, -125 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/1/Bet"]
+visible = false
+position = Vector2( 28, 33 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/1/Bet"]
 position = Vector2( 30, 30 )
@@ -1177,6 +1203,8 @@ position = Vector2( 426, 523 )
 position = Vector2( 186, -78 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/2/Bet"]
+visible = false
+position = Vector2( 21, 29 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/2/Bet"]
 position = Vector2( 30, 30 )
@@ -1191,6 +1219,8 @@ position = Vector2( 420, 283 )
 position = Vector2( 230, 52 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/3/Bet"]
+visible = false
+position = Vector2( -102, 11 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/3/Bet"]
 position = Vector2( 30, 30 )
@@ -1205,6 +1235,8 @@ position = Vector2( 627, 127 )
 position = Vector2( 128, 138 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/4/Bet"]
+visible = false
+position = Vector2( -76, -6 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/4/Bet"]
 position = Vector2( 30, 30 )
@@ -1219,6 +1251,8 @@ position = Vector2( 1390, 136 )
 position = Vector2( -175, 125 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/5/Bet"]
+visible = false
+position = Vector2( 114, -16 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/5/Bet"]
 position = Vector2( 30, 30 )
@@ -1233,6 +1267,8 @@ position = Vector2( 1580, 283 )
 position = Vector2( -276, 65 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/6/Bet"]
+visible = false
+position = Vector2( 152, -18 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/6/Bet"]
 position = Vector2( 30, 30 )
@@ -1247,6 +1283,8 @@ position = Vector2( 1586, 487 )
 position = Vector2( -263, -63 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/7/Bet"]
+visible = false
+position = Vector2( 164, 98 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/7/Bet"]
 position = Vector2( 30, 30 )
@@ -1261,6 +1299,8 @@ position = Vector2( 1357, 625 )
 position = Vector2( -129, -127 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/8/Bet"]
+visible = false
+position = Vector2( 100, 38 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/8/Bet"]
 position = Vector2( 30, 30 )
@@ -1914,40 +1954,38 @@ visible = false
 z_index = 21
 
 [node name="MenuPanel" type="Panel" parent="MenuHomePanel"]
-margin_top = 100.0
-margin_right = 220.0
-margin_bottom = 320.0
-custom_styles/panel = SubResource( 293 )
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 246.0
+margin_bottom = 239.0
+custom_styles/panel = SubResource( 356 )
 
 [node name="Exit" type="TextureButton" parent="MenuHomePanel/MenuPanel"]
-margin_top = 20.0
-margin_right = 220.0
-margin_bottom = 80.0
+margin_left = 10.0
+margin_top = 22.0
+margin_right = 230.0
+margin_bottom = 82.0
 texture_normal = ExtResource( 60 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
-[node name="ExitLabel" type="Label" parent="MenuHomePanel/MenuPanel"]
-margin_left = 80.0
-margin_top = 36.0
-margin_right = 184.0
-margin_bottom = 68.0
-
 [node name="Rules" type="TextureButton" parent="MenuHomePanel/MenuPanel"]
-margin_top = 80.0
-margin_right = 220.0
-margin_bottom = 140.0
-texture_normal = ExtResource( 58 )
+margin_left = 10.0
+margin_top = 92.0
+margin_right = 230.0
+margin_bottom = 152.0
+texture_normal = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="Setting" type="TextureButton" parent="MenuHomePanel/MenuPanel"]
-margin_top = 140.0
-margin_right = 220.0
-margin_bottom = 200.0
-texture_normal = ExtResource( 61 )
+margin_left = 10.0
+margin_top = 162.0
+margin_right = 230.0
+margin_bottom = 222.0
+texture_normal = ExtResource( 58 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
@@ -1966,6 +2004,7 @@ position = Vector2( 49, 47 )
 texture = ExtResource( 42 )
 
 [node name="MessageToggle" type="TextureButton" parent="."]
+visible = false
 margin_left = 208.0
 margin_top = 762.0
 margin_right = 308.0
@@ -2060,7 +2099,7 @@ position = Vector2( 999, 119 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 349 )
 animation = "idle"
-frame = 9
+frame = 6
 playing = true
 
 [node name="Backdrop" type="Sprite" parent="."]
@@ -2073,94 +2112,119 @@ texture = ExtResource( 17 )
 
 [node name="MessagePanel" type="Node2D" parent="."]
 visible = false
-position = Vector2( 160, 760 )
+position = Vector2( 1345, 116 )
 z_index = 20
 
 [node name="Panel" type="Panel" parent="MessagePanel"]
-margin_left = -140.0
-margin_top = -600.0
-margin_right = 100.0
+margin_top = 2.0
+margin_right = 652.0
+margin_bottom = 779.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="1" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 220.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 203 )
+margin_left = 1.0
+margin_top = 134.0
+margin_right = 653.0
+margin_bottom = 209.0
+texture_normal = ExtResource( 200 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="2" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 20.0
-margin_top = 100.0
-margin_right = 220.0
-margin_bottom = 180.0
+visible = false
+margin_left = 221.0
+margin_top = 206.0
+margin_right = 421.0
+margin_bottom = 286.0
 texture_normal = ExtResource( 201 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="3" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 20.0
-margin_top = 180.0
-margin_right = 220.0
-margin_bottom = 260.0
-texture_normal = ExtResource( 197 )
+margin_left = 2.0
+margin_top = 219.0
+margin_right = 654.0
+margin_bottom = 294.0
+texture_normal = ExtResource( 198 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="4" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 20.0
-margin_top = 260.0
-margin_right = 220.0
-margin_bottom = 340.0
+margin_top = 474.0
+margin_right = 654.0
+margin_bottom = 549.0
 texture_normal = ExtResource( 199 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="5" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 20.0
-margin_top = 340.0
-margin_right = 220.0
-margin_bottom = 420.0
-texture_normal = ExtResource( 200 )
+margin_left = 2.0
+margin_top = 304.0
+margin_right = 656.0
+margin_bottom = 379.0
+texture_normal = ExtResource( 231 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="6" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 20.0
-margin_top = 420.0
-margin_right = 220.0
-margin_bottom = 500.0
-texture_normal = ExtResource( 198 )
+margin_left = 3.0
+margin_top = 389.0
+margin_right = 653.0
+margin_bottom = 464.0
+texture_normal = ExtResource( 197 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="7" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 20.0
-margin_top = 500.0
-margin_right = 220.0
-margin_bottom = 580.0
-texture_normal = ExtResource( 204 )
+margin_top = 559.0
+margin_right = 652.0
+margin_bottom = 634.0
+texture_normal = ExtResource( 203 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
+[node name="Texter" type="Sprite" parent="MessagePanel"]
+modulate = Color( 0.647059, 0.152941, 0.686275, 1 )
+position = Vector2( 327.348, 713.375 )
+scale = Vector2( 0.2584, 0.260763 )
+texture = ExtResource( 204 )
+
+[node name="TexterLineEdit" type="LineEdit" parent="MessagePanel"]
+margin_left = 31.0
+margin_top = 664.0
+margin_right = 421.0
+margin_bottom = 759.0
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 354 )
+custom_styles/normal = SubResource( 355 )
+placeholder_text = "Enter text here..."
+
+[node name="ReplyText" type="TextureButton" parent="MessagePanel"]
+margin_left = 444.0
+margin_top = 676.0
+margin_right = 638.0
+margin_bottom = 748.0
+texture_normal = ExtResource( 232 )
+expand = true
+script = ExtResource( 14 )
+
 [node name="EmojiHomePanel" type="Node2D" parent="."]
 visible = false
+position = Vector2( 1345, 116 )
 z_index = 20
 
 [node name="EmojiPanel" type="Panel" parent="EmojiHomePanel"]
-margin_left = 1500.0
-margin_top = 120.0
-margin_right = 1920.0
-margin_bottom = 760.0
+margin_right = 655.0
+margin_bottom = 780.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="ee1" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
@@ -2218,154 +2282,207 @@ texture_normal = ExtResource( 46 )
 script = ExtResource( 14 )
 
 [node name="e1" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 29.0
-margin_top = 31.0
-margin_right = 129.0
-margin_bottom = 131.0
+margin_left = 20.0
+margin_top = 137.0
+margin_right = 120.0
+margin_bottom = 237.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 206 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e2" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 159.0
-margin_top = 31.0
-margin_right = 259.0
-margin_bottom = 131.0
+margin_left = 189.0
+margin_top = 137.0
+margin_right = 289.0
+margin_bottom = 237.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 207 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e3" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 289.0
-margin_top = 31.0
-margin_right = 389.0
-margin_bottom = 131.0
+margin_left = 356.0
+margin_top = 137.0
+margin_right = 456.0
+margin_bottom = 237.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 219 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e4" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 29.0
-margin_top = 147.0
-margin_right = 129.0
-margin_bottom = 247.0
+margin_left = 521.0
+margin_top = 137.0
+margin_right = 621.0
+margin_bottom = 237.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 211 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e5" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 159.0
-margin_top = 147.0
-margin_right = 259.0
-margin_bottom = 247.0
+margin_left = 20.0
+margin_top = 296.0
+margin_right = 120.0
+margin_bottom = 396.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 212 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e6" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 289.0
-margin_top = 147.0
-margin_right = 389.0
-margin_bottom = 247.0
+margin_left = 189.0
+margin_top = 294.0
+margin_right = 289.0
+margin_bottom = 394.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 220 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e7" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 28.0
-margin_top = 275.0
-margin_right = 128.0
-margin_bottom = 375.0
+margin_left = 356.0
+margin_top = 294.0
+margin_right = 456.0
+margin_bottom = 394.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 218 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e8" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 158.0
-margin_top = 275.0
-margin_right = 258.0
-margin_bottom = 375.0
+margin_left = 521.0
+margin_top = 294.0
+margin_right = 621.0
+margin_bottom = 394.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 208 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e9" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 288.0
-margin_top = 275.0
-margin_right = 388.0
-margin_bottom = 375.0
+margin_left = 20.0
+margin_top = 455.0
+margin_right = 120.0
+margin_bottom = 555.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 215 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e10" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 28.0
-margin_top = 396.0
-margin_right = 128.0
-margin_bottom = 496.0
+margin_left = 189.0
+margin_top = 455.0
+margin_right = 289.0
+margin_bottom = 555.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 209 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e11" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 158.0
-margin_top = 396.0
-margin_right = 258.0
-margin_bottom = 496.0
+margin_left = 356.0
+margin_top = 455.0
+margin_right = 456.0
+margin_bottom = 555.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 210 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e12" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 288.0
-margin_top = 396.0
-margin_right = 388.0
-margin_bottom = 496.0
+margin_left = 521.0
+margin_top = 455.0
+margin_right = 621.0
+margin_bottom = 555.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 213 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e13" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 28.0
-margin_top = 520.0
-margin_right = 128.0
-margin_bottom = 620.0
+margin_left = 20.0
+margin_top = 615.0
+margin_right = 120.0
+margin_bottom = 715.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 214 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e14" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 158.0
-margin_top = 520.0
-margin_right = 258.0
-margin_bottom = 620.0
+margin_left = 189.0
+margin_top = 615.0
+margin_right = 289.0
+margin_bottom = 715.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 216 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 230 )
 
 [node name="e15" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
-margin_left = 288.0
-margin_top = 520.0
-margin_right = 388.0
-margin_bottom = 620.0
+margin_left = 356.0
+margin_top = 615.0
+margin_right = 456.0
+margin_bottom = 715.0
 rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 217 )
 expand = true
+script = ExtResource( 230 )
+
+[node name="EmojiHomeToggle" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1509, 168.5 )
+z_index = 20
+
+[node name="EmojiToggle2" type="TextureButton" parent="EmojiHomeToggle"]
+margin_left = -125.0
+margin_top = -39.0
+margin_right = 127.0
+margin_bottom = 51.0
+expand = true
+stretch_mode = 3
 script = ExtResource( 14 )
+
+[node name="EmojiToggleSprite" type="Sprite" parent="EmojiHomeToggle/EmojiToggle2"]
+position = Vector2( 125.6, 46 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 228 )
+
+[node name="MessageHomeToggle" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1838, 168.5 )
+z_index = 20
+
+[node name="MessageToggle2" type="TextureButton" parent="MessageHomeToggle"]
+margin_left = -125.0
+margin_top = -39.0
+margin_right = 127.0
+margin_bottom = 51.0
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="MessageToggleSprite" type="Sprite" parent="MessageHomeToggle/MessageToggle2"]
+position = Vector2( 123.9, 46 )
+scale = Vector2( 1.29213, 1.3 )
+texture = ExtResource( 229 )
 
 [connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]
 [connection signal="pressed" from="BetPanel/C1" to="." method="_on_Bet_select" binds= [ 0 ]]
@@ -2392,6 +2509,7 @@ script = ExtResource( 14 )
 [connection signal="pressed" from="MessagePanel/Panel/5" to="." method="_on_message_pressed" binds= [ "lose" ]]
 [connection signal="pressed" from="MessagePanel/Panel/6" to="." method="_on_message_pressed" binds= [ "play_again" ]]
 [connection signal="pressed" from="MessagePanel/Panel/7" to="." method="_on_message_pressed" binds= [ "quit" ]]
+[connection signal="pressed" from="MessagePanel/ReplyText" to="." method="_on_ReplyText_pressed" binds= [ "msg" ]]
 [connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee1" to="." method="_on_Emoji_pressed" binds= [ "e1" ]]
 [connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee2" to="." method="_on_Emoji_pressed" binds= [ "e2" ]]
 [connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee3" to="." method="_on_Emoji_pressed" binds= [ "e3" ]]
@@ -2413,3 +2531,5 @@ script = ExtResource( 14 )
 [connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e13" to="." method="_on_Emoji_pressed" binds= [ "e13" ]]
 [connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e14" to="." method="_on_Emoji_pressed" binds= [ "e14" ]]
 [connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e15" to="." method="_on_Emoji_pressed" binds= [ "e15" ]]
+[connection signal="pressed" from="EmojiHomeToggle/EmojiToggle2" to="." method="_on_EmojiToggle2_pressed"]
+[connection signal="pressed" from="MessageHomeToggle/MessageToggle2" to="." method="_on_MessageToggle2_pressed"]

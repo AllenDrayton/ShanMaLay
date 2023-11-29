@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=98 format=2]
 
 [ext_resource path="res://pck/assets/common/profile-frame.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/profiles/0.png" type="Texture" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://pck/assets/common/WINYADA0.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://pck/assets/shankoemee/LoadingFrame/icon-skomi-loadingoncard.png" type="Texture" id=8]
 [ext_resource path="res://pck/assets/shankoemee/LoadingFrame/auto8.png" type="Texture" id=9]
+[ext_resource path="res://pck/assets/shankoemee/pauk-flag.png" type="Texture" id=10]
 [ext_resource path="res://pck/assets/shankoemee/lose.png" type="Texture" id=11]
-[ext_resource path="res://pck/assets/shankoemee/auto-flag.png" type="Texture" id=12]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/DB1.png" type="Texture" id=12]
 [ext_resource path="res://pck/assets/shankoemee/2x.png" type="Texture" id=13]
 [ext_resource path="res://pck/prefabs/shankoemee/card.tscn" type="PackedScene" id=14]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=15]
@@ -35,6 +36,7 @@ font_data = ExtResource( 19 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 30
+use_filter = true
 font_data = ExtResource( 18 )
 
 [sub_resource type="AtlasTexture" id=7]
@@ -551,6 +553,33 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 1.6, 1.8, 2 )
 }
 
+[sub_resource type="DynamicFont" id=337]
+size = 30
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxTexture" id=338]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 30.0
+content_margin_bottom = 50.0
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 724, 801 )
+
+[sub_resource type="DynamicFont" id=339]
+size = 25
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 19 )
+
+[sub_resource type="StyleBoxTexture" id=340]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 30.0
+content_margin_bottom = 50.0
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 724, 801 )
+
 [node name="Player" type="Node2D"]
 position = Vector2( 920, 740 )
 z_index = -1
@@ -611,7 +640,7 @@ margin_left = -40.0
 margin_top = -20.0
 margin_right = -70.0
 margin_bottom = -20.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.972549, 0.827451, 0.0431373, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "5K"
 align = 1
@@ -634,9 +663,9 @@ playing = true
 
 [node name="Catch" type="TextureButton" parent="."]
 margin_left = 49.0
-margin_top = -86.0
+margin_top = -110.0
 margin_right = 209.0
-margin_bottom = -26.0
+margin_bottom = -50.0
 texture_normal = ExtResource( 22 )
 script = ExtResource( 15 )
 
@@ -684,12 +713,13 @@ anims/RESET = SubResource( 325 )
 anims/show = SubResource( 326 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 10.0
 
 [node name="PaukFlag" type="Sprite" parent="."]
-position = Vector2( 110, 40 )
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 108, -42 )
+scale = Vector2( 0.5, 0.5 )
 z_index = 4
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="PaukFlag"]
 anchor_left = 0.5
@@ -708,7 +738,7 @@ valign = 1
 [node name="Auto8_9" type="Sprite" parent="."]
 visible = false
 position = Vector2( 115, -37 )
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.5, 0.5 )
 z_index = 4
 texture = ExtResource( 9 )
 
@@ -720,6 +750,7 @@ texture = ExtResource( 11 )
 
 [node name="CardLoading" type="AnimatedSprite" parent="."]
 visible = false
+position = Vector2( 112, 17 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 4
 frames = SubResource( 336 )
@@ -727,7 +758,7 @@ frame = 2
 
 [node name="PlayerLoading" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 102, 0 )
+position = Vector2( 113, 1 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 4
 frames = SubResource( 332 )
@@ -754,3 +785,45 @@ texture = ExtResource( 17 )
 root_node = NodePath("../..")
 anims/RESET = SubResource( 327 )
 anims/show = SubResource( 328 )
+
+[node name="MessageReply" type="Node2D" parent="."]
+visible = false
+position = Vector2( 88, -150 )
+z_index = 5
+
+[node name="MessageReplyText" type="Label" parent="MessageReply"]
+margin_left = -47.0
+margin_top = -52.0
+margin_right = 147.0
+margin_bottom = 69.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 337 )
+custom_styles/normal = SubResource( 338 )
+text = "r*fvmyg"
+align = 1
+valign = 2
+autowrap = true
+
+[node name="UserMessageInput" type="Node2D" parent="."]
+visible = false
+position = Vector2( 39, -203 )
+z_index = 5
+
+[node name="Input" type="Label" parent="UserMessageInput"]
+margin_right = 170.0
+margin_bottom = 169.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 339 )
+custom_styles/normal = SubResource( 340 )
+text = "Hello World"
+align = 1
+autowrap = true
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="MessageInputTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
+[connection signal="timeout" from="MessageInputTimer" to="." method="_on_MessageInputTimer_timeout"]
