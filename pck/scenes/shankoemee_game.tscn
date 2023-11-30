@@ -1,4 +1,4 @@
-[gd_scene load_steps=262 format=2]
+[gd_scene load_steps=267 format=2]
 
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
@@ -60,12 +60,13 @@
 [ext_resource path="res://pck/assets/shankoemee/MenuPacks/setting.png" type="Texture" id=58]
 [ext_resource path="res://pck/assets/shankoemee/menu.png" type="Texture" id=59]
 [ext_resource path="res://pck/assets/shankoemee/MenuPacks/Back.png" type="Texture" id=60]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl2.png" type="Texture" id=61]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=62]
 [ext_resource path="res://pck/assets/shankoemee/game_rules.png" type="Texture" id=63]
 [ext_resource path="res://pck/assets/common/panel-top.png" type="Texture" id=64]
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=65]
 [ext_resource path="res://pck/assets/common/ShanMa/shuffle/SG2_00012.png" type="Texture" id=66]
-[ext_resource path="res://pck/assets/common/btn-6-lg.png" type="Texture" id=67]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl4.png" type="Texture" id=67]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=68]
 [ext_resource path="res://pck/assets/common/WINYADA0.TTF" type="DynamicFontData" id=69]
 [ext_resource path="res://pck/assets/common/ShanMa/idle/SG1_00023.png" type="Texture" id=70]
@@ -231,6 +232,9 @@
 [ext_resource path="res://pck/scripts/EmojiButton.gd" type="Script" id=230]
 [ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV3.png" type="Texture" id=231]
 [ext_resource path="res://pck/assets/shankoemee/messagePacks/Reply.png" type="Texture" id=232]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl3.png" type="Texture" id=233]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl1.png" type="Texture" id=234]
+[ext_resource path="res://pck/assets/common/btn-6.png" type="Texture" id=235]
 
 [sub_resource type="DynamicFontData" id=352]
 font_path = "res://pck/assets/common/zawgyi-one.ttf"
@@ -346,7 +350,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=5]
-size = 20
+size = 40
 outline_size = 1
 outline_color = Color( 0.54902, 0.54902, 0.54902, 1 )
 use_filter = true
@@ -355,7 +359,7 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=6]
 size = 60
 outline_size = 2
-outline_color = Color( 0.596078, 0.223529, 0, 1 )
+outline_color = Color( 0.537255, 0, 0.596078, 1 )
 use_filter = true
 font_data = ExtResource( 6 )
 
@@ -370,6 +374,13 @@ texture = ExtResource( 53 )
 region_rect = Rect2( 0, 0, 100, 360 )
 
 [sub_resource type="StyleBoxTexture" id=290]
+
+[sub_resource type="DynamicFont" id=357]
+size = 40
+outline_size = 2
+outline_color = Color( 1, 0.615686, 0.0156863, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=56]
 size = 40
@@ -1167,6 +1178,9 @@ texture = ExtResource( 194 )
 [node name="0" type="Node2D" parent="PlayerPos"]
 position = Vector2( 986, 620 )
 
+[node name="Load3" type="Node2D" parent="PlayerPos/0"]
+position = Vector2( 3, -72 )
+
 [node name="Bet" type="Node2D" parent="PlayerPos/0" groups=["Bet"]]
 position = Vector2( 3, -126 )
 
@@ -1177,11 +1191,11 @@ position = Vector2( 32, 29 )
 [node name="Load2" type="Node2D" parent="PlayerPos/0/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/0/Bet"]
-position = Vector2( 103, 143 )
-
 [node name="1" type="Node2D" parent="PlayerPos"]
 position = Vector2( 630, 625 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/1"]
+position = Vector2( 42, -72 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/1" groups=["Bet"]]
 position = Vector2( 100, -125 )
@@ -1193,11 +1207,11 @@ position = Vector2( 28, 33 )
 [node name="Load2" type="Node2D" parent="PlayerPos/1/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/1/Bet"]
-position = Vector2( 13, 157 )
-
 [node name="2" type="Node2D" parent="PlayerPos"]
 position = Vector2( 426, 523 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/2"]
+position = Vector2( 61, -57 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/2" groups=["Bet"]]
 position = Vector2( 186, -78 )
@@ -1209,11 +1223,11 @@ position = Vector2( 21, 29 )
 [node name="Load2" type="Node2D" parent="PlayerPos/2/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/2/Bet"]
-position = Vector2( -76, 98 )
-
 [node name="3" type="Node2D" parent="PlayerPos"]
 position = Vector2( 420, 283 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/3"]
+position = Vector2( 84, 62 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/3" groups=["Bet"]]
 position = Vector2( 230, 52 )
@@ -1225,11 +1239,11 @@ position = Vector2( -102, 11 )
 [node name="Load2" type="Node2D" parent="PlayerPos/3/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/3/Bet"]
-position = Vector2( -119, -30 )
-
 [node name="4" type="Node2D" parent="PlayerPos"]
 position = Vector2( 627, 127 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/4"]
+position = Vector2( 80, 125 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/4" groups=["Bet"]]
 position = Vector2( 128, 138 )
@@ -1241,14 +1255,14 @@ position = Vector2( -76, -6 )
 [node name="Load2" type="Node2D" parent="PlayerPos/4/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/4/Bet"]
-position = Vector2( -19, -113 )
-
 [node name="5" type="Node2D" parent="PlayerPos"]
 position = Vector2( 1390, 136 )
 
+[node name="Load3" type="Node2D" parent="PlayerPos/5"]
+position = Vector2( -88, 107 )
+
 [node name="Bet" type="Node2D" parent="PlayerPos/5" groups=["Bet"]]
-position = Vector2( -175, 125 )
+position = Vector2( -130, 125 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/5/Bet"]
 visible = false
@@ -1257,14 +1271,14 @@ position = Vector2( 114, -16 )
 [node name="Load2" type="Node2D" parent="PlayerPos/5/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/5/Bet"]
-position = Vector2( 68, -102 )
-
 [node name="6" type="Node2D" parent="PlayerPos"]
 position = Vector2( 1580, 283 )
 
+[node name="Load3" type="Node2D" parent="PlayerPos/6"]
+position = Vector2( -129, 60 )
+
 [node name="Bet" type="Node2D" parent="PlayerPos/6" groups=["Bet"]]
-position = Vector2( -276, 65 )
+position = Vector2( -208, 65 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/6/Bet"]
 visible = false
@@ -1273,11 +1287,11 @@ position = Vector2( 152, -18 )
 [node name="Load2" type="Node2D" parent="PlayerPos/6/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/6/Bet"]
-position = Vector2( 141, -43 )
-
 [node name="7" type="Node2D" parent="PlayerPos"]
 position = Vector2( 1586, 487 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/7"]
+position = Vector2( -126, -29 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/7" groups=["Bet"]]
 position = Vector2( -263, -63 )
@@ -1289,11 +1303,11 @@ position = Vector2( 164, 98 )
 [node name="Load2" type="Node2D" parent="PlayerPos/7/Bet"]
 position = Vector2( 30, 30 )
 
-[node name="Load3" type="Node2D" parent="PlayerPos/7/Bet"]
-position = Vector2( 161, 98 )
-
 [node name="8" type="Node2D" parent="PlayerPos"]
 position = Vector2( 1357, 625 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/8"]
+position = Vector2( -29.987, -93 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/8" groups=["Bet"]]
 position = Vector2( -129, -127 )
@@ -1304,9 +1318,6 @@ position = Vector2( 100, 38 )
 
 [node name="Load2" type="Node2D" parent="PlayerPos/8/Bet"]
 position = Vector2( 30, 30 )
-
-[node name="Load3" type="Node2D" parent="PlayerPos/8/Bet"]
-position = Vector2( 42, 146 )
 
 [node name="Players" type="Node" parent="."]
 
@@ -1535,11 +1546,13 @@ anims/arrow = SubResource( 348 )
 [node name="BetPanel" type="Node2D" parent="."]
 
 [node name="Bet" type="TextureButton" parent="BetPanel"]
-margin_left = 1800.0
-margin_top = 800.0
-margin_right = 1980.0
-margin_bottom = 880.0
-texture_normal = ExtResource( 2 )
+visible = false
+margin_left = 1641.0
+margin_top = 784.0
+margin_right = 1962.0
+margin_bottom = 883.0
+texture_normal = ExtResource( 233 )
+expand = true
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/Bet"]
@@ -1551,6 +1564,7 @@ align = 1
 valign = 1
 
 [node name="C1" type="TextureButton" parent="BetPanel"]
+visible = false
 margin_left = 1800.0
 margin_top = 720.0
 margin_right = 1980.0
@@ -1567,11 +1581,13 @@ align = 1
 valign = 1
 
 [node name="C2" type="TextureButton" parent="BetPanel"]
-margin_left = 1800.0
-margin_top = 640.0
-margin_right = 1980.0
-margin_bottom = 720.0
-texture_normal = ExtResource( 23 )
+margin_left = 28.0
+margin_top = 795.0
+margin_right = 248.0
+margin_bottom = 875.0
+rect_min_size = Vector2( 220, 80 )
+texture_normal = ExtResource( 234 )
+expand = true
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/C2"]
@@ -1583,27 +1599,32 @@ align = 1
 valign = 1
 
 [node name="C3" type="TextureButton" parent="BetPanel"]
-margin_left = 1800.0
-margin_top = 560.0
-margin_right = 1980.0
-margin_bottom = 640.0
-texture_normal = ExtResource( 23 )
+margin_left = 280.0
+margin_top = 795.0
+margin_right = 500.0
+margin_bottom = 875.0
+rect_min_size = Vector2( 220, 80 )
+texture_normal = ExtResource( 234 )
+expand = true
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/C3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
 custom_fonts/font = SubResource( 5 )
 text = "300"
 align = 1
 valign = 1
 
 [node name="C4" type="TextureButton" parent="BetPanel"]
-margin_left = 1800.0
-margin_top = 480.0
-margin_right = 1980.0
-margin_bottom = 560.0
-texture_normal = ExtResource( 23 )
+margin_left = 536.0
+margin_top = 795.0
+margin_right = 756.0
+margin_bottom = 875.0
+texture_normal = ExtResource( 234 )
+expand = true
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/C4"]
@@ -1615,25 +1636,27 @@ align = 1
 valign = 1
 
 [node name="Amount" type="Label" parent="BetPanel"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 1800.0
-margin_top = 20.0
-margin_right = 1980.0
-margin_bottom = 100.0
-custom_colors/font_color = Color( 1, 0.960784, 0.0156863, 1 )
+margin_left = 1712.0
+margin_top = 309.0
+margin_right = 1892.0
+margin_bottom = 389.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="Slider" type="VSlider" parent="BetPanel"]
-margin_left = 1800.0
-margin_top = 100.0
-margin_right = 1980.0
-margin_bottom = 460.0
+visible = false
+margin_left = 1712.0
+margin_top = 390.0
+margin_right = 1892.0
+margin_bottom = 750.0
 custom_icons/grabber_highlight = ExtResource( 52 )
 custom_icons/grabber = ExtResource( 51 )
 custom_styles/slider = SubResource( 288 )
@@ -1641,11 +1664,12 @@ custom_styles/grabber_area_highlight = SubResource( 289 )
 custom_styles/grabber_area = SubResource( 290 )
 
 [node name="BetAll" type="TextureButton" parent="BetPanel"]
-margin_left = 1440.0
-margin_top = 800.0
-margin_right = 1620.0
-margin_bottom = 880.0
-texture_normal = ExtResource( 2 )
+margin_left = 1283.0
+margin_top = 795.0
+margin_right = 1606.0
+margin_bottom = 875.0
+texture_normal = ExtResource( 61 )
+expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
 
@@ -1653,11 +1677,34 @@ script = ExtResource( 14 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 5 )
-text = "ထိပ္ဆုံး"
+text = "Max:barnyr"
+align = 1
+valign = 1
+
+[node name="ChooseBet" type="TextureButton" parent="BetPanel"]
+margin_left = 1640.0
+margin_top = 785.0
+margin_right = 1963.0
+margin_bottom = 884.0
+rect_min_size = Vector2( 323, 80 )
+texture_normal = ExtResource( 233 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/ChooseBet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 7.0
+margin_right = -6.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 357 )
+text = "ေလာင္းေၾကးေရြးပါ"
 align = 1
 valign = 1
 
 [node name="Clear" type="TextureButton" parent="BetPanel"]
+visible = false
 margin_left = 1620.0
 margin_top = 800.0
 margin_right = 1800.0
@@ -1677,16 +1724,22 @@ valign = 1
 
 [node name="CatchAllDraw" type="TextureButton" parent="."]
 visible = false
-margin_left = 1760.0
-margin_top = 720.0
-margin_right = 1980.0
-margin_bottom = 800.0
-texture_normal = ExtResource( 67 )
+margin_left = 1642.0
+margin_top = 663.0
+margin_right = 1965.0
+margin_bottom = 753.0
+rect_min_size = Vector2( 323, 90 )
+texture_normal = ExtResource( 235 )
+expand = true
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="CatchAllDraw"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 27.0
+margin_top = 12.0
+margin_right = -15.0
+margin_bottom = -10.0
 custom_fonts/font = SubResource( 5 )
 text = "ဆြဲဖဲအကုန္ဖမ္း"
 align = 1
@@ -1694,14 +1747,16 @@ valign = 1
 
 [node name="DrawBtns" type="Node2D" parent="."]
 visible = false
-position = Vector2( 1760, 800 )
+position = Vector2( 1707, 793 )
+scale = Vector2( 0.7, 0.7 )
 z_index = 30
 
 [node name="Draw" type="TextureButton" parent="DrawBtns"]
-margin_left = 40.0
-margin_right = 220.0
+margin_left = -317.0
+margin_right = 6.0
 margin_bottom = 80.0
-texture_normal = ExtResource( 2 )
+rect_min_size = Vector2( 323, 80 )
+texture_normal = ExtResource( 67 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
@@ -1710,15 +1765,17 @@ script = ExtResource( 14 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 5 )
-text = "ဆြဲမယ္"
+text = "ထပ္ဆြဲ"
 align = 1
 valign = 1
 
 [node name="Stop" type="TextureButton" parent="DrawBtns"]
-margin_left = -140.0
-margin_right = 40.0
-margin_bottom = 80.0
-texture_normal = ExtResource( 2 )
+margin_left = 34.0
+margin_top = 2.0
+margin_right = 357.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 323, 80 )
+texture_normal = ExtResource( 233 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 14 )
@@ -1991,6 +2048,7 @@ stretch_mode = 3
 script = ExtResource( 14 )
 
 [node name="EmojiToggle" type="TextureButton" parent="."]
+visible = false
 margin_left = 40.0
 margin_top = 760.0
 margin_right = 140.0
@@ -2099,7 +2157,7 @@ position = Vector2( 999, 119 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 349 )
 animation = "idle"
-frame = 6
+frame = 40
 playing = true
 
 [node name="Backdrop" type="Sprite" parent="."]
@@ -2491,6 +2549,7 @@ texture = ExtResource( 229 )
 [connection signal="pressed" from="BetPanel/C4" to="." method="_on_Bet_select" binds= [ 3 ]]
 [connection signal="value_changed" from="BetPanel/Slider" to="." method="_on_Slider_value_changed"]
 [connection signal="pressed" from="BetPanel/BetAll" to="." method="_on_BetAll_pressed"]
+[connection signal="pressed" from="BetPanel/ChooseBet" to="." method="_on_ChooseBet_pressed"]
 [connection signal="pressed" from="BetPanel/Clear" to="." method="_on_Clear_pressed"]
 [connection signal="pressed" from="CatchAllDraw" to="." method="_on_CatchAllDraw_pressed"]
 [connection signal="pressed" from="DrawBtns/Draw" to="." method="_on_Draw_pressed"]

@@ -294,6 +294,7 @@ font_data = ExtResource( 19 )
 
 [sub_resource type="DynamicFont" id=324]
 size = 35
+use_filter = true
 font_data = ExtResource( 18 )
 
 [sub_resource type="Animation" id=325]
@@ -640,7 +641,7 @@ margin_left = -40.0
 margin_top = -20.0
 margin_right = -70.0
 margin_bottom = -20.0
-custom_colors/font_color = Color( 0.972549, 0.827451, 0.0431373, 1 )
+custom_colors/font_color = Color( 0.956863, 0.964706, 0.0666667, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "5K"
 align = 1

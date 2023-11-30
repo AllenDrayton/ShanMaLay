@@ -6,6 +6,7 @@ const CARD_DELIVER_DELAY = 0.15
 const COIN_MOVE_DELAY = 0.1
 const CARD_CHECK_TIME = 3
 
+
 # Emoji Texture Dictionary
 const emoji_textures = {
 	"emoHighlight":preload("res://pck/assets/shankoemee/EmoPacks/icon-emoji1.png"),
@@ -116,7 +117,7 @@ func _ready():
 		assert(label is Label, "Node at path is not a Label.")
 		labels.append(label)
 	
-	
+
 	# Connecting Signals
 #	Signals.connect("bet_pos_invisible", self, "_hide_bet")
 #	Signals.connect("bet_pos_visible", self, "_show_bet")
@@ -150,7 +151,7 @@ func _connect_ws():
 
 
 func _closed(was_clean = false):
-	print("Closed, clean: ", was_clean)
+#	print("Closed, clean: ", was_clean)
 	get_tree().change_scene("res://start/conn_error.tscn")
 	#set_process(false)
 	#_client = null
@@ -189,7 +190,7 @@ func send(data):
 
 func _on_server_respond(respond):
 	var body = respond.body
-	print(body)
+#	print(body)
 	match respond.head:
 		"room info":
 			if body.room == null :
@@ -205,7 +206,8 @@ func _on_server_respond(respond):
 		"message":
 			_message_respond(body.senderIndex, body.message)
 		"MessageInput":
-			_message_input_respond(body.senderIndex, body.msg)
+			print("I am sending")
+			_message_input_respond(body.senderIndex, body.userinput)
 
 
 # ----- Main Functions -----
@@ -300,7 +302,7 @@ func _init_all():
 		var player = playerPrefab.instance()
 		player.position = $PlayerPos.get_node(str(i)).position
 		player.get_node("Bet").position = $PlayerPos.get_node(str(i)+"/Bet").position
-		player.get_node("PlayerLoading").position = $PlayerPos.get_node(str(i)+"/Bet").position
+		player.get_node("PlayerLoading").position = $PlayerPos.get_node(str(i)+"/Load3").position
 		player.get_node("Bet/banker_position").position = $PlayerPos.get_node(str(i)+"/Bet/Load2").position
 		#player.get_node("CardLoading").position = $PlayerPos.get_node(str(i)).position
 		
@@ -386,6 +388,7 @@ func _start(room):
 		_playVoice(GameVoices.new_game)
 		$BetPanel/Amount.text = str(bet_amount)
 		$BetPanel.visible = true
+		$EmojiToggle.visible = false
 	_clear_all_player_cards()
 	_reset_all_players()
 	#Signals.emit_signal("clear_auto_flag")
@@ -400,7 +403,7 @@ func _first_deliver(room):
 		return
 	prev_gameState = room.gameState
 	
-	print("Game State : First Deliver")
+#	print("Game State : First Deliver")
 	$ShanMa.play("deliver")
 	
 	var players = room.players
@@ -475,7 +478,7 @@ func _second_deliver(room):
 	if room.gameState == prev_gameState:
 		return
 	prev_gameState = room.gameState
-	print("Game State : Second Deliver")
+#	print("Game State : Second Deliver")
 	$DrawBtns.visible = false
 	var players = room.players
 	
@@ -528,7 +531,7 @@ func _dealer_draw(room):
 	_check_player_catch(room)
 	_room = room
 	_common_update(room)
-	print("Game State : Dealer Draw")
+#	print("Game State : Dealer Draw")
 	var players = room.players
 	var dealer = players[room.dealerIndex]
 	var v = _get_vIndex(room.dealerIndex)
@@ -564,7 +567,7 @@ func _end(room):
 	if room.gameState == prev_gameState:
 		return
 	prev_gameState = room.gameState
-	print("Game State : End")
+#	print("Game State : End")
 	var dealerVIndex = _get_vIndex(room.dealerIndex)
 	playersNode[dealerVIndex]._stop_count_down()
 	
@@ -632,8 +635,8 @@ func _end(room):
 				card._highlight()
 			yield(get_tree().create_timer(0.5), "timeout")
 			var coin_count = ceil(player.winAmount / room.minBet)
-			print("Win amount : " + str(player.winAmount))
-			print("Coin count : " + str(coin_count))
+#			print("Win amount : " + str(player.winAmount))
+#			print("Coin count : " + str(coin_count))
 			if player.winAmount > 0:
 				#$Audio/CoinMove.play()
 				$Audio/M9CoinMove.play()
@@ -831,14 +834,43 @@ func _show_all_win_lose_amount(room):
 func _set_bet_buttons(minBet, maxBet):
 	$BetPanel/Slider.value = 0;
 	$BetPanel/Slider.max_value = maxBet
+	# Max Bet Label
+	if(maxBet >= 1000):
+		var d = stepify(maxBet/1000, 0.01)
+		$BetPanel/BetAll/Label.text = "Max: " + str(d) + "K"
+	else:
+		$BetPanel/BetAll/Label.text = "Max: " + str(maxBet)
+	#$BetPanel/BetAll/Label.text = "Max: " + str(maxBet)
 	bet_array[0] = minBet
 	bet_array[1] = minBet * 2
+	var bet_array_child1 = bet_array[1]
 	bet_array[2] = minBet * 3
+	var bet_array_child2 = bet_array[2]
 	bet_array[3] = minBet * 5
-	$BetPanel/C1/Label.text = str(bet_array[0])
-	$BetPanel/C2/Label.text = str(bet_array[1])
-	$BetPanel/C3/Label.text = str(bet_array[2])
-	$BetPanel/C4/Label.text = str(bet_array[3])
+	var bet_array_child3 = bet_array[3]
+	
+	if(bet_array_child1 >= 1000):
+		var d = stepify(bet_array_child1/1000, 0.01)
+		$BetPanel/C2/Label.text = str(d) + "K"
+	else:
+		$BetPanel/C2/Label.text = str(bet_array_child1)
+		
+	if(bet_array_child2 >= 1000):
+		var d = stepify(bet_array_child2/1000, 0.01)
+		$BetPanel/C3/Label.text = str(d) + "K"
+	else:
+		$BetPanel/C3/Label.text = str(bet_array_child2)
+	
+	if(bet_array_child3 >= 1000):
+		var d = stepify(bet_array_child3/1000, 0.01)
+		$BetPanel/C4/Label.text = str(d) + "K"
+	else:
+		$BetPanel/C4/Label.text = str(bet_array_child3)
+	
+#	$BetPanel/C1/Label.text = str(bet_array[0])
+#	$BetPanel/C2/Label.text = str(bet_array[1])
+#	$BetPanel/C3/Label.text = str(bet_array[2])
+#	$BetPanel/C4/Label.text = str(bet_array[3])
 
 
 func _check_player_catch(room):
@@ -1069,6 +1101,7 @@ func _on_Bet_pressed():
 	}
 	send(request)
 	$BetPanel.visible = false
+	$EmojiToggle.visible = true
 	$Audio/M9betMoney.play()
 	Signals.emit_signal("bet_pressed")
 
@@ -1082,6 +1115,17 @@ func _on_Bet_select(i):
 	bet_amount = tmp
 	$BetPanel/Amount.text = str(bet_amount)
 	$BetPanel/Slider.value = bet_amount
+	var request = {
+		"head":"bet",
+		"body":{
+			"amount":bet_amount
+		}
+	}
+	send(request)
+	$BetPanel.visible = false
+	$Audio/M9betMoney.play()
+	Signals.emit_signal("bet_pressed")
+	$EmojiToggle.visible = true
 
 
 func _on_Draw_pressed():
@@ -1111,12 +1155,24 @@ func _on_Stop_pressed():
 func _on_Slider_value_changed(value):
 	bet_amount = stepify(value,50)
 	$BetPanel/Amount.text = str(bet_amount)
+	
 
 
 func _on_BetAll_pressed():
 	bet_amount = _room.dealerBet
 	$BetPanel/Amount.text = str(bet_amount)
 	$BetPanel/Slider.value = bet_amount
+	$EmojiToggle.visible = true
+	var request = {
+		"head":"bet",
+		"body":{
+			"amount":bet_amount
+		}
+	}
+	send(request)
+	$BetPanel.visible = false
+	$Audio/M9betMoney.play()
+	Signals.emit_signal("bet_pressed")
 
 
 func _on_Clear_pressed():
@@ -1207,15 +1263,16 @@ func _on_EmojiToggle2_pressed():
 func _on_ReplyText_pressed(msg):
 	#var message = $MessagePanel/TexterLineEdit.text
 	msg = $MessagePanel/TexterLineEdit.text
-	print("From Game",msg)
+	#print("From Game",msg)
 	var request = {
 		"head":"MessageInput",
 		"body":{
 			"senderIndex":myIndex,
-			"msg":msg
+			"userinput":msg
 		}
 	}
 	send(request)
+	print(request)
 	#Signals.emit_signal("message_sent",message)
 	$MessagePanel.visible = false
 	$EmojiHomeToggle.visible = false
@@ -1227,5 +1284,12 @@ func _on_ReplyText_pressed(msg):
 func _message_input_respond(senderIndex, msg):
 	var v = _get_vIndex(senderIndex)
 	playersNode[v]._display_input_message(msg)
-	print("From Player", msg)
+	#print("From Player", msg)
 	
+
+
+func _on_ChooseBet_pressed():
+	$BetPanel/Amount.visible = true
+	$BetPanel/Slider.visible = true
+	$BetPanel/ChooseBet.visible = false
+	$BetPanel/Bet.visible = true
