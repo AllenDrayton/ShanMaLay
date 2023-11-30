@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/A_TorPeKwr.mp3-01af31da5ba657a900456788e9e0e794.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/common/messages/A_TorPeKwr.mp3"
+dest_files=[ "res://.import/A_TorPeKwr.mp3-01af31da5ba657a900456788e9e0e794.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

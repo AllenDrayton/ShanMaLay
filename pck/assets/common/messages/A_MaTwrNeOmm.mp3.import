@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/A_MaTwrNeOmm.mp3-13237300a9979417b10fcc05d04d3542.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/common/messages/A_MaTwrNeOmm.mp3"
+dest_files=[ "res://.import/A_MaTwrNeOmm.mp3-13237300a9979417b10fcc05d04d3542.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

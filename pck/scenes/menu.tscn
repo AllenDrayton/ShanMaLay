@@ -2531,8 +2531,9 @@ texture = ExtResource( 23 )
 [node name="ShanKoeMee" type="TextureButton" parent="."]
 margin_left = 993.0
 margin_top = 296.0
-margin_right = 993.0
+margin_right = 1260.0
 margin_bottom = 566.0
+rect_min_size = Vector2( 267, 270 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 9 )
@@ -2544,7 +2545,7 @@ __meta__ = {
 position = Vector2( 131, 148 )
 scale = Vector2( 0.492462, 0.487678 )
 frames = SubResource( 89 )
-frame = 12
+frame = 35
 playing = true
 
 [node name="BuGyee" type="TextureButton" parent="."]
@@ -2563,7 +2564,7 @@ __meta__ = {
 position = Vector2( 160, 47 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 165 )
-frame = 46
+frame = 69
 playing = true
 
 [node name="ABCD" type="TextureButton" parent="."]
@@ -2599,7 +2600,7 @@ __meta__ = {
 position = Vector2( 186.75, 56.375 )
 scale = Vector2( 0.517905, 0.511225 )
 frames = SubResource( 241 )
-frame = 2
+frame = 25
 playing = true
 
 [node name="Fishing" type="TextureButton" parent="."]

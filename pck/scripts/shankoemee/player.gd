@@ -7,10 +7,24 @@ const textures = {
 	"lose":preload("res://pck/assets/shankoemee/lose.png")
 }
 
+#const flag_textures = {
+#	"auto":preload("res://pck/assets/shankoemee/auto-flag.png"),
+#	"pauk":preload("res://pck/assets/shankoemee/pauk-flag.png")
+#}
+
+
 const flag_textures = {
-	"auto":preload("res://pck/assets/shankoemee/auto-flag.png"),
+	"auto8":preload("res://pck/assets/shankoemee/LoadingFrame/auto8.png"),
+	"auto9":preload("res://pck/assets/shankoemee/LoadingFrame/auto9.png"),
 	"pauk":preload("res://pck/assets/shankoemee/pauk-flag.png")
 }
+
+
+#const auto89_textures = {
+#	"auto8":preload("res://pck/assets/shankoemee/LoadingFrame/auto8.png"),
+#	"auto9":preload("res://pck/assets/shankoemee/LoadingFrame/auto9.png")
+#
+#}
 
 const multiply = {
 	2:preload("res://pck/assets/shankoemee/2x.png"),
@@ -28,18 +42,37 @@ var msg_textures = {
 	"quit":preload("res://pck/assets/common/messages/quit.png")
 }
 
+var message_texts = {
+	"bet_more":"bet_more",
+	"haha":"[m;[m;",
+	"hurry":"jrefjrefvkyf",
+	"lose":"igawmh&SHk;awmhrSmyJ",
+	"mingalar":"r*fvmyg",
+	"play_again":"roGm;eJ. OD;aemf?xyfupm;OD;",
+	"quit":"igxGufawmhr,f",
+}
+
+
 var voices = {
 	"bet_more":preload("res://pck/assets/common/messages/bet_more.ogg"),
-	"haha":preload("res://pck/assets/common/messages/haha.ogg"),
-	"hurry":preload("res://pck/assets/common/messages/hurry.ogg"),
-	"lose":preload("res://pck/assets/common/messages/lose.ogg"),
-	"mingalar":preload("res://pck/assets/common/messages/mingalar.ogg"),
-	"play_again":preload("res://pck/assets/common/messages/play_again.ogg"),
-	"quit":preload("res://pck/assets/common/messages/quit.ogg")
+	"haha":preload("res://pck/assets/common/messages/A_Haha.mp3"),
+	"hurry":preload("res://pck/assets/common/messages/A_MyanLoke.mp3"),
+	"lose":preload("res://pck/assets/common/messages/A_NgrShonePe.mp3"),
+	"mingalar":preload("res://pck/assets/common/messages/A_Mingalarpa.mp3"),
+	"play_again":preload("res://pck/assets/common/messages/A_MaTwrNeOmm.mp3"),
+	"quit":preload("res://pck/assets/common/messages/A_TorPeKwr.mp3")
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Connect the Signals
+	#Signals.connect("clear_auto_flag", self, "_hide_auto_flag")
+	#Signals.connect("message_sent",self,"_on_message_sent")
+	Signals.connect("bet_pressed", self, "_bet_is_pressed")
+
+	
+	
 	_load_profile_textures()
 	visible = false
 	$CountDown.connect("animation_finished",self,"_stop_count_down")
@@ -47,14 +80,14 @@ func _ready():
 
 func _load_profile_textures():
 	for i in range(13):
-#		var path = "res://pck/assets/common/profiles/" + str(i) + ".png"
-		var path = "res://pck/assets/HomeScence/Home-Photo/icon-photo-" + str(i+1) + ".png"
+		var path = "res://pck/assets/common/profiles/" + str(i) + ".png"
 		var texture = load(path)
 		profile_textures.append(texture) 
 
 func _reset():
 	$Catch.visible = false
 	$PaukFlag.visible = false
+	$Auto8_9.visible = false
 	$ResultFlag.visible = false
 	$Bet/Label.text = "0"
 	_hide_multiply()
@@ -62,7 +95,7 @@ func _reset():
 func _set_info(nickname, balance, profile):
 	$Panel/Nickname.text = nickname
 	_set_balance(balance)
-#	$Profile.texture = profile_textures[profile]
+	$Profile.texture = profile_textures[int(profile)]
 
 func _set_balance(balance):
 	if(balance >= 1000):
@@ -75,7 +108,7 @@ func _bet_pos():
 	return $Bet.global_position
 
 func _banker_pos():
-	return $Bet.global_position
+	return $Bet/banker_position.global_position
 
 func _hide_bet():
 	$Bet.visible = false
@@ -86,15 +119,31 @@ func _set_bet(bet):
 
 func _show_pauk(num):
 	if num >= 8:
-		$PaukFlag/Label.text = str(num) + " ayguf"
-		$PaukFlag.texture = flag_textures["auto"]
+#		$PaukFlag/Label.text = str(num) + " ayguf"
+#		$PaukFlag.texture = flag_textures["auto"]
+		if Signals.two_card_auto == true:
+			if num == 8:
+				$PaukFlag.texture = flag_textures["auto8"]
+			elif num == 9:
+				$PaukFlag.texture = flag_textures["auto9"]
+			$PaukFlag/Label.visible = false
+		else:
+			$PaukFlag.texture = flag_textures["pauk"]
+			$PaukFlag/Label.text = str(num) + " ayguf"
+			$PaukFlag/Label.visible = true
 	else :
 		if num == 0:
 			$PaukFlag/Label.text = "bl"
 		else:
 			$PaukFlag/Label.text = str(num) + " ayguf"
 		$PaukFlag.texture = flag_textures["pauk"]
+		$PaukFlag/Label.visible = true
 	$PaukFlag.visible = true
+		
+
+
+#func _hide_auto_flag():
+#	$Auto8_9.visible = false
 
 func _show_catch():
 	$Catch.visible = true
@@ -116,6 +165,17 @@ func _stop_count_down():
 	$CountDown.playing = false
 	$CountDown.frame = 0
 	$CountDown.visible = false
+	
+	$PlayerLoading.playing = false
+	$PlayerLoading.frame = 0
+	$PlayerLoading.visible = false
+	Signals.emit_signal("bet_pos_visible")
+	$Bet.z_index = 0
+	
+	$CardLoading.playing = false
+	$CardLoading.frame = 0
+	$CardLoading.visible = false
+	
 
 func _set_count_down(sec):
 	if sec == 0 :
@@ -123,7 +183,31 @@ func _set_count_down(sec):
 	$CountDown.speed_scale = 1/float(sec)
 	$CountDown.frame = 0
 	$CountDown.playing = true
-	$CountDown.visible = true
+	#$CountDown.visible = true
+	#$PlayerLoading.speed_scale = 1/float(sec)
+	#$PlayerLoading.frame = 0
+	
+	
+# Player Loading
+func _player_wait_countdown(sec):
+	if sec == 0 :
+		return
+	$PlayerLoading.playing = true
+	$PlayerLoading.visible = true
+	Signals.emit_signal("bet_pos_invisible")
+	$Bet.z_index = -10
+	
+
+# Cards Loading
+func _card_wait_countdown(sec):
+	if sec == 0 :
+		return
+	$CardLoading.playing = true
+	$CardLoading.visible = true
+
+func _bet_is_pressed():
+	$Bet.z_index = 0
+	$PlayerLoading.visible = false
 
 func _play_emoji(emoji):
 	$Emoji.play(emoji)
@@ -154,5 +238,24 @@ func _transfer_balance(amount):
 func _play_message(msg):
 	$AudioStreamPlayer.stream = voices[msg]
 	$AudioStreamPlayer.play()
-	$Message.texture = msg_textures[msg]
-	$Message/AnimationPlayer.play("show")
+	#$Message.texture = msg_textures[msg]
+	#$Message/AnimationPlayer.play("show")
+	$MessageReply/MessageReplyText.text = message_texts[msg]
+	$MessageReply.visible = true
+	$MessageTimer.start()
+
+
+func _on_MessageTimer_timeout():
+	$MessageReply.visible = false
+
+#func _on_message_sent(message):
+#	_display_input_message(message)
+	
+func _display_input_message(msg):
+	$UserMessageInput.visible = true
+	$UserMessageInput/Input.text = msg
+	$MessageInputTimer.start()
+	
+	
+func _on_MessageInputTimer_timeout():
+	$UserMessageInput.visible = false
