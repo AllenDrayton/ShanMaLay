@@ -945,6 +945,7 @@ texture_normal = ExtResource( 39 )
 script = ExtResource( 22 )
 
 [node name="Setting" parent="." instance=ExtResource( 40 )]
+visible = false
 
 [node name="MessageToggle" type="TextureButton" parent="."]
 margin_left = 160.0
@@ -1041,6 +1042,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 288 )
 animation = "idle"
+frame = 46
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

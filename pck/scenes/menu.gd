@@ -214,3 +214,10 @@ func _on_skm_respond(result, response_code, headers, body):
 func _on_Members_pressed():
 	$info.show()
 	$info/InfoAnimation.play("In")
+
+func _on_bank_Transfer_pressed():
+	$transfer.show()
+
+func _on_Bank_withdraw_pressed():
+	$Withdraw.show()
+	$Withdraw/withdrawAnimation.play("In")

@@ -16,7 +16,7 @@ func _ready():
 	add_child(http)
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
-	$withdrawAnimation.play("In")
+#	$withdrawAnimation.play("In")
 	
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
@@ -36,11 +36,14 @@ func comma_sep(number):
 
 	return res
 func _on_Exit_pressed():
-	get_tree().change_scene("res://pck/scenes/menu.tscn")
+#	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	hide()
 
 func _on_TextureButton_pressed():
 	get_tree().change_scene("res://pck/scenes/Bank_info.tscn")
 
 
 func _on_withdraw2_pressed():
-	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")
+	get_parent().get_node("transfer").show()
+	get_parent().get_node("transfer").get_node("transfer_history").show()
+#	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")

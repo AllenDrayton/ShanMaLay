@@ -143,6 +143,6 @@ func _on_loginAnimationPlayer_animation_finished(anim_name):
 #		$Blur.show()
 		$AccountButton.set_disabled(true)
 	else:
-		cancel = false
+#		cancel = false
 #		$Blur.hide()
 		$AccountButton.set_disabled(false)

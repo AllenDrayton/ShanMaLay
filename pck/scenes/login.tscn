@@ -184,7 +184,7 @@ position = Vector2( 1000, 536 )
 scale = Vector2( 0.525, 0.525 )
 texture = ExtResource( 4 )
 
-[node name="Blur" type="Area2D" parent="."]
+[node name="Blur" type="Area2D" parent="." groups=["ScreenTouch"]]
 modulate = Color( 0.164706, 0.164706, 0.164706, 0.596078 )
 script = ExtResource( 14 )
 __meta__ = {

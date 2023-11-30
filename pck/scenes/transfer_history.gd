@@ -41,4 +41,5 @@ func comma_sep(number):
 
 
 func _on_Exit_pressed():
-	get_tree().change_scene("res://pck/scenes/transfer.tscn")
+#	get_tree().change_scene("res://pck/scenes/transfer.tscn")
+	hide()

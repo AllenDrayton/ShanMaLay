@@ -111,7 +111,7 @@ anims/Out = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
 [node name="info_panel" type="Panel" parent="."]
-margin_right = 2016.0
+margin_right = 2002.0
 margin_bottom = 896.0
 custom_styles/panel = SubResource( 4 )
 

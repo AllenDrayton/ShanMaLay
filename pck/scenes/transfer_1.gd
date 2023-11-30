@@ -41,9 +41,9 @@ func comma_sep(number):
 
 
 func _on_Exit_pressed():
-	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	hide()
+#	get_tree().change_scene("res://pck/scenes/menu.tscn")
 	
-
-
 func _on_transfer_pressed():
-	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")
+	$transfer_history.show()
+#	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")
