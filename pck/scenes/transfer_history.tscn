@@ -1,0 +1,291 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://pck/assets/Home-Transfer-History/icon-transfer-history-calendar.png" type="Texture" id=1]
+[ext_resource path="res://pck/assets/Home-Transfer-History/icon-transfer-dropdown.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/Home-Transfer-History/icon-transfer-check.png" type="Texture" id=3]
+[ext_resource path="res://start/zawgyi-one.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://pck/assets/Home-Member-Info/image-member-info-rightbg.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/menu/icon-main-back.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/Home-Withdraw/icon-withdraw-question.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/HomeScence/icon-home-money.png" type="Texture" id=9]
+[ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=10]
+[ext_resource path="res://pck/assets/HomeScence/icon-bottom-bar.png" type="Texture" id=11]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://pck/scenes/transfer_history.gd" type="Script" id=13]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 2304, 1080 )
+modulate_color = Color( 1, 1, 1, 0.741176 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.372549, 0.337255, 0.972549, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 25
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.117647, 0.117647, 0.2, 1 )
+
+[sub_resource type="Theme" id=4]
+/styles/styleboxflat = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+outline_color = Color( 0.184314, 0.180392, 0.345098, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.117647, 0.117647, 0.2, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.117647, 0.117647, 0.2, 1 )
+border_color = Color( 0.117647, 0.117647, 0.2, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.117647, 0.117647, 0.2, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="transfer_history" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_top = 15.0
+margin_right = 2001.0
+margin_bottom = 902.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="rightbg2" type="Sprite" parent="Panel"]
+position = Vector2( 1004, 485 )
+scale = Vector2( 0.38, 0.3 )
+texture = ExtResource( 5 )
+
+[node name="Icon-bottom-bar" type="Sprite" parent="Panel"]
+position = Vector2( 985, -16 )
+scale = Vector2( 0.685556, 1 )
+texture = ExtResource( 11 )
+
+[node name="qustion3" type="TextureButton" parent="Panel"]
+margin_left = 1617.0
+margin_top = 156.0
+margin_right = 1868.0
+margin_bottom = 226.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Panel/qustion3"]
+position = Vector2( 120.926, 39.6595 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="Panel"]
+margin_left = 106.0
+margin_top = 264.0
+margin_right = 458.0
+margin_bottom = 320.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="Panel2" type="Panel" parent="Panel"]
+margin_left = 461.0
+margin_top = 264.0
+margin_right = 813.0
+margin_bottom = 320.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="Panel3" type="Panel" parent="Panel"]
+margin_left = 816.0
+margin_top = 264.0
+margin_right = 1168.0
+margin_bottom = 320.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="Panel4" type="Panel" parent="Panel"]
+margin_left = 1172.0
+margin_top = 264.0
+margin_right = 1524.0
+margin_bottom = 320.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="Panel5" type="Panel" parent="Panel"]
+margin_left = 1527.0
+margin_top = 264.0
+margin_right = 1879.0
+margin_bottom = 320.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="Label3" type="Label" parent="Panel"]
+margin_left = 186.0
+margin_top = 276.0
+margin_right = 369.0
+margin_bottom = 330.0
+custom_colors/font_color = Color( 0.715, 0.700073, 0.96875, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "လုပ္ငန္းစဥ္အမွတ္"
+
+[node name="Label4" type="Label" parent="Panel"]
+margin_left = 556.0
+margin_top = 272.0
+margin_right = 739.0
+margin_bottom = 326.0
+custom_colors/font_color = Color( 0.715, 0.700073, 0.96875, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "တင္ျပသည့္အခ်ိန္"
+
+[node name="Label5" type="Label" parent="Panel"]
+margin_left = 926.0
+margin_top = 270.0
+margin_right = 1109.0
+margin_bottom = 324.0
+custom_colors/font_color = Color( 0.715, 0.700073, 0.96875, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "ေငြထုတ္နည္း"
+
+[node name="Label6" type="Label" parent="Panel"]
+margin_left = 1254.0
+margin_top = 274.0
+margin_right = 1449.0
+margin_bottom = 328.0
+custom_colors/font_color = Color( 0.715, 0.700073, 0.96875, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "ေငြထုတ္မည့္ပမာဏ"
+
+[node name="Label7" type="Label" parent="Panel"]
+margin_left = 1640.0
+margin_top = 274.0
+margin_right = 1835.0
+margin_bottom = 328.0
+custom_colors/font_color = Color( 0.715, 0.700073, 0.96875, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "အေျခအေန"
+
+[node name="Exit" type="TextureButton" parent="Panel"]
+anchor_top = -0.022
+margin_left = 4.0
+margin_top = -14.288
+margin_right = 111.0
+margin_bottom = 97.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Panel/Exit"]
+position = Vector2( 73.75, 67.45 )
+scale = Vector2( 0.15, 0.199794 )
+texture = ExtResource( 6 )
+
+[node name="Balance_Boarder" type="Sprite" parent="Panel"]
+position = Vector2( 486.238, 27.75 )
+scale = Vector2( 0.589109, 0.589109 )
+texture = ExtResource( 9 )
+
+[node name="Balance" type="Label" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 391.238
+margin_top = 14.75
+margin_right = -1461.76
+margin_bottom = -844.25
+custom_fonts/font = SubResource( 10 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="question" type="TextureRect" parent="Panel"]
+margin_left = 1886.0
+margin_top = -22.0
+margin_right = 1976.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Panel/question"]
+position = Vector2( 50.5313, 47.3125 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="game_account" type="LineEdit" parent="Panel"]
+margin_left = 146.0
+margin_top = 164.0
+margin_right = 466.0
+margin_bottom = 236.0
+theme = SubResource( 4 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 0.207843 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/read_only = SubResource( 13 )
+custom_styles/normal = SubResource( 5 )
+editable = false
+placeholder_text = "ၿပီးစီးမည့္အခ်ိန္"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="TextureButton" type="TextureButton" parent="Panel/game_account"]
+margin_left = 252.0
+margin_top = 11.0
+margin_right = 322.0
+margin_bottom = 75.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Panel/game_account/TextureButton"]
+position = Vector2( 34.0055, 26.2376 )
+rotation = 0.00696809
+scale = Vector2( 0.356214, 0.356322 )
+texture = ExtResource( 1 )
+
+[node name="game_account2" type="LineEdit" parent="Panel"]
+margin_left = 532.0
+margin_top = 170.0
+margin_right = 843.0
+margin_bottom = 242.0
+theme = SubResource( 4 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0.184314, 0.180392, 0.345098, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 0.207843 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/read_only = SubResource( 14 )
+custom_styles/normal = SubResource( 5 )
+editable = false
+placeholder_text = "ေငြသြင္းနည္း"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="TextureButton" type="TextureButton" parent="Panel/game_account2"]
+margin_left = 243.938
+margin_top = 9.69302
+margin_right = 313.938
+margin_bottom = 73.693
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Panel/game_account2/TextureButton"]
+position = Vector2( 34.0054, 26.2376 )
+rotation = 0.00696809
+scale = Vector2( 0.356214, 0.356322 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="Panel/Exit" to="." method="_on_Exit_pressed"]
