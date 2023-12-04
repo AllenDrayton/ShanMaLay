@@ -512,39 +512,39 @@ scale = Vector2( 1.5, 1.5 )
 z_index = 1
 frames = SubResource( 8 )
 animation = "e1"
-frame = 9
+frame = 3
 playing = true
 
 [node name="CardPos" type="Node2D" parent="."]
 position = Vector2( 200, -20 )
 
 [node name="card1" type="Sprite" parent="CardPos"]
-position = Vector2( -39, 58 )
-scale = Vector2( 0.17, 0.17 )
+position = Vector2( -25, 58 )
+scale = Vector2( 0.2, 0.2 )
 z_index = 1
 texture = ExtResource( 26 )
 
 [node name="card2" type="Sprite" parent="CardPos"]
 position = Vector2( -17, 58 )
-scale = Vector2( 0.17, 0.17 )
+scale = Vector2( 0.2, 0.2 )
 z_index = 1
 texture = ExtResource( 26 )
 
 [node name="card3" type="Sprite" parent="CardPos"]
 position = Vector2( 7, 58 )
-scale = Vector2( 0.17, 0.17 )
+scale = Vector2( 0.2, 0.2 )
 z_index = 1
 texture = ExtResource( 26 )
 
 [node name="card4" type="Sprite" parent="CardPos"]
 position = Vector2( 30, 58 )
-scale = Vector2( 0.17, 0.17 )
+scale = Vector2( 0.2, 0.2 )
 z_index = 1
 texture = ExtResource( 26 )
 
 [node name="card5" type="Sprite" parent="CardPos"]
 position = Vector2( 54, 58 )
-scale = Vector2( 0.17, 0.17 )
+scale = Vector2( 0.2, 0.2 )
 z_index = 1
 texture = ExtResource( 26 )
 

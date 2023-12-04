@@ -1,27 +1,46 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://pck/assets/common/profiles/0.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/panel-1.png" type="Texture" id=2]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=3]
 [ext_resource path="res://pck/assets/common/profile-frame.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/shankoemee/profile-panel.png" type="Texture" id=5]
-[ext_resource path="res://pck/assets/skm_bet/bet6.png" type="Texture" id=6]
-[ext_resource path="res://pck/assets/skm_bet/bet2.png" type="Texture" id=7]
-[ext_resource path="res://pck/assets/skm_bet/bet4.png" type="Texture" id=8]
-[ext_resource path="res://pck/assets/skm_bet/bet3.png" type="Texture" id=9]
+[ext_resource path="res://pck/assets/Tiger_Dragon/5k.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/Tiger_Dragon/100k.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/Tiger_Dragon/500k.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/Tiger_Dragon/TD5.png" type="Texture" id=9]
 [ext_resource path="res://pck/assets/audio/coin_move_1.mp3" type="AudioStream" id=10]
-[ext_resource path="res://pck/assets/skm_bet/bet5.png" type="Texture" id=12]
+[ext_resource path="res://pck/assets/Tiger_Dragon/1k.png" type="Texture" id=11]
+[ext_resource path="res://pck/assets/Tiger_Dragon/TD3.png" type="Texture" id=12]
 [ext_resource path="res://pck/assets/skm_bet/select-circle.png" type="Texture" id=13]
-[ext_resource path="res://pck/assets/dragon_tiger_bet/history_bar.png" type="Texture" id=14]
-[ext_resource path="res://pck/assets/skm_bet/bet1.png" type="Texture" id=15]
+[ext_resource path="res://pck/assets/Tiger_Dragon/tiger_win.png" type="Texture" id=14]
+[ext_resource path="res://pck/assets/Tiger_Dragon/image-tiger-carpet.png" type="Texture" id=15]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://pck/assets/dragon_tiger_bet/timer.png" type="Texture" id=18]
-[ext_resource path="res://pck/assets/dragon_tiger_bet/bg.jpg" type="Texture" id=21]
+[ext_resource path="res://pck/assets/Tiger_Dragon/Clock.png" type="Texture" id=18]
+[ext_resource path="res://pck/assets/Tiger_Dragon/DD1.png" type="Texture" id=19]
+[ext_resource path="res://pck/assets/Tiger_Dragon/2k.png" type="Texture" id=20]
+[ext_resource path="res://pck/assets/Tiger_Dragon/10k.png" type="Texture" id=21]
+[ext_resource path="res://pck/assets/Tiger_Dragon/TD6.png" type="Texture" id=22]
+[ext_resource path="res://pck/assets/Tiger_Dragon/100kl.png" type="Texture" id=23]
+[ext_resource path="res://pck/assets/Tiger_Dragon/5kl.png" type="Texture" id=24]
 [ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=25]
+[ext_resource path="res://pck/assets/Tiger_Dragon/10kl.png" type="Texture" id=26]
+[ext_resource path="res://pck/assets/Tiger_Dragon/1kl.png" type="Texture" id=27]
+[ext_resource path="res://pck/assets/Tiger_Dragon/2kl.png" type="Texture" id=28]
 [ext_resource path="res://pck/scenes/tiger_dragon_bet_game.gd" type="Script" id=29]
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=30]
 [ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=31]
+[ext_resource path="res://pck/assets/Tiger_Dragon/500kl.png" type="Texture" id=32]
+[ext_resource path="res://pck/assets/Tiger_Dragon/tiger_gif.png" type="Texture" id=33]
+[ext_resource path="res://pck/assets/Tiger_Dragon/dragon_gif.png" type="Texture" id=34]
+[ext_resource path="res://pck/assets/Tiger_Dragon/tie.png" type="Texture" id=35]
+[ext_resource path="res://pck/assets/Tiger_Dragon/TD4.png" type="Texture" id=36]
+[ext_resource path="res://pck/assets/Tiger_Dragon/same_shape.png" type="Texture" id=37]
+[ext_resource path="res://pck/assets/Tiger_Dragon/card_gif.png" type="Texture" id=38]
+[ext_resource path="res://pck/assets/Tiger_Dragon/Dagon.png" type="Texture" id=39]
+[ext_resource path="res://pck/assets/Tiger_Dragon/Tiger.png" type="Texture" id=40]
+[ext_resource path="res://pck/assets/Tiger_Dragon/VS.png" type="Texture" id=41]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -47,9 +66,286 @@ margin_bottom = 60.0
 size = 25
 font_data = ExtResource( 16 )
 
+[sub_resource type="StyleBoxFlat" id=67]
+bg_color = Color( 0.0588235, 0.321569, 0.47451, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 0, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 1500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 3000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 4500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 6000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 0, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 1500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 3000, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 4500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 34 )
+region = Rect2( 6000, 1500, 1500, 1500 )
+
+[sub_resource type="SpriteFrames" id=34]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
 [sub_resource type="DynamicFont" id=6]
 size = 30
 font_data = ExtResource( 17 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 0, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 1500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 3000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 4500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 6000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 0, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 1500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 3000, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 4500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 6000, 1500, 1500, 1500 )
+
+[sub_resource type="SpriteFrames" id=55]
+animations = [ {
+"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 0, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 1500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 3000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 4500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 6000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 0, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 1500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 3000, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 4500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 6000, 1500, 1500, 1500 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 0, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 1500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 3000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 4500, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 6000, 0, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 0, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 1500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 3000, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 4500, 1500, 1500, 1500 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 6000, 1500, 1500, 1500 )
+
+[sub_resource type="SpriteFrames" id=66]
+animations = [ {
+"frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 0, 0, 500, 700 )
+
+[sub_resource type="AtlasTexture" id=69]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 500, 0, 500, 700 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 1000, 0, 500, 700 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 0, 700, 500, 700 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 500, 700, 500, 700 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 1000, 700, 500, 700 )
+
+[sub_resource type="SpriteFrames" id=74]
+animations = [ {
+"frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -173,49 +469,129 @@ tracks/11/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("C1:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 936, 496 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("C2:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1072, 496 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("C1:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("C2:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.15, 0.15 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "in"
-length = 1.5
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("C1:position:y")
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("C1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -131.1, -0.25, 0, 0.25, 0, 228.9, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
 }
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("C2:position:y")
+tracks/1/type = "value"
+tracks/1/path = NodePath("C1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( -131.1, -0.25, 0, 0.25, 0, 228.9, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0.5, 1.5 )
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 952, 496 ), Vector2( 848, 88 ) ]
 }
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("C1:modulate:a")
+tracks/2/type = "value"
+tracks/2/path = NodePath("C2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1048, 496 ), Vector2( 1157, 88 ) ]
 }
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("C2:modulate:a")
+tracks/3/type = "value"
+tracks/3/path = NodePath("C2:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0.5, 1.5 )
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("C1:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.15, 0.15 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("C2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.15, 0.15 ) ]
 }
 
 [sub_resource type="DynamicFont" id=9]
@@ -223,7 +599,7 @@ size = 40
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=10]
-size = 60
+size = 400
 font_data = ExtResource( 17 )
 
 [sub_resource type="Animation" id=11]
@@ -290,72 +666,126 @@ __meta__ = {
 }
 
 [node name="Bg" type="Sprite" parent="."]
-position = Vector2( 1000, 450 )
-texture = ExtResource( 21 )
+position = Vector2( 1000, 452.5 )
+scale = Vector2( 0.998, 0.909 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="table" type="Sprite" parent="."]
+position = Vector2( 1000, 440 )
+scale = Vector2( 0.36, 0.35 )
+texture = ExtResource( 19 )
+
+[node name="tiger" type="Sprite" parent="."]
+position = Vector2( 1376, 96 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 40 )
+
+[node name="dragon" type="Sprite" parent="."]
+position = Vector2( 600, 80 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 39 )
 
 [node name="BetSelect" type="Node" parent="."]
 
 [node name="Select" type="Sprite" parent="BetSelect"]
-position = Vector2( 738, 834 )
+position = Vector2( 576, 1048 )
+scale = Vector2( 1.7, 1.7 )
 texture = ExtResource( 13 )
 
 [node name="0" type="TextureButton" parent="BetSelect"]
-margin_left = 688.0
-margin_top = 784.0
-margin_right = 788.0
-margin_bottom = 884.0
-texture_normal = ExtResource( 15 )
+margin_left = 508.0
+margin_top = 726.0
+margin_right = 688.0
+margin_bottom = 906.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 23 )
+texture_disabled = ExtResource( 7 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="BetSelect/0"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -70.0
+margin_right = -70.0
 custom_fonts/font = SubResource( 1 )
 text = "100"
 align = 1
 valign = 1
 
 [node name="1" type="TextureButton" parent="BetSelect"]
-margin_left = 792.0
-margin_top = 784.0
-margin_right = 892.0
-margin_bottom = 884.0
-texture_normal = ExtResource( 7 )
+margin_left = 668.0
+margin_top = 726.0
+margin_right = 848.0
+margin_bottom = 906.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 32 )
+texture_disabled = ExtResource( 8 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label" type="Label" parent="BetSelect/1"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -28.0
+margin_top = -6.0
+margin_right = -28.0
+margin_bottom = -6.0
 custom_fonts/font = SubResource( 1 )
 text = "500"
 align = 1
 valign = 1
 
 [node name="2" type="TextureButton" parent="BetSelect"]
-margin_left = 896.0
-margin_top = 784.0
-margin_right = 996.0
-margin_bottom = 884.0
-texture_normal = ExtResource( 9 )
+margin_left = 829.0
+margin_top = 729.0
+margin_right = 1009.0
+margin_bottom = 909.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 27 )
+texture_disabled = ExtResource( 11 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label" type="Label" parent="BetSelect/2"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
 custom_fonts/font = SubResource( 1 )
 text = "1K"
 align = 1
 valign = 1
 
 [node name="3" type="TextureButton" parent="BetSelect"]
-margin_left = 1000.0
-margin_top = 784.0
-margin_right = 1100.0
-margin_bottom = 884.0
-texture_normal = ExtResource( 8 )
+margin_left = 992.0
+margin_top = 728.0
+margin_right = 1172.0
+margin_bottom = 908.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 28 )
+texture_disabled = ExtResource( 20 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="BetSelect/3"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
@@ -364,14 +794,19 @@ align = 1
 valign = 1
 
 [node name="4" type="TextureButton" parent="BetSelect"]
-margin_left = 1104.0
-margin_top = 784.0
-margin_right = 1204.0
-margin_bottom = 884.0
-texture_normal = ExtResource( 12 )
+margin_left = 1152.0
+margin_top = 728.0
+margin_right = 1332.0
+margin_bottom = 908.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 24 )
+texture_disabled = ExtResource( 6 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="BetSelect/4"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
@@ -380,14 +815,22 @@ align = 1
 valign = 1
 
 [node name="5" type="TextureButton" parent="BetSelect"]
-margin_left = 1208.0
-margin_top = 784.0
-margin_right = 1308.0
-margin_bottom = 884.0
-texture_normal = ExtResource( 6 )
+margin_left = 1312.0
+margin_top = 728.0
+margin_right = 1492.0
+margin_bottom = 908.0
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 26 )
+texture_disabled = ExtResource( 21 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label" type="Label" parent="BetSelect/5"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
@@ -398,10 +841,18 @@ valign = 1
 [node name="Profile" type="Node2D" parent="."]
 position = Vector2( 300, 820 )
 
-[node name="Img" type="Sprite" parent="Profile"]
+[node name="Img" type="TextureRect" parent="Profile"]
+margin_left = -63.0
+margin_top = -57.0
+margin_right = 57.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 120, 120 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Profile"]
+visible = false
 z_index = 1
 texture = ExtResource( 4 )
 
@@ -437,13 +888,23 @@ valign = 1
 [node name="Bots" type="Node" parent="."]
 
 [node name="Bot1" type="Node2D" parent="Bots"]
-position = Vector2( 120, 180 )
+position = Vector2( 184, 176 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Profile" type="Sprite" parent="Bots/Bot1"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Profile" type="TextureRect" parent="Bots/Bot1"]
+margin_left = -48.0
+margin_top = -50.0
+margin_right = 52.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Bots/Bot1"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -467,13 +928,23 @@ align = 1
 valign = 1
 
 [node name="Bot2" type="Node2D" parent="Bots"]
-position = Vector2( 120, 340 )
+position = Vector2( 184, 336 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Profile" type="Sprite" parent="Bots/Bot2"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Profile" type="TextureRect" parent="Bots/Bot2"]
+margin_left = -48.0
+margin_top = -50.0
+margin_right = 52.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Bots/Bot2"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -497,13 +968,23 @@ align = 1
 valign = 1
 
 [node name="Bot3" type="Node2D" parent="Bots"]
-position = Vector2( 120, 500 )
+position = Vector2( 184, 488 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Profile" type="Sprite" parent="Bots/Bot3"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Profile" type="TextureRect" parent="Bots/Bot3"]
+margin_left = -48.0
+margin_top = -50.0
+margin_right = 52.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Bots/Bot3"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -527,13 +1008,23 @@ align = 1
 valign = 1
 
 [node name="Bot4" type="Node2D" parent="Bots"]
-position = Vector2( 1880, 180 )
+position = Vector2( 1784, 176 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Profile" type="Sprite" parent="Bots/Bot4"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Profile" type="TextureRect" parent="Bots/Bot4"]
+margin_left = -48.0
+margin_top = -50.0
+margin_right = 52.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Bots/Bot4"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -557,13 +1048,23 @@ align = 1
 valign = 1
 
 [node name="Bot5" type="Node2D" parent="Bots"]
-position = Vector2( 1880, 340 )
+position = Vector2( 1784, 344 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Profile" type="Sprite" parent="Bots/Bot5"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Profile" type="TextureRect" parent="Bots/Bot5"]
+margin_left = -48.0
+margin_top = -50.0
+margin_right = 52.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Bots/Bot5"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -587,13 +1088,23 @@ align = 1
 valign = 1
 
 [node name="Bot6" type="Node2D" parent="Bots"]
-position = Vector2( 1880, 500 )
+position = Vector2( 1784, 496 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Profile" type="Sprite" parent="Bots/Bot6"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Profile" type="TextureRect" parent="Bots/Bot6"]
+margin_left = -48.0
+margin_top = -50.0
+margin_right = 52.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Bots/Bot6"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -617,13 +1128,23 @@ align = 1
 valign = 1
 
 [node name="Bot7" type="Node2D" parent="Bots"]
-position = Vector2( 120, 660 )
+position = Vector2( 184, 648 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Profile" type="Sprite" parent="Bots/Bot7"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Profile" type="TextureRect" parent="Bots/Bot7"]
+margin_left = -48.0
+margin_top = -50.0
+margin_right = 52.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="Frame" type="Sprite" parent="Bots/Bot7"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -647,13 +1168,17 @@ align = 1
 valign = 1
 
 [node name="Players" type="Node2D" parent="Bots"]
-position = Vector2( 1880, 660 )
+position = Vector2( 1784, 648 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Profile" type="Sprite" parent="Bots/Players"]
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 
 [node name="Frame" type="Sprite" parent="Bots/Players"]
+visible = false
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -687,42 +1212,63 @@ bus = "Effect"
 stream = ExtResource( 10 )
 bus = "Effect"
 
-[node name="History" type="Sprite" parent="."]
-position = Vector2( 1031, 425 )
-texture = ExtResource( 14 )
+[node name="History" type="Panel" parent="."]
+margin_left = 492.0
+margin_top = 199.0
+margin_right = 1492.0
+margin_bottom = 249.0
+custom_styles/panel = SubResource( 67 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="History"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -550.0
-margin_top = -50.0
-margin_right = -700.0
-margin_bottom = -100.0
+margin_left = 24.0
+margin_top = 3.0
+margin_right = -16.0
+margin_bottom = 3.0
 custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="History/HBoxContainer"]
+margin_bottom = 50.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 5
 
 [node name="BetArea" type="Node" parent="."]
 
+[node name="dragon_gif" type="AnimatedSprite" parent="BetArea"]
+position = Vector2( 632, 456 )
+scale = Vector2( 0.37, 0.35 )
+frames = SubResource( 34 )
+
 [node name="Dragon" type="TextureButton" parent="BetArea"]
-margin_left = 388.0
-margin_top = 512.0
-margin_right = 837.0
-margin_bottom = 725.0
+margin_left = 458.0
+margin_top = 264.0
+margin_right = 808.0
+margin_bottom = 664.0
+expand = true
+stretch_mode = 4
+
+[node name="dragon" type="Sprite" parent="BetArea/Dragon"]
+position = Vector2( 174, 192 )
+scale = Vector2( 0.371, 0.351 )
+texture = ExtResource( 9 )
 
 [node name="Total" type="Label" parent="BetArea/Dragon"]
-margin_left = 234.0
-margin_top = 145.0
-margin_right = 334.0
-margin_bottom = 185.0
+margin_left = 120.0
+margin_top = -1.0
+margin_right = 220.0
+margin_bottom = 39.0
 custom_fonts/font = SubResource( 6 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="Me" type="Label" parent="BetArea/Dragon"]
-margin_left = 335.0
-margin_top = 145.0
-margin_right = 435.0
-margin_bottom = 185.0
+margin_left = 120.0
+margin_top = 349.0
+margin_right = 220.0
+margin_bottom = 389.0
 custom_colors/font_color = Color( 0.968627, 1, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "0"
@@ -730,67 +1276,140 @@ align = 1
 valign = 1
 
 [node name="Pos" type="Node2D" parent="BetArea/Dragon"]
-position = Vector2( 333, 107 )
+position = Vector2( 168, 184 )
+z_index = 1
+
+[node name="tie_gif" type="AnimatedSprite" parent="BetArea"]
+position = Vector2( 985, 392 )
+scale = Vector2( 0.37, 0.35 )
+frames = SubResource( 55 )
 
 [node name="Tie" type="TextureButton" parent="BetArea"]
-margin_left = 850.0
-margin_top = 512.0
-margin_right = 1217.0
-margin_bottom = 718.0
+margin_left = 816.0
+margin_top = 258.0
+margin_right = 1176.0
+margin_bottom = 458.0
+expand = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tie" type="Sprite" parent="BetArea/Tie"]
+position = Vector2( 183, 96 )
+scale = Vector2( 0.371, 0.352 )
+texture = ExtResource( 12 )
 
 [node name="Pos" type="Node2D" parent="BetArea/Tie"]
-position = Vector2( 184, 106 )
+position = Vector2( 185, 104 )
 
 [node name="Total" type="Label" parent="BetArea/Tie"]
-margin_left = 82.0
-margin_top = 145.0
-margin_right = 182.0
-margin_bottom = 185.0
+margin_left = 135.0
+margin_top = 4.0
+margin_right = 235.0
+margin_bottom = 44.0
 custom_fonts/font = SubResource( 6 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="Me" type="Label" parent="BetArea/Tie"]
-margin_left = 183.0
-margin_top = 145.0
-margin_right = 283.0
-margin_bottom = 185.0
+margin_left = 135.0
+margin_top = 154.0
+margin_right = 235.0
+margin_bottom = 194.0
 custom_colors/font_color = Color( 0.968627, 1, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "0"
 align = 1
 valign = 1
 
-[node name="Tiger" type="TextureButton" parent="BetArea"]
-margin_left = 1238.0
-margin_top = 512.0
-margin_right = 1670.0
-margin_bottom = 725.0
+[node name="tiger_gif" type="AnimatedSprite" parent="BetArea"]
+position = Vector2( 1368, 456 )
+scale = Vector2( 0.37, 0.35 )
+frames = SubResource( 23 )
 
-[node name="Pos" type="Node2D" parent="BetArea/Tiger"]
-position = Vector2( 129, 105 )
+[node name="Tiger" type="TextureButton" parent="BetArea"]
+margin_left = 1192.0
+margin_top = 264.0
+margin_right = 1542.0
+margin_bottom = 664.0
+expand = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tiger" type="Sprite" parent="BetArea/Tiger"]
+position = Vector2( 176, 192 )
+scale = Vector2( 0.371, 0.351 )
+texture = ExtResource( 22 )
 
 [node name="Total" type="Label" parent="BetArea/Tiger"]
-margin_left = 9.0
-margin_top = 145.0
-margin_right = 109.0
-margin_bottom = 185.0
+margin_left = 120.0
+margin_top = -1.0
+margin_right = 220.0
+margin_bottom = 39.0
 custom_fonts/font = SubResource( 6 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="Me" type="Label" parent="BetArea/Tiger"]
-margin_left = 110.0
-margin_top = 145.0
-margin_right = 210.0
-margin_bottom = 185.0
+margin_left = 128.0
+margin_top = 355.0
+margin_right = 228.0
+margin_bottom = 395.0
 custom_colors/font_color = Color( 0.968627, 1, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "0"
 align = 1
 valign = 1
+
+[node name="Pos" type="Node2D" parent="BetArea/Tiger"]
+position = Vector2( 173, 187 )
+
+[node name="same_shape_gif" type="AnimatedSprite" parent="BetArea"]
+position = Vector2( 985, 596 )
+scale = Vector2( 0.37, 0.35 )
+frames = SubResource( 66 )
+
+[node name="Same_shape" type="TextureButton" parent="BetArea"]
+margin_left = 820.0
+margin_top = 462.0
+margin_right = 1180.0
+margin_bottom = 662.0
+expand = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="same_shape" type="Sprite" parent="BetArea/Same_shape"]
+position = Vector2( 179, 96 )
+scale = Vector2( 0.371, 0.351 )
+texture = ExtResource( 36 )
+
+[node name="Total" type="Label" parent="BetArea/Same_shape"]
+margin_left = 131.0
+margin_top = 6.0
+margin_right = 231.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Me" type="Label" parent="BetArea/Same_shape"]
+margin_left = 131.0
+margin_top = 158.0
+margin_right = 231.0
+margin_bottom = 198.0
+custom_colors/font_color = Color( 0.968627, 1, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Pos" type="Node2D" parent="BetArea/Same_shape"]
+position = Vector2( 175, 86 )
 
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 20.0
@@ -803,14 +1422,28 @@ script = ExtResource( 3 )
 [node name="BackDrop" parent="." instance=ExtResource( 30 )]
 visible = false
 
+[node name="card_gif_1" type="AnimatedSprite" parent="."]
+position = Vector2( 1157, 88 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 74 )
+frame = 5
+playing = true
+
+[node name="card_gif_2" type="AnimatedSprite" parent="."]
+position = Vector2( 848, 88 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 74 )
+frame = 4
+playing = true
+
 [node name="C1" type="Sprite" parent="."]
 position = Vector2( 938, -131.1 )
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 31 )
 
 [node name="C2" type="Sprite" parent="."]
 position = Vector2( 1116, -131.1 )
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 31 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -824,9 +1457,9 @@ position = Vector2( 1000, -80 )
 z_index = 1
 
 [node name="0" type="Label" parent="AmountTransfer"]
-margin_left = 480.0
+margin_left = 560.0
 margin_top = 560.0
-margin_right = 650.0
+margin_right = 730.0
 margin_bottom = 610.0
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 9 )
@@ -835,37 +1468,46 @@ valign = 1
 
 [node name="1" type="Label" parent="AmountTransfer"]
 margin_left = 920.0
-margin_top = 560.0
+margin_top = 344.0
 margin_right = 1090.0
-margin_bottom = 610.0
+margin_bottom = 394.0
 custom_colors/font_color = Color( 1, 0.941176, 0.0431373, 1 )
 custom_fonts/font = SubResource( 9 )
 align = 1
 valign = 1
 
 [node name="2" type="Label" parent="AmountTransfer"]
-margin_left = 1380.0
-margin_top = 560.0
-margin_right = 1550.0
-margin_bottom = 610.0
+margin_left = 1272.0
+margin_top = 552.0
+margin_right = 1442.0
+margin_bottom = 602.0
 custom_colors/font_color = Color( 1, 0.941176, 0.0431373, 1 )
 custom_fonts/font = SubResource( 9 )
 align = 1
 valign = 1
 
+[node name="vs" type="Sprite" parent="."]
+position = Vector2( 999, 93 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 41 )
+
 [node name="Timer" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.784314 )
-position = Vector2( 488, 84 )
+position = Vector2( 999, 93 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label" type="Label" parent="Timer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -45.0
-margin_top = -47.0
-margin_right = -73.0
-margin_bottom = -60.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+margin_left = -705.0
+margin_top = -678.0
+margin_right = -733.0
+margin_bottom = -691.0
+custom_colors/font_color = Color( 0.917647, 0.215686, 0.145098, 1 )
 custom_fonts/font = SubResource( 10 )
 text = "0"
 align = 1
@@ -874,6 +1516,18 @@ valign = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Timer"]
 anims/RESET = SubResource( 11 )
 anims/play = SubResource( 12 )
+
+[node name="dragon_gif" type="Sprite" parent="."]
+position = Vector2( 621, 427 )
+scale = Vector2( 0.15, 0.15 )
+z_index = 3
+texture = ExtResource( 39 )
+
+[node name="tiger_gif" type="Sprite" parent="."]
+position = Vector2( 1359, 442 )
+scale = Vector2( 0.15, 0.15 )
+z_index = 3
+texture = ExtResource( 40 )
 
 [connection signal="pressed" from="BetSelect/0" to="." method="_on_bet_select" binds= [ 0 ]]
 [connection signal="pressed" from="BetSelect/1" to="." method="_on_bet_select" binds= [ 1 ]]
@@ -884,4 +1538,5 @@ anims/play = SubResource( 12 )
 [connection signal="pressed" from="BetArea/Dragon" to="." method="_on_bet" binds= [ 0 ]]
 [connection signal="pressed" from="BetArea/Tie" to="." method="_on_bet" binds= [ 1 ]]
 [connection signal="pressed" from="BetArea/Tiger" to="." method="_on_bet" binds= [ 2 ]]
+[connection signal="pressed" from="BetArea/Same_shape" to="." method="_on_bet" binds= [ 3 ]]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

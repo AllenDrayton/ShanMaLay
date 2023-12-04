@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://pck/assets/menu/Boss.png" type="Texture" id=13]
 [ext_resource path="res://pck/assets/menu/Junior.png" type="Texture" id=14]
 [ext_resource path="res://pck/scenes/Exit.gd" type="Script" id=15]
+[ext_resource path="res://pck/assets/HomeScence/icon-home-money.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -401,6 +402,11 @@ margin_bottom = 60.0
 size = 25
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 25
+use_filter = true
+font_data = ExtResource( 2 )
+
 [node name="root" type="Node2D"]
 script = ExtResource( 6 )
 __meta__ = {
@@ -695,6 +701,7 @@ anims/in = SubResource( 4 )
 anims/out = SubResource( 7 )
 
 [node name="Balance" type="Panel" parent="."]
+visible = false
 margin_left = 1560.0
 margin_top = 60.0
 margin_right = 1820.0
@@ -721,12 +728,29 @@ targetY = 840.0
 
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 40.0
-margin_top = 45.0
+margin_top = 20.0
 margin_right = 165.0
-margin_bottom = 125.0
+margin_bottom = 100.0
 rect_scale = Vector2( 1.8, 1.8 )
 texture_normal = ExtResource( 11 )
 script = ExtResource( 15 )
+
+[node name="Balance_Boarder" type="Sprite" parent="."]
+position = Vector2( 1641, 83 )
+scale = Vector2( 0.589109, 0.589109 )
+texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1572.0
+margin_top = 59.0
+margin_right = 1722.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 8 )
+text = "0"
+align = 1
+valign = 1
 
 [connection signal="pressed" from="level1" to="." method="_on_level_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="level2" to="." method="_on_level_pressed" binds= [ 1 ]]

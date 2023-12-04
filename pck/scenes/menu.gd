@@ -5,6 +5,10 @@ const music = preload("res://pck/assets/audio/music-main-background.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$ABCD.modulate = Color(0.5, 0.5, 0.5, 0.8)
+	$Fishing/FishSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
+	$Slots/SlotSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
+	$BuGyee/BuGyee_GIF.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$player_info.hide()
 	_load_profile_textures()
 	_animationIn()
@@ -129,9 +133,10 @@ func _on_ShanKoeMee_pressed():
 
 
 func _on_BuGyee_pressed():
-	_animationOut()
-	yield(get_tree().create_timer(0.5), "timeout")
-	get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
+	pass
+#	_animationOut()
+#	yield(get_tree().create_timer(0.5), "timeout")
+#	get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
 
 
 #func _on_Bet_pressed():
@@ -157,9 +162,10 @@ func _on_Viber_pressed():
 
 
 func _on_Slot_pressed():
-	var username = $"/root/Config".config.user.username
-	var session = $"/root/Config".config.user.session
-	OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
+	pass
+#	var username = $"/root/Config".config.user.username
+#	var session = $"/root/Config".config.user.session
+#	OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
 
 
 func _on_TigerDragon_pressed():
@@ -188,17 +194,18 @@ func _on_dragon_tiger_respond(result, response_code, headers, body):
 
 
 func _on_ABCD_pressed():
-	var data = {
-		"username":$"/root/Config".config.user.username,
-		"session":$"/root/Config".config.user.session
-	}
-	var url = $"/root/Config".config.account_url + "skm_bet"
-	var http = HTTPRequest.new()
-	add_child(http)
-	http.connect("request_completed",self,"_on_skm_respond")
-	var headers = ["Content-Type: application/json"]
-	var body = JSON.print(data)
-	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
+	pass
+#	var data = {
+#		"username":$"/root/Config".config.user.username,
+#		"session":$"/root/Config".config.user.session
+#	}
+#	var url = $"/root/Config".config.account_url + "skm_bet"
+#	var http = HTTPRequest.new()
+#	add_child(http)
+#	http.connect("request_completed",self,"_on_skm_respond")
+#	var headers = ["Content-Type: application/json"]
+#	var body = JSON.print(data)
+#	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
 func _on_skm_respond(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
@@ -221,3 +228,7 @@ func _on_bank_Transfer_pressed():
 func _on_Bank_withdraw_pressed():
 	$Withdraw.show()
 	$Withdraw/withdrawAnimation.play("In")
+
+
+func _on_Fish_pressed():
+	pass # Replace with function body.

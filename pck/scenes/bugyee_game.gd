@@ -157,10 +157,19 @@ func _init_all():
 			player.get_node("CardStatus").position.y = -170
 			player.get_node("CardPos").position.x = -210
 			player.get_node("CardStatus").position.x = -210
-			player.get_node("CardPos").get_node("card2").position = Vector2(38,58)
-			player.get_node("CardPos").get_node("card3").position = Vector2(115,58)
-			player.get_node("CardPos").get_node("card4").position = Vector2(192,58)
-			player.get_node("CardPos").get_node("card5").position = Vector2(269,58)
+			
+			for j in range(1, 6):
+				var cardNode = player.get_node("CardPos").get_node("card" + str(j))
+				cardNode.scale = Vector2(0.3, 0.3)
+				var seperation = 110
+				cardNode.position.x = (j - 1) * seperation
+				cardNode.position.y = 58
+				
+#			player.get_node("CardPos").get_node("card1").position = Vector2(-25,58)
+#			player.get_node("CardPos").get_node("card2").position = Vector2(99,58) # +100
+#			player.get_node("CardPos").get_node("card3").position = Vector2(223,58)
+#			player.get_node("CardPos").get_node("card4").position = Vector2(346,58)
+#			player.get_node("CardPos").get_node("card5").position = Vector2(470,58)
 
 #			player.get_node("CardPos").position.y = -30
 #			player.get_node("CardStatus").position.y = -30
@@ -206,21 +215,21 @@ func _init_all():
 	for i in range(4):
 		for j in range(1,10):
 			var key = str(j) + str(i)
-			var path = "res://pck/assets/common/cards/"+key+".png"
-#			var path = "res://pck/assets/bugyeeNew/Poker Card/" + key + ".png"
+#			var path = "res://pck/assets/common/cards/"+key+".png"
+			var path = "res://pck/assets/common/cards/PC/"+key+".png"
 			card_textures[key] = load(path)
 		var key1 = "D"+str(i)
-		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
-#		card_textures[key1] = load("res://pck/assets/bugyeeNew/Poker Card/" + key1 + ".png")
+#		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+		card_textures[key1] = load("res://pck/assets/common/cards/PC/"+key1+".png")
 		var key2 = "J"+str(i)
-		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
-#		card_textures[key2] = load("res://pck/assets/bugyeeNew/Poker Card/" + key2 + ".png")
+#		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+		card_textures[key2] = load("res://pck/assets/common/cards/PC/"+key2+".png")
 		var key3 = "Q"+str(i)
-		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
-#		card_textures[key3] = load("res://pck/assets/bugyeeNew/Poker Card/" + key3 + ".png")
+#		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+		card_textures[key3] = load("res://pck/assets/common/cards/PC/"+key3+".png")
 		var key4 = "K"+str(i)
-		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
-#		card_textures[key4] = load("res://pck/assets/bugyeeNew/Poker Card/" + key4 + ".png")
+#		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+		card_textures[key4] = load("res://pck/assets/common/cards/PC/"+key4+".png")
 	
 	$MenuPanel.visible = false
 	$CardCheck.visible = false
@@ -526,7 +535,9 @@ func _on_Exit_pressed():
 # ----- Emoji Functions -----
 
 func _on_EmojiToggle_pressed():
+#	print("Ok")
 	$EmojiPanel.visible = !$EmojiPanel.visible
+#	$EmojiHomePanel.visible =! $EmojiHomePanel.visible
 
 func _on_Emoji_pressed(emoji):
 	var request = {
@@ -546,7 +557,7 @@ func _on_GameRules_Close_pressed():
 	$Rules.visible = false
 
 func _on_Setting_pressed():
-	$Setting._show()
+	$Setting.show()
 
 func _on_MessageToggle_pressed():
 	$MessagePanel.visible = !$MessagePanel.visible

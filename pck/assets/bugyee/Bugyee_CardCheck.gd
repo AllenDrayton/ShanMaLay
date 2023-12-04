@@ -15,16 +15,21 @@ func _ready():
 	for i in range(4):
 		for j in range(1,10):
 			var key = str(j) + str(i)
-			var path = "res://pck/assets/common/cards/"+key+".png"
+#			var path = "res://pck/assets/common/cards/"+key+".png"
+			var path = "res://pck/assets/common/cards/PC/"+key+".png"
 			card_textures[key] = load(path)
 		var key1 = "D"+str(i)
-		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+#		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+		card_textures[key1] = load("res://pck/assets/common/cards/PC/"+key1+".png")
 		var key2 = "J"+str(i)
-		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+#		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+		card_textures[key2] = load("res://pck/assets/common/cards/PC/"+key2+".png")
 		var key3 = "Q"+str(i)
-		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+#		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+		card_textures[key3] = load("res://pck/assets/common/cards/PC/"+key3+".png")
 		var key4 = "K"+str(i)
-		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+#		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+		card_textures[key4] = load("res://pck/assets/common/cards/PC/"+key4+".png")
 	
 	cardPosArray.append($"0".global_position)
 	cardPosArray.append($"1".global_position)

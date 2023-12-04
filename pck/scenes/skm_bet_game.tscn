@@ -1109,7 +1109,7 @@ position = Vector2( 999, 77 )
 scale = Vector2( 0.914109, 0.914109 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 15
+frame = 17
 playing = true
 
 [connection signal="pressed" from="BetArea/B1/Btn" to="." method="_on_bet" binds= [ 0 ]]

@@ -3,8 +3,8 @@ extends Node2D
 const profile_textures = []
 
 const textures = {
-	"win":preload("res://pck/assets/shankoemee/win.png"),
-	"lose":preload("res://pck/assets/shankoemee/lose.png")
+	"win":preload("res://pck/assets/shankoemee/LoadingFrame/Winflag.png"),
+	"lose":preload("res://pck/assets/shankoemee/LoadingFrame/Loseflag.png")
 }
 
 #const flag_textures = {
@@ -16,7 +16,7 @@ const textures = {
 const flag_textures = {
 	"auto8":preload("res://pck/assets/shankoemee/LoadingFrame/auto8.png"),
 	"auto9":preload("res://pck/assets/shankoemee/LoadingFrame/auto9.png"),
-	"pauk":preload("res://pck/assets/shankoemee/pauk-flag.png")
+	"pauk":preload("res://pck/assets/shankoemee/LoadingFrame/DR1.png")
 }
 
 
@@ -47,7 +47,7 @@ var message_texts = {
 	"haha":"[m;[m;",
 	"hurry":"jrefjrefvkyf",
 	"lose":"igawmh&SHk;awmhrSmyJ",
-	"mingalar":"r*fvmyg",
+	"mingalar":"r*Fvmyg",
 	"play_again":"roGm;eJ. OD;aemf?xyfupm;OD;",
 	"quit":"igxGufawmhr,f",
 }
@@ -79,8 +79,8 @@ func _ready():
 	_reset()
 
 func _load_profile_textures():
-	for i in range(13):
-		var path = "res://pck/assets/common/profiles/" + str(i) + ".png"
+	for i in range(32):
+		var path = "res://pck/assets/HomeScence/Home-Photo/icon-photo-" + str(i+1) + ".png"
 		var texture = load(path)
 		profile_textures.append(texture) 
 
@@ -131,6 +131,7 @@ func _show_pauk(num):
 			$PaukFlag.texture = flag_textures["pauk"]
 			$PaukFlag/Label.text = str(num) + " ayguf"
 			$PaukFlag/Label.visible = true
+			#$PaukFlag.position.y = 68
 	else :
 		if num == 0:
 			$PaukFlag/Label.text = "bl"
@@ -138,6 +139,7 @@ func _show_pauk(num):
 			$PaukFlag/Label.text = str(num) + " ayguf"
 		$PaukFlag.texture = flag_textures["pauk"]
 		$PaukFlag/Label.visible = true
+		#$PaukFlag.position.y = 68
 	$PaukFlag.visible = true
 		
 
@@ -228,10 +230,12 @@ func _hide_multiply():
 
 func _transfer_balance(amount):
 	if amount > 0 :
-		get_node("TransferBalance/Label").set("custom_colors/font_color", Color(0,1,0))
+		get_node("TransferBalance/Label").set("custom_colors/font_color", Color(1.0, 0.84, 0.0))
+		get_node("TransferBalance/Label").set("custom_colors/font_outline_modulate", Color(0.6, 0.4, 0.2))
 		get_node("TransferBalance/Label").text = "+" + str(amount)
 	else :
-		get_node("TransferBalance/Label").set("custom_colors/font_color", Color(1,0,0))
+		get_node("TransferBalance/Label").set("custom_colors/font_color", Color(0.8, 0.8, 0.8))
+		get_node("TransferBalance/Label").set("custom_colors/font_outline_modulate", Color(0.2, 0.2, 0.2))
 		get_node("TransferBalance/Label").text = str(amount)
 	get_node("TransferBalance/AnimationPlayer").play("show")
 

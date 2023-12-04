@@ -1,7 +1,7 @@
 extends Sprite
 
-export var targetY : float = 0
-export var delay : float = 3
+export var targetY : float = 400
+export var delay : float = 2
 var show : bool = false
 var tick : float = 0
 var wait : float = 0
@@ -10,7 +10,8 @@ var bottomY = 980
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+#	_show("Hola Soy Dora")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

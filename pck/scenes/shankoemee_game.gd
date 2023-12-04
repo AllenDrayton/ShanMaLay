@@ -69,17 +69,18 @@ const PlayStates = {
 var GameVoices = {
 	"catch":preload("res://pck/assets/shankoemee/audio/music-skomi-catch.mp3"),
 	"catch_all":preload("res://pck/assets/shankoemee/audio/music-skomi-catch.mp3"),
-	"change_dealer":preload("res://pck/assets/shankoemee/audio/change_dealer.ogg"),
-	"deliver":preload("res://pck/assets/shankoemee/audio/deliver.ogg"),
+#	"change_dealer":preload("res://pck/assets/shankoemee/audio/change_dealer.ogg"),
+	"change_dealer":preload("res://pck/assets/shankoemee/audio/EmptySound.ogg"),
+	"deliver":preload("res://pck/assets/shankoemee/audio/EmptySound.ogg"),
 	"draw_card":preload("res://pck/assets/shankoemee/audio/music-skomi-takeanothercard.mp3"),
-	"exit":preload("res://pck/assets/shankoemee/audio/exit.ogg"),
+	"exit":preload("res://pck/assets/shankoemee/audio/EmptySound.ogg"),
 	"lose":preload("res://pck/assets/shankoemee/audio/lose.ogg"),
 	"new_game":preload("res://pck/assets/shankoemee/audio/music-skomi-newround.mp3"),
-	"new_game_dealer":preload("res://pck/assets/shankoemee/audio/new_game_dealer.ogg"),
-	"wait_game":preload("res://pck/assets/shankoemee/audio/wait_game.ogg"),
+	"new_game_dealer":preload("res://pck/assets/shankoemee/audio/EmptySound.ogg"),
+	"wait_game":preload("res://pck/assets/shankoemee/audio/EmptySound.ogg"),
 	"win":preload("res://pck/assets/shankoemee/audio/win.ogg"),
 	"win_effect":preload("res://pck/assets/shankoemee/audio/win_effect.mp3"),
-	"dealer_cannot_exit":preload("res://pck/assets/shankoemee/audio/dealer_cannot_exit.ogg"),
+	"dealer_cannot_exit":preload("res://pck/assets/shankoemee/audio/EmptySound.ogg"),
 	"pauk8":preload("res://pck/assets/shankoemee/audio/pauk8.ogg"),
 	"pauk9":preload("res://pck/assets/shankoemee/audio/pauk9.ogg"),
 }
@@ -117,7 +118,8 @@ func _ready():
 		assert(label is Label, "Node at path is not a Label.")
 		labels.append(label)
 	
-
+	Config.connect("musicOff",self,"_off")
+	Config.connect("musicOn",self,"_on")
 	# Connecting Signals
 #	Signals.connect("bet_pos_invisible", self, "_hide_bet")
 #	Signals.connect("bet_pos_visible", self, "_show_bet")
@@ -125,8 +127,11 @@ func _ready():
 #	if $"/root/ws".rejoin :
 #		$BackDrop._show("Reconnecting please wait!")
 #		return
-
-
+func _off():
+	$"/root/bgm".stop()
+func _on():
+	$"/root/bgm".play()
+	
 # Function to update labels based on a given number
 func update_labels(number):
 	# Convert the number to a string with leading zeros
@@ -309,10 +314,10 @@ func _init_all():
 		player.get_node("Catch").connect("pressed",self,"_on_Catch_pressed",[i])
 		if i == 5 || i == 6 || i == 7 :
 			player.get_node("Catch").rect_position.x = -211
-			player.get_node("CardPos").position.x = -130.5
-			player.get_node("CardLoading").position.x = -130.5
+			player.get_node("CardPos").position.x = -120
+			player.get_node("CardLoading").position.x = -120
 			player.get_node("Multiply").position.x = -98
-			player.get_node("PaukFlag").position.x = -120.5
+			player.get_node("PaukFlag").position.x = -110
 			#player.get_node("Auto8_9").position.x = -120
 		playersNode.append(player)
 		$Players.add_child(player)
@@ -320,16 +325,21 @@ func _init_all():
 	for i in range(4):
 		for j in range(1,10):
 			var key = str(j) + str(i)
-			var path = "res://pck/assets/common/cards/"+key+".png"
+#			var path = "res://pck/assets/common/cards/"+key+".png"
+			var path = "res://pck/assets/common/cards/PC/"+key+".png"
 			card_textures[key] = load(path)
 		var key1 = "D"+str(i)
-		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+#		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+		card_textures[key1] = load("res://pck/assets/common/cards/PC/"+key1+".png")
 		var key2 = "J"+str(i)
-		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+#		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+		card_textures[key2] = load("res://pck/assets/common/cards/PC/"+key2+".png")
 		var key3 = "Q"+str(i)
-		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+#		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+		card_textures[key3] = load("res://pck/assets/common/cards/PC/"+key3+".png")
 		var key4 = "K"+str(i)
-		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+#		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+		card_textures[key4] = load("res://pck/assets/common/cards/PC/"+key4+".png")
 	
 	$BetPanel.visible = false
 	$DrawBtns.visible = false
@@ -395,6 +405,7 @@ func _start(room):
 
 
 func _first_deliver(room):
+	$EmojiToggle.visible = true
 	_check_player_bet_for_coin_move(room)
 	_room = room
 	_common_update(room)
@@ -725,7 +736,7 @@ func _move_all_coin_from_player_bet_to_balance():
 		if coin.playerIndex == -1 :
 			continue
 		var v = _get_vIndex(coin.playerIndex)
-		var target = playersNode[v].get_node("Profile").global_position
+		var target = playersNode[v].get_node("Profile").rect_global_position
 		coin.target = target
 		coin.destroyOnArrive = true
 
@@ -733,7 +744,7 @@ func _move_all_coin_from_player_bet_to_balance():
 func _coin_move_from_player_balance_to_dealer(index):
 	var coin = coinPrefab.instance()
 	var v = _get_vIndex(index)
-	var pos = playersNode[v].get_node("Profile").global_position
+	var pos = playersNode[v].get_node("Profile").rect_global_position
 	coin.playerIndex = -1
 	coin.position = pos
 	var bankerPos = $BankerCoinPos.position
@@ -749,7 +760,7 @@ func _coin_move_from_player_balance_to_dealer(index):
 func _coin_move_from_player_balance_to_bet(index):
 	var coin = coinPrefab.instance()
 	var v = _get_vIndex(index)
-	var pos = playersNode[v].get_node("Profile").global_position
+	var pos = playersNode[v].get_node("Profile").rect_global_position
 	coin.playerIndex = index
 	coin.position = pos
 	var betPos = playersNode[v].get_node("Bet/coin").global_position
@@ -807,7 +818,7 @@ func _coin_move_from_dealer_to_player(index):
 
 func _move_all_coin_from_dealer_player(index):
 	var v = _get_vIndex(index)
-	var target = playersNode[v].get_node("Profile").global_position
+	var target = playersNode[v].get_node("Profile").rect_global_position
 	for coin in $CoinContainer.get_children():
 		if coin.playerIndex == -1 :
 			coin.playerIndex = index
@@ -1064,6 +1075,8 @@ func _on_EmojiToggle_pressed():
 	$MessagePanel.visible = false
 	$MessageHomeToggle.visible = true
 	$MenuHomePanel.visible = false
+	
+
 
 
 func _on_message_pressed(msg):
@@ -1079,6 +1092,7 @@ func _on_message_pressed(msg):
 	$Backdrop.visible = false
 	$EmojiHomeToggle.visible = false
 	$MessageHomeToggle.visible = false
+	$EmojiToggle.show()
 	
 
 
@@ -1101,6 +1115,9 @@ func _on_Bet_pressed():
 	}
 	send(request)
 	$BetPanel.visible = false
+	$BetPanel/Slider.visible = false
+	$BetPanel/Bet.visible = false
+	$BetPanel/ChooseBet.visible = true
 	$EmojiToggle.visible = true
 	$Audio/M9betMoney.play()
 	Signals.emit_signal("bet_pressed")
@@ -1185,7 +1202,10 @@ func _on_Menu_pressed():
 	$MenuHomePanel.visible = !$MenuHomePanel.visible
 	$EmojiHomePanel.visible = false
 	$MessagePanel.visible = false
-	$Backdrop.visible = true
+	if $Backdrop.visible == true:
+		$Backdrop.hide()
+	elif $Backdrop.visible == false:
+		$Backdrop.show()
 
 
 func _on_Exit_pressed():
@@ -1196,9 +1216,9 @@ func _on_Exit_pressed():
 	$MenuHomePanel.visible = false
 	$Backdrop.visible = false
 
- ### Need in-game fix
+
 func _on_Setting_pressed():
-	$Setting._show()
+	$Setting.show()
 	$MenuHomePanel.visible = false
 	$Backdrop.visible = false
 

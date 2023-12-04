@@ -18,7 +18,7 @@ func _ready():
 
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
-	$Balance/Label.text = comma_sep(respond.balance)
+	$Label.text = comma_sep(respond.balance)
 
 
 func _notification(what):

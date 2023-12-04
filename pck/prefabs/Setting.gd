@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 var filepath = "user://setting.txt"
@@ -6,8 +6,8 @@ var isMusicMuted = false
 var isSoundMuted =false
 onready var off = load("res://pck/assets/Home-Setting/icon-setting-off.png")
 onready var on=load("res://pck/assets/Home-Setting/icon-setting-on.png")
-onready var musicAction=on
-onready var soundAction=on
+onready var musicAction = on
+onready var soundAction = on
 
 func saveSettings():
 	var data = {
@@ -21,26 +21,20 @@ func loadSettings():
 	if file.file_exists(filepath):
 		file.open(filepath, File.READ)
 		var savedData = file.get_as_text()
-		file.close()
 		var data = JSON.parse(savedData)
-		if "music_muted" in data:
-			isMusicMuted = data["music_muted"]
-		if "sound_muted" in data:
-			isSoundMuted = data["sound_muted"]
+		file.close()
+		isMusicMuted = data.result.music_muted
+		isSoundMuted = data.result.sound_muted
 		if isMusicMuted:
 			muteMusic()
 		else:
 			unmuteMusic()
+			
 		if isSoundMuted:
 			muteSound()
 		else:
 			unmuteSound()
-
-func _save(data):
-	var file = File.new()
-	file.open(filepath, File.WRITE)
-	file.store_string(JSON.print(data))
-	file.close()
+		
 #	else:
 #		saveSettings()
 #		isMusicMuted = obj.music_muted
@@ -58,7 +52,11 @@ func _save(data):
 #	else:
 #		saveSettings()
 			
-
+func _save(data):
+	var file = File.new()
+	file.open(filepath, File.WRITE)
+	file.store_string(JSON.print(data))
+	file.close()
 
 
 
@@ -127,6 +125,7 @@ func _save(data):
 #	$Submit.rect_scale = Vector2(1,1)
 
 func _ready():
+#	set_as_toplevel(true)
 	loadSettings()
 	$settingbox/music.connect("pressed", self, "_on_music_pressed")
 	$settingbox/music.texture_normal = musicAction
@@ -160,8 +159,8 @@ func _ready():
 #	file.close()
 
 func _on_Exit_pressed():
-	hide()
 #	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	hide()
 	
 func _on_music_pressed():
 	isMusicMuted = !isMusicMuted

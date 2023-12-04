@@ -1,4 +1,4 @@
-[gd_scene load_steps=267 format=2]
+[gd_scene load_steps=270 format=2]
 
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
@@ -58,7 +58,7 @@
 [ext_resource path="res://pck/assets/audio/win-1.mp3" type="AudioStream" id=56]
 [ext_resource path="res://pck/assets/audio/lose-1.mp3" type="AudioStream" id=57]
 [ext_resource path="res://pck/assets/shankoemee/MenuPacks/setting.png" type="Texture" id=58]
-[ext_resource path="res://pck/assets/shankoemee/menu.png" type="Texture" id=59]
+[ext_resource path="res://pck/assets/bugyeeNew/Poker Phit - ma Phit/01.png" type="Texture" id=59]
 [ext_resource path="res://pck/assets/shankoemee/MenuPacks/Back.png" type="Texture" id=60]
 [ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl2.png" type="Texture" id=61]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=62]
@@ -235,6 +235,9 @@
 [ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl3.png" type="Texture" id=233]
 [ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl1.png" type="Texture" id=234]
 [ext_resource path="res://pck/assets/common/btn-6.png" type="Texture" id=235]
+[ext_resource path="res://pck/scripts/MessageButton.gd" type="Script" id=236]
+[ext_resource path="res://pck/assets/shankoemee/Models/Girl 01.png" type="Texture" id=237]
+[ext_resource path="res://pck/scripts/Skm_setting.gd" type="Script" id=238]
 
 [sub_resource type="DynamicFontData" id=352]
 font_path = "res://pck/assets/common/zawgyi-one.ttf"
@@ -977,11 +980,11 @@ tracks/6/keys = {
 
 [sub_resource type="StyleBoxFlat" id=356]
 bg_color = Color( 0.0509804, 0.12549, 0.258824, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 1, 0.709804, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.760784, 0.760784, 0.760784, 0.588235 )
 border_blend = true
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -1172,6 +1175,9 @@ position = Vector2( 998, 415 )
 scale = Vector2( 1.02969, 0.941667 )
 z_index = -2
 texture = ExtResource( 194 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PlayerPos" type="Node" parent="."]
 
@@ -1198,7 +1204,7 @@ position = Vector2( 630, 625 )
 position = Vector2( 42, -72 )
 
 [node name="Bet" type="Node2D" parent="PlayerPos/1" groups=["Bet"]]
-position = Vector2( 100, -125 )
+position = Vector2( 100, -126 )
 
 [node name="Load" type="Node2D" parent="PlayerPos/1/Bet"]
 visible = false
@@ -1343,6 +1349,7 @@ position = Vector2( 30, 30 )
 
 [node name="Banker" type="Sprite" parent="."]
 position = Vector2( 1000, 420 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 10 )
 script = ExtResource( 9 )
 
@@ -1593,6 +1600,8 @@ script = ExtResource( 14 )
 [node name="Label" type="Label" parent="BetPanel/C2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = 5.0
 custom_fonts/font = SubResource( 5 )
 text = "200"
 align = 1
@@ -1612,7 +1621,9 @@ script = ExtResource( 14 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.0
+margin_top = 5.0
 margin_right = 2.0
+margin_bottom = 5.0
 custom_fonts/font = SubResource( 5 )
 text = "300"
 align = 1
@@ -1630,6 +1641,8 @@ script = ExtResource( 14 )
 [node name="Label" type="Label" parent="BetPanel/C4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = 5.0
 custom_fonts/font = SubResource( 5 )
 text = "500"
 align = 1
@@ -1747,7 +1760,7 @@ valign = 1
 
 [node name="DrawBtns" type="Node2D" parent="."]
 visible = false
-position = Vector2( 1707, 793 )
+position = Vector2( 1648, 803 )
 scale = Vector2( 0.7, 0.7 )
 z_index = 30
 
@@ -2001,20 +2014,21 @@ stream = ExtResource( 57 )
 bus = "Music"
 
 [node name="Menu" type="TextureButton" parent="."]
-margin_right = 120.0
-margin_bottom = 120.0
+margin_right = 110.0
+margin_bottom = 110.0
 texture_normal = ExtResource( 59 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 14 )
 
 [node name="MenuHomePanel" type="Node2D" parent="."]
-visible = false
 z_index = 21
 
 [node name="MenuPanel" type="Panel" parent="MenuHomePanel"]
 margin_left = 6.0
-margin_top = 6.0
+margin_top = 110.0
 margin_right = 246.0
-margin_bottom = 239.0
+margin_bottom = 343.0
 custom_styles/panel = SubResource( 356 )
 
 [node name="Exit" type="TextureButton" parent="MenuHomePanel/MenuPanel"]
@@ -2074,6 +2088,7 @@ script = ExtResource( 14 )
 
 [node name="Setting" parent="." instance=ExtResource( 62 )]
 visible = false
+script = ExtResource( 238 )
 
 [node name="Rules" type="Node2D" parent="."]
 visible = false
@@ -2154,11 +2169,12 @@ anims/RESET = SubResource( 345 )
 anims/show = SubResource( 346 )
 
 [node name="ShanMa" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 999, 119 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 349 )
 animation = "idle"
-frame = 39
+frame = 18
 playing = true
 
 [node name="Backdrop" type="Sprite" parent="."]
@@ -2181,14 +2197,15 @@ margin_bottom = 779.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="1" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 1.0
+margin_left = -42.0
 margin_top = 134.0
-margin_right = 653.0
+margin_right = 683.0
 margin_bottom = 209.0
+rect_scale = Vector2( 0.9, 0.9 )
 texture_normal = ExtResource( 200 )
 expand = true
 stretch_mode = 3
-script = ExtResource( 14 )
+script = ExtResource( 236 )
 
 [node name="2" type="TextureButton" parent="MessagePanel/Panel"]
 visible = false
@@ -2199,55 +2216,62 @@ margin_bottom = 286.0
 texture_normal = ExtResource( 201 )
 expand = true
 stretch_mode = 3
-script = ExtResource( 14 )
+script = ExtResource( 236 )
 
 [node name="3" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 2.0
+margin_left = -43.0
 margin_top = 219.0
-margin_right = 654.0
+margin_right = 683.0
 margin_bottom = 294.0
+rect_scale = Vector2( 0.9, 0.9 )
 texture_normal = ExtResource( 198 )
 expand = true
 stretch_mode = 3
-script = ExtResource( 14 )
+script = ExtResource( 236 )
 
 [node name="4" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -42.0
 margin_top = 474.0
-margin_right = 654.0
+margin_right = 682.0
 margin_bottom = 549.0
+rect_scale = Vector2( 0.9, 0.9 )
 texture_normal = ExtResource( 199 )
 expand = true
 stretch_mode = 3
-script = ExtResource( 14 )
+script = ExtResource( 236 )
 
 [node name="5" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 2.0
+margin_left = -42.0
 margin_top = 304.0
-margin_right = 656.0
+margin_right = 683.0
 margin_bottom = 379.0
+rect_scale = Vector2( 0.9, 0.9 )
 texture_normal = ExtResource( 231 )
 expand = true
 stretch_mode = 3
-script = ExtResource( 14 )
+script = ExtResource( 236 )
 
 [node name="6" type="TextureButton" parent="MessagePanel/Panel"]
-margin_left = 3.0
+margin_left = -43.0
 margin_top = 389.0
-margin_right = 653.0
+margin_right = 684.0
 margin_bottom = 464.0
+rect_scale = Vector2( 0.9, 0.9 )
 texture_normal = ExtResource( 197 )
 expand = true
 stretch_mode = 3
-script = ExtResource( 14 )
+script = ExtResource( 236 )
 
 [node name="7" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -42.0
 margin_top = 559.0
-margin_right = 652.0
+margin_right = 683.0
 margin_bottom = 634.0
+rect_scale = Vector2( 0.9, 0.9 )
 texture_normal = ExtResource( 203 )
 expand = true
 stretch_mode = 3
-script = ExtResource( 14 )
+script = ExtResource( 236 )
 
 [node name="Texter" type="Sprite" parent="MessagePanel"]
 modulate = Color( 0.647059, 0.152941, 0.686275, 1 )
@@ -2542,6 +2566,11 @@ script = ExtResource( 14 )
 position = Vector2( 123.9, 46 )
 scale = Vector2( 1.29213, 1.3 )
 texture = ExtResource( 229 )
+
+[node name="M9Girl" type="Sprite" parent="."]
+position = Vector2( 1000, 114 )
+scale = Vector2( 0.208333, 0.208333 )
+texture = ExtResource( 237 )
 
 [connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]
 [connection signal="pressed" from="BetPanel/C1" to="." method="_on_Bet_select" binds= [ 0 ]]
