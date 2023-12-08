@@ -161,7 +161,6 @@ func _ready():
 #	file.close()
 
 func _on_Exit_pressed():
-#	get_tree().change_scene("res://pck/scenes/menu.tscn")
 	hide()
 	
 func _on_music_pressed():
@@ -214,5 +213,6 @@ func unmuteSound():
 	$settingbox/sound.texture_normal = soundAction
 	print("Tunron")
 	
-	
 
+func _on_logout_pressed():
+	get_tree().change_scene("res://pck/scenes/login.tscn")

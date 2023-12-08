@@ -86,7 +86,7 @@ func _transfer_balance(amount):
 
 func _show_card_status(status):
 	var zaflag = $Profile/ZaFlag
-	zaflag.scale = Vector2(.1,.1)
+	zaflag.scale = Vector2(.08,.08)
 	if status == 0: # m phyik phl 
 		get_node("CardStatus/BG/Label").text = "rjzpfzJ"
 		get_node("CardStatus/BG").show()

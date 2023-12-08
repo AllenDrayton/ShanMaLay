@@ -229,7 +229,7 @@
 [ext_resource path="res://pck/assets/shankoemee/EmoPacks/icon-message1.png" type="Texture" id=227]
 [ext_resource path="res://pck/assets/bugyeeNew/BBAB New.png" type="Texture" id=228]
 [ext_resource path="res://pck/assets/bugyeeNew/YL/YL.png" type="Texture" id=229]
-[ext_resource path="res://pck/scripts/Blur.gd" type="Script" id=230]
+[ext_resource path="res://pck/scenes/BugyeeTouchScreen.gd" type="Script" id=230]
 [ext_resource path="res://pck/scripts/bugyeeBetButton.gd" type="Script" id=231]
 [ext_resource path="res://pck/assets/bugyeeNew/VVVVV.png" type="Texture" id=232]
 [ext_resource path="res://pck/assets/bugyeeNew/Win/win design.png" type="Texture" id=233]
@@ -1157,7 +1157,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 288 )
 animation = "idle"
-frame = 19
+frame = 47
 playing = true
 
 [node name="Black" type="Sprite" parent="."]

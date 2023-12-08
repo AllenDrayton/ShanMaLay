@@ -2,7 +2,7 @@ extends Node
 
 var CARD_DELIVER_DELAY = 0.2
 
-var betArr = [100,500,1000,2000,10000,50000]
+var betArr = [100,500,1000,2000,5000,10000]
 var betArea = []
 var betAmount = [0,0,0,0]
 var myBetAmount = [0,0,0,0]
@@ -19,6 +19,7 @@ var profile_textures = []
 var card_textures = {}
 var t2 = 0
 var timer = 0
+var prev_selected=0
 
 var _client = WebSocketClient.new()
 
@@ -35,14 +36,28 @@ var CardStatusVoices = [
 	preload("res://pck/assets/skm_bet/audio/9.ogg"),
 ]
 
+var Pauk_texture = [
+	preload("res://pck/assets/skm_bet_new/Buu.png"),
+	preload("res://pck/assets/skm_bet_new/1 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/2 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/3 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/4 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/5 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/6 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/7 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/8 Pouk.png"),
+	preload("res://pck/assets/skm_bet_new/9 Pouk.png"),
+]
+
 var music = preload("res://pck/assets/audio/music-2.mp3")
-var coinPrefab = preload("res://pck/prefabs/Coin.tscn")
-var cardPrefab = preload("res://pck/assets/skm_bet/Card.tscn")
+var menu_music = preload("res://pck/assets/audio/music-main-background.mp3")
+var coinPrefab = preload("res://pck/prefabs/DragonTigerCoin.tscn")
+var cardPrefab = preload("res://pck/assets/skm_bet_new/skm_bet_card.tscn")
 var historyPrefab = preload("res://pck/assets/skm_bet/HistoryRow.tscn")
 
 const historyTextures = [
-	preload("res://pck/assets/skm_bet/history-win.png"),
-	preload("res://pck/assets/skm_bet/history-lose.png")
+	preload("res://pck/assets/skm_bet_new/history-win.png"),
+	preload("res://pck/assets/skm_bet_new/history_lose.png"),
 ]
 
 const resultTextures = {
@@ -52,13 +67,19 @@ const resultTextures = {
 
 var GameVoices = {
 	"exit":preload("res://pck/assets/common/audio/exit.ogg"),
-	"new_game":preload("res://pck/assets/common/audio/new_game.ogg")
+	"stop_bet":preload("res://pck/assets/tg_tiger_voice/tg_stop.mp3"),
+	"new_game":preload("res://pck/assets/tg_tiger_voice/tg_sa_pe_l_mal.mp3"),
+	"money_win":preload("res://pck/assets/tg_tiger_voice/tg_money_win.mp3"),
+	"number_card":preload("res://pck/assets/tg_tiger_voice/tg_number_card.mp3"),
+	"card":preload("res://pck/assets/tg_tiger_voice/tg_card_sound.mp3"),
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
+	Config.connect("musicOn",self,"musicOn")
+	Config.connect("musicOff",self,"musicOff")
 	_load_profile_textures()
 	
 	for i in range(4):
@@ -99,8 +120,24 @@ func _ready():
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
 	_reset()
+	firstcoinselect()
 	$BackDrop._show("ကစားပြဲႏွင့္ခ်ိတ္ဆက္ေနသည္။ ခဏေစာင့္ေပးပါ။")
+	
+	$BetArea/B1/Btn/AnimatedSprite.frame=0
+	$BetArea/B1/Btn/AnimatedSprite.stop()
+	$BetArea/B2/Btn/AnimatedSprite.frame=0
+	$BetArea/B2/Btn/AnimatedSprite.stop()
+	$BetArea/B3/Btn/AnimatedSprite.frame=0
+	$BetArea/B3/Btn/AnimatedSprite.stop()
+	$BetArea/B4/Btn/AnimatedSprite.frame=0
+	$BetArea/B4/Btn/AnimatedSprite.stop()
+	
+func musicOn():
+	$"/root/bgm".volume_db=0
 
+func musicOff():
+	$"/root/bgm".volume_db=-80
+	
 func _connect_ws():
 	_client.connect("connection_closed", self, "_closed")
 	_client.connect("connection_error", self, "_closed")
@@ -154,6 +191,14 @@ func _on_server_respond(respond):
 			_start(respond.body)
 		"end":
 			_end(respond.body)
+			
+func firstcoinselect():
+	var sel = $BetSelect.get_node("0")
+	var pos = sel.rect_position
+	sel.texture_normal=sel.texture_pressed
+	sel.rect_min_size = Vector2(150,150)
+	pos.y-=30
+	sel.rect_position.y=pos.y
 
 func _start(body):
 	if isExit:
@@ -164,34 +209,38 @@ func _start(body):
 	_reset()
 	
 	$BackDrop._hide()
-	timer = body.timer
-	_playVoice("new_game")
+	
 	
 	# Show history
-	for N in $History/VBoxContainer.get_children():
+	var margin_x = 20
+	var margin_y = 20
+	for N in $HBoxContainer.get_children():
 		N.queue_free()
 	for h in body.history:
 		var row = historyPrefab.instance()
 		for i in range(4):
 			if _array_include(h,i):
 				row.get_node(str(i)).texture = historyTextures[0]
-		$History/VBoxContainer.add_child(row)
+			row.get_node(str(i)).rect_min_size = Vector2(30,30)
+			row.get_node(str(i)).expand = true
+			row.get_node(str(i)).stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
+			row.get_node(str(i)).margin_top += 20
+		$HBoxContainer.add_child(row)
 	
 	for p in $Pauk.get_children():
 		p.visible = false
 	
 	$ShanMa.play("deliver")
-	
+	_playVoice("card")
 	for i in range(5):
 		var sprite = cardPrefab.instance()
 		sprite.position = $CardHome.position
 		sprite.target = cardPos[i][0]
-		var card = body.cards[i][0]
-		var key = str(card.rank)+str(card.shape)
-		sprite.texture = card_textures[key]
 		$Cards.add_child(sprite)
 		yield(get_tree().create_timer(CARD_DELIVER_DELAY), "timeout")
 	
+	_playVoice("card")
+	timer = body.timer
 	for i in range(5):
 		var sprite = cardPrefab.instance()
 		sprite.position = $CardHome.position
@@ -199,13 +248,31 @@ func _start(body):
 		$Cards.add_child(sprite)
 		yield(get_tree().create_timer(CARD_DELIVER_DELAY), "timeout")
 	
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	
+	$BetArea/B1/Btn/AnimatedSprite.frame=0
+	$BetArea/B1/Btn/AnimatedSprite.play("default")
+	$BetArea/B2/Btn/AnimatedSprite.frame=0
+	$BetArea/B2/Btn/AnimatedSprite.play("default")
+	$BetArea/B3/Btn/AnimatedSprite.frame=0
+	$BetArea/B3/Btn/AnimatedSprite.play("default")
+	$BetArea/B4/Btn/AnimatedSprite.frame=0
+	$BetArea/B4/Btn/AnimatedSprite.play("default")
+	_playVoice("new_game")
 	$ShanMa.play("idle")
-	
 	fakeBet = true
+	
 
 func _end(body):
+	_playVoice("stop_bet")
+	$BetArea/B1/Btn/AnimatedSprite.frame=0
+	$BetArea/B1/Btn/AnimatedSprite.stop()
+	$BetArea/B2/Btn/AnimatedSprite.frame=0
+	$BetArea/B2/Btn/AnimatedSprite.stop()
+	$BetArea/B3/Btn/AnimatedSprite.frame=0
+	$BetArea/B3/Btn/AnimatedSprite.stop()
+	$BetArea/B4/Btn/AnimatedSprite.frame=0
+	$BetArea/B4/Btn/AnimatedSprite.stop()
 	if fakeBet == false:
 		return
 	fakeBet = false
@@ -215,15 +282,20 @@ func _end(body):
 	yield(get_tree().create_timer(1), "timeout")
 	
 	#Show second card
+	_playVoice("number_card")
 	var cards = $Cards.get_children()
 	for i in range(5):
-		var card = body.cards[i][1]
-		var key = str(card.rank)+str(card.shape)
-		cards[i+5].texture = card_textures[key]
+		var card1 = body.cards[i][0]
+		var key1 = str(card1.rank)+str(card1.shape)
+		var card2 = body.cards[i][1]
+		var key2 = str(card2.rank)+str(card2.shape)
+		cards[i].texture = card_textures[key1]
+		cards[i+5].texture = card_textures[key2]
 	
 	yield(get_tree().create_timer(1), "timeout")
 	
 	# Deliver third card
+	_playVoice("number_card")
 	for i in range(5):
 		var card = body.cards[i][2]
 		if card:
@@ -238,10 +310,7 @@ func _end(body):
 	yield(get_tree().create_timer(1), "timeout")
 	
 	for i in range(5):
-		if body.pauk[i] == 0:
-			$Pauk.get_node(str(i)+"/Label").text = "bl"
-		else :
-			$Pauk.get_node(str(i)+"/Label").text = str(body.pauk[i]) + " ayguf"
+		$Pauk.get_node(str(i)).texture=Pauk_texture[body.pauk[i]]
 		yield(get_tree().create_timer(0.5), "timeout")
 		$Pauk.get_node(str(i)).visible = true
 		_playCardStatus(body.pauk[i])
@@ -249,6 +318,11 @@ func _end(body):
 	
 	yield(get_tree().create_timer(1), "timeout")
 	
+	for i in range(0,4):
+		if i in winners:
+			$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").frame=0
+			$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").play("default")
+
 	var j = 0
 	for f in $ResultFlag.get_children():
 		if _array_include(winners,j):
@@ -260,6 +334,7 @@ func _end(body):
 		j += 1
 	
 	# Move lose coin
+	_playVoice("money_win")
 	var winCoinCount = [0,0,0,0]
 	$Audio/CoinMove.play()
 	for coin in $CoinContainer.get_children():
@@ -280,7 +355,7 @@ func _end(body):
 	yield(get_tree().create_timer(1), "timeout")
 	
 	# Move win coin
-	$Audio/CoinMove.play()
+	_playVoice("money_win")
 	for k in winners:
 		for i in range(winCoinCount[k]):
 			var coin = coinPrefab.instance()
@@ -306,6 +381,7 @@ func _end(body):
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	# Refund coin to player
+	_playVoice("money_win")
 	for k in winners:
 		var t = 0
 		var playerWinCoin = 2
@@ -318,6 +394,7 @@ func _end(body):
 				t += 1
 	
 	# Refund coin to bot
+	_playVoice("money_win")
 	for k in winners:
 		for coin in $CoinContainer.get_children():
 			if coin.playerIndex == k:
@@ -329,16 +406,21 @@ func _end(body):
 				coin.destroyOnArrive = true
 				coin.playerIndex = -2
 	
-	$Profile/Panel/Balance.text = str(body.player.balance)
+	$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
+	
+	for i in range(0,4):
+		if i in winners:
+			$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").frame=0
+			$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").stop()
 
 func _handshake_respond(body):
 	if body.status == "ok":
 		$Profile/Panel/Nickname.text = body.player.info.nickname
-		$Profile/Panel/Balance.text = str(body.player.balance)
-		$Profile/Img.texture = profile_textures[body.player.info.profile]
+		$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
+		$Img.texture = profile_textures[int(body.player.info.profile) - 1]
 
 func _bet_respond(body):
-	$Profile/Panel/Balance.text = str(body.player.balance)
+	$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
 	betAmount[body.index] += body.amount
 	myBetAmount[body.index] += body.amount
 	betArea[body.index].get_node("Btn/Total").text = _balance_round(betAmount[body.index])
@@ -356,10 +438,10 @@ func _bet_respond(body):
 	$CoinContainer.add_child(coin)
 
 func _load_profile_textures():
-	for i in range(13):
-		var path = "res://pck/assets/common/profiles/" + str(i) + ".png"
+	for i in range(32):
+		var path = "res://pck/assets/HomeScence/Home-Photo/icon-photo-" + str(i+1) + ".png"
 		var texture = load(path)
-		profile_textures.append(texture) 
+		profile_textures.append(texture)
 
 func _reset():
 	for i in range(7):
@@ -422,7 +504,7 @@ func _bot_bet():
 			bot[i].get_node("Panel/Balance").text = _balance_round(botBalance[i])
 			betArea[rb].get_node("Btn/Total").text = _balance_round(betAmount[rb])
 	# Players bet
-	var t = randi() % 4 + 1
+	var t = randi() % 10 + 1
 	for i in range(t):
 		var coin = coinPrefab.instance()
 		coin.position = $Bots/Players.position
@@ -441,12 +523,21 @@ func _bot_bet():
 		yield(get_tree().create_timer(0.15), "timeout")
 
 func _on_bet_select(index):
-	var sel = $BetSelect.get_node(str(index))
-	var pos = sel.rect_position
-	pos.x += 50
-	pos.y += 50
-	$BetSelect/Select.position = pos
-	selectedBet = index
+	if index!=selectedBet:
+		prev_selected=selectedBet
+		var prev_sel = $BetSelect.get_node(str(prev_selected))
+		var prev_pos = prev_sel.rect_position
+		prev_sel.texture_normal=prev_sel.texture_disabled
+		prev_pos.y+=30
+		prev_sel.rect_position.y=prev_pos.y
+		var sel = $BetSelect.get_node(str(index))
+		var pos = sel.rect_position
+		sel.texture_normal=sel.texture_pressed
+		sel.rect_min_size = Vector2(150,150)
+		pos.y-=30
+		sel.rect_position.y=pos.y
+		selectedBet = index
+		print("index",index)
 
 func _on_bet(index):
 	var amount = betArr[selectedBet]
@@ -479,6 +570,7 @@ func _array_include(arr,value):
 func _on_Exit_pressed():
 	isExit = true
 	_playVoice("exit")
+	
 
 func _playVoice(key):
 	$Audio/GameVoice.stream = GameVoices[key]

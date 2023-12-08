@@ -20,8 +20,8 @@ var polygonPoints = [
 	Vector2(1512, 0),
 	Vector2(0, 0)] # Replace this with your actual points
 
-func _ready():
-	print($CollisionPolygon2D.polygon)
+#func _ready():
+#	print($CollisionPolygon2D.polygon)
 
 func _input(event):
 	if event is InputEventScreenTouch and event.pressed:

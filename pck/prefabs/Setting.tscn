@@ -173,4 +173,5 @@ margin_bottom = 440.0
 texture_normal = ExtResource( 8 )
 expand = true
 
+[connection signal="pressed" from="settingbox/logout" to="." method="_on_logout_pressed"]
 [connection signal="pressed" from="settingbox/Exit" to="." method="_on_Exit_pressed"]

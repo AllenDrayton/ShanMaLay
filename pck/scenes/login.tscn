@@ -227,10 +227,6 @@ text = "Remember"
 align = 1
 valign = 1
 
-[node name="AlertBox" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1000, 980 )
-targetY = 840.0
-
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="loginAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -334,6 +330,10 @@ __meta__ = {
 position = Vector2( 37, 37 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 13 )
+
+[node name="AlertBox" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1000, 980 )
+targetY = 840.0
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="animation_finished" from="loginAnimationPlayer" to="." method="_on_loginAnimationPlayer_animation_finished"]

@@ -2,7 +2,7 @@ extends Node2D
 
 
 var filepath = "user://session.txt"
-
+var bgm_node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,15 +10,28 @@ func _ready():
 	_load_bgm()
 	$loginAnimationPlayer.play("Null")
 	Signals.connect("screenTouch",self,"_on_screen_touch")
+	Config.connect("musicOff",self,"Off")
+	Config.connect("musicOn",self,"On")
+	
+	
+func On():
+	if bgm_node:
+		bgm_node.volume_db = 0
+		
+func Off():
+	if bgm_node:
+		bgm_node.volume_db = -80
+	
+func _load_bgm():
+	if bgm_node == null:
+	   var n = load("res://pck/prefabs/bgm.tscn")
+	   bgm_node = n.instance()
+	   get_tree().root.add_child(bgm_node)
 
 func _on_screen_touch():
 	_loginBoxOut()
 
-func _load_bgm():
-	var bgm = get_tree().root.get_node_or_null("bgm")
-	if !bgm:
-		var n = load("res://pck/prefabs/bgm.tscn")
-		get_tree().root.add_child(n.instance())
+
 
 func _process(delta):
 	if $LoginBox.visible == true:

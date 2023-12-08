@@ -5,7 +5,7 @@ signal musicOn
 signal musicOff
 
 var COUNTDOWN
-var cancel
+var cancel = true
 
 var config = {
 	"name":"ShanMaLay",
