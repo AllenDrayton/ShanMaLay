@@ -5,7 +5,7 @@ var cardPosArray = []
 
 const textures = {
 	"win":preload("res://pck/assets/shankoemee/win.png"),
-#	"win":preload("res://pck/assets/bugyeeNew/Win/win design.png"),
+	"winNew":preload("res://pck/assets/bugyeeNew/Win/win design.png"),
 	"lose":preload("res://pck/assets/shankoemee/lose.png")
 }
 
@@ -19,14 +19,41 @@ var msg_textures = {
 	"quit":preload("res://pck/assets/common/messages/quit.png")
 }
 
+var message_texts = {
+	"bet_more":"bet_more",
+	"haha":"[m;[m;",
+	"hurry":"jrefjrefvkyf",
+	"lose":"igawmh&SHk;awmhrSmyJ",
+	"mingalar":"r*Fvmyg",
+	"play_again":"roGm;eJ. OD;aemf?xyfupm;OD;",
+	"quit":"igxGufawmhr,f",
+}
+
+var za_textures = {
+	"2x":preload("res://pck/assets/bugyeeNew/Za/x-2.png"),
+	"3x":preload("res://pck/assets/bugyeeNew/Za/x-3.png"),
+	"4x":preload("res://pck/assets/bugyeeNew/Za/x-4.png"),
+	"5x":preload("res://pck/assets/bugyeeNew/Za/x-5.png")
+}
+
+#var voices = {
+#	"bet_more":preload("res://pck/assets/common/messages/bet_more.ogg"),
+#	"haha":preload("res://pck/assets/common/messages/haha.ogg"),
+#	"hurry":preload("res://pck/assets/common/messages/hurry.ogg"),
+#	"lose":preload("res://pck/assets/common/messages/lose.ogg"),
+#	"mingalar":preload("res://pck/assets/common/messages/mingalar.ogg"),
+#	"play_again":preload("res://pck/assets/common/messages/play_again.ogg"),
+#	"quit":preload("res://pck/assets/common/messages/quit.ogg")
+#}
+
 var voices = {
 	"bet_more":preload("res://pck/assets/common/messages/bet_more.ogg"),
-	"haha":preload("res://pck/assets/common/messages/haha.ogg"),
-	"hurry":preload("res://pck/assets/common/messages/hurry.ogg"),
-	"lose":preload("res://pck/assets/common/messages/lose.ogg"),
-	"mingalar":preload("res://pck/assets/common/messages/mingalar.ogg"),
-	"play_again":preload("res://pck/assets/common/messages/play_again.ogg"),
-	"quit":preload("res://pck/assets/common/messages/quit.ogg")
+	"haha":preload("res://pck/assets/common/messages/A_Haha.mp3"),
+	"hurry":preload("res://pck/assets/common/messages/A_MyanLoke.mp3"),
+	"lose":preload("res://pck/assets/common/messages/A_NgrShonePe.mp3"),
+	"mingalar":preload("res://pck/assets/common/messages/A_Mingalarpa.mp3"),
+	"play_again":preload("res://pck/assets/common/messages/A_MaTwrNeOmm.mp3"),
+	"quit":preload("res://pck/assets/common/messages/A_TorPeKwr.mp3")
 }
 
 func _ready():
@@ -39,12 +66,13 @@ func _ready():
 	for card in cards.get_children():
 		cardPosArray.append(card.global_position)
 		card.queue_free()
-	print(cardPosArray)
+
 
 func _reset():
 	_hide_result_flag()
 	_hide_bet()
 	_hide_card_status()
+	_hide_zaFlag()
 
 func _transfer_balance(amount):
 	if amount > 0 :
@@ -57,14 +85,54 @@ func _transfer_balance(amount):
 	pass
 
 func _show_card_status(status):
-	if status == 0:
+	var zaflag = $Profile/ZaFlag
+	zaflag.scale = Vector2(.1,.1)
+	if status == 0: # m phyik phl 
 		get_node("CardStatus/BG/Label").text = "rjzpfzJ"
-	elif status == 10:
+		get_node("CardStatus/BG").show()
+	elif status == 10: # bugyee 5x
 		get_node("CardStatus/BG/Label").text = "blMuD;"
+		get_node("CardStatus/BG").show()
+		zaflag.texture = za_textures["5x"]
+		zaflag.show()
 	elif status == 11:
 		get_node("CardStatus/BG/Label").text = "blav;"
-	else:
-		get_node("CardStatus/BG/Label").text = str(status) + " ayguf"
+		get_node("CardStatus/BG").show()
+	elif status == 1:
+		get_node("CardStatus/PaukGif").play("1")
+		get_node("CardStatus/BG").hide()
+	elif status == 2:
+		get_node("CardStatus/PaukGif").play("2")
+		get_node("CardStatus/BG").hide()
+	elif status == 3:
+		get_node("CardStatus/PaukGif").play("3")
+		get_node("CardStatus/BG").hide()
+	elif status == 4:
+		get_node("CardStatus/PaukGif").play("4")
+		get_node("CardStatus/BG").hide()
+	elif status == 5:
+		get_node("CardStatus/PaukGif").play("5")
+		get_node("CardStatus/BG").hide()
+	elif status == 6:
+		get_node("CardStatus/PaukGif").play("6")
+		get_node("CardStatus/BG").hide()
+	elif status == 7: # 7 pauk 2x
+		get_node("CardStatus/PaukGif").play("7")
+		get_node("CardStatus/BG").hide()
+		zaflag.texture = za_textures["2x"]
+		zaflag.show()
+	elif status == 8: # 8 pauk 2x 
+		get_node("CardStatus/PaukGif").play("8")
+		get_node("CardStatus/BG").hide()
+		zaflag.texture = za_textures["2x"]
+		zaflag.show()
+	elif status == 9: # 9 pauk 3x
+		get_node("CardStatus/PaukGif").play("9")
+		get_node("CardStatus/BG").hide()
+		zaflag.texture = za_textures["3x"]
+		zaflag.show()
+#	else:
+#		get_node("CardStatus/BG/Label").text = str(status) + " ayguf"
 	get_node("CardStatus/AnimationPlayer").play("show")
 
 func _hide_card_status():
@@ -73,6 +141,9 @@ func _hide_card_status():
 func _show_bet(x):
 	$Profile/Bet.text = "x" + str(x)
 	$Profile/Bet.visible = true
+
+func _hide_zaFlag():
+	$Profile/ZaFlag.hide()
 
 func _hide_bet():
 	$Profile/Bet.visible = false
@@ -104,6 +175,13 @@ func _show_result_flag(isWin):
 		get_node("ResultFlag").texture = textures.lose
 	get_node("ResultFlag").visible = true
 
+func _show_Result(isWin):
+	if isWin == true:
+		get_node("ResultFlag").texture = textures.winNew
+	else:
+		get_node("ResultFlag").texture = textures.lose
+	get_node("ResultFlag").show()
+
 func _hide_result_flag():
 	$ResultFlag.visible = false
 
@@ -117,5 +195,12 @@ func _play_emoji(emoji):
 func _play_message(msg):
 	$AudioStreamPlayer.stream = voices[msg]
 	$AudioStreamPlayer.play()
-	$Message.texture = msg_textures[msg]
-	$Message/AnimationPlayer.play("show")
+	#$Message.texture = msg_textures[msg]
+	#$Message/AnimationPlayer.play("show")
+	$MessageReply/MessageReplyText.text = message_texts[msg]
+	$MessageReply.visible = true
+	$MessageTimer.start()
+
+
+func _on_MessageTimer_timeout():
+	$MessageReply.hide()

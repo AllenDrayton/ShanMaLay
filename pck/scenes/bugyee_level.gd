@@ -16,6 +16,9 @@ func _ready():
 	$AnimationPlayer.play("in")
 
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	$Label.text = comma_sep(respond.balance)
@@ -38,6 +41,7 @@ func comma_sep(number):
 
 
 func _on_level_pressed(level):
+	Signals.emit_signal("menuMusicOff")
 	var data = {
 		"username":$"/root/Config".config.user.username,
 		"session":$"/root/Config".config.user.session,
@@ -52,7 +56,11 @@ func _on_level_pressed(level):
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _level_selected(result, response_code, headers, body):
+	Signals.emit_signal("menuMusicOff")
 	var json = JSON.parse(body.get_string_from_utf8())
 	var res = json.result;
 	print(res)
@@ -61,6 +69,7 @@ func _level_selected(result, response_code, headers, body):
 			"passcode":res.passcode,
 			"url":res.url
 		}
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://pck/scenes/bugyee_game.tscn")
 #		get_tree().change_scene("res://pck/scenes/bugyeegame_new.tscn")
 	elif res.status == "not enough balance":
@@ -76,4 +85,5 @@ func _level_selected(result, response_code, headers, body):
 func _on_Exit_pressed():
 	$AnimationPlayer.play("out")
 	yield(get_tree().create_timer(1), "timeout")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/menu.tscn")

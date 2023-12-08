@@ -14,6 +14,12 @@ func _ready():
 #	$playerInfoAnimation.play("In")
 	profile.rect_scale = Vector2(1.6,1.6)
 	$Exit.connect("pressed", self, "_on_exit")
+	$changePW/PWpanel/PasswordNew.connect("mouse_entered", self, "mouse_get_in")
+	
+
+func mouse_get_in():
+	print("Mouse enter worked")
+	
 
 func _on_usernameUpdate(name):
 	$Nickname.text = name

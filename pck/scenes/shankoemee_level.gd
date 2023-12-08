@@ -40,6 +40,7 @@ func comma_sep(number):
 
 
 func _on_level_pressed(level):
+	Signals.emit_signal("menuMusicOff")
 	var data = {
 		"username":$"/root/Config".config.user.username,
 		"session":$"/root/Config".config.user.session,
@@ -55,6 +56,7 @@ func _on_level_pressed(level):
 
 
 func _level_selected(result, response_code, headers, body):
+	Signals.emit_signal("menuMusicOff")
 	var json = JSON.parse(body.get_string_from_utf8())
 	var res = json.result;
 	print(res)

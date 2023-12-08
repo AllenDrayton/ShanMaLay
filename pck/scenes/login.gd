@@ -2,14 +2,17 @@ extends Node2D
 
 
 var filepath = "user://session.txt"
-var cancel 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_load_session()
+#	_load_session()
 	_load_bgm()
 	$loginAnimationPlayer.play("Null")
+	Signals.connect("screenTouch",self,"_on_screen_touch")
 
+func _on_screen_touch():
+	_loginBoxOut()
 
 func _load_bgm():
 	var bgm = get_tree().root.get_node_or_null("bgm")
@@ -17,6 +20,12 @@ func _load_bgm():
 		var n = load("res://pck/prefabs/bgm.tscn")
 		get_tree().root.add_child(n.instance())
 
+func _process(delta):
+	if $LoginBox.visible == true:
+		Config.cancel = true
+	elif $LoginBox.visible == false:
+		Config.cancel = false
+#	print(cancel)
 
 func _rejoin_game(gameState) :
 	$"/root/ws".rejoin = true
@@ -102,7 +111,7 @@ func _save(data):
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
-	print(respond)
+#	print(respond)
 	match respond.status:
 		"ok":
 			if respond.rejoin == true :
@@ -126,6 +135,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			$AlertBox._show("This device is lock!")
 
 func _loginBoxIn():
+	$LoginBox.show()
 	$loginAnimationPlayer.play("In")
 	
 func _loginBoxOut():
@@ -139,10 +149,7 @@ func _on_Exit_pressed():
 
 func _on_loginAnimationPlayer_animation_finished(anim_name):
 	if anim_name == "In":
-		cancel = true
-#		$Blur.show()
 		$AccountButton.set_disabled(true)
-	else:
-#		cancel = false
-#		$Blur.hide()
+	if anim_name == "Out":
+		$LoginBox.hide()
 		$AccountButton.set_disabled(false)

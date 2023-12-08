@@ -1,6 +1,7 @@
 extends Node
 
-
+var canClear = false
+signal winner
 # Configuration
 const TOTAL_PLAYER = 7
 const CARD_DELIVER_DELAY = 0.05
@@ -46,7 +47,7 @@ var GameVoices = {
 #const playerPrefab = preload("res://pck/assets/bugyee/player.tscn")
 const playerPrefab = preload("res://pck/scenes/bugyeePlayer.tscn")
 const cardPrefab = preload("res://pck/assets/bugyee/card.tscn")
-const coinPrefab = preload("res://pck/prefabs/Coin.tscn")
+const coinPrefab = preload("res://pck/prefabs/bugyeeCoin.tscn")
 
 # System Variables
 var playersNode = []
@@ -61,18 +62,52 @@ var isWaitVoicePlayed = false
 var countdown = 0;
 var tick = 0;
 var websocket_url = ""
-
+var count = false
 
 var _client = WebSocketClient.new()
-
+var deviceTime
+var deviceBattery
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print(countdown)
+	
+	$TouchScreen.show()
+	$Setting/settingbox/logout.hide()
+
+	_clear()
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
 	_init_all()
+	var currentDateTime = OS.get_datetime()
+	var currentHour = currentDateTime["hour"]
+	var currentMinutes = currentDateTime["minute"]
+
+	print("Current Time (24-hour format):", "%02d:%02d" % [currentHour, currentMinutes])
+	deviceBattery = OS.get_power_percent_left()
+	print("Battery Status: ",deviceBattery)
+
 	
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
+# warning-ignore:return_value_discarded
+	Signals.connect("screenTouch",self,"_on_screenTouch")
+#	print(cardPosArray)
+	Config.connect("musicOn",self,"_music_on")
+	Config.connect("musicOff",self,"_music_off")
+	if self.is_connected("winner",self,"_winner"):
+		disconnect("winner",self,"_winner")
+	connect("winner",self,"_winner")
+
+
+
+func _music_on():
+	$"/root/bgm".volume_db = 0
+	
+func _music_off():
+	$"/root/bgm".volume_db = -80
+	
+func _on_screenTouch():
+	_clear()
 
 func _connect_ws():
 	_client.connect("connection_closed", self, "_closed")
@@ -88,10 +123,12 @@ func _connect_ws():
 
 func _closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://start/conn_error.tscn")
 	#set_process(false)
 	#_client = null
 
+# warning-ignore:unused_argument
 func _connected(proto = ""):
 	var request = {
 		"head":"handshake",
@@ -110,28 +147,48 @@ func _on_data():
 	var res = obj.result
 	_on_server_respond(res)
 
+
 func _process(delta):
+	$timerProgress.max_value = 16
+	$CardCheck/timerProgress.max_value = 16
+	
+	$timerProgress.value = countdown
+	$CardCheck/timerProgress.value = countdown
+	if countdown <= 0:
+		$Timer.hide()
+		$timerProgress.hide()
+		$CardCheck/Timer.hide()
+		$CardCheck/timerProgress.hide()
 	_client.poll()
 	tick += delta
 	if tick > 1:
 		tick = 0
 		if countdown > 0:
+			$Timer.show()
 			countdown -= 1
 			$CardCheck/Timer.text = str(countdown)
+			$CardCheck/Timer.show()
+			$CardCheck/timerProgress.show()
+			$timerProgress.show()
 			$Timer.text = str(countdown)
-
+		if countdown == 0:
+			$Timer.hide()
+			$timerProgress.hide()
+			$CardCheck/timerProgress.hide()
+	
 func send(data):
 	var json = JSON.print(data)
-	print("From client --- " + json)
-	print("")
+#	print("From client --- " + json)
+#	print("")
 	_client.get_peer(1).put_packet(json.to_utf8())
 
 func _on_server_respond(respond):
 	var body = respond.body
-	print(body)
+#	print(body)
 	match respond.head:
 		"room info":
 			if body == null :
+# warning-ignore:return_value_discarded
 				get_tree().change_scene("res://pck/scenes/menu.tscn")
 				return
 			_update_room(body)
@@ -153,18 +210,18 @@ func _init_all():
 		player.position = $PlayerPos.get_node(str(i)).position
 		# setting player positions
 		if i == 0:
-			player.get_node("CardPos").position.y = -170
-			player.get_node("CardStatus").position.y = -170
-			player.get_node("CardPos").position.x = -210
-			player.get_node("CardStatus").position.x = -210
+			player.get_node("CardPos").position.y = -180
+			player.get_node("CardStatus").position.y = -180
+			player.get_node("CardPos").position.x = -150
+			player.get_node("CardStatus").position.x = -150
 			
-			for j in range(1, 6):
-				var cardNode = player.get_node("CardPos").get_node("card" + str(j))
-				cardNode.scale = Vector2(0.3, 0.3)
-				var seperation = 110
-				cardNode.position.x = (j - 1) * seperation
-				cardNode.position.y = 58
-				
+#			for j in range(1, 6):
+#				var cardNode = player.get_node("CardPos").get_node("card" + str(j))
+#				cardNode.scale = Vector2(0.3, 0.3)
+#				var seperation = 110
+#				cardNode.position.x = (j - 1) * seperation
+#				cardNode.position.y = 50
+#
 #			player.get_node("CardPos").get_node("card1").position = Vector2(-25,58)
 #			player.get_node("CardPos").get_node("card2").position = Vector2(99,58) # +100
 #			player.get_node("CardPos").get_node("card3").position = Vector2(223,58)
@@ -178,37 +235,47 @@ func _init_all():
 		if i == 1:
 			player.get_node("CardPos").position.y = -30
 			player.get_node("CardStatus").position.y = -30
-			player.get_node("CardPos").position.x = 200
-			player.get_node("CardStatus").position.x = 200
+			player.get_node("CardPos").position.x = 210
+			player.get_node("CardStatus").position.x = 210
 #			player.get_node("CardPos").position.y = -50
 #			player.get_node("CardStatus").position.y = -50
 #			player.get_node("CardPos").position.x = 200
 #			player.get_node("CardStatus").position.x = 200
 		if i == 2:
-			player.get_node("CardPos").position.y = -30
-			player.get_node("CardStatus").position.y = -30
-			player.get_node("CardPos").position.x = 200
-			player.get_node("CardStatus").position.x = 200
+			player.get_node("CardPos").position.y = 50 + 50
+			player.get_node("CardStatus").position.y = 50 + 50
+			player.get_node("CardPos").position.x = 80 - 30
+			player.get_node("CardStatus").position.x = 80 - 30
+			player.get_node("Profile/playerPanel").rect_size = Vector2(320,140)
+			player.get_node("Profile/playerPanel").rect_position = Vector2(85,-65)
+			player.get_node("Profile/playerPanel").rect_rotation = 90
+			player.get_node("Panel").rect_position = Vector2(-255,125)
 		if i == 3:
-			player.get_node("CardPos").position.y = 90
-			player.get_node("CardStatus").position.y = 90
-			player.get_node("CardPos").position.x = -190
-			player.get_node("CardStatus").position.x = 190
+			player.get_node("CardPos").position.y = 120
+			player.get_node("CardStatus").position.y = 120
+			player.get_node("CardPos").position.x = -150
+			player.get_node("CardStatus").position.x = -150
 		if i == 4:
-			player.get_node("CardPos").position.y = 100
-			player.get_node("CardStatus").position.y = 100
-			player.get_node("CardPos").position.x = -200
-			player.get_node("CardStatus").position.x = -200
+			player.get_node("CardPos").position.y = 120
+			player.get_node("CardStatus").position.y = 120
+			player.get_node("CardPos").position.x = -150
+			player.get_node("CardStatus").position.x = -150
 		if i == 5:
-			player.get_node("CardPos").position.y = -15
-			player.get_node("CardStatus").position.y = -15
-			player.get_node("CardPos").position.x = -610
-			player.get_node("CardStatus").position.x = -610
+			player.get_node("CardPos").position.y = 130
+			player.get_node("CardStatus").position.y = 130
+			player.get_node("CardPos").position.x = -450
+			player.get_node("CardStatus").position.x = -450
+			player.get_node("Profile/Bet").rect_position.x = 100
+			player.get_node("Profile/playerPanel").rect_size = Vector2(320,140)
+			player.get_node("Profile/playerPanel").rect_position = Vector2(85,-65)
+			player.get_node("Profile/playerPanel").rect_rotation = 90
+			player.get_node("Panel").rect_position = Vector2(-255,125)
 		if i == 6:
 			player.get_node("CardPos").position.y = -30
 			player.get_node("CardStatus").position.y = -30
-			player.get_node("CardPos").position.x = -600
-			player.get_node("CardStatus").position.x = -600
+			player.get_node("CardPos").position.x = -450
+			player.get_node("CardStatus").position.x = -450
+			player.get_node("Profile/Bet").rect_position.x = 280
 		playersNode.append(player)
 		$Players.add_child(player)
 	
@@ -237,10 +304,12 @@ func _init_all():
 	$Rules.visible = false
 
 func _update_room(room):
+#	print(room.minBet)
 	if minBet == 0:
 		minBet = room.minBet
 	
 	if room.players[myIndex] == null:
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		return
 		
@@ -315,7 +384,7 @@ func _start(room):
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
-	
+#	countdown = Config.COUNTDOWN
 	_clear_all_player_cards()
 	_reset_all_player()
 	if myIndex != room.dealerIndex :
@@ -338,7 +407,7 @@ func _deliver(room):
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
-	
+#	countdown = Config.COUNTDOWN
 	for i in range(TOTAL_PLAYER):
 		var player = room.players[i]
 		if player == null:
@@ -347,7 +416,7 @@ func _deliver(room):
 			continue
 		if i == room.dealerIndex:
 			continue
-		print(player.info.nickname + " bet " + str(player.bet))
+#		print(player.info.nickname + " bet " + str(player.bet))
 		print("Min Bet : " + str(minBet))
 		var x = player.bet / minBet
 		var v = _get_vIndex(i)
@@ -387,7 +456,6 @@ func _end(room):
 	var dealerNode = playersNode[vd]
 	dealerNode._show_card_status(dealer.cardStatus)
 	_playVoice(CardStatusVoices[dealer.cardStatus])
-	
 	yield(get_tree().create_timer(2), "timeout")
 	
 	var losers = room.losers
@@ -402,6 +470,7 @@ func _end(room):
 			playersNode[v]._transfer_balance(-player.loseAmount)
 			var count = ceil(player.loseAmount / minBet)
 			$Audio/CoinMove.play()
+# warning-ignore:unused_variable
 			for j in range(count):
 				_coin_move(i,room.dealerIndex)
 				yield(get_tree().create_timer(0.05), "timeout")
@@ -419,6 +488,10 @@ func _end(room):
 			playersNode[v]._transfer_balance(player.winAmount)
 			var count = ceil(player.winAmount / minBet)
 			$Audio/CoinMove.play()
+#			if i == 0:
+#				emit_signal("winner")
+#				print("emitted")
+# warning-ignore:unused_variable
 			for j in range(count):
 				_coin_move(room.dealerIndex,i)
 				yield(get_tree().create_timer(0.05), "timeout")
@@ -426,8 +499,12 @@ func _end(room):
 		
 	_common_update(room)
 
+func _winner():
+	$WinDesign.show()
+	$WinflagTimer.start()
+
 func _wait():
-	pass
+	$BackDrop.show()
 
 # ----- Utility Functions -----
 
@@ -435,9 +512,26 @@ func _common_update(room):
 	# Dealer Crown
 	var vd = _get_vIndex(room.dealerIndex)
 	var bankerPos = $PlayerPos.get_node(str(vd)).position
-	bankerPos.y -= 50
+	bankerPos.y += 35
+	bankerPos.x -= 90
 	$Banker.position = bankerPos
-	
+	$Banker.show()
+	$"2and5Banker".hide()
+	if vd == 2:
+		bankerPos.x -= 98
+		bankerPos.y += 85
+		$"2and5Banker".position = bankerPos
+		$"2and5Banker".position = bankerPos
+		$Banker.hide()
+		$"2and5Banker".show()
+		
+	if vd == 5:
+		bankerPos.x -= 98
+		bankerPos.y += 85
+		$"2and5Banker".position = bankerPos
+		$"2and5Banker".position = bankerPos
+		$Banker.hide()
+		$"2and5Banker".show()
 	# Players
 	var players = room.players
 	for i in range(TOTAL_PLAYER):
@@ -452,6 +546,7 @@ func _common_update(room):
 
 func _deliver_card(card,pos,index):
 	var sprite = cardPrefab.instance()
+# warning-ignore:unused_variable
 	var key = str(card.rank)+str(card.shape)
 	sprite.position = $CardHome.position
 	sprite.target = pos
@@ -535,9 +630,11 @@ func _on_Exit_pressed():
 # ----- Emoji Functions -----
 
 func _on_EmojiToggle_pressed():
-#	print("Ok")
-	$EmojiPanel.visible = !$EmojiPanel.visible
-#	$EmojiHomePanel.visible =! $EmojiHomePanel.visible
+#	$EmojiPanel.visible = !$EmojiPanel.visible
+	$EmojiHomePanel.visible =! $EmojiHomePanel.visible
+	$EmojiHomeToggle.show()
+	$MessageHomeToggle.show()
+	$Black.show()
 
 func _on_Emoji_pressed(emoji):
 	var request = {
@@ -548,7 +645,16 @@ func _on_Emoji_pressed(emoji):
 		}
 	}
 	send(request)
-	$EmojiPanel.visible = false
+#	$EmojiPanel.visible = false
+	_clear()
+	
+
+func _clear():
+	$EmojiHomeToggle.hide()
+	$MessageHomeToggle.hide()
+	$EmojiHomePanel.hide()
+	$MessagePanel.hide()
+	$Black.hide()
 
 func _on_Rules_pressed():
 	$Rules.visible = true
@@ -559,8 +665,17 @@ func _on_GameRules_Close_pressed():
 func _on_Setting_pressed():
 	$Setting.show()
 
-func _on_MessageToggle_pressed():
-	$MessagePanel.visible = !$MessagePanel.visible
+#func _on_MessageToggle_pressed():
+#	$MessagePanel.visible = !$MessagePanel.visible
+	
+func _on_MessageToggle2_pressed():
+	
+	if $EmojiHomePanel.visible == true:
+		$EmojiHomePanel.hide()
+	$MessagePanel.show()
+	
+func _on_EmojiToggle2_pressed():
+	$EmojiHomePanel.show()
 
 func _on_message_pressed(msg):
 	var request = {
@@ -571,4 +686,7 @@ func _on_message_pressed(msg):
 		}
 	}
 	send(request)
-	$MessagePanel.visible = false
+	_clear()
+
+func _on_WinflagTimer_timeout():
+	$WinDesign.hide()

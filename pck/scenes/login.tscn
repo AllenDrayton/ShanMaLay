@@ -11,8 +11,8 @@
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=9]
 [ext_resource path="res://pck/scenes/login.gd" type="Script" id=10]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://pck/scripts/Blur.gd" type="Script" id=12]
 [ext_resource path="res://pck/assets/menu/icon-sign-cancel.png" type="Texture" id=13]
-[ext_resource path="res://pck/scripts/Blur.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
@@ -186,7 +186,7 @@ texture = ExtResource( 4 )
 
 [node name="Blur" type="Area2D" parent="." groups=["ScreenTouch"]]
 modulate = Color( 0.164706, 0.164706, 0.164706, 0.596078 )
-script = ExtResource( 14 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -201,7 +201,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Blur"]
-polygon = PoolVector2Array( 0, 896, 2000, 904, 1992, 0, 1520, 0, 1544, 208, 1528, 328, 1528, 752, 504, 768, 496, 168, 1424, 160, 1504, 120, 1528, 128, 1512, 0, 0, 0 )
+polygon = PoolVector2Array( 0, 896, 2000, 904, 1992, 0, 1520, 0, 1544, 208, 1528, 328, 1528, 752, 1189.07, 757.296, 1161, 811, 786, 807, 788, 762, 504, 768, 496, 168, 1424, 160, 1504, 120, 1528, 128, 1512, 0, 0, 0 )
 
 [node name="Remember" type="CheckButton" parent="."]
 visible = false
@@ -248,6 +248,7 @@ texture_normal = ExtResource( 5 )
 script = ExtResource( 9 )
 
 [node name="LoginBox" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1012, 462 )
 texture = ExtResource( 2 )
 

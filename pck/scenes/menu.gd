@@ -8,13 +8,14 @@ func _ready():
 	$ABCD.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$Fishing/FishSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$Slots/SlotSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
-	$BuGyee/BuGyee_GIF.modulate = Color(0.5, 0.5, 0.5, 0.8)
+#	$BuGyee/BuGyee_GIF.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$player_info.hide()
 	_load_profile_textures()
 	_animationIn()
 	Config.connect("usernameUpdate",self,"_on_usernameUpdate")
 	Config.connect("musicOn",self,"musicOn")
 	Config.connect("musicOff",self,"musicOff")
+	Signals.connect("menuMusicOff",self,"_on_MenuMusicOff")
 	var request = {
 		"head":"user info"
 	}
@@ -24,21 +25,25 @@ func _ready():
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	var currentMusic = $"/root/bgm".stream.resource_path.get_file().get_basename()
-#	if currentMusic != "music-main-background":
-#		$"/root/bgm".stream = music
-#		$"/root/bgm".play()
+	if currentMusic != "music-main-background":
+		$"/root/bgm".stream = music
+		$"/root/bgm".play()
 	get_node("player_info").get_node("playerInfoSetting").connect("profile_changed",self,"_on_profile_changed")
 
+func _on_MenuMusicOff():
+	print("Menu Music Off ok")
+	$"/root/bgm".stop()
+
 func musicOn():
-	$"/root/bgm".play()
+	$"/root/bgm".volume_db = 0
 
 func musicOff():
-	$"/root/bgm".stop()
+	$"/root/bgm".volume_db = -80
 
 func _process(_delta):
 	if $player_info.visible == true:
 		_disable_buttons(true)
-	if $player_info.visible == false:
+	elif $player_info.visible == false:
 		_disable_buttons(false)
 	
 func _disable_buttons(disable):
@@ -48,6 +53,9 @@ func _disable_buttons(disable):
 	$TigerDragon.disabled = disable
 	$Fishing.disabled = disable
 	$Slots.disabled = disable
+	$Members.disabled = disable
+	$bank_Transfer.disabled = disable
+	$Bank_withdraw.disabled = disable
 	
 func _on_profile_changed(selected_texture):
 #	print(str(selected_texture))
@@ -133,10 +141,10 @@ func _on_ShanKoeMee_pressed():
 
 
 func _on_BuGyee_pressed():
-	pass
-#	_animationOut()
+#	pass
+	_animationOut()
 #	yield(get_tree().create_timer(0.5), "timeout")
-#	get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
+	get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
 
 
 #func _on_Bet_pressed():

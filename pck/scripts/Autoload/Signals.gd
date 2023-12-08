@@ -6,6 +6,9 @@ signal clear_auto_flag # Clear auto flag when the match restarts
 signal bet_pressed # When Bet Button is Pressed
 signal messageInput_button_pressed
 signal message_sent(messageInput)
+signal screenTouch
+signal winner
+signal menuMusicOff
 
 var two_card_auto = false
 

@@ -22,6 +22,7 @@ var t2 = 0
 var timer = 0
 var coinSelected=false
 var prev_selected=0
+var sameShape=false
 
 var _client = WebSocketClient.new()
 
@@ -39,13 +40,21 @@ var CardStatusVoices = [
 
 # Audio
 var music = preload("res://pck/assets/dragon_tiger_bet/bg.ogg")
+var menu_music = preload("res://pck/assets/audio/music-main-background.mp3")
 var GameVoices = {
 	"exit":preload("res://pck/assets/common/audio/exit.ogg"),
-	"new_game":preload("res://pck/assets/common/audio/new_game.ogg"),
+	"new_game":preload("res://pck/assets/tg_tiger_voice/tg_sa_pe_l_mal.mp3"),
+	"tiger_win":preload("res://pck/assets/tg_tiger_voice/tg_tiger_voice.mp3"),
+	"money_win":preload("res://pck/assets/tg_tiger_voice/tg_money_win.mp3"),
+	"card":preload("res://pck/assets/tg_tiger_voice/tg_card_sound.mp3"),
+	"number_card":preload("res://pck/assets/tg_tiger_voice/tg_number_card.mp3"),
+	"dragon_win":preload("res://pck/assets/tg_tiger_voice/d_.mp3"),
+	"vs":preload("res://pck/assets/tg_tiger_voice/tg_vs.mp3"),
+	"stop":preload("res://pck/assets/tg_tiger_voice/tg_stop.mp3"),
 }
 
 var coinPrefab = preload("res://pck/prefabs/DragonTigerCoin.tscn")
-const cardPrefab = preload("res://pck/assets/skm_bet/Card.tscn")
+const cardPrefab = preload("res://pck/prefabs/shankoemee/Dragon_tiger_card.tscn")
 var card_back = preload("res://pck/assets/common/cards/back.png")
 
 const resultTextures = {
@@ -61,9 +70,14 @@ var historyTextures = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$vs_gif.hide()
+	$tiger_gif.hide()
+	$dragon_gif.hide()
 	_load_profile_textures()
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
+	Config.connect("musicOn",self,"musicOn")
+	Config.connect("musicOff",self,"musicOff")
 	
 	for i in range(4):
 		for j in range(1,10):
@@ -103,6 +117,12 @@ func _ready():
 	$Timer.show()
 	$tiger_gif.hide()
 	$dragon_gif.hide()
+	
+func musicOn():
+	$"/root/bgm".volume_db = 0
+
+func musicOff():
+	$"/root/bgm".volume_db = -80
 
 func _connect_ws():
 	_client.connect("connection_closed", self, "_closed")
@@ -166,8 +186,6 @@ func firstcoinselect():
 	sel.rect_position.y=pos.y
 
 func _start(body):
-	$vs.hide()
-	$Timer.show()
 	if isExit:
 		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		return
@@ -188,10 +206,16 @@ func _start(body):
 	
 	$BackDrop._hide()
 	
-	timer = body.timer
-	_playVoice("new_game")
+	
+	
 	$C1.texture = card_back
 	$C2.texture = card_back
+	$vs_gif.show()
+	$vs_gif.frame = 0
+	$vs_gif.play("default")
+	_playVoice("vs")
+	yield(get_tree().create_timer(2), "timeout")
+	$vs_gif.hide()
 	$AnimationPlayer.play("in");
 	yield(get_tree().create_timer(0.6), "timeout")
 	$C1.texture=null
@@ -200,25 +224,34 @@ func _start(body):
 	$card_gif_2.visible=true
 	$card_gif_1.play("default")
 	$card_gif_2.play("default")
+	_playVoice("card")
 	
-	for i in range(16) :
+	for i in range(len(body.winHistory)-1,-1, -1):
 		if i >= body.winHistory.size():
 			break;
 		var index = body.winHistory[i]
 		var rect = TextureRect.new()
 		rect.texture = historyTextures[index]
-		rect.rect_min_size = Vector2(50,50)
-		rect.rect_size = Vector2(50,50)
+		rect.rect_min_size = Vector2(55,50)
+		rect.rect_size = Vector2(55,50)
+		rect.margin_left=0.5
+		rect.margin_right=0.5
 		rect.expand = true
 #		rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 #		rect.rect_position = $History/HBoxContainer.rect_position
 		$History/HBoxContainer.add_child(rect)
 	
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	
 	fakeBet = true
+	_playVoice("new_game")
+	$vs.hide()
+	$Timer.show()
+	
+	timer = body.timer
 
 func _end(body):
+	_playVoice("stop")
 	$vs.show()
 	$Timer.hide()
 	fakeBet = false
@@ -242,67 +275,113 @@ func _end(body):
 	$card_gif_2.visible=false
 	$C2.texture=card_back
 	$C1.texture = card_textures[key1]
+	_playVoice("number_card")
 	yield(get_tree().create_timer(1), "timeout")
 	
 	$C2.texture = card_textures[key2]
+	_playVoice("number_card")
 	yield(get_tree().create_timer(1), "timeout")
+	
+	var winCoinCount = 0
+	for coin in $CoinContainer.get_children():
+		if coin.playerIndex == winIndex or sameShape:
+			winCoinCount += 1
+			
+	if c1.shape==c2.shape:
+		$BetArea/Same_shape/same_shape.texture=null
+		$BetArea/same_shape_gif.frame = 0
+		$BetArea/same_shape_gif.play("default")
+		sameShape=true
+	else:
+		sameShape=false
+		
 	match winIndex:
 		0: 
+			$dragon_gif.show()
+			$dragon_gif.frame = 0
+			$dragon_gif.play("default")
+			_playVoice("dragon_win")
+			yield(get_tree().create_timer(1), "timeout")
+			$dragon_gif.hide()		
 			$BetArea/dragon_gif.frame = 0
 			$BetArea/dragon_gif.play("default")
 			$BetArea/Dragon/dragon.texture=null
-			$dragon_gif.show()
+			_playVoice("money_win")
+			move_non_winning_coins_to_home(winIndex, -1, $dragon_coinHome.position)
+			yield(get_tree().create_timer(0.8), "timeout")
 		1:
 			$BetArea/tie_gif.frame = 0
 			$BetArea/tie_gif.play("default")
 			$BetArea/Tie/tie.texture=null
+			_playVoice("money_win")
+			move_non_winning_coins_to_home(winIndex, -1, $CoinHome.position)
+			yield(get_tree().create_timer(0.8), "timeout")
 		2:
+			$tiger_gif.show()
+			$tiger_gif.frame = 0
+			$tiger_gif.play("default")
+			_playVoice("tiger_win")
+			yield(get_tree().create_timer(1), "timeout")
+			$tiger_gif.hide()
 			$BetArea/Tiger/tiger.texture=null
 			$BetArea/tiger_gif.frame = 0
 			$BetArea/tiger_gif.play("default")
-			$tiger_gif.show()
-		3:
-			$BetArea/same_shape_gif.frame = 0
-			$BetArea/same_shape_gif.play("default")
-			$BetArea/Same_shape/same_shape.texture=null
+			_playVoice("money_win")
+			move_non_winning_coins_to_home(winIndex, -1, $tiger_coinHome.position)
+			yield(get_tree().create_timer(0.8), "timeout")
 	
-	$Audio/CoinMove.play()
-	var winCoinCount = 0
-	for coin in $CoinContainer.get_children():
-		if coin.playerIndex == winIndex :
-			winCoinCount += 1
-		else :
-			coin.target = $CoinHome.position
-			coin.playerIndex = -1
+	_playVoice("money_win")
+	if not sameShape:
+		print("Same Shape checking for false: ",sameShape)
+		for coin in $CoinContainer.get_children():
+			if coin.playerIndex == -1 && winCoinCount>0 :
+				var rx = (randi() % 120) -50
+				var ry = (randi() % 120) - 50
+				var target = betArea[winIndex].get_node("Pos").global_position
+				target.x += rx
+				target.y += ry
+				coin.playerIndex = winIndex
+				coin.target = target
+#				winCoinCount -= 1
+	else:
+		var mid=floor($CoinContainer.get_child_count()/2)
+		print("Same Shape checking for true: ",sameShape)
+		for coin in $CoinContainer.get_children().slice(0,mid+1):
+				if coin.playerIndex == -1 && winCoinCount>0:
+					var rx = (randi() % 60) - 30
+					var ry = (randi() % 60) - 30
+					var sameShapeTarget = betArea[3].get_node("Pos").global_position
+					sameShapeTarget.x += rx
+					coin.target = sameShapeTarget
+					coin.playerIndex = winIndex
+		for coin in $CoinContainer.get_children().slice(mid+1,$CoinContainer.get_child_count()):
+			if coin.playerIndex == -1 && winCoinCount>0 :
+				var rx = (randi() % 120) -50
+				var ry = (randi() % 120) - 50
+				var target = betArea[winIndex].get_node("Pos").global_position
+				target.x += rx
+				target.y += ry
+				coin.playerIndex = winIndex
+				coin.target = target
+				winCoinCount -= 1
 	
-	yield(get_tree().create_timer(1), "timeout")
+	if sameShape && myBetAmount[3]>0:
+		myBetAmount[winIndex]+=myBetAmount[3]
 	
-	$Audio/CoinMove.play()
-	for coin in $CoinContainer.get_children():
-		if coin.playerIndex == -1 && winCoinCount > 0:
-			var rx = (randi() % 100) - 50
-			var ry = (randi() % 100) - 50
-			var target = betArea[winIndex].get_node("Pos").global_position
-			target.x += rx
-			target.y += ry
-			coin.playerIndex = winIndex
-			coin.target = target
-			winCoinCount -= 1
-	
-	yield(get_tree().create_timer(0.5), "timeout")
-	
-	if myBetAmount[winIndex] > 0 :
-		$AmountTransfer.get_node(str(winIndex)).set("custom_colors/font_color", Color(1,1,0))
-		$AmountTransfer.get_node(str(winIndex)).text = "+" + str(myBetAmount[winIndex])
-		$AmountTransfer.get_node(str(winIndex)).visible = true
-	
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(0.8), "timeout")
 	
 	var t = 0
+	print("Mybet for same shape",myBetAmount[winIndex])
 	var playerWinCoin = myBetCoin[winIndex] * 2
-	$Audio/CoinMove.play()
+	
+	_playVoice("money_win")
 	for coin in $CoinContainer.get_children():
-		if myBetAmount[winIndex] > 0 && t < playerWinCoin && coin.playerIndex == winIndex :
+		if sameShape && myBetAmount[winIndex] > 0 && t < playerWinCoin && coin.playerIndex == winIndex:
+				coin.target = $Profile.global_position
+				coin.destroyOnArrive = true
+				coin.playerIndex = -2
+				t += 1
+		elif not sameShape && myBetAmount[winIndex] > 0 && t < playerWinCoin && coin.playerIndex == winIndex:
 			coin.target = $Profile.global_position
 			coin.destroyOnArrive = true
 			coin.playerIndex = -2
@@ -318,21 +397,36 @@ func _end(body):
 				coin.target = bot[r].global_position
 			coin.destroyOnArrive = true
 			coin.playerIndex = -2
+	yield(get_tree().create_timer(0.8), "timeout")
 	
-	yield(get_tree().create_timer(1), "timeout")
 	
-	$Profile/Panel/Balance.text = str(body.player.balance)
+	if myBetAmount[winIndex] > 0 :
+		myBetAmount[winIndex]=myBetAmount[winIndex]*2
+		$AmountTransfer.get_node(str(winIndex)).set("custom_colors/font_color", Color(1,1,0))
+		$AmountTransfer.get_node(str(winIndex)).text = "+" + str(myBetAmount[winIndex])
+		$AmountTransfer.get_node(str(winIndex)).visible = true
+	
+	$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
+	
+func move_non_winning_coins_to_home(winIndex, num, targetPosition):
+	for coin in $CoinContainer.get_children():
+		if coin.playerIndex != winIndex and coin.playerIndex != num:
+			coin.target = targetPosition
+			coin.playerIndex = -1
+		
 
 func _handshake_respond(body):
 	if body.status == "ok":
 		$Profile/Panel/Nickname.text = body.player.info.nickname
-		$Profile/Panel/Balance.text = str(body.player.balance)
-		$Profile/Img.texture = profile_textures[int(body.player.info.profile)]
+		$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
+		$Profile/Img.texture = profile_textures[int(body.player.info.profile) - 1]
+#		print(body.player.info.profile)
+		
 
 func _bet_respond(body):
 	
 #	print("*******bet index: ",body.index,"*****betamount",betAmount[body.index])
-	$Profile/Panel/Balance.text = str(body.player.balance)
+	$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
 	betAmount[body.index] += body.amount
 	print("body index: ",body.index)
 	myBetAmount[body.index] += body.amount
@@ -358,6 +452,7 @@ func _load_profile_textures():
 		profile_textures.append(texture)  
 
 func _reset():
+	
 	$tiger_gif.hide()
 	$dragon_gif.hide()
 	for i in range(7):
@@ -386,6 +481,8 @@ func _process(delta):
 		tick = 0
 		wait = randf()+0.5
 		_bot_bet()
+		
+		
 	
 	t2 += delta
 	if t2 > 1:
@@ -401,8 +498,8 @@ func _bot_bet():
 		if r < 4:
 			var coin = coinPrefab.instance()
 			coin.position = bot[i].position
-			var rx = (randi() % 100) - 50
-			var ry = (randi() % 50) - 20
+			var rx = (randi() % 120) -50
+			var ry = (randi() % 100) - 50
 			var rb = randi() % 4
 			var target = betArea[rb].get_node("Pos").global_position
 			target.x += rx
@@ -416,12 +513,12 @@ func _bot_bet():
 			bot[i].get_node("Panel/Balance").text = _balance_round(botBalance[i])
 			betArea[rb].get_node("Total").text = _balance_round(betAmount[rb])
 	# Players bet
-	var t = randi() % 4 + 1
+	var t = randi() % 10 + 1
 	for i in range(t):
 		var coin = coinPrefab.instance()
 		coin.position = $Bots/Players.position
-		var rx = (randi() % 100) - 50
-		var ry = (randi() % 50) - 25
+		var rx = (randi() % 120) -50
+		var ry = (randi() % 100) - 50
 		var rb = randi() % 4
 		var target = betArea[rb].get_node("Pos").global_position
 		target.x += rx
@@ -432,7 +529,7 @@ func _bot_bet():
 		var amt = betArr[(randi() % 4)]
 		betAmount[rb] += amt
 		betArea[rb].get_node("Total").text = _balance_round(betAmount[rb])
-		yield(get_tree().create_timer(0.15), "timeout")
+		yield(get_tree().create_timer(0.1), "timeout")
 
 func _on_bet_select(index):
 	if index!=selectedBet:
@@ -477,3 +574,4 @@ func _playVoice(key):
 func _on_Exit_pressed():
 	_playVoice("exit")
 	isExit = true
+#	$"/root/bgm".stream = menu_music

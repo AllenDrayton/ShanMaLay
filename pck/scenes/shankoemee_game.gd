@@ -123,14 +123,15 @@ func _ready():
 	# Connecting Signals
 #	Signals.connect("bet_pos_invisible", self, "_hide_bet")
 #	Signals.connect("bet_pos_visible", self, "_show_bet")
+	Signals.connect("screenTouch", self, "_hide_every_toggle")
 	
 #	if $"/root/ws".rejoin :
 #		$BackDrop._show("Reconnecting please wait!")
 #		return
 func _off():
-	$"/root/bgm".stop()
+	$"/root/bgm".volume_db = -80
 func _on():
-	$"/root/bgm".play()
+	$"/root/bgm".volume_db = 0
 	
 # Function to update labels based on a given number
 func update_labels(number):
@@ -211,8 +212,9 @@ func _on_server_respond(respond):
 		"message":
 			_message_respond(body.senderIndex, body.message)
 		"MessageInput":
-			print("I am sending")
-			_message_input_respond(body.senderIndex, body.userinput)
+			pass
+#			print("I am sending")
+#			_message_input_respond(body.senderIndex, body.userinput)
 
 
 # ----- Main Functions -----
@@ -317,7 +319,7 @@ func _init_all():
 			player.get_node("CardPos").position.x = -120
 			player.get_node("CardLoading").position.x = -120
 			player.get_node("Multiply").position.x = -98
-			player.get_node("PaukFlag").position.x = -110
+			player.get_node("PaukFlag").position.x = -100
 			#player.get_node("Auto8_9").position.x = -120
 		playersNode.append(player)
 		$Players.add_child(player)
@@ -1313,3 +1315,11 @@ func _on_ChooseBet_pressed():
 	$BetPanel/Slider.visible = true
 	$BetPanel/ChooseBet.visible = false
 	$BetPanel/Bet.visible = true
+
+func _hide_every_toggle():
+	$EmojiHomePanel.hide()
+	$EmojiHomeToggle.hide()
+	$MessageHomeToggle.hide()
+	$MessagePanel.hide()
+	$MenuHomePanel.hide()
+	$Backdrop.hide()

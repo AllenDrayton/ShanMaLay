@@ -96,6 +96,7 @@ func _on_Accept_pressed(index):
 	http.request(url, headers, false, HTTPClient.METHOD_POST, body)
 	print(data)
 	emit_signal("profile_changed", selectedTexture)
+	hide()
 	
 	
 func _profile_changed(result, response_code, headers, body):

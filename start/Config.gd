@@ -4,6 +4,9 @@ signal usernameUpdate(name)
 signal musicOn
 signal musicOff
 
+var COUNTDOWN
+var cancel
+
 var config = {
 	"name":"ShanMaLay",
 	"init_url":"http://casino909.com/app_control/shanmalay",

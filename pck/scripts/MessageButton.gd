@@ -9,7 +9,9 @@ extends TextureButton
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rect_pivot_offset = rect_size / 2 
+# warning-ignore:return_value_discarded
 	connect("button_down",self,"_on_button_down")
+# warning-ignore:return_value_discarded
 	connect("button_up",self,"_on_button_up")
 
 

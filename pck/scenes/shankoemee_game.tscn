@@ -1,4 +1,4 @@
-[gd_scene load_steps=270 format=2]
+[gd_scene load_steps=271 format=2]
 
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
@@ -238,6 +238,7 @@
 [ext_resource path="res://pck/scripts/MessageButton.gd" type="Script" id=236]
 [ext_resource path="res://pck/assets/shankoemee/Models/Girl 01.png" type="Texture" id=237]
 [ext_resource path="res://pck/scripts/Skm_setting.gd" type="Script" id=238]
+[ext_resource path="res://pck/scripts/Skm_Screentouch.gd" type="Script" id=239]
 
 [sub_resource type="DynamicFontData" id=352]
 font_path = "res://pck/assets/common/zawgyi-one.ttf"
@@ -606,6 +607,7 @@ tracks/8/keys = {
 size = 80
 outline_size = 2
 outline_color = Color( 0.337255, 0.00784314, 0.00784314, 1 )
+use_filter = true
 font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=60]
@@ -2174,7 +2176,7 @@ position = Vector2( 999, 119 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 349 )
 animation = "idle"
-frame = 18
+frame = 42
 playing = true
 
 [node name="Backdrop" type="Sprite" parent="."]
@@ -2571,6 +2573,12 @@ texture = ExtResource( 229 )
 position = Vector2( 1000, 114 )
 scale = Vector2( 0.208333, 0.208333 )
 texture = ExtResource( 237 )
+
+[node name="Screentouch" type="Area2D" parent="."]
+script = ExtResource( 239 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Screentouch"]
+polygon = PoolVector2Array( 112, -1, 117, 40, 105, 97, 260, 105, 257, 343, 235, 359, 1, 356, 1, 896, 1342, 895, 1338, 113, 2000, 112, 2001, 0 )
 
 [connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]
 [connection signal="pressed" from="BetPanel/C1" to="." method="_on_Bet_select" binds= [ 0 ]]

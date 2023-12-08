@@ -157,6 +157,7 @@ func _on_server_respond(respond):
 
 func _start(body):
 	if isExit:
+		$"/root/bgm".stop()
 		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		return
 	

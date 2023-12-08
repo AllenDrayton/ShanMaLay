@@ -127,8 +127,10 @@ func _save(data):
 func _ready():
 #	set_as_toplevel(true)
 	loadSettings()
+# warning-ignore:return_value_discarded
 	$settingbox/music.connect("pressed", self, "_on_music_pressed")
 	$settingbox/music.texture_normal = musicAction
+# warning-ignore:return_value_discarded
 	$settingbox/sound.connect("pressed", self, "_on_sound_pressed")
 	$settingbox/sound.texture_normal = soundAction
 	

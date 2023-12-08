@@ -15,6 +15,7 @@ func _ready():
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	
+	
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 #	$NicknamePanel/Nickname.text = respond.nickname
