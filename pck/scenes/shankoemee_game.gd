@@ -200,7 +200,8 @@ func _on_server_respond(respond):
 	match respond.head:
 		"room info":
 			if body.room == null :
-				get_tree().change_scene("res://pck/scenes/menu.tscn")
+				$"/root/bgm".stop()
+				get_tree().change_scene("res://pck/scenes/shankoemee_level.tscn")
 				return
 			_update_room(body.room)
 		"emoji":
@@ -246,7 +247,8 @@ func _exit_respond(status):
 
 func _update_room(room):
 	if room.players[myIndex] == null:
-		get_tree().change_scene("res://pck/scenes/menu.tscn")
+		$"/root/bgm".stop()
+		get_tree().change_scene("res://pck/scenes/shankoemee_level.tscn")
 		return
 		
 	if room.gameState != GameStates.start && isStart:
@@ -360,7 +362,6 @@ func _wait():
 
 
 func _start(room):
-	$ShanMa.play("shuffle")
 	_check_dealer_change(room)
 	_check_player_bet_for_coin_move(room)
 	_room = room
@@ -417,7 +418,6 @@ func _first_deliver(room):
 	prev_gameState = room.gameState
 	
 #	print("Game State : First Deliver")
-	$ShanMa.play("deliver")
 	
 	var players = room.players
 	
@@ -454,7 +454,6 @@ func _first_deliver(room):
 		return
 	
 	yield(get_tree().create_timer(1), "timeout")
-	$ShanMa.play("idle")
 	if room.dealerIndex != myIndex :
 		$DrawBtns.visible = true
 		$DrawBtns.position = Vector2(1000,800)

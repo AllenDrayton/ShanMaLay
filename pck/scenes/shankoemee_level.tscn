@@ -758,4 +758,5 @@ valign = 1
 [connection signal="pressed" from="level4" to="." method="_on_level_pressed" binds= [ 3 ]]
 [connection signal="pressed" from="level5" to="." method="_on_level_pressed" binds= [ 4 ]]
 [connection signal="pressed" from="level6" to="." method="_on_level_pressed" binds= [ 5 ]]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

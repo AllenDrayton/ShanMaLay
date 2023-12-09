@@ -4,6 +4,19 @@ extends Node2D
 var filepath = "user://session.txt"
 var bgm_node = null
 
+# Username and Password
+onready var usernameControl = $LoginBox/UsernameControl
+onready var username_txt = $LoginBox/UsernameControl/Username
+onready var passwordControl = $LoginBox/PasswordControl
+onready var password_txt = $LoginBox/PasswordControl/Password
+ 
+var userSide = false
+var passwordSide = false
+
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	_load_session()
@@ -14,6 +27,72 @@ func _ready():
 	Config.connect("musicOn",self,"On")
 	
 	
+	# For Keyboard Functions
+	usernameControl.connect("mouse_entered", self, "on_userName_entered")
+	passwordControl.connect("mouse_entered", self, "on_passWord_entered")
+	$CustomKeyboard.connect("enter_pressed", self,"_on_custom_keyboard_enter_pressed")
+	$CustomKeyboard.connect("cancel_pressed", self, "_on_custom_keyboard_cancel_pressed")
+	show_placeholder()
+	
+func show_placeholder():
+	if username_txt.text == "":
+		$LoginBox/UsernameControl/UsernamePlaceholder.show()
+	else:
+		$LoginBox/UsernameControl/UsernamePlaceholder.hide()
+	if password_txt.text == "":
+		$LoginBox/PasswordControl/PasswordPlaceholder.show()
+	else:
+		$LoginBox/PasswordControl/PasswordPlaceholder.hide()
+
+func on_userName_entered():
+	on_userName_mouse_entered()
+ 
+func on_passWord_entered():
+	on_passWord_mouse_entered()
+ 
+ 
+func _on_custom_keyboard_enter_pressed(text):
+	if userSide:
+		username_txt.text = text
+	elif passwordSide:
+		var hiddenText = ""
+		if text != "":
+			for i in text.length():
+				hiddenText += "*"
+				password_txt.text = hiddenText
+		else:
+			password_txt.text = ""
+		$StorePassword.text = text
+	$LoginBox/TextureRect.show()
+	$LoginBox/UsernameControl.show()
+	$LoginBox/TextureRect2.show()
+	$LoginBox/PasswordControl.show()
+	$AccountButton.show()
+ 
+ 
+func _on_custom_keyboard_cancel_pressed():
+	$LoginBox/TextureRect.show()
+	$LoginBox/UsernameControl.show()
+	$LoginBox/TextureRect2.show()
+	$LoginBox/PasswordControl.show()
+	$AccountButton.show()
+ 
+ 
+func on_userName_mouse_entered():
+	userSide = true
+	passwordSide = false
+#	yield(get_tree().create_timer(0.8), "timeout")
+	$Keyboard_wait_timer.start()
+	
+ 
+ 
+func on_passWord_mouse_entered():
+	userSide = false
+	passwordSide = true
+#	yield(get_tree().create_timer(0.5), "timeout")
+	$keyboard_pw_timer.start()
+
+
 func On():
 	if bgm_node:
 		bgm_node.volume_db = 0
@@ -42,6 +121,8 @@ func _process(delta):
 		Config.cancel = false
 #	print(cancel)
 
+	show_placeholder()
+
 func _rejoin_game(gameState) :
 	$"/root/ws".rejoin = true
 	$"/root/ws".gameState = gameState
@@ -51,8 +132,8 @@ func _rejoin_game(gameState) :
 
 
 func _on_Login_pressed():
-	var username = $LoginBox/Username.text
-	var password = $LoginBox/Password.text
+	var username = username_txt.text
+	var password = $StorePassword.text
 	var deviceName = OS.get_model_name()
 	var deviceId = OS.get_unique_id()
 	
@@ -168,3 +249,33 @@ func _on_loginAnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Out":
 		$LoginBox.hide()
 		$AccountButton.set_disabled(false)
+
+
+func _on_Keyboard_wait_timer_timeout():
+	$CustomKeyboard/Label.placeholder_text = "Input Username"
+ 
+	if username_txt.text == "":
+		$CustomKeyboard/Label.text = ""
+	else:
+		$CustomKeyboard/Label.text = username_txt.text
+	$CustomKeyboard.show()
+	$LoginBox/TextureRect.hide()
+	$LoginBox/UsernameControl.hide()
+	$LoginBox/TextureRect2.hide()
+	$LoginBox/PasswordControl.hide()
+	$AccountButton.hide()
+
+
+func _on_keyboard_pw_timer_timeout():
+	$CustomKeyboard/Label.placeholder_text = "Input Password"
+		
+	if password_txt.text == "":
+		$CustomKeyboard/Label.text = ""
+	else:
+		$CustomKeyboard/Label.text = $StorePassword.text
+	$CustomKeyboard.show()
+	$LoginBox/TextureRect.hide()
+	$LoginBox/UsernameControl.hide()
+	$LoginBox/TextureRect2.hide()
+	$LoginBox/PasswordControl.hide()
+	$AccountButton.hide()
