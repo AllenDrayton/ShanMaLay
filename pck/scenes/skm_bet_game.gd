@@ -77,6 +77,7 @@ var GameVoices = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"/root/bgm".stream = music
+	$"/root/bgm".volume_db = 0
 	$"/root/bgm".play()
 	Config.connect("musicOn",self,"musicOn")
 	Config.connect("musicOff",self,"musicOff")
@@ -202,7 +203,7 @@ func firstcoinselect():
 
 func _start(body):
 	if isExit:
-		$"/root/bgm".stop()
+		$"/root/bgm".volume_db = -80
 		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		return
 	

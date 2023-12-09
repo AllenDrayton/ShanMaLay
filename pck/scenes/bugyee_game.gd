@@ -627,6 +627,7 @@ func _on_Exit_pressed():
 	$MenuPanel.visible = false
 	_playVoice(GameVoices.exit)
 
+
 # ----- Emoji Functions -----
 
 func _on_EmojiToggle_pressed():
