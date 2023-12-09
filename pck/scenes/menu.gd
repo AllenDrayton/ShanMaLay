@@ -177,6 +177,7 @@ func _on_Slot_pressed():
 
 
 func _on_TigerDragon_pressed():
+	Signals.emit_signal("menuMusicOff")
 	var data = {
 		"username":$"/root/Config".config.user.username,
 		"session":$"/root/Config".config.user.session
@@ -190,6 +191,7 @@ func _on_TigerDragon_pressed():
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
 func _on_dragon_tiger_respond(result, response_code, headers, body):
+	Signals.emit_signal("menuMusicOff")
 	var json = JSON.parse(body.get_string_from_utf8())
 	var res = json.result;
 	print(res)
