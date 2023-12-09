@@ -27,6 +27,8 @@ func _load_bgm():
 	   var n = load("res://pck/prefabs/bgm.tscn")
 	   bgm_node = n.instance()
 	   get_tree().root.add_child(bgm_node)
+	else:
+		pass
 
 func _on_screen_touch():
 	_loginBoxOut()

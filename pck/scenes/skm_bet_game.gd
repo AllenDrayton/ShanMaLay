@@ -203,7 +203,7 @@ func firstcoinselect():
 
 func _start(body):
 	if isExit:
-		$"/root/bgm".volume_db = -80
+		$"/root/bgm".stop()
 		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		return
 	

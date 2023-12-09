@@ -50,11 +50,11 @@ var GameVoices = {
 	"number_card":preload("res://pck/assets/tg_tiger_voice/tg_number_card.mp3"),
 	"dragon_win":preload("res://pck/assets/tg_tiger_voice/d_.mp3"),
 	"vs":preload("res://pck/assets/tg_tiger_voice/tg_vs.mp3"),
-	"stop":preload("res://pck/assets/tg_tiger_voice/tg_stop.mp3"),
+	"stop":preload("res://pck/assets/tg_tiger_voice/tg_stop.mp3")
 }
 
 var coinPrefab = preload("res://pck/prefabs/DragonTigerCoin.tscn")
-const cardPrefab = preload("res://pck/prefabs/shankoemee/Dragon_tiger_card.tscn")
+var cardPrefab=preload("res://pck/assets/bugyee/card.tscn")
 var card_back = preload("res://pck/assets/common/cards/back.png")
 
 const resultTextures = {
@@ -76,6 +76,7 @@ func _ready():
 	_load_profile_textures()
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
+	$"/root/bgm".volume_db=0
 	Config.connect("musicOn",self,"musicOn")
 	Config.connect("musicOff",self,"musicOff")
 	
@@ -119,10 +120,10 @@ func _ready():
 	$dragon_gif.hide()
 	
 func musicOn():
-	$"/root/bgm".volume_db = 0
+	$"/root/bgm".play()
 
 func musicOff():
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".stop()
 
 func _connect_ws():
 	_client.connect("connection_closed", self, "_closed")
@@ -187,7 +188,7 @@ func firstcoinselect():
 
 func _start(body):
 	if isExit:
-		$"/root/bgm".volume_db = -80
+		$"/root/bgm".stop()
 		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		return
 	
@@ -244,12 +245,12 @@ func _start(body):
 	
 	yield(get_tree().create_timer(0.1), "timeout")
 	
-	fakeBet = true
-	_playVoice("new_game")
 	$vs.hide()
 	$Timer.show()
-	
 	timer = body.timer
+	fakeBet = true
+	_playVoice("new_game")
+	
 
 func _end(body):
 	_playVoice("stop")
@@ -575,4 +576,4 @@ func _playVoice(key):
 func _on_Exit_pressed():
 	_playVoice("exit")
 	isExit = true
-#	$"/root/bgm".stream = menu_music
+	

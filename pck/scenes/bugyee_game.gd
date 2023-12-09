@@ -77,6 +77,7 @@ func _ready():
 	_clear()
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
+	$"/root/bgm".volume_db = 0
 	_init_all()
 	var currentDateTime = OS.get_datetime()
 	var currentHour = currentDateTime["hour"]
@@ -310,7 +311,8 @@ func _update_room(room):
 	
 	if room.players[myIndex] == null:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://pck/scenes/menu.tscn")
+#		get_tree().change_scene("res://pck/scenes/menu.tscn")
+		get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
 		return
 		
 	if room.players[myIndex].isWaiting:

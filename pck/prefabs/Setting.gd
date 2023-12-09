@@ -215,4 +215,5 @@ func unmuteSound():
 	
 
 func _on_logout_pressed():
+	Signals.emit_signal("menuMusicOff")
 	get_tree().change_scene("res://pck/scenes/login.tscn")

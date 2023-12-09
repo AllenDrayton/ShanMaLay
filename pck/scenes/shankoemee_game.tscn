@@ -2176,7 +2176,7 @@ position = Vector2( 999, 119 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 349 )
 animation = "idle"
-frame = 42
+frame = 39
 playing = true
 
 [node name="Backdrop" type="Sprite" parent="."]

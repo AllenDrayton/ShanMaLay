@@ -1,4 +1,4 @@
-[gd_scene load_steps=207 format=2]
+[gd_scene load_steps=206 format=2]
 
 [ext_resource path="res://pck/assets/common/profiles/0.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/HomeScence/Home-Withdraw/icon-withdraw-money.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://pck/assets/tg_tiger_voice/tg_money.mp3" type="AudioStream" id=10]
 [ext_resource path="res://pck/assets/Tiger_Dragon/1k.png" type="Texture" id=11]
 [ext_resource path="res://pck/assets/Tiger_Dragon/TD3.png" type="Texture" id=12]
-[ext_resource path="res://pck/assets/skm_bet/select-circle.png" type="Texture" id=13]
 [ext_resource path="res://pck/assets/Tiger_Dragon/tiger_win.png" type="Texture" id=14]
 [ext_resource path="res://pck/assets/Tiger_Dragon/image-tiger-carpet.png" type="Texture" id=15]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=16]
@@ -804,8 +803,7 @@ __meta__ = {
 }
 
 [node name="dragon" type="Sprite" parent="dragon_coinHome"]
-position = Vector2( 4, -22 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 4, -21 )
 texture = ExtResource( 39 )
 
 [node name="tiger_coinHome" type="Node2D" parent="."]
@@ -816,15 +814,9 @@ __meta__ = {
 
 [node name="tiger" type="Sprite" parent="tiger_coinHome"]
 position = Vector2( 44, -11 )
-scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 40 )
 
 [node name="BetSelect" type="Node" parent="."]
-
-[node name="Select" type="Sprite" parent="BetSelect"]
-position = Vector2( 576, 1048 )
-scale = Vector2( 1.7, 1.7 )
-texture = ExtResource( 13 )
 
 [node name="0" type="TextureButton" parent="BetSelect"]
 margin_left = 508.0
@@ -1042,12 +1034,6 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 
-[node name="Frame" type="Sprite" parent="Bots/Bot1"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
-
 [node name="Panel" type="Panel" parent="Bots/Bot1"]
 margin_left = -60.0
 margin_top = 51.0
@@ -1081,12 +1067,6 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
-
-[node name="Frame" type="Sprite" parent="Bots/Bot2"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
 
 [node name="Panel" type="Panel" parent="Bots/Bot2"]
 margin_left = -60.0
@@ -1122,12 +1102,6 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 
-[node name="Frame" type="Sprite" parent="Bots/Bot3"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
-
 [node name="Panel" type="Panel" parent="Bots/Bot3"]
 margin_left = -60.0
 margin_top = 51.0
@@ -1161,12 +1135,6 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
-
-[node name="Frame" type="Sprite" parent="Bots/Bot4"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
 
 [node name="Panel" type="Panel" parent="Bots/Bot4"]
 margin_left = -60.0
@@ -1202,12 +1170,6 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 
-[node name="Frame" type="Sprite" parent="Bots/Bot5"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
-
 [node name="Panel" type="Panel" parent="Bots/Bot5"]
 margin_left = -60.0
 margin_top = 51.0
@@ -1241,12 +1203,6 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
-
-[node name="Frame" type="Sprite" parent="Bots/Bot6"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
 
 [node name="Panel" type="Panel" parent="Bots/Bot6"]
 margin_left = -60.0
@@ -1282,12 +1238,6 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 
-[node name="Frame" type="Sprite" parent="Bots/Bot7"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
-
 [node name="Panel" type="Panel" parent="Bots/Bot7"]
 margin_left = -60.0
 margin_top = 51.0
@@ -1315,12 +1265,6 @@ __meta__ = {
 [node name="Profile" type="Sprite" parent="Bots/Players"]
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
-
-[node name="Frame" type="Sprite" parent="Bots/Players"]
-visible = false
-scale = Vector2( 0.8, 0.8 )
-z_index = 1
-texture = ExtResource( 4 )
 
 [node name="Panel" type="Panel" parent="Bots/Players"]
 margin_left = -60.0
@@ -1573,13 +1517,14 @@ visible = false
 position = Vector2( 1157, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="card_gif_2" type="AnimatedSprite" parent="."]
 position = Vector2( 848, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
+frame = 3
 playing = true
 
 [node name="C1" type="Sprite" parent="."]
@@ -1635,10 +1580,11 @@ valign = 1
 
 [node name="vs" type="Sprite" parent="."]
 position = Vector2( 999, 93 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 41 )
 
 [node name="Timer" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 position = Vector2( 999, 93 )
 scale = Vector2( 0.1, 0.1 )
@@ -1665,36 +1611,25 @@ anims/RESET = SubResource( 11 )
 anims/play = SubResource( 12 )
 
 [node name="dragon_gif" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 632, 442 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 3, 3 )
 z_index = 3
 frames = SubResource( 77 )
 frame = 31
 
 [node name="tiger_gif" type="AnimatedSprite" parent="."]
-position = Vector2( 1352, 480 )
-scale = Vector2( 0.5, 0.5 )
+visible = false
+position = Vector2( 1352, 481 )
+scale = Vector2( 2.5, 2.5 )
 z_index = 3
 frames = SubResource( 78 )
 frame = 27
 
-[node name="dragon_gif_1" type="Sprite" parent="."]
-visible = false
-position = Vector2( 621, 427 )
-scale = Vector2( 0.15, 0.15 )
-z_index = 3
-texture = ExtResource( 39 )
-
-[node name="tiger_gif_1" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1359, 442 )
-scale = Vector2( 0.15, 0.15 )
-z_index = 3
-texture = ExtResource( 40 )
-
 [node name="vs_gif" type="AnimatedSprite" parent="."]
-position = Vector2( 1000, 440 )
-scale = Vector2( 0.8, 0.8 )
+visible = false
+position = Vector2( 1000, 441 )
+scale = Vector2( 3, 3 )
 z_index = 3
 frames = SubResource( 79 )
 frame = 3

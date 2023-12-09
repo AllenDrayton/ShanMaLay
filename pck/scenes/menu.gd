@@ -28,11 +28,12 @@ func _ready():
 	if currentMusic != "music-main-background":
 		$"/root/bgm".stream = music
 		$"/root/bgm".play()
+		$"/root/bgm".volume_db = 0
 	get_node("player_info").get_node("playerInfoSetting").connect("profile_changed",self,"_on_profile_changed")
 
 func _on_MenuMusicOff():
 	print("Menu Music Off ok")
-	$"/root/bgm".stop()
+	$"/root/bgm".volume_db = -80
 
 func musicOn():
 	$"/root/bgm".volume_db = 0
