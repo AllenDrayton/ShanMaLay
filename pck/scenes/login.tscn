@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://pck/scenes/CustomKeyboard2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://pck/assets/menu/bg-2.jpg" type="Texture" id=2]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://pck/assets/common/check-on.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/common/check-off.png" type="Texture" id=8]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=9]
+[ext_resource path="res://pck/scenes/login.gd" type="Script" id=10]
+[ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=12]
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 6 )
+
+[node name="root" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 1000, 450 )
+texture = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 1301.0
+margin_top = 239.0
+margin_right = 1700.0
+margin_bottom = 317.0
+
+[node name="Username" type="Label" parent="Control"]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 399.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="Control2" type="Control" parent="."]
+margin_left = 1300.0
+margin_top = 340.0
+margin_right = 1699.0
+margin_bottom = 416.0
+
+[node name="Password" type="Label" parent="Control2"]
+margin_top = -2.0
+margin_right = 400.0
+margin_bottom = 78.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="Remember" type="CheckButton" parent="."]
+margin_left = 1520.0
+margin_top = 444.0
+margin_right = 1682.0
+margin_bottom = 502.0
+custom_icons/off = ExtResource( 8 )
+custom_icons/on = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 1320.0
+margin_top = 444.0
+margin_right = 1520.0
+margin_bottom = 504.0
+custom_fonts/font = SubResource( 5 )
+text = "Remember"
+align = 1
+valign = 1
+
+[node name="Login" type="TextureButton" parent="."]
+margin_left = 1335.0
+margin_top = 573.0
+margin_right = 1639.0
+margin_bottom = 667.0
+script = ExtResource( 9 )
+
+[node name="AlertBox" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1000, 980 )
+targetY = 840.0
+
+[node name="Setting" parent="." instance=ExtResource( 12 )]
+
+[node name="CustomKeyboard" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Store" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+
+[connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

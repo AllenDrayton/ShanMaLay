@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/d_.mp3-241ca34520c16c5bd42ba6af39f53821.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/skm_bet/d_.mp3"
+dest_files=[ "res://.import/d_.mp3-241ca34520c16c5bd42ba6af39f53821.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
