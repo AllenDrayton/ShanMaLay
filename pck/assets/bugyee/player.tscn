@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=100 format=2]
 
 [ext_resource path="res://pck/assets/bugyee/Player.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/shankoemee/lose.png" type="Texture" id=2]
@@ -12,15 +12,15 @@
 [ext_resource path="res://pck/assets/common/newEmoji/e2.png" type="Texture" id=10]
 [ext_resource path="res://pck/assets/common/profile-frame.png" type="Texture" id=11]
 [ext_resource path="res://pck/assets/common/newEmoji/e6.png" type="Texture" id=12]
-[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=13]
 [ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=14]
 [ext_resource path="res://pck/assets/common/WINRESEA.TTF" type="DynamicFontData" id=15]
-[ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://pck/assets/common/messages/bet_more.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=276]
 size = 35
-font_data = ExtResource( 16 )
+use_filter = true
+font_data = ExtResource( 13 )
 
 [sub_resource type="Animation" id=277]
 length = 0.001
@@ -112,7 +112,7 @@ tracks/1/keys = {
 [sub_resource type="DynamicFont" id=275]
 size = 35
 use_filter = true
-font_data = ExtResource( 16 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="StyleBoxTexture" id=267]
 texture = ExtResource( 3 )
@@ -123,12 +123,16 @@ margin_top = 80.0
 margin_bottom = 60.0
 
 [sub_resource type="DynamicFont" id=268]
-size = 15
+size = 22
+outline_size = 1
+outline_color = Color( 0.0470588, 0.156863, 0.494118, 1 )
 use_filter = true
 font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=283]
 size = 25
+outline_size = 1
+outline_color = Color( 0.172549, 0.0901961, 0.560784, 1 )
 use_filter = true
 font_data = ExtResource( 13 )
 
@@ -709,7 +713,8 @@ texture = ExtResource( 2 )
 
 [node name="Emoji" type="AnimatedSprite" parent="."]
 visible = false
-scale = Vector2( 0.37, 0.37 )
+position = Vector2( 0, -3 )
+scale = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 269 )
 animation = "e1"

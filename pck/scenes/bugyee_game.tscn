@@ -6,7 +6,7 @@
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00008.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/bugyee/banker.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://pck/assets/bugyee/label-2.png" type="Texture" id=8]
 [ext_resource path="res://pck/assets/common/WINRESEA.TTF" type="DynamicFontData" id=9]
 [ext_resource path="res://pck/assets/shankoemee/audio/win_effect.mp3" type="AudioStream" id=10]
@@ -359,6 +359,9 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=275]
 size = 70
+outline_size = 1
+outline_color = Color( 0.0941176, 0.258824, 0.647059, 1 )
+use_filter = true
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=276]
@@ -367,8 +370,11 @@ font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=274]
 size = 35
+outline_size = 1
+outline_color = Color( 0.0980392, 0.25098, 0.615686, 1 )
+use_filter = true
 extra_spacing_top = 7
-font_data = ExtResource( 6 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=277]
 texture = ExtResource( 21 )
@@ -1019,7 +1025,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 288 )
 animation = "idle"
-frame = 2
+frame = 30
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

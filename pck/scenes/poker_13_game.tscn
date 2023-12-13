@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=2]
+[gd_scene load_steps=188 format=2]
 
 [ext_resource path="res://pck/scenes/poker_13_game.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/common/btn-3.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://pck/assets/common/newEmoji/4.png" type="Texture" id=22]
 [ext_resource path="res://pck/assets/common/newEmoji/2.png" type="Texture" id=23]
 [ext_resource path="res://pck/assets/common/newEmoji/3.png" type="Texture" id=24]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=25]
 [ext_resource path="res://pck/assets/shankoemee/setting.png" type="Texture" id=26]
 [ext_resource path="res://pck/assets/audio/noti-1.mp3" type="AudioStream" id=27]
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=28]
@@ -208,9 +209,9 @@ size = 40
 font_data = ExtResource( 38 )
 
 [sub_resource type="DynamicFont" id=282]
-size = 25
+size = 30
 use_filter = true
-font_data = ExtResource( 38 )
+font_data = ExtResource( 25 )
 
 [sub_resource type="DynamicFont" id=283]
 size = 25
@@ -587,7 +588,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 284 )
 animation = "idle"
-frame = 22
+frame = 24
 playing = true
 
 [node name="MessageToggle" type="TextureButton" parent="."]

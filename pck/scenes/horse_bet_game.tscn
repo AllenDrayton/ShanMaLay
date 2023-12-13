@@ -43,11 +43,12 @@
 [ext_resource path="res://pck/assets/skm_bet/100.png" type="Texture" id=41]
 [ext_resource path="res://pck/assets/skm_bet/500.png" type="Texture" id=42]
 [ext_resource path="res://pck/assets/menu/NewMenu/CLNEW.png" type="Texture" id=43]
-[ext_resource path="res://pck/assets/horse_bet/NewAssets/roadA.jpg" type="Texture" id=44]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=45]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
-font_data = ExtResource( 4 )
+use_filter = true
+font_data = ExtResource( 45 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
@@ -55,11 +56,13 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 70
-font_data = ExtResource( 4 )
+use_filter = true
+font_data = ExtResource( 45 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 50
-font_data = ExtResource( 4 )
+use_filter = true
+font_data = ExtResource( 45 )
 
 [sub_resource type="Animation" id=94]
 length = 0.001
@@ -141,7 +144,7 @@ animations = [ {
 [sub_resource type="DynamicFont" id=111]
 size = 60
 use_filter = true
-font_data = ExtResource( 4 )
+font_data = ExtResource( 45 )
 
 [sub_resource type="Animation" id=112]
 length = 0.001
@@ -671,7 +674,7 @@ animations = [ {
 [sub_resource type="DynamicFont" id=108]
 size = 50
 use_filter = true
-font_data = ExtResource( 4 )
+font_data = ExtResource( 45 )
 
 [sub_resource type="Animation" id=106]
 length = 0.001
@@ -962,7 +965,10 @@ tracks/12/keys = {
 
 [sub_resource type="DynamicFont" id=110]
 size = 350
-font_data = ExtResource( 4 )
+outline_size = 1
+outline_color = Color( 0.141176, 0.85098, 0.85098, 1 )
+use_filter = true
+font_data = ExtResource( 45 )
 
 [node name="root" type="Node"]
 script = ExtResource( 7 )
@@ -1621,10 +1627,10 @@ align = 1
 valign = 1
 
 [node name="LastResult" type="Node2D" parent="BetPanel"]
+visible = false
 position = Vector2( 1440, 0 )
 
 [node name="Label" type="Label" parent="BetPanel/LastResult"]
-visible = false
 margin_top = 40.0
 margin_right = 480.0
 margin_bottom = 140.0
@@ -1808,11 +1814,6 @@ valign = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BetPanel/Timer"]
 anims/RESET = SubResource( 112 )
 anims/play = SubResource( 113 )
-
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 250, 450 )
-texture = ExtResource( 44 )
 
 [node name="Horses" type="Node" parent="."]
 

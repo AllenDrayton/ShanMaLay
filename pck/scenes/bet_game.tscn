@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=3]
 [ext_resource path="res://pck/assets/menu/dragon_tiger.png" type="Texture" id=4]
@@ -11,8 +11,8 @@
 [ext_resource path="res://pck/scenes/bet_game.gd" type="Script" id=10]
 [ext_resource path="res://pck/assets/menu/horse.png" type="Texture" id=11]
 
-[sub_resource type="DynamicFont" id=6]
-size = 25
+[sub_resource type="DynamicFont" id=10]
+size = 30
 use_filter = true
 font_data = ExtResource( 1 )
 
@@ -409,10 +409,10 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -19.0
-margin_top = -15.0
-margin_right = -177.0
-margin_bottom = -70.0
-custom_fonts/font = SubResource( 6 )
+margin_top = -19.0
+margin_right = -180.0
+margin_bottom = -72.0
+custom_fonts/font = SubResource( 10 )
 text = "0"
 align = 1
 valign = 1

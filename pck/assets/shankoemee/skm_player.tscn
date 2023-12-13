@@ -5,6 +5,7 @@
 [ext_resource path="res://pck/assets/common/emoji/emoji.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://pck/assets/menu/NewMenu/btn-1.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/menu/NewMenu/panel-1A.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=6]
 [ext_resource path="res://pck/assets/common/WINYADA0.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://pck/assets/shankoemee/lose.png" type="Texture" id=11]
 [ext_resource path="res://pck/assets/shankoemee/auto-flag.png" type="Texture" id=12]
@@ -13,26 +14,31 @@
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=15]
 [ext_resource path="res://pck/scripts/shankoemee/player.gd" type="Script" id=16]
 [ext_resource path="res://pck/assets/common/messages/bet_more.png" type="Texture" id=17]
-[ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://pck/assets/shankoemee/count-down-circle.png" type="Texture" id=20]
 [ext_resource path="res://pck/assets/shankoemee/bet-amount.png" type="Texture" id=21]
 [ext_resource path="res://pck/assets/shankoemee/count-down-empty.png" type="Texture" id=23]
 
 [sub_resource type="DynamicFont" id=2]
-size = 28
+size = 35
+outline_size = 1
+outline_color = Color( 0.0901961, 0.137255, 0.647059, 1 )
 use_filter = true
-font_data = ExtResource( 19 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=323]
 size = 35
+outline_size = 1
+outline_color = Color( 0.141176, 0.14902, 0.619608, 1 )
 use_filter = true
-font_data = ExtResource( 19 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 30
+outline_size = 1
+outline_color = Color( 0.141176, 0.321569, 0.631373, 1 )
 use_filter = true
-font_data = ExtResource( 18 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
@@ -366,7 +372,8 @@ tracks/1/keys = {
 
 [sub_resource type="DynamicFont" id=324]
 size = 35
-font_data = ExtResource( 18 )
+use_filter = true
+font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=325]
 length = 0.001
@@ -574,10 +581,12 @@ frames = SubResource( 55 )
 
 [node name="Emoji" type="AnimatedSprite" parent="."]
 visible = false
-scale = Vector2( 0.37, 0.37 )
+position = Vector2( 0, -3 )
+scale = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = ExtResource( 3 )
-playing = true
+animation = "e2"
+frame = 10
 
 [node name="Catch" type="TextureButton" parent="."]
 margin_left = 49.0
