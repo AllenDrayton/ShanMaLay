@@ -11,10 +11,10 @@
 [ext_resource path="res://pck/assets/common/WINRESEA.TTF" type="DynamicFontData" id=9]
 [ext_resource path="res://pck/assets/shankoemee/audio/win_effect.mp3" type="AudioStream" id=10]
 [ext_resource path="res://pck/assets/menu/NewMenu/panel-top.png" type="Texture" id=11]
-[ext_resource path="res://pck/assets/common/emoji/icons/1.png" type="Texture" id=12]
-[ext_resource path="res://pck/assets/common/emoji/icons/2.png" type="Texture" id=13]
-[ext_resource path="res://pck/assets/common/emoji/icons/3.png" type="Texture" id=14]
-[ext_resource path="res://pck/assets/common/emoji/icons/5.png" type="Texture" id=15]
+[ext_resource path="res://pck/assets/common/newEmoji/6.png" type="Texture" id=12]
+[ext_resource path="res://pck/assets/common/newEmoji/1.png" type="Texture" id=13]
+[ext_resource path="res://pck/assets/common/newEmoji/5.png" type="Texture" id=14]
+[ext_resource path="res://pck/assets/common/newEmoji/4.png" type="Texture" id=15]
 [ext_resource path="res://pck/assets/common/emoji.png" type="Texture" id=16]
 [ext_resource path="res://pck/assets/shankoemee/exit.png" type="Texture" id=17]
 [ext_resource path="res://pck/assets/shankoemee/setting.png" type="Texture" id=18]
@@ -25,7 +25,7 @@
 [ext_resource path="res://pck/assets/audio/coin_move_1.mp3" type="AudioStream" id=23]
 [ext_resource path="res://pck/assets/audio/noti-1.mp3" type="AudioStream" id=24]
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=25]
-[ext_resource path="res://pck/assets/common/emoji/icons/6.png" type="Texture" id=26]
+[ext_resource path="res://pck/assets/common/newEmoji/2.png" type="Texture" id=26]
 [ext_resource path="res://pck/assets/bugyee/card-frame.png" type="Texture" id=27]
 [ext_resource path="res://pck/assets/common/cards/10.png" type="Texture" id=28]
 [ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=29]
@@ -33,7 +33,7 @@
 [ext_resource path="res://pck/assets/common/arrow_right.png" type="Texture" id=31]
 [ext_resource path="res://pck/assets/common/btn-8.png" type="Texture" id=32]
 [ext_resource path="res://pck/assets/common/btn-9.png" type="Texture" id=33]
-[ext_resource path="res://pck/assets/common/emoji/icons/4.png" type="Texture" id=34]
+[ext_resource path="res://pck/assets/common/newEmoji/3.png" type="Texture" id=34]
 [ext_resource path="res://pck/assets/common/btn-7.png" type="Texture" id=35]
 [ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=36]
 [ext_resource path="res://pck/assets/bugyee/bugyee-howto.png" type="Texture" id=38]
@@ -817,7 +817,9 @@ margin_left = 20.0
 margin_top = 520.0
 margin_right = 120.0
 margin_bottom = 620.0
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource( 13 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 22 )
 
 [node name="e2" type="TextureButton" parent="EmojiPanel"]
@@ -825,7 +827,9 @@ margin_left = 20.0
 margin_top = 420.0
 margin_right = 120.0
 margin_bottom = 520.0
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 26 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 22 )
 
 [node name="e3" type="TextureButton" parent="EmojiPanel"]
@@ -833,7 +837,9 @@ margin_left = 20.0
 margin_top = 320.0
 margin_right = 120.0
 margin_bottom = 420.0
-texture_normal = ExtResource( 14 )
+texture_normal = ExtResource( 34 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 22 )
 
 [node name="e4" type="TextureButton" parent="EmojiPanel"]
@@ -841,7 +847,9 @@ margin_left = 20.0
 margin_top = 220.0
 margin_right = 120.0
 margin_bottom = 320.0
-texture_normal = ExtResource( 34 )
+texture_normal = ExtResource( 15 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 22 )
 
 [node name="e5" type="TextureButton" parent="EmojiPanel"]
@@ -849,7 +857,9 @@ margin_left = 20.0
 margin_top = 120.0
 margin_right = 120.0
 margin_bottom = 220.0
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 14 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 22 )
 
 [node name="e6" type="TextureButton" parent="EmojiPanel"]
@@ -857,7 +867,9 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 120.0
 margin_bottom = 120.0
-texture_normal = ExtResource( 26 )
+texture_normal = ExtResource( 12 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 22 )
 
 [node name="Rules" type="Node2D" parent="."]
@@ -1007,7 +1019,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 288 )
 animation = "idle"
-frame = 42
+frame = 2
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

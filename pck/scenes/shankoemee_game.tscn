@@ -40,13 +40,13 @@
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00002.png" type="Texture" id=38]
 [ext_resource path="res://pck/assets/common/ShanMa/idle/SG1_00026.png" type="Texture" id=39]
 [ext_resource path="res://pck/assets/common/ShanMa/idle/SG1_00015.png" type="Texture" id=40]
-[ext_resource path="res://pck/assets/common/emoji/icons/1.png" type="Texture" id=41]
+[ext_resource path="res://pck/assets/common/newEmoji/6.png" type="Texture" id=41]
 [ext_resource path="res://pck/assets/common/emoji.png" type="Texture" id=42]
-[ext_resource path="res://pck/assets/common/emoji/icons/2.png" type="Texture" id=43]
-[ext_resource path="res://pck/assets/common/emoji/icons/3.png" type="Texture" id=44]
-[ext_resource path="res://pck/assets/common/emoji/icons/5.png" type="Texture" id=45]
-[ext_resource path="res://pck/assets/common/emoji/icons/6.png" type="Texture" id=46]
-[ext_resource path="res://pck/assets/common/emoji/icons/4.png" type="Texture" id=47]
+[ext_resource path="res://pck/assets/common/newEmoji/1.png" type="Texture" id=43]
+[ext_resource path="res://pck/assets/common/newEmoji/5.png" type="Texture" id=44]
+[ext_resource path="res://pck/assets/common/newEmoji/4.png" type="Texture" id=45]
+[ext_resource path="res://pck/assets/common/newEmoji/2.png" type="Texture" id=46]
+[ext_resource path="res://pck/assets/common/newEmoji/3.png" type="Texture" id=47]
 [ext_resource path="res://pck/assets/audio/noti-1.mp3" type="AudioStream" id=48]
 [ext_resource path="res://pck/assets/common/ShanMa/idle/SG1_00012.png" type="Texture" id=49]
 [ext_resource path="res://pck/assets/shankoemee/bet-slider-bg.png" type="Texture" id=50]
@@ -1628,7 +1628,9 @@ margin_left = 20.0
 margin_top = 520.0
 margin_right = 120.0
 margin_bottom = 620.0
-texture_normal = ExtResource( 41 )
+texture_normal = ExtResource( 43 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 14 )
 
 [node name="e2" type="TextureButton" parent="EmojiPanel"]
@@ -1636,7 +1638,9 @@ margin_left = 20.0
 margin_top = 420.0
 margin_right = 120.0
 margin_bottom = 520.0
-texture_normal = ExtResource( 43 )
+texture_normal = ExtResource( 46 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 14 )
 
 [node name="e3" type="TextureButton" parent="EmojiPanel"]
@@ -1644,7 +1648,9 @@ margin_left = 20.0
 margin_top = 320.0
 margin_right = 120.0
 margin_bottom = 420.0
-texture_normal = ExtResource( 44 )
+texture_normal = ExtResource( 47 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 14 )
 
 [node name="e4" type="TextureButton" parent="EmojiPanel"]
@@ -1652,7 +1658,9 @@ margin_left = 20.0
 margin_top = 220.0
 margin_right = 120.0
 margin_bottom = 320.0
-texture_normal = ExtResource( 47 )
+texture_normal = ExtResource( 45 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 14 )
 
 [node name="e5" type="TextureButton" parent="EmojiPanel"]
@@ -1660,7 +1668,9 @@ margin_left = 20.0
 margin_top = 120.0
 margin_right = 120.0
 margin_bottom = 220.0
-texture_normal = ExtResource( 45 )
+texture_normal = ExtResource( 44 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 14 )
 
 [node name="e6" type="TextureButton" parent="EmojiPanel"]
@@ -1668,7 +1678,9 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 120.0
 margin_bottom = 120.0
-texture_normal = ExtResource( 46 )
+texture_normal = ExtResource( 41 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 14 )
 
 [node name="MessageToggle" type="TextureButton" parent="."]
@@ -1850,7 +1862,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 349 )
 animation = "idle"
-frame = 15
+frame = 13
 playing = true
 
 [connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]

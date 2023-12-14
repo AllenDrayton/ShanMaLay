@@ -574,7 +574,7 @@ frames = SubResource( 55 )
 
 [node name="Emoji" type="AnimatedSprite" parent="."]
 visible = false
-scale = Vector2( 2, 2 )
+scale = Vector2( 0.37, 0.37 )
 z_index = 1
 frames = ExtResource( 3 )
 playing = true

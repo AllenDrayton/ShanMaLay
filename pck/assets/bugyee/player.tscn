@@ -1,112 +1,22 @@
-[gd_scene load_steps=122 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://pck/assets/bugyee/Player.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/shankoemee/lose.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/menu/NewMenu/panel-1A.png" type="Texture" id=3]
 [ext_resource path="res://pck/assets/bugyee/label-1.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/common/profiles/0.png" type="Texture" id=5]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00033.png" type="Texture" id=6]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00039.png" type="Texture" id=7]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00042.png" type="Texture" id=8]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00012.png" type="Texture" id=9]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00024.png" type="Texture" id=10]
+[ext_resource path="res://pck/assets/common/newEmoji/e4.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/common/newEmoji/e5.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/common/newEmoji/e3.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/common/newEmoji/e1.png" type="Texture" id=9]
+[ext_resource path="res://pck/assets/common/newEmoji/e2.png" type="Texture" id=10]
 [ext_resource path="res://pck/assets/common/profile-frame.png" type="Texture" id=11]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00021.png" type="Texture" id=12]
+[ext_resource path="res://pck/assets/common/newEmoji/e6.png" type="Texture" id=12]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=14]
 [ext_resource path="res://pck/assets/common/WINRESEA.TTF" type="DynamicFontData" id=15]
 [ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://pck/assets/common/messages/bet_more.png" type="Texture" id=17]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00024.png" type="Texture" id=18]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00045.png" type="Texture" id=19]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00000.png" type="Texture" id=20]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00033.png" type="Texture" id=21]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00036.png" type="Texture" id=22]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00015.png" type="Texture" id=23]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00027.png" type="Texture" id=24]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00000.png" type="Texture" id=25]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00027.png" type="Texture" id=26]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00036.png" type="Texture" id=27]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00012.png" type="Texture" id=28]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00030.png" type="Texture" id=29]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00039.png" type="Texture" id=30]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00021.png" type="Texture" id=31]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00003.png" type="Texture" id=32]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00018.png" type="Texture" id=33]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00030.png" type="Texture" id=34]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00003.png" type="Texture" id=35]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00006.png" type="Texture" id=36]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00009.png" type="Texture" id=37]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00006.png" type="Texture" id=38]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00018.png" type="Texture" id=39]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00015.png" type="Texture" id=40]
-[ext_resource path="res://pck/assets/common/emoji/E1/emoji_1_00009.png" type="Texture" id=41]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00003.png" type="Texture" id=42]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00009.png" type="Texture" id=43]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00006.png" type="Texture" id=44]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00000.png" type="Texture" id=45]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00042.png" type="Texture" id=46]
-[ext_resource path="res://pck/assets/common/emoji/E2/emoji_2_00045.png" type="Texture" id=47]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00006.png" type="Texture" id=48]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00024.png" type="Texture" id=49]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00045.png" type="Texture" id=50]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00000.png" type="Texture" id=51]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00012.png" type="Texture" id=52]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00018.png" type="Texture" id=53]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00024.png" type="Texture" id=54]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00045.png" type="Texture" id=55]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00039.png" type="Texture" id=56]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00015.png" type="Texture" id=57]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00000.png" type="Texture" id=58]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00003.png" type="Texture" id=59]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00033.png" type="Texture" id=60]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00030.png" type="Texture" id=61]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00033.png" type="Texture" id=62]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00030.png" type="Texture" id=63]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00015.png" type="Texture" id=64]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00036.png" type="Texture" id=65]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00009.png" type="Texture" id=66]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00036.png" type="Texture" id=67]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00042.png" type="Texture" id=68]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00027.png" type="Texture" id=69]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00030.png" type="Texture" id=70]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00042.png" type="Texture" id=71]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00018.png" type="Texture" id=72]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00021.png" type="Texture" id=73]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00036.png" type="Texture" id=74]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00009.png" type="Texture" id=75]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00012.png" type="Texture" id=76]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00003.png" type="Texture" id=77]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00045.png" type="Texture" id=78]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00039.png" type="Texture" id=79]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00015.png" type="Texture" id=80]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00018.png" type="Texture" id=81]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00027.png" type="Texture" id=82]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00021.png" type="Texture" id=83]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00000.png" type="Texture" id=84]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00024.png" type="Texture" id=85]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00027.png" type="Texture" id=86]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00042.png" type="Texture" id=87]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00039.png" type="Texture" id=88]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00006.png" type="Texture" id=89]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00012.png" type="Texture" id=90]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00042.png" type="Texture" id=91]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00021.png" type="Texture" id=92]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00018.png" type="Texture" id=93]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00003.png" type="Texture" id=94]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00021.png" type="Texture" id=95]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00033.png" type="Texture" id=96]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00039.png" type="Texture" id=97]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00027.png" type="Texture" id=98]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00024.png" type="Texture" id=99]
-[ext_resource path="res://pck/assets/common/emoji/E3/emoji_3_00015.png" type="Texture" id=100]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00006.png" type="Texture" id=101]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00012.png" type="Texture" id=102]
-[ext_resource path="res://pck/assets/common/emoji/E5/emoji_5_00009.png" type="Texture" id=103]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00030.png" type="Texture" id=104]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00036.png" type="Texture" id=105]
-[ext_resource path="res://pck/assets/common/emoji/E6/emoji_6_00045.png" type="Texture" id=106]
-[ext_resource path="res://pck/assets/common/emoji/E4/emoji_4_00033.png" type="Texture" id=107]
 
 [sub_resource type="DynamicFont" id=276]
 size = 35
@@ -222,34 +132,379 @@ size = 25
 use_filter = true
 font_data = ExtResource( 13 )
 
+[sub_resource type="AtlasTexture" id=286]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=287]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 290, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=288]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 580, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=289]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=290]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 290, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=291]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 580, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=292]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=293]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 290, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=294]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=295]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 290, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=296]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 580, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=297]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 870, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=298]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=299]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 290, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=300]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 580, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=301]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 870, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=302]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=303]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 290, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=304]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 580, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=305]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 870, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=306]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=307]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 290, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=308]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 580, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=309]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 870, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=310]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=311]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 290, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=312]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 580, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=313]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=314]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 290, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=315]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 580, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=316]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=317]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 290, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=318]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 580, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=319]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=320]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 290, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=321]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 580, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=322]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=323]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 290, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=324]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 580, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=325]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=326]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 290, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=327]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 580, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=328]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=329]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 290, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=330]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=331]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 290, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=332]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 580, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=333]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=334]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 290, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=335]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 580, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=336]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=337]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 290, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=338]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 580, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=339]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=340]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 290, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=341]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=342]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 290, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=343]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 580, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=344]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 870, 0, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=345]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=346]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 290, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=347]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 580, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=348]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 870, 290, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=349]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=350]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 290, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=351]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 580, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=352]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 870, 580, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=353]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 870, 290, 290 )
+
+[sub_resource type="AtlasTexture" id=354]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 870, 870, 290, 290 )
+
 [sub_resource type="SpriteFrames" id=269]
 animations = [ {
-"frames": [ ExtResource( 20 ), ExtResource( 32 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 9 ), ExtResource( 40 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 10 ), ExtResource( 26 ), ExtResource( 34 ), ExtResource( 6 ), ExtResource( 27 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 19 ) ],
+"frames": [ SubResource( 286 ), SubResource( 287 ), SubResource( 288 ), SubResource( 289 ), SubResource( 290 ), SubResource( 291 ), SubResource( 292 ), SubResource( 293 ) ],
 "loop": true,
 "name": "e1",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 39 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 24 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 30 ), ExtResource( 46 ), ExtResource( 47 ) ],
+"frames": [ SubResource( 294 ), SubResource( 295 ), SubResource( 296 ), SubResource( 297 ), SubResource( 298 ), SubResource( 299 ), SubResource( 300 ), SubResource( 301 ), SubResource( 302 ), SubResource( 303 ), SubResource( 304 ), SubResource( 305 ), SubResource( 306 ), SubResource( 307 ), SubResource( 308 ), SubResource( 309 ) ],
 "loop": true,
 "name": "e2",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 52 ), ExtResource( 100 ), ExtResource( 53 ), ExtResource( 92 ), ExtResource( 49 ), ExtResource( 98 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 65 ), ExtResource( 79 ), ExtResource( 71 ), ExtResource( 78 ) ],
+"frames": [ SubResource( 310 ), SubResource( 311 ), SubResource( 312 ), SubResource( 313 ), SubResource( 314 ), SubResource( 315 ), SubResource( 316 ), SubResource( 317 ), SubResource( 318 ) ],
 "loop": true,
 "name": "e3",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 84 ), ExtResource( 77 ), ExtResource( 48 ), ExtResource( 66 ), ExtResource( 90 ), ExtResource( 57 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 99 ), ExtResource( 82 ), ExtResource( 63 ), ExtResource( 107 ), ExtResource( 67 ), ExtResource( 88 ), ExtResource( 68 ), ExtResource( 50 ) ],
+"frames": [ SubResource( 319 ), SubResource( 320 ), SubResource( 321 ), SubResource( 322 ), SubResource( 323 ), SubResource( 324 ), SubResource( 325 ), SubResource( 326 ), SubResource( 327 ), SubResource( 328 ), SubResource( 329 ) ],
 "loop": true,
 "name": "e4",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 101 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 64 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 54 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 60 ), ExtResource( 74 ), ExtResource( 97 ), ExtResource( 91 ), ExtResource( 55 ) ],
+"frames": [ SubResource( 330 ), SubResource( 331 ), SubResource( 332 ), SubResource( 333 ), SubResource( 334 ), SubResource( 335 ), SubResource( 336 ), SubResource( 337 ), SubResource( 338 ), SubResource( 339 ), SubResource( 340 ) ],
 "loop": true,
 "name": "e5",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 51 ), ExtResource( 94 ), ExtResource( 89 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 83 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 104 ), ExtResource( 96 ), ExtResource( 105 ), ExtResource( 56 ), ExtResource( 87 ), ExtResource( 106 ) ],
+"frames": [ SubResource( 341 ), SubResource( 342 ), SubResource( 343 ), SubResource( 344 ), SubResource( 345 ), SubResource( 346 ), SubResource( 347 ), SubResource( 348 ), SubResource( 349 ), SubResource( 350 ), SubResource( 351 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ) ],
 "loop": true,
 "name": "e6",
 "speed": 8.0
@@ -454,12 +709,11 @@ texture = ExtResource( 2 )
 
 [node name="Emoji" type="AnimatedSprite" parent="."]
 visible = false
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.37, 0.37 )
 z_index = 1
 frames = SubResource( 269 )
 animation = "e1"
-frame = 7
-playing = true
+frame = 3
 
 [node name="CardPos" type="Node2D" parent="."]
 position = Vector2( 200, 20 )

@@ -80,7 +80,7 @@ func _set_info(nickname, balance, profile):
 	$Panel/Nickname.text = nickname
 	_balance = balance
 	_set_balance(balance)
-	$Profile.texture = profile_textures[profile]
+	$Profile.texture = profile_textures[int(profile)]
 
 func _set_balance(balance):
 	if(balance >= 1000):
