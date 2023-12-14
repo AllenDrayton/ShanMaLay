@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=76 format=2]
+[gd_resource type="SpriteFrames" load_steps=74 format=2]
 
 [ext_resource path="res://pck/assets/common/newEmoji/e1.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/newEmoji/e4.png" type="Texture" id=2]
@@ -121,11 +121,6 @@ region = Rect2( 290, 870, 290, 290 )
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 580, 870, 290, 290 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 870, 870, 290, 290 )
 
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
@@ -347,11 +342,6 @@ flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 0, 870, 290, 290 )
 
-[sub_resource type="AtlasTexture" id=69]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 870, 870, 290, 290 )
-
 [resource]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
@@ -359,7 +349,7 @@ animations = [ {
 "name": "e1",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
 "name": "e2",
 "speed": 8.0
@@ -379,7 +369,7 @@ animations = [ {
 "name": "e5",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ) ],
+"frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ) ],
 "loop": true,
 "name": "e6",
 "speed": 8.0

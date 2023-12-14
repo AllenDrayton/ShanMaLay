@@ -248,7 +248,7 @@ func _start(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Start")
-	$ShanMa.play("shuffle")
+#	$ShanMa.play("shuffle")
 	
 	_clear_all_player_cards()
 	_reset_all_player()
@@ -264,7 +264,7 @@ func _deliver(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Deliver")
-	$ShanMa.play("deliver")
+#	$ShanMa.play("deliver")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL

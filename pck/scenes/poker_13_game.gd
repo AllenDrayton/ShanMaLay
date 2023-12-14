@@ -418,7 +418,7 @@ func _start(room):
 	for N in $"Cards".get_children():
 		N.queue_free()
 	
-	$ShanMa.play("deliver")
+#	$ShanMa.play("deliver")
 	
 	for i in range(13):
 		var card = deckCardArray[i]
