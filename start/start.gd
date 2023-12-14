@@ -14,7 +14,8 @@ var pck_location = "user://update.pck"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	_request()
-	get_tree().change_scene("res://pck/scenes/login.tscn")
+#	get_tree().change_scene("res://pck/scenes/login.tscn")
+	get_tree().change_scene("res://pck/scenes/splashScene.tscn")
 
 #func _save(content):
 #	var file = File.new()
