@@ -10,12 +10,12 @@ func _ready():
 		var data = file.get_as_text()
 		var obj = JSON.parse(data)
 		file.close()
-		#var effectVol = obj.result.effect
-		#var musicVol = obj.result.music 
-		#$SliderEffect.value = effectVol
-		#$liderMusic.value = musicVol
-		#AudioServer.set_bus_volume_db(1,effectVol)
-		#AudioServer.set_bus_volume_db(2,musicVol)
+		var effectVol = obj.result.effect
+		var musicVol = obj.result.music 
+		$SliderEffect.value = effectVol
+		$SliderMusic.value = musicVol
+		AudioServer.set_bus_volume_db(1,effectVol)
+		AudioServer.set_bus_volume_db(2,musicVol)
 	
 	var canvas_rid = get_canvas_item()
 	# You may need to adjust these values
@@ -49,7 +49,9 @@ func _on_Submit_pressed():
 
 func _on_SliderMusic_value_changed(value):
 	AudioServer.set_bus_volume_db(2,value)
+	print("Music : ", value)
 
 
 func _on_SliderEffect_value_changed(value):
 	AudioServer.set_bus_volume_db(1,value)
+	print("Voice : ", value)

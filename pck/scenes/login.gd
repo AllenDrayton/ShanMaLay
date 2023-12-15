@@ -78,6 +78,7 @@ func _on_custom_keyboard_enter_pressed(text):
 	userName.show()
 	passWord.show()
 	$Login.show()
+	$Remember.disabled = false
 	username_entered = false
 	password_entered = false
 
@@ -85,6 +86,8 @@ func _on_custom_keyboard_enter_pressed(text):
 func _on_custom_keyboard_cancel_pressed():
 	userName.show()
 	passWord.show()
+	$Login.show()
+	$Remember.disabled = false
 	username_entered = false
 	password_entered = false
 
@@ -103,6 +106,7 @@ func on_userName_mouse_entered():
 	userName.hide()
 	passWord.hide()
 	$Login.hide()
+	$Remember.disabled = true
 	username_entered = false
 	password_entered = false
 
@@ -120,6 +124,7 @@ func on_passWord_mouse_entered():
 	userName.hide()
 	passWord.hide()
 	$Login.hide()
+	$Remember.disabled = true
 	username_entered = false
 	password_entered = false
 
@@ -140,6 +145,10 @@ func _rejoin_game(gameState) :
 
 
 func _on_Login_pressed():
+	
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
 	var username = $Control/Username.text
 	var password = $Store.text
 	print("Username : ", username)
@@ -181,7 +190,8 @@ func _change_to_menu(username,session,id):
 	$"/root/Config".config.user = user
 	if $Remember.pressed :
 		_save(user)
-	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	#get_tree().change_scene("res://pck/scenes/menu.tscn")
+	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 
 
 func _load_session():
@@ -227,7 +237,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			if respond.sessionLogin :
 				var user = {"username":respond.username,"session":respond.session,"id":respond.id}
 				$"/root/Config".config.user = user
-				get_tree().change_scene("res://pck/scenes/menu.tscn")
+				#get_tree().change_scene("res://pck/scenes/menu.tscn")
+				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 			else :
 				_change_to_menu(respond.username,respond.session,respond.id)
 		"incorrect username":

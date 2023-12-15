@@ -67,6 +67,9 @@ func _ready():
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
 	
+	# Reset Music
+	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
 	for i in range(4):
 		for j in range(1,10):
 			var key = str(j) + str(i)
@@ -162,7 +165,9 @@ func firstcoinselect():
 
 func _start(body):
 	if isExit:
-		get_tree().change_scene("res://pck/scenes/menu.tscn")
+		$"/root/bgm".volume_db = -80
+		#get_tree().change_scene("res://pck/scenes/menu.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 	
 	_reset()

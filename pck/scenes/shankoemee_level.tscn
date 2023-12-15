@@ -1,22 +1,19 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://pck/assets/common/btn-level-1.png" type="Texture" id=3]
+[ext_resource path="res://pck/scenes/roomAnimation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=4]
 [ext_resource path="res://pck/assets/menu/NewMenu/bg-1_right.png" type="Texture" id=5]
 [ext_resource path="res://pck/scenes/shankoemee_level.gd" type="Script" id=6]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=11]
-[ext_resource path="res://pck/assets/common/btn-level-3.png" type="Texture" id=12]
-[ext_resource path="res://pck/assets/common/btn-level-5.png" type="Texture" id=13]
-[ext_resource path="res://pck/assets/common/btn-level-2.png" type="Texture" id=14]
-[ext_resource path="res://pck/assets/common/btn-level-4.png" type="Texture" id=15]
-[ext_resource path="res://pck/assets/common/btn-level-6.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=2]
-size = 20
+size = 30
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=3]
@@ -151,7 +148,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 300, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 920, -0.25, 0, 0.25, 0, 460, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/1/type = "bezier"
@@ -171,7 +168,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 300, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 869, -0.25, 0, 0.25, 0, 220, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.1, 0.6 )
 }
 tracks/3/type = "bezier"
@@ -181,7 +178,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 300, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 813, -0.25, 0, 0.25, 0, 460, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.2, 0.7 )
 }
 tracks/4/type = "bezier"
@@ -191,7 +188,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 710, -0.25, 0, 0.25, 0, 653, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.3, 0.8 )
 }
 tracks/5/type = "bezier"
@@ -201,7 +198,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 370, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.4, 0.9 )
 }
 tracks/6/type = "bezier"
@@ -211,7 +208,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 638, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.5, 1 )
 }
 tracks/7/type = "bezier"
@@ -274,7 +271,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 200, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 460, -0.25, 0, 0.25, 0, 720, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.5, 1 )
 }
 tracks/1/type = "bezier"
@@ -294,7 +291,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 200, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 220, -0.25, 0, 0.25, 0, 869, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.4, 0.9 )
 }
 tracks/3/type = "bezier"
@@ -304,7 +301,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 200, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 460, -0.25, 0, 0.25, 0, 813, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.3, 0.8 )
 }
 tracks/4/type = "bezier"
@@ -314,7 +311,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 500, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 653, -0.25, 0, 0.25, 0, 710, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.2, 0.7 )
 }
 tracks/5/type = "bezier"
@@ -324,7 +321,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 500, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 370, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.1, 0.6 )
 }
 tracks/6/type = "bezier"
@@ -334,7 +331,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 500, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 538, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/7/type = "bezier"
@@ -558,14 +555,16 @@ __meta__ = {
 [node name="Bg" type="Sprite" parent="."]
 position = Vector2( 1000, 450 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level1" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 200.0
+margin_left = 36.0
 margin_top = 300.0
-margin_right = 700.0
-margin_bottom = 550.0
-texture_normal = ExtResource( 3 )
+margin_right = 236.0
+margin_bottom = 400.0
 expand = true
 stretch_mode = 3
 script = ExtResource( 4 )
@@ -573,13 +572,13 @@ script = ExtResource( 4 )
 [node name="Bet" type="Label" parent="level1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 194.0
-margin_top = 109.0
-margin_right = -178.0
-margin_bottom = -98.0
+margin_left = 72.0
+margin_top = 130.0
+margin_right = -34.0
+margin_bottom = 73.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "100"
+text = "Level 1"
 align = 1
 valign = 1
 
@@ -587,22 +586,24 @@ valign = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
-margin_top = 13.0
-margin_right = -20.0
-margin_bottom = -182.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 169.0
+margin_right = -7.0
+margin_bottom = 112.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "ပိုက္ဆံ ၁၀၀၀ ႏွင့္အထက္ရွိရမည္။"
+text = "1000 - 10000"
 align = 1
 valign = 1
 
+[node name="room" parent="level1" instance=ExtResource( 3 )]
+position = Vector2( 102, 54 )
+
 [node name="level2" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 750.0
+margin_left = 337.0
 margin_top = 300.0
-margin_right = 1250.0
-margin_bottom = 550.0
-texture_normal = ExtResource( 14 )
+margin_right = 537.0
+margin_bottom = 399.999
 expand = true
 stretch_mode = 3
 script = ExtResource( 4 )
@@ -610,36 +611,38 @@ script = ExtResource( 4 )
 [node name="Bet" type="Label" parent="level2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 195.0
-margin_top = 109.0
-margin_right = -176.0
-margin_bottom = -100.0
+margin_left = 48.0
+margin_top = 122.0
+margin_right = -38.0
+margin_bottom = 65.0007
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "300"
+text = "Level - 2"
 align = 1
 valign = 1
 
 [node name="Range" type="Label" parent="level2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 10.0
-margin_right = -20.0
-margin_bottom = -187.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = -93.0
+margin_top = 164.0
+margin_right = 110.0
+margin_bottom = 107.001
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "ပိုက္ဆံ ၃၀၀၀ ႏွင့္အထက္ရွိရမည္။"
+text = "3000 - 30000"
 align = 1
 valign = 1
 
+[node name="room" parent="level2" instance=ExtResource( 3 )]
+position = Vector2( 100, 54 )
+
 [node name="level3" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1300.0
+margin_left = 614.0
 margin_top = 300.0
-margin_right = 1800.0
-margin_bottom = 550.0
-texture_normal = ExtResource( 12 )
+margin_right = 814.0
+margin_bottom = 400.0
 expand = true
 stretch_mode = 3
 script = ExtResource( 4 )
@@ -647,36 +650,38 @@ script = ExtResource( 4 )
 [node name="Bet" type="Label" parent="level3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 196.0
-margin_top = 113.0
-margin_right = -177.0
-margin_bottom = -96.0
+margin_left = 48.0
+margin_top = 134.0
+margin_right = -38.0
+margin_bottom = 77.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "500"
+text = "Level - 3"
 align = 1
 valign = 1
 
 [node name="Range" type="Label" parent="level3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 15.0
-margin_right = -20.0
-margin_bottom = -183.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = -94.0
+margin_top = 172.0
+margin_right = 109.0
+margin_bottom = 115.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "ပိုက္ဆံ ၅၀၀၀ ႏွင့္အထက္ရွိရမည္။"
+text = "5000 - 50000"
 align = 1
 valign = 1
 
+[node name="room" parent="level3" instance=ExtResource( 3 )]
+position = Vector2( 97, 59 )
+
 [node name="level4" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 200.0
+margin_left = 882.0
 margin_top = 600.0
-margin_right = 700.0
-margin_bottom = 850.0
-texture_normal = ExtResource( 15 )
+margin_right = 1082.0
+margin_bottom = 700.0
 expand = true
 stretch_mode = 3
 script = ExtResource( 4 )
@@ -684,36 +689,38 @@ script = ExtResource( 4 )
 [node name="Bet" type="Label" parent="level4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 195.0
-margin_top = 116.0
-margin_right = -175.0
-margin_bottom = -93.0
+margin_left = 35.0
+margin_top = 130.0
+margin_right = -51.0
+margin_bottom = 73.0001
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "1000"
+text = "Level - 4"
 align = 1
 valign = 1
 
 [node name="Range" type="Label" parent="level4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 12.0
-margin_right = -20.0
-margin_bottom = -186.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = -117.0
+margin_top = 164.0
+margin_right = 104.0
+margin_bottom = 107.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "ပိုက္ဆံ ၁၀၀၀၀ ႏွင့္အထက္ရွိရမည္။"
+text = "5000 - 50000"
 align = 1
 valign = 1
 
+[node name="room" parent="level4" instance=ExtResource( 3 )]
+position = Vector2( 97, 64 )
+
 [node name="level5" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 750.0
+margin_left = 1207.0
 margin_top = 600.0
-margin_right = 1250.0
-margin_bottom = 850.0
-texture_normal = ExtResource( 13 )
+margin_right = 1407.0
+margin_bottom = 700.0
 expand = true
 stretch_mode = 3
 script = ExtResource( 4 )
@@ -721,36 +728,38 @@ script = ExtResource( 4 )
 [node name="Bet" type="Label" parent="level5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 198.0
-margin_top = 115.0
-margin_right = -178.0
-margin_bottom = -93.0
+margin_left = 45.0
+margin_top = 122.0
+margin_right = -41.0
+margin_bottom = 65.0001
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "3000"
+text = "Level - 5"
 align = 1
 valign = 1
 
 [node name="Range" type="Label" parent="level5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 13.0
-margin_right = -20.0
-margin_bottom = -184.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = -108.0
+margin_top = 153.0
+margin_right = 113.0
+margin_bottom = 96.0001
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "ပိုက္ဆံ ၃၀၀၀၀ ႏွင့္အထက္ရွိရမည္။"
+text = "30000 - more"
 align = 1
 valign = 1
 
+[node name="room" parent="level5" instance=ExtResource( 3 )]
+position = Vector2( 99, 55 )
+
 [node name="level6" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1300.0
+margin_left = 1654.0
 margin_top = 600.0
-margin_right = 1800.0
-margin_bottom = 850.0
-texture_normal = ExtResource( 16 )
+margin_right = 1854.0
+margin_bottom = 700.0
 expand = true
 stretch_mode = 3
 script = ExtResource( 4 )
@@ -758,28 +767,31 @@ script = ExtResource( 4 )
 [node name="Bet" type="Label" parent="level6"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 199.0
-margin_top = 115.0
-margin_right = -177.0
-margin_bottom = -93.0
+margin_left = 59.0
+margin_top = 111.0
+margin_right = -27.0
+margin_bottom = 54.0001
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "5000"
+text = "Level - 6"
 align = 1
 valign = 1
 
 [node name="Range" type="Label" parent="level6"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 12.0
-margin_right = -20.0
-margin_bottom = -179.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = -91.0
+margin_top = 137.0
+margin_right = 130.0
+margin_bottom = 80.0001
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "ပိုက္ဆံ ၅၀၀၀၀ ႏွင့္အထက္ရွိရမည္။"
+text = "30000 - more"
 align = 1
 valign = 1
+
+[node name="room" parent="level6" instance=ExtResource( 3 )]
+position = Vector2( 103, 44 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
@@ -821,6 +833,8 @@ script = ExtResource( 4 )
 anims/RESET = SubResource( 8 )
 anims/in = SubResource( 9 )
 anims/out = SubResource( 10 )
+
+[node name="Setting" parent="." instance=ExtResource( 8 )]
 
 [connection signal="pressed" from="level1" to="." method="_on_level_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="level2" to="." method="_on_level_pressed" binds= [ 1 ]]

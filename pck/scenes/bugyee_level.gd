@@ -8,6 +8,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Reset The Music
+	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
 	add_child(http)
@@ -39,6 +43,10 @@ func comma_sep(number):
 
 
 func _on_level_pressed(level):
+	
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
 	var data = {
 		"username":$"/root/Config".config.user.username,
 		"session":$"/root/Config".config.user.session,
@@ -62,7 +70,8 @@ func _level_selected(result, response_code, headers, body):
 			"passcode":res.passcode,
 			"url":res.url
 		}
-		get_tree().change_scene("res://pck/scenes/bugyee_game.tscn")
+		#get_tree().change_scene("res://pck/scenes/bugyee_game.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/bugyee_game.tscn")
 	elif res.status == "not enough balance":
 		$AlertBox._show("အခန္းထဲဝင္ရန္ပိုက္ဆံမလုံေလာက္ပါ။")
 	elif res.status == "too much balance":
@@ -74,7 +83,12 @@ func _level_selected(result, response_code, headers, body):
 
 
 func _on_Exit_pressed():
+	
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
 	$AnimationPlayer.play("out")
 	$UpperPanelAnimation.play("out")
 	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	#get_tree().change_scene("res://pck/scenes/menu.tscn")
+	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")

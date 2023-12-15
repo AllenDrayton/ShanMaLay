@@ -24,6 +24,10 @@ var new_password_entered = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Reset The Music
+	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
 	_load_profile_textures()
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
@@ -122,6 +126,9 @@ func _on_custom_keyboard_enter_pressed(text):
 	nickname_control.show()
 	old_pw_control.show()
 	new_pw_control.show()
+	$NicknamePanel/ChangeNickname.show()
+	$PasswordPanel/ChangePassword.show()
+	$Logout.show()
 	username_entered = false
 	old_password_entered = false
 	new_password_entered = false
@@ -131,6 +138,9 @@ func _on_custom_keyboard_cancel_pressed():
 	nickname_control.show()
 	old_pw_control.show()
 	new_pw_control.show()
+	$NicknamePanel/ChangeNickname.show()
+	$PasswordPanel/ChangePassword.show()
+	$Logout.show()
 	username_entered = false
 	old_password_entered = false
 	new_password_entered = false
@@ -151,6 +161,9 @@ func on_userName_mouse_entered():
 	nickname_control.hide()
 	old_pw_control.hide()
 	new_pw_control.hide()
+	$NicknamePanel/ChangeNickname.hide()
+	$PasswordPanel/ChangePassword.hide()
+	$Logout.hide()
 	username_entered = false
 	old_password_entered = false
 	new_password_entered = false
@@ -170,6 +183,9 @@ func on_OldpassWord_mouse_entered():
 	nickname_control.hide()
 	old_pw_control.hide()
 	new_pw_control.hide()
+	$NicknamePanel/ChangeNickname.hide()
+	$PasswordPanel/ChangePassword.hide()
+	$Logout.hide()
 	username_entered = false
 	old_password_entered = false
 	new_password_entered = false
@@ -238,7 +254,12 @@ func _profile_changed(result, response_code, headers, body):
 
 
 func _on_Exit_pressed():
-	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
+	#get_tree().change_scene("res://pck/scenes/menu.tscn")
+	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 
 
 func _on_ChangeNickname_pressed():

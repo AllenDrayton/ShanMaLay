@@ -66,6 +66,10 @@ var _client = WebSocketClient.new()
 func _ready():
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
+	
+	# Reset Music
+	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
 	_init_all()
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
@@ -132,7 +136,9 @@ func _on_server_respond(respond):
 	match respond.head:
 		"room info":
 			if body.room == null :
-				get_tree().change_scene("res://pck/scenes/menu.tscn")
+				$"/root/bgm".volume_db = -80
+				#get_tree().change_scene("res://pck/scenes/menu.tscn")
+				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 				return
 			_update_room(body.room)
 		"emoji":
@@ -174,7 +180,9 @@ func _exit_respond(status):
 
 func _update_room(room):
 	if room.players[myIndex] == null:
-		get_tree().change_scene("res://pck/scenes/menu.tscn")
+		$"/root/bgm".volume_db = -80
+		#get_tree().change_scene("res://pck/scenes/menu.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 		
 	if room.gameState != GameStates.start && isStart:

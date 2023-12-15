@@ -85,13 +85,13 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
-self_modulate = Color( 0.176471, 0.172549, 0.192157, 1 )
+self_modulate = Color( 0.176471, 0.172549, 0.192157, 0.784314 )
 position = Vector2( 1000, 565.5 )
 scale = Vector2( 1, 0.743333 )
 texture = ExtResource( 4 )
 
 [node name="ColorRect" type="Sprite" parent="."]
-self_modulate = Color( 0.152941, 0.152941, 0.160784, 1 )
+self_modulate = Color( 0.152941, 0.152941, 0.160784, 0.854902 )
 position = Vector2( 1000, 292.5 )
 scale = Vector2( 1, 0.134444 )
 texture = ExtResource( 4 )

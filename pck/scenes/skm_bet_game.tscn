@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=2]
+[gd_scene load_steps=155 format=2]
 
 [ext_resource path="res://pck/assets/skm_bet/bg.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/skm_bet/500.png" type="Texture" id=2]
@@ -88,6 +88,7 @@
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00002.png" type="Texture" id=86]
 [ext_resource path="res://pck/assets/common/balance-panal-small.png" type="Texture" id=87]
 [ext_resource path="res://pck/assets/common/balance-panal-big.png" type="Texture" id=88]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=89]
 [ext_resource path="res://pck/assets/common/profile-frame.png" type="Texture" id=175]
 
 [sub_resource type="AtlasTexture" id=29]
@@ -1498,8 +1499,10 @@ position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
 frames = SubResource( 375 )
 animation = "idle"
-frame = 6
+frame = 3
 playing = true
+
+[node name="Setting" parent="." instance=ExtResource( 89 )]
 
 [connection signal="pressed" from="BetArea/B1/Btn" to="." method="_on_bet" binds= [ 0 ]]
 [connection signal="pressed" from="BetArea/B2/Btn" to="." method="_on_bet" binds= [ 1 ]]

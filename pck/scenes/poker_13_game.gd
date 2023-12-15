@@ -58,6 +58,9 @@ func _ready():
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
 	
+	# Reset Music
+	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
 	for i in range(TOTAL_PLAYER):
 		var player = playerPrefab.instance()
 		player.position = $PlayerPos.get_node(str(i)).position
@@ -210,7 +213,9 @@ func _on_server_respond(respond):
 	match respond.head:
 		"room info":
 			if body == null :
-				get_tree().change_scene("res://pck/scenes/menu.tscn")
+				$"/root/bgm".volume_db = -80
+				#get_tree().change_scene("res://pck/scenes/menu.tscn")
+				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 				return
 			_update_room(body)
 		"emoji":
@@ -241,7 +246,9 @@ func _handshake(body):
 
 func _update_room(room):
 	if room.players[myIndex] == null:
-		get_tree().change_scene("res://pck/scenes/menu.tscn")
+		$"/root/bgm".volume_db = -80
+		#get_tree().change_scene("res://pck/scenes/menu.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 		
 	if room.players[myIndex].isWaiting:

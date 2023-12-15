@@ -3,6 +3,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Reset The Music
+	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
 	add_child(http)
@@ -26,15 +30,24 @@ func comma_sep(number):
 	return res
 
 func _on_Exit_pressed():
+	
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
 	$UpperPanelAnimation.play("out")
 	yield(get_tree().create_timer(0.5), "timeout")
-	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	#get_tree().change_scene("res://pck/scenes/menu.tscn")
+	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
 		_on_Exit_pressed()
 
 func _on_SKM_pressed():
+	
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
 	$AnimatedSprite.show()
 	$AnimatedSprite.frame = 0
 	$AnimatedSprite.play("playing")
@@ -59,9 +72,15 @@ func _on_skm_respond(result, response_code, headers, body):
 			"passcode":res.passcode,
 			"url":res.url
 		}
-		get_tree().change_scene("res://pck/scenes/skm_bet_game.tscn")
+		#get_tree().change_scene("res://pck/scenes/skm_bet_game.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/skm_bet_game.tscn")
+		
 
 func _on_HorseRacing_pressed():
+	
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
 	$AnimatedSprite2.show()
 	$AnimatedSprite2.frame = 0
 	$AnimatedSprite2.play("playing")
@@ -86,9 +105,13 @@ func _on_HorseRacing_respond(result, response_code, headers, body):
 			"passcode":res.passcode,
 			"url":res.url
 		}
-		get_tree().change_scene("res://pck/scenes/horse_bet_game.tscn")
+		#get_tree().change_scene("res://pck/scenes/horse_bet_game.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/horse_bet_game.tscn")
 
 func _on_TigerDragon_pressed():
+	# For Music
+	$"/root/bgm".volume_db = -80
+	
 	$AnimatedSprite3.show()
 	$AnimatedSprite3.frame = 0
 	$AnimatedSprite3.play("playing")
@@ -113,7 +136,9 @@ func _on_dragon_tiger_respond(result, response_code, headers, body):
 			"passcode":res.passcode,
 			"url":res.url
 		}
-		get_tree().change_scene("res://pck/scenes/tiger_dragon_bet_game.tscn")
+		
+		#get_tree().change_scene("res://pck/scenes/tiger_dragon_bet_game.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/tiger_dragon_bet_game.tscn")
 
 
 func _on_AnimatedSprite_animation_finished():

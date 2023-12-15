@@ -59,6 +59,10 @@ func _ready():
 	$BackDrop._show("ကစားပြဲႏွင့္ခ်ိတ္ဆက္ေနသည္။ ခဏေစာင့္ေပးပါ။")
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
+	
+	# Reset Music
+	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
 	firstcoinselect()
@@ -154,7 +158,9 @@ func _bet_respond(body):
 
 func _start(body):
 	if isExit:
-		get_tree().change_scene("res://pck/scenes/menu.tscn")
+		$"/root/bgm".volume_db = -80
+		#get_tree().change_scene("res://pck/scenes/menu.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 	
 	$BackDrop._hide()

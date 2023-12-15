@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=2]
+[gd_scene load_steps=145 format=2]
 
 [ext_resource path="res://pck/assets/horse_bet/bet_area.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/horse_bet/bet_area_pressed.png" type="Texture" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://pck/assets/skm_bet/100.png" type="Texture" id=41]
 [ext_resource path="res://pck/assets/skm_bet/500.png" type="Texture" id=42]
 [ext_resource path="res://pck/assets/menu/NewMenu/CLNEW.png" type="Texture" id=43]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=44]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=45]
 
 [sub_resource type="DynamicFont" id=1]
@@ -1715,6 +1716,7 @@ anims/show = SubResource( 95 )
 [node name="Highlight" type="AnimatedSprite" parent="BetPanel"]
 position = Vector2( -200, -200 )
 frames = SubResource( 98 )
+frame = 1
 playing = true
 
 [node name="BetSelect" type="Node2D" parent="BetPanel"]
@@ -1989,6 +1991,8 @@ valign = 1
 [node name="Audio" type="AudioStreamPlayer" parent="CountDown"]
 stream = ExtResource( 36 )
 bus = "Effect"
+
+[node name="Setting" parent="." instance=ExtResource( 44 )]
 
 [connection signal="pressed" from="BetPanel/Buttons/0" to="." method="_on_bet" binds= [ 0 ]]
 [connection signal="pressed" from="BetPanel/Buttons/1" to="." method="_on_bet" binds= [ 1 ]]
