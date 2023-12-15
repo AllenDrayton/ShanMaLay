@@ -929,7 +929,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1446, -94 ), Vector2( 1446, 65 ) ]
+"values": [ Vector2( 1605, -61 ), Vector2( 1605, 95 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("MoneyBg:modulate")
@@ -953,7 +953,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1648, -137 ), Vector2( 1648, 20 ) ]
+"values": [ Vector2( 1807, -102 ), Vector2( 1807, 50 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("SettingToggle:modulate")
@@ -1005,7 +1005,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1446, 65 ), Vector2( 1446, -95 ) ]
+"values": [ Vector2( 1605, 95 ), Vector2( 1605, -61 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("MoneyBg:modulate")
@@ -1029,7 +1029,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1648, 20 ), Vector2( 1648, -138 ) ]
+"values": [ Vector2( 1807, 50 ), Vector2( 1807, -102 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("SettingToggle:modulate")
@@ -1074,7 +1074,7 @@ valign = 1
 position = Vector2( 1000, 1400 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 32 )
-frame = 11
+frame = 7
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

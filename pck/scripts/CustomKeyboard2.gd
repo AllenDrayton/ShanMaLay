@@ -10,6 +10,8 @@ onready var label = $Label
 signal enter_pressed(text)
 signal cancel_pressed
 
+
+
 func number_pressed(digit):
 	label.text += str(digit)
 

@@ -311,12 +311,12 @@ margin_right = 60.0
 margin_top = 80.0
 margin_bottom = 60.0
 
-[sub_resource type="AtlasTexture" id=350]
+[sub_resource type="AtlasTexture" id=375]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 290, 359 )
 
-[sub_resource type="AtlasTexture" id=351]
+[sub_resource type="AtlasTexture" id=376]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 290, 0, 290, 359 )
@@ -436,14 +436,14 @@ flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 870, 748, 290, 374 )
 
-[sub_resource type="SpriteFrames" id=375]
+[sub_resource type="SpriteFrames" id=377]
 animations = [ {
 "frames": [ ExtResource( 109 ), ExtResource( 117 ), ExtResource( 53 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 43 ), ExtResource( 69 ), ExtResource( 42 ), ExtResource( 4 ), ExtResource( 166 ), ExtResource( 161 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 76 ), ExtResource( 150 ), ExtResource( 78 ), ExtResource( 128 ), ExtResource( 114 ), ExtResource( 107 ), ExtResource( 130 ), ExtResource( 125 ), ExtResource( 111 ), ExtResource( 106 ), ExtResource( 151 ), ExtResource( 168 ), ExtResource( 126 ), ExtResource( 124 ), ExtResource( 154 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 136 ), ExtResource( 133 ), ExtResource( 163 ), ExtResource( 120 ), ExtResource( 129 ), ExtResource( 142 ), ExtResource( 146 ), ExtResource( 149 ), ExtResource( 123 ), ExtResource( 155 ), ExtResource( 164 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 167 ), ExtResource( 135 ), ExtResource( 162 ), ExtResource( 152 ), ExtResource( 134 ) ],
 "loop": true,
 "name": "deliver",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 350 ), SubResource( 351 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ), SubResource( 355 ), SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ) ],
+"frames": [ SubResource( 375 ), SubResource( 376 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ), SubResource( 355 ), SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -1053,9 +1053,9 @@ script = ExtResource( 22 )
 [node name="ShanMa" type="AnimatedSprite" parent="."]
 position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
-frames = SubResource( 375 )
+frames = SubResource( 377 )
 animation = "idle"
-frame = 8
+frame = 2
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

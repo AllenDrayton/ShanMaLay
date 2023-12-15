@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=2]
+[gd_scene load_steps=160 format=2]
 
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
@@ -16,7 +16,7 @@
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=14]
 [ext_resource path="res://pck/scenes/shankoemee_game.gd" type="Script" id=15]
 [ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=17]
-[ext_resource path="res://pck/assets/shankoemee/dealer-bet.png" type="Texture" id=18]
+[ext_resource path="res://pck/assets/menu/NewMenu/dealer-betNew.png" type="Texture" id=18]
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=19]
 [ext_resource path="res://pck/scripts/shankoemee/card_check.gd" type="Script" id=20]
 [ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=21]
@@ -52,6 +52,7 @@
 [ext_resource path="res://pck/assets/shankoemee/setting.png" type="Texture" id=61]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=62]
 [ext_resource path="res://pck/assets/shankoemee/game_rules.png" type="Texture" id=63]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=64]
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=65]
 [ext_resource path="res://pck/assets/common/btn-6-lg.png" type="Texture" id=67]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=68]
@@ -108,9 +109,19 @@
 [ext_resource path="res://pck/assets/common/messages/quit.png" type="Texture" id=204]
 [ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=205]
 
+[sub_resource type="DynamicFont" id=351]
+size = 30
+outline_size = 1
+outline_color = Color( 0.0666667, 0.247059, 0.462745, 1 )
+use_filter = true
+font_data = ExtResource( 64 )
+
 [sub_resource type="DynamicFont" id=4]
 size = 30
-font_data = ExtResource( 6 )
+outline_size = 1
+outline_color = Color( 0.141176, 0.25098, 0.682353, 1 )
+use_filter = true
+font_data = ExtResource( 64 )
 
 [sub_resource type="Animation" id=347]
 length = 0.001
@@ -169,11 +180,19 @@ outline_color = Color( 0, 0.439216, 1, 1 )
 use_filter = true
 font_data = ExtResource( 7 )
 
+[sub_resource type="DynamicFont" id=350]
+size = 30
+outline_size = 1
+outline_color = Color( 0.121569, 0.352941, 0.623529, 1 )
+use_filter = true
+font_data = ExtResource( 64 )
+
 [sub_resource type="DynamicFont" id=6]
 size = 60
 outline_size = 2
 outline_color = Color( 0.596078, 0.223529, 0, 1 )
-font_data = ExtResource( 6 )
+use_filter = true
+font_data = ExtResource( 64 )
 
 [sub_resource type="StyleBoxTexture" id=288]
 texture = ExtResource( 50 )
@@ -912,12 +931,12 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5, 1.5, 2 )
 }
 
-[sub_resource type="AtlasTexture" id=350]
+[sub_resource type="AtlasTexture" id=375]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 290, 359 )
 
-[sub_resource type="AtlasTexture" id=351]
+[sub_resource type="AtlasTexture" id=376]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 290, 0, 290, 359 )
@@ -1037,14 +1056,14 @@ flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 870, 748, 290, 374 )
 
-[sub_resource type="SpriteFrames" id=349]
+[sub_resource type="SpriteFrames" id=377]
 animations = [ {
 "frames": [ ExtResource( 120 ), ExtResource( 128 ), ExtResource( 38 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 13 ), ExtResource( 80 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 177 ), ExtResource( 172 ), ExtResource( 82 ), ExtResource( 79 ), ExtResource( 87 ), ExtResource( 161 ), ExtResource( 89 ), ExtResource( 139 ), ExtResource( 125 ), ExtResource( 118 ), ExtResource( 141 ), ExtResource( 136 ), ExtResource( 122 ), ExtResource( 117 ), ExtResource( 162 ), ExtResource( 179 ), ExtResource( 137 ), ExtResource( 135 ), ExtResource( 165 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 147 ), ExtResource( 144 ), ExtResource( 174 ), ExtResource( 131 ), ExtResource( 140 ), ExtResource( 153 ), ExtResource( 157 ), ExtResource( 160 ), ExtResource( 134 ), ExtResource( 166 ), ExtResource( 175 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 178 ), ExtResource( 146 ), ExtResource( 173 ), ExtResource( 163 ), ExtResource( 145 ) ],
 "loop": true,
 "name": "deliver",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 350 ), SubResource( 351 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ), SubResource( 355 ), SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ) ],
+"frames": [ SubResource( 375 ), SubResource( 376 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ), SubResource( 355 ), SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -1159,6 +1178,18 @@ position = Vector2( 1000, 260 )
 z_index = 10
 texture = ExtResource( 18 )
 
+[node name="Dealer" type="Label" parent="DealerBet"]
+margin_left = -78.0
+margin_top = -35.0
+margin_right = 79.0
+margin_bottom = -3.0
+custom_colors/font_color = Color( 0.854902, 0.917647, 0.121569, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 351 )
+text = "Dealer Bank"
+align = 1
+valign = 1
+
 [node name="Label" type="Label" parent="DealerBet"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1234,9 +1265,11 @@ texture_normal = ExtResource( 23 )
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/C1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 5 )
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 350 )
 text = "100"
 align = 1
 valign = 1
@@ -1250,10 +1283,12 @@ texture_normal = ExtResource( 23 )
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/C2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 5 )
-text = "200"
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 350 )
+text = "100"
 align = 1
 valign = 1
 
@@ -1266,10 +1301,12 @@ texture_normal = ExtResource( 23 )
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/C3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 5 )
-text = "300"
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 350 )
+text = "100"
 align = 1
 valign = 1
 
@@ -1282,10 +1319,12 @@ texture_normal = ExtResource( 23 )
 script = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="BetPanel/C4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 5 )
-text = "500"
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 350 )
+text = "100"
 align = 1
 valign = 1
 
@@ -1890,8 +1929,9 @@ anims/show = SubResource( 346 )
 [node name="ShanMa" type="AnimatedSprite" parent="."]
 position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
-frames = SubResource( 349 )
+frames = SubResource( 377 )
 animation = "idle"
+frame = 7
 playing = true
 
 [connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]
