@@ -707,7 +707,6 @@ position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
 frames = SubResource( 375 )
 animation = "idle"
-frame = 6
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
