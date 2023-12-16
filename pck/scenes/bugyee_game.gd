@@ -135,7 +135,7 @@ func _on_server_respond(respond):
 	match respond.head:
 		"room info":
 			if body == null :
-				$"/root/bgm".volume_db = -80
+				$"/root/bgm".volume_db = -50
 				#get_tree().change_scene("res://pck/scenes/menu.tscn")
 				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 				return
@@ -185,7 +185,7 @@ func _update_room(room):
 		minBet = room.minBet
 	
 	if room.players[myIndex] == null:
-		$"/root/bgm".volume_db = -80
+		$"/root/bgm".volume_db = -50
 		#get_tree().change_scene("res://pck/scenes/menu.tscn")
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return

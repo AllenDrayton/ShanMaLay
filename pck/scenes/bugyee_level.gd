@@ -11,6 +11,7 @@ func _ready():
 	
 	# Reset The Music
 	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = 0
 	
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
@@ -45,7 +46,7 @@ func comma_sep(number):
 func _on_level_pressed(level):
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	var data = {
 		"username":$"/root/Config".config.user.username,
@@ -85,7 +86,7 @@ func _level_selected(result, response_code, headers, body):
 func _on_Exit_pressed():
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	$AnimationPlayer.play("out")
 	$UpperPanelAnimation.play("out")

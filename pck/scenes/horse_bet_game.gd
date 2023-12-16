@@ -159,7 +159,7 @@ func _bet_respond(body):
 func _start(body):
 	print(body.winHistory)
 	if isExit:
-		$"/root/bgm".volume_db = -80
+		$"/root/bgm".volume_db = -50
 		#get_tree().change_scene("res://pck/scenes/menu.tscn")
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return

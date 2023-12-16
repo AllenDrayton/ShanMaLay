@@ -70,7 +70,7 @@ func comma_sep(number):
 func _on_Profile_pressed():
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -45
 	
 	$AnimationPlayer.play("out")
 	$ButtonAnimation.play("out")
@@ -84,7 +84,7 @@ func _on_SettingToggle_pressed():
 
 
 func _on_ShanKoeMee_pressed():
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -45
 	$AnimationPlayer.play("out")
 	$ButtonAnimation.play("out")
 	$UpperPanelAnimation.play("out")
@@ -93,7 +93,7 @@ func _on_ShanKoeMee_pressed():
 
 
 func _on_BuGyee_pressed():
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -45
 	$AnimationPlayer.play("out")
 	$ButtonAnimation.play("out")
 	$UpperPanelAnimation.play("out")
@@ -102,7 +102,7 @@ func _on_BuGyee_pressed():
 
 
 func _on_Bet_pressed():
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -45
 	$AnimationPlayer.play("out")
 	$ButtonAnimation.play("out")
 	$UpperPanelAnimation.play("out")
@@ -111,7 +111,7 @@ func _on_Bet_pressed():
 
 
 func _on_ShweShan_pressed():
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -45
 	$AnimationPlayer.play("out")
 	$ButtonAnimation.play("out")
 	$UpperPanelAnimation.play("out")
@@ -120,7 +120,7 @@ func _on_ShweShan_pressed():
 
 
 func _on_Poker_pressed():
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -45
 	$AnimationPlayer.play("out")
 	$ButtonAnimation.play("out")
 	$UpperPanelAnimation.play("out")
@@ -133,7 +133,7 @@ func _on_Viber_pressed():
 
 
 func _on_Slot_pressed():
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -45
 	var username = $"/root/Config".config.user.username
 	var session = $"/root/Config".config.user.session
 	OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))

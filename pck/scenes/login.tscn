@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://pck/scenes/CustomKeyboard2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pck/assets/menu/bg-2.jpg" type="Texture" id=2]
@@ -145,6 +145,11 @@ corner_radius_bottom_left = 30
 size = 30
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=30]
+size = 40
+use_filter = true
+font_data = ExtResource( 6 )
+
 [node name="root" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -156,7 +161,7 @@ texture = ExtResource( 2 )
 position = Vector2( 519, 458.465 )
 scale = Vector2( 2.96552, 2.96552 )
 frames = SubResource( 29 )
-frame = 1
+frame = 6
 playing = true
 
 [node name="Control" type="Control" parent="."]
@@ -236,6 +241,16 @@ visible = false
 visible = false
 margin_right = 40.0
 margin_bottom = 14.0
+
+[node name="VersionControl" type="Label" parent="."]
+margin_left = 1769.0
+margin_top = 821.0
+margin_right = 1974.0
+margin_bottom = 879.0
+custom_fonts/font = SubResource( 30 )
+text = "Version 1.0"
+align = 2
+valign = 1
 
 [connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

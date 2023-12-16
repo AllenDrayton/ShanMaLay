@@ -7,10 +7,10 @@
 [ext_resource path="res://pck/assets/common/girlGif/Girl-animation-Idle.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/common/girlGif/Girl-animation-Shuffle.png" type="Texture" id=6]
 [ext_resource path="res://pck/assets/common/messages/Hello.png" type="Texture" id=7]
-[ext_resource path="res://pck/assets/common/messages/Come on, more.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/common/messages/T2.png" type="Texture" id=8]
 [ext_resource path="res://pck/assets/menu/NewMenu/panel-1A.png" type="Texture" id=9]
 [ext_resource path="res://pck/assets/shankoemee/exit.png" type="Texture" id=10]
-[ext_resource path="res://pck/assets/common/messages/Lost again.png" type="Texture" id=11]
+[ext_resource path="res://pck/assets/common/messages/T.png" type="Texture" id=11]
 [ext_resource path="res://pck/assets/menu/NewMenu/panel-top.png" type="Texture" id=12]
 [ext_resource path="res://pck/assets/common/newEmoji/6.png" type="Texture" id=13]
 [ext_resource path="res://pck/assets/common/newEmoji/1.png" type="Texture" id=14]
@@ -30,6 +30,7 @@
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=28]
 [ext_resource path="res://pck/assets/bugyee/bugyee-howto.png" type="Texture" id=29]
 [ext_resource path="res://pck/assets/shankoemee/rules.png" type="Texture" id=30]
+[ext_resource path="res://pck/assets/common/messages/T3.png" type="Texture" id=31]
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=32]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=33]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=34]
@@ -82,7 +83,6 @@
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00040.png" type="Texture" id=171]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00043.png" type="Texture" id=172]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00024.png" type="Texture" id=173]
-[ext_resource path="res://pck/assets/common/messages/hurry.png" type="Texture" id=176]
 [ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=179]
 [ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=182]
 
@@ -667,7 +667,7 @@ margin_left = 20.0
 margin_top = 260.0
 margin_right = 220.0
 margin_bottom = 340.0
-texture_normal = ExtResource( 176 )
+texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 34 )
@@ -677,7 +677,7 @@ margin_left = 20.0
 margin_top = 340.0
 margin_right = 220.0
 margin_bottom = 420.0
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 31 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 34 )
@@ -687,7 +687,7 @@ margin_left = 20.0
 margin_top = 420.0
 margin_right = 220.0
 margin_bottom = 500.0
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 11 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 34 )
@@ -707,7 +707,7 @@ position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
 frames = SubResource( 375 )
 animation = "idle"
-frame = 12
+frame = 11
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
