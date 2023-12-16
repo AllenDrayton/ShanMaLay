@@ -5,9 +5,9 @@
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=3]
 [ext_resource path="res://pck/scenes/roomAnimation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=7]
 [ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=10]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=11]
-[ext_resource path="res://pck/assets/menu/NewMenu/bg-1_right.png" type="Texture" id=12]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=13]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=16]
 
@@ -561,7 +561,7 @@ __meta__ = {
 
 [node name="Balance" type="Sprite" parent="."]
 position = Vector2( 1745, 99 )
-texture = ExtResource( 12 )
+texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="Balance"]
 anchor_right = 1.0
@@ -582,9 +582,9 @@ targetY = 840.0
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 120.0
-texture_normal = ExtResource( 11 )
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 6 )
 script = ExtResource( 3 )
 
 [node name="UpperPanelAnimation" type="AnimationPlayer" parent="."]

@@ -4,10 +4,10 @@
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=3]
 [ext_resource path="res://pck/assets/menu/NewMenu/SKM_bet.png" type="Texture" id=4]
-[ext_resource path="res://pck/assets/menu/NewMenu/bg-1_right.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/menu/NewMenu/floaty_128.png" type="Texture" id=6]
 [ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_27.png" type="Texture" id=7]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=8]
 [ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_5.png" type="Texture" id=9]
 [ext_resource path="res://pck/scenes/bet_game.gd" type="Script" id=10]
 [ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_7.png" type="Texture" id=11]
@@ -227,7 +227,7 @@ texture = ExtResource( 4 )
 
 [node name="Balance" type="Sprite" parent="."]
 position = Vector2( 1745, 99 )
-texture = ExtResource( 5 )
+texture = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -251,9 +251,9 @@ targetY = 840.0
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 120.0
-texture_normal = ExtResource( 8 )
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 5 )
 script = ExtResource( 3 )
 
 [node name="SKM" type="TextureButton" parent="."]

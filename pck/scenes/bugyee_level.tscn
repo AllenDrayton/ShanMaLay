@@ -1,13 +1,13 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=2]
+[ext_resource path="res://pck/assets/menu/NewMenu/bg-1.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://pck/scenes/roomAnimation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=5]
-[ext_resource path="res://pck/assets/menu/NewMenu/bg-1_right.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=7]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=9]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=11]
 [ext_resource path="res://pck/scenes/bugyee_level.gd" type="Script" id=14]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=15]
 
@@ -558,7 +558,7 @@ texture = ExtResource( 2 )
 
 [node name="Balance" type="Sprite" parent="."]
 position = Vector2( 1745, 99 )
-texture = ExtResource( 8 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -566,10 +566,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="Balance"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -19.0
-margin_top = -19.0
-margin_right = -180.0
-margin_bottom = -72.0
+margin_left = -22.0
+margin_top = -18.0
+margin_right = -183.0
+margin_bottom = -69.0
 custom_fonts/font = SubResource( 11 )
 text = "0"
 align = 1
@@ -582,9 +582,9 @@ targetY = 840.0
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 120.0
-texture_normal = ExtResource( 11 )
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 7 )
 script = ExtResource( 15 )
 
 [node name="UpperPanelAnimation" type="AnimationPlayer" parent="."]

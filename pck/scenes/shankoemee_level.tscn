@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=1]
+[ext_resource path="res://pck/assets/menu/bg-0.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://pck/scenes/roomAnimation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=4]
-[ext_resource path="res://pck/assets/menu/NewMenu/bg-1_right.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=5]
 [ext_resource path="res://pck/scenes/shankoemee_level.gd" type="Script" id=6]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=8]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=9]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=10]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -554,10 +554,8 @@ __meta__ = {
 
 [node name="Bg" type="Sprite" parent="."]
 position = Vector2( 1000, 450 )
+scale = Vector2( 1.5625, 1.5625 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="level1" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -808,10 +806,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="Balance"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -19.0
-margin_top = -19.0
-margin_right = -180.0
-margin_bottom = -72.0
+margin_left = -21.0
+margin_top = -17.0
+margin_right = -182.0
+margin_bottom = -68.0
 custom_fonts/font = SubResource( 6 )
 text = "0"
 align = 1
@@ -824,9 +822,9 @@ targetY = 840.0
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 120.0
-texture_normal = ExtResource( 11 )
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 9 )
 script = ExtResource( 4 )
 
 [node name="UpperPanelAnimation" type="AnimationPlayer" parent="."]
