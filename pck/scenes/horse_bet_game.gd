@@ -67,7 +67,7 @@ func _ready():
 	_connect_ws()
 	firstcoinselect()
 	_reset()
-
+	
 func _process(delta):
 	_client.poll()
 	if isRunning:
@@ -157,6 +157,7 @@ func _bet_respond(body):
 		$BetPanel/Buttons.get_node(str(i)).get_node("Total").text = str(bet_area[i])
 
 func _start(body):
+	print(body.winHistory)
 	if isExit:
 		$"/root/bgm".volume_db = -80
 		#get_tree().change_scene("res://pck/scenes/menu.tscn")
@@ -169,7 +170,6 @@ func _start(body):
 	_playVoice("new_game")
 	for N in $BetPanel/LastResult/ResultTable/VBoxContainer.get_children():
 		N.queue_free()
-	
 	for result in body.winHistory:
 		var box = history_result.instance()
 		var winIndex = result.winIndex

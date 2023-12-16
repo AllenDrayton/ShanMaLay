@@ -40,10 +40,16 @@
 [ext_resource path="res://pck/assets/bugyee/bugyee-howto.png" type="Texture" id=38]
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=39]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=40]
+[ext_resource path="res://pck/assets/common/messages/Hello.png" type="Texture" id=41]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00007.png" type="Texture" id=42]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00005.png" type="Texture" id=43]
+[ext_resource path="res://pck/assets/common/messages/Come on, more.png" type="Texture" id=44]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00004.png" type="Texture" id=45]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00003.png" type="Texture" id=46]
+[ext_resource path="res://pck/assets/common/messages/Lost again.png" type="Texture" id=47]
+[ext_resource path="res://pck/assets/common/messages/hahaha.png" type="Texture" id=48]
+[ext_resource path="res://pck/assets/common/messages/Bet more.png" type="Texture" id=49]
+[ext_resource path="res://pck/assets/common/messages/I'm leaving.png" type="Texture" id=50]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00002.png" type="Texture" id=53]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00012.png" type="Texture" id=68]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00006.png" type="Texture" id=69]
@@ -87,14 +93,8 @@
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00009.png" type="Texture" id=166]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00043.png" type="Texture" id=167]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00024.png" type="Texture" id=168]
-[ext_resource path="res://pck/assets/common/messages/haha.png" type="Texture" id=184]
-[ext_resource path="res://pck/assets/common/messages/play_again.png" type="Texture" id=185]
 [ext_resource path="res://pck/assets/common/messages/hurry.png" type="Texture" id=186]
-[ext_resource path="res://pck/assets/common/messages/lose.png" type="Texture" id=187]
-[ext_resource path="res://pck/assets/common/messages/bet_more.png" type="Texture" id=188]
 [ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=189]
-[ext_resource path="res://pck/assets/common/messages/mingalar.png" type="Texture" id=190]
-[ext_resource path="res://pck/assets/common/messages/quit.png" type="Texture" id=191]
 [ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=192]
 
 [sub_resource type="StyleBoxTexture" id=266]
@@ -985,9 +985,9 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 220.0
 margin_bottom = 100.0
-texture_normal = ExtResource( 190 )
+texture_normal = ExtResource( 41 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="2" type="TextureButton" parent="MessagePanel/Panel"]
@@ -995,9 +995,9 @@ margin_left = 20.0
 margin_top = 100.0
 margin_right = 220.0
 margin_bottom = 180.0
-texture_normal = ExtResource( 188 )
+texture_normal = ExtResource( 49 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="3" type="TextureButton" parent="MessagePanel/Panel"]
@@ -1005,9 +1005,9 @@ margin_left = 20.0
 margin_top = 180.0
 margin_right = 220.0
 margin_bottom = 260.0
-texture_normal = ExtResource( 184 )
+texture_normal = ExtResource( 48 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="4" type="TextureButton" parent="MessagePanel/Panel"]
@@ -1017,7 +1017,7 @@ margin_right = 220.0
 margin_bottom = 340.0
 texture_normal = ExtResource( 186 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="5" type="TextureButton" parent="MessagePanel/Panel"]
@@ -1025,9 +1025,9 @@ margin_left = 20.0
 margin_top = 340.0
 margin_right = 220.0
 margin_bottom = 420.0
-texture_normal = ExtResource( 187 )
+texture_normal = ExtResource( 47 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="6" type="TextureButton" parent="MessagePanel/Panel"]
@@ -1035,9 +1035,9 @@ margin_left = 20.0
 margin_top = 420.0
 margin_right = 220.0
 margin_bottom = 500.0
-texture_normal = ExtResource( 185 )
+texture_normal = ExtResource( 44 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="7" type="TextureButton" parent="MessagePanel/Panel"]
@@ -1045,9 +1045,9 @@ margin_left = 20.0
 margin_top = 500.0
 margin_right = 220.0
 margin_bottom = 580.0
-texture_normal = ExtResource( 191 )
+texture_normal = ExtResource( 50 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="ShanMa" type="AnimatedSprite" parent="."]
@@ -1055,7 +1055,7 @@ position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
 frames = SubResource( 377 )
 animation = "idle"
-frame = 12
+frame = 4
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

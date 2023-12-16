@@ -1628,17 +1628,7 @@ align = 1
 valign = 1
 
 [node name="LastResult" type="Node2D" parent="BetPanel"]
-visible = false
 position = Vector2( 1440, 0 )
-
-[node name="Label" type="Label" parent="BetPanel/LastResult"]
-margin_top = 40.0
-margin_right = 480.0
-margin_bottom = 140.0
-custom_fonts/font = SubResource( 3 )
-text = "Last Result"
-align = 1
-valign = 1
 
 [node name="ResultTable" type="Sprite" parent="BetPanel/LastResult"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -1716,7 +1706,6 @@ anims/show = SubResource( 95 )
 [node name="Highlight" type="AnimatedSprite" parent="BetPanel"]
 position = Vector2( -200, -200 )
 frames = SubResource( 98 )
-frame = 1
 playing = true
 
 [node name="BetSelect" type="Node2D" parent="BetPanel"]
