@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/A_Haha.mp3-a236ffef21a66996bbc83e18a16ee8f8.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/common/messages/A_Haha.mp3"
+dest_files=[ "res://.import/A_Haha.mp3-a236ffef21a66996bbc83e18a16ee8f8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

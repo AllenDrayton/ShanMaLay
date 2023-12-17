@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pck/assets/common/M9coin1.png" type="Texture" id=1]
+[ext_resource path="res://pck/prefabs/DragonTigerCoin.gd" type="Script" id=2]
+
+[node name="Sprite" type="Sprite"]
+scale = Vector2( 0.15, 0.15 )
+z_index = 2
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+speed = 1500

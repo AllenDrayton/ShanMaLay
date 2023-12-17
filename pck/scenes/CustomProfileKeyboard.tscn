@@ -1,0 +1,642 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://pck/scripts/CustomProfileKeyboard.gd" type="Script" id=2]
+[ext_resource path="res://pck/assets/common/BackspaceWhite.png" type="Texture" id=3]
+[ext_resource path="res://pck/assets/common/Background.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/common/SmallCancel.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/common/SmallEnter3.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/common/SmallShift.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/common/SmallArrow.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.219608, 0.207843, 0.207843, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+use_filter = true
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+use_filter = true
+extra_spacing_char = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+use_filter = true
+extra_spacing_char = 3
+extra_spacing_space = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+use_filter = true
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.219608, 0.215686, 0.247059, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.219608, 0.215686, 0.247059, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+use_filter = true
+extra_spacing_char = 5
+font_data = ExtResource( 1 )
+
+[node name="CustomKeyboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="."]
+self_modulate = Color( 0.176471, 0.172549, 0.192157, 1 )
+position = Vector2( 1000, 565.5 )
+scale = Vector2( 1, 0.743333 )
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="Sprite" parent="."]
+self_modulate = Color( 0.152941, 0.152941, 0.160784, 1 )
+position = Vector2( 1000, 292.5 )
+scale = Vector2( 1, 0.134444 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="LineEdit" parent="."]
+margin_left = 52.0
+margin_top = 256.0
+margin_right = 1699.0
+margin_bottom = 328.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 8 )
+align = 1
+
+[node name="No1" type="Button" parent="."]
+margin_left = 37.0
+margin_top = 377.0
+margin_right = 187.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "1"
+icon_align = 1
+
+[node name="No2" type="Button" parent="."]
+margin_left = 213.0
+margin_top = 377.0
+margin_right = 363.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "2"
+icon_align = 1
+
+[node name="No3" type="Button" parent="."]
+margin_left = 387.0
+margin_top = 377.0
+margin_right = 537.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "3"
+icon_align = 1
+
+[node name="No4" type="Button" parent="."]
+margin_left = 563.0
+margin_top = 377.0
+margin_right = 713.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "4"
+icon_align = 1
+
+[node name="No5" type="Button" parent="."]
+margin_left = 739.0
+margin_top = 377.0
+margin_right = 889.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "5"
+icon_align = 1
+
+[node name="No6" type="Button" parent="."]
+margin_left = 913.0
+margin_top = 377.0
+margin_right = 1063.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "6"
+icon_align = 1
+
+[node name="No7" type="Button" parent="."]
+margin_left = 1087.0
+margin_top = 377.0
+margin_right = 1237.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "7"
+icon_align = 1
+
+[node name="No8" type="Button" parent="."]
+margin_left = 1262.0
+margin_top = 377.0
+margin_right = 1412.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "8"
+icon_align = 1
+
+[node name="No9" type="Button" parent="."]
+margin_left = 1436.0
+margin_top = 377.0
+margin_right = 1586.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "9"
+icon_align = 1
+
+[node name="No0" type="Button" parent="."]
+margin_left = 1610.0
+margin_top = 377.0
+margin_right = 1760.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+icon_align = 1
+
+[node name="Paste" type="Button" parent="."]
+margin_left = 1783.0
+margin_top = 377.0
+margin_right = 1962.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+text = "Paste"
+icon_align = 1
+
+[node name="q" type="Button" parent="."]
+margin_left = 135.0
+margin_top = 479.0
+margin_right = 285.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "q"
+
+[node name="w" type="Button" parent="."]
+margin_left = 308.0
+margin_top = 479.0
+margin_right = 458.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "w"
+
+[node name="e" type="Button" parent="."]
+margin_left = 481.0
+margin_top = 479.0
+margin_right = 631.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "e"
+
+[node name="r" type="Button" parent="."]
+margin_left = 654.0
+margin_top = 479.0
+margin_right = 804.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "r"
+
+[node name="t" type="Button" parent="."]
+margin_left = 827.0
+margin_top = 479.0
+margin_right = 977.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "t"
+
+[node name="y" type="Button" parent="."]
+margin_left = 1000.0
+margin_top = 479.0
+margin_right = 1150.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "y"
+
+[node name="u" type="Button" parent="."]
+margin_left = 1173.0
+margin_top = 479.0
+margin_right = 1323.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "u"
+
+[node name="i" type="Button" parent="."]
+margin_left = 1346.0
+margin_top = 479.0
+margin_right = 1496.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "i"
+
+[node name="o" type="Button" parent="."]
+margin_left = 1517.0
+margin_top = 479.0
+margin_right = 1667.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "o"
+
+[node name="p" type="Button" parent="."]
+margin_left = 1690.0
+margin_top = 479.0
+margin_right = 1840.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "p"
+
+[node name="a" type="Button" parent="."]
+margin_left = 222.0
+margin_top = 581.0
+margin_right = 372.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "a"
+
+[node name="s" type="Button" parent="."]
+margin_left = 392.0
+margin_top = 581.0
+margin_right = 542.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "s"
+
+[node name="d" type="Button" parent="."]
+margin_left = 565.0
+margin_top = 581.0
+margin_right = 715.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "d"
+
+[node name="f" type="Button" parent="."]
+margin_left = 739.0
+margin_top = 581.0
+margin_right = 889.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "f"
+
+[node name="g" type="Button" parent="."]
+margin_left = 913.0
+margin_top = 581.0
+margin_right = 1063.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "g"
+
+[node name="h" type="Button" parent="."]
+margin_left = 1086.0
+margin_top = 581.0
+margin_right = 1236.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "h"
+
+[node name="j" type="Button" parent="."]
+margin_left = 1259.0
+margin_top = 580.0
+margin_right = 1409.0
+margin_bottom = 658.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "j"
+
+[node name="k" type="Button" parent="."]
+margin_left = 1435.0
+margin_top = 581.0
+margin_right = 1585.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "k"
+
+[node name="l" type="Button" parent="."]
+margin_left = 1607.0
+margin_top = 581.0
+margin_right = 1757.0
+margin_bottom = 659.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "l"
+
+[node name="Enter" type="Button" parent="."]
+margin_left = 1580.0
+margin_top = 780.0
+margin_right = 1842.0
+margin_bottom = 858.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Entersprite" type="Sprite" parent="Enter"]
+position = Vector2( 72.6001, 37 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Enter"]
+margin_left = 106.0
+margin_top = 10.0
+margin_right = 206.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 12 )
+text = "Enter"
+
+[node name="backspace" type="Button" parent="."]
+margin_left = 1607.0
+margin_top = 679.0
+margin_right = 1842.0
+margin_bottom = 757.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+
+[node name="Backspacesprite" type="Sprite" parent="backspace"]
+position = Vector2( 115, 38.7065 )
+scale = Vector2( 0.388672, 0.332711 )
+texture = ExtResource( 3 )
+
+[node name="ShiftLeft" type="Button" parent="."]
+margin_left = 135.0
+margin_top = 680.0
+margin_right = 373.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+
+[node name="Shiftsprite" type="Sprite" parent="ShiftLeft"]
+position = Vector2( 120, 38 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+
+[node name="z" type="Button" parent="."]
+margin_left = 392.0
+margin_top = 680.0
+margin_right = 542.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "z"
+
+[node name="x" type="Button" parent="."]
+margin_left = 565.0
+margin_top = 680.0
+margin_right = 715.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "x"
+
+[node name="c" type="Button" parent="."]
+margin_left = 739.0
+margin_top = 680.0
+margin_right = 889.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "c"
+
+[node name="v" type="Button" parent="."]
+margin_left = 913.0
+margin_top = 680.0
+margin_right = 1063.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "v"
+
+[node name="b" type="Button" parent="."]
+margin_left = 1086.0
+margin_top = 680.0
+margin_right = 1236.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "b"
+
+[node name="n" type="Button" parent="."]
+margin_left = 1259.0
+margin_top = 680.0
+margin_right = 1409.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "n"
+
+[node name="m" type="Button" parent="."]
+margin_left = 1435.0
+margin_top = 680.0
+margin_right = 1585.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "m"
+
+[node name="ArrowButton" type="Button" parent="."]
+margin_left = 1741.0
+margin_top = 252.0
+margin_right = 1835.0
+margin_bottom = 332.0
+custom_fonts/font = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+
+[node name="ArrowSprite" type="Sprite" parent="ArrowButton"]
+position = Vector2( 50, 39 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+
+[node name="Cancel" type="Button" parent="."]
+margin_left = 1866.0
+margin_top = 252.0
+margin_right = 1960.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+custom_styles/normal = SubResource( 11 )
+
+[node name="CancelSprite" type="Sprite" parent="Cancel"]
+position = Vector2( 48, 40 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+
+[node name="Comma" type="Button" parent="."]
+margin_left = 481.0
+margin_top = 780.0
+margin_right = 631.0
+margin_bottom = 858.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 7 )
+text = ","
+
+[node name="Spacebar" type="Button" parent="."]
+margin_left = 653.0
+margin_top = 780.0
+margin_right = 1391.0
+margin_bottom = 858.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 7 )
+
+[node name="Fullstop" type="Button" parent="."]
+margin_left = 1409.0
+margin_top = 780.0
+margin_right = 1559.0
+margin_bottom = 858.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 7 )
+text = "."
+
+[node name="ArrowLeft" type="Button" parent="."]
+margin_left = 135.0
+margin_top = 780.0
+margin_right = 285.0
+margin_bottom = 858.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 7 )
+text = "<"
+
+[node name="ArrowRight" type="Button" parent="."]
+margin_left = 308.0
+margin_top = 780.0
+margin_right = 458.0
+margin_bottom = 858.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 7 )
+text = ">"
+
+[connection signal="pressed" from="No1" to="." method="_on_No1_pressed"]
+[connection signal="pressed" from="No2" to="." method="_on_No2_pressed"]
+[connection signal="pressed" from="No3" to="." method="_on_No3_pressed"]
+[connection signal="pressed" from="No4" to="." method="_on_No4_pressed"]
+[connection signal="pressed" from="No5" to="." method="_on_No5_pressed"]
+[connection signal="pressed" from="No6" to="." method="_on_No6_pressed"]
+[connection signal="pressed" from="No7" to="." method="_on_No7_pressed"]
+[connection signal="pressed" from="No8" to="." method="_on_No8_pressed"]
+[connection signal="pressed" from="No9" to="." method="_on_No9_pressed"]
+[connection signal="pressed" from="No0" to="." method="_on_No0_pressed"]
+[connection signal="pressed" from="Paste" to="." method="_on_Paste_pressed"]
+[connection signal="pressed" from="q" to="." method="_on_q_pressed"]
+[connection signal="pressed" from="w" to="." method="_on_w_pressed"]
+[connection signal="pressed" from="e" to="." method="_on_e_pressed"]
+[connection signal="pressed" from="r" to="." method="_on_r_pressed"]
+[connection signal="pressed" from="t" to="." method="_on_t_pressed"]
+[connection signal="pressed" from="y" to="." method="_on_y_pressed"]
+[connection signal="pressed" from="u" to="." method="_on_u_pressed"]
+[connection signal="pressed" from="i" to="." method="_on_i_pressed"]
+[connection signal="pressed" from="o" to="." method="_on_o_pressed"]
+[connection signal="pressed" from="p" to="." method="_on_p_pressed"]
+[connection signal="pressed" from="a" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="s" to="." method="_on_s_pressed"]
+[connection signal="pressed" from="d" to="." method="_on_d_pressed"]
+[connection signal="pressed" from="f" to="." method="_on_f_pressed"]
+[connection signal="pressed" from="g" to="." method="_on_g_pressed"]
+[connection signal="pressed" from="h" to="." method="_on_h_pressed"]
+[connection signal="pressed" from="j" to="." method="_on_j_pressed"]
+[connection signal="pressed" from="k" to="." method="_on_k_pressed"]
+[connection signal="pressed" from="l" to="." method="_on_l_pressed"]
+[connection signal="pressed" from="Enter" to="." method="_on_Enter_pressed"]
+[connection signal="pressed" from="backspace" to="." method="_on_backspace_pressed"]
+[connection signal="pressed" from="ShiftLeft" to="." method="_on_ShiftLeft_pressed"]
+[connection signal="pressed" from="z" to="." method="_on_z_pressed"]
+[connection signal="pressed" from="x" to="." method="_on_x_pressed"]
+[connection signal="pressed" from="c" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="v" to="." method="_on_v_pressed"]
+[connection signal="pressed" from="b" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="n" to="." method="_on_n_pressed"]
+[connection signal="pressed" from="m" to="." method="_on_m_pressed"]
+[connection signal="pressed" from="ArrowButton" to="." method="_on_ArrowButton_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="Comma" to="." method="_on_Comma_pressed"]
+[connection signal="pressed" from="Spacebar" to="." method="_on_Spacebar_pressed"]
+[connection signal="pressed" from="Fullstop" to="." method="_on_Fullstop_pressed"]
+[connection signal="pressed" from="ArrowLeft" to="." method="_on_ArrowLeft_pressed"]
+[connection signal="pressed" from="ArrowRight" to="." method="_on_ArrowRight_pressed"]

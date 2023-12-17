@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/abstractbottom.png-8a530d52fabad59ef142a2aa2efb5454.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://pck/assets/shankoemee/EmoPacks/abstractbottom.png"
+dest_files=[ "res://.import/abstractbottom.png-8a530d52fabad59ef142a2aa2efb5454.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

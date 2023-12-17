@@ -1,0 +1,2447 @@
+[gd_scene load_steps=124 format=2]
+
+[ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/common/arrow_right.png" type="Texture" id=3]
+[ext_resource path="res://pck/assets/common/panel-1.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://pck/scripts/shankoemee/banker.gd" type="Script" id=9]
+[ext_resource path="res://pck/assets/shankoemee/dine.png" type="Texture" id=10]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=14]
+[ext_resource path="res://pck/scenes/shankoemee_game.gd" type="Script" id=15]
+[ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=17]
+[ext_resource path="res://pck/assets/shankoemee/dealer-bet.png" type="Texture" id=18]
+[ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=19]
+[ext_resource path="res://pck/scripts/shankoemee/card_check.gd" type="Script" id=20]
+[ext_resource path="res://pck/assets/common/cards/Card.png" type="Texture" id=21]
+[ext_resource path="res://pck/assets/shankoemee/MenuPacks/tutorial.png" type="Texture" id=22]
+[ext_resource path="res://pck/assets/common/btn-3.png" type="Texture" id=23]
+[ext_resource path="res://pck/scripts/shankoemee/catch_scene.gd" type="Script" id=29]
+[ext_resource path="res://pck/assets/common/flare-1.png" type="Texture" id=30]
+[ext_resource path="res://pck/assets/common/banner-1.png" type="Texture" id=31]
+[ext_resource path="res://pck/assets/shankoemee/win.png" type="Texture" id=32]
+[ext_resource path="res://pck/assets/audio/coin_move_1.mp3" type="AudioStream" id=33]
+[ext_resource path="res://pck/assets/shankoemee/win-bg.png" type="Texture" id=34]
+[ext_resource path="res://pck/assets/common/emoji/icons/1.png" type="Texture" id=41]
+[ext_resource path="res://pck/assets/common/emoji/emojilow.png" type="Texture" id=42]
+[ext_resource path="res://pck/assets/common/emoji/icons/2.png" type="Texture" id=43]
+[ext_resource path="res://pck/assets/common/emoji/icons/3.png" type="Texture" id=44]
+[ext_resource path="res://pck/assets/common/emoji/icons/5.png" type="Texture" id=45]
+[ext_resource path="res://pck/assets/common/emoji/icons/6.png" type="Texture" id=46]
+[ext_resource path="res://pck/assets/common/emoji/icons/4.png" type="Texture" id=47]
+[ext_resource path="res://pck/assets/audio/noti-1.mp3" type="AudioStream" id=48]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-bg.png" type="Texture" id=50]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-grabber.png" type="Texture" id=51]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-grabber-highlight.png" type="Texture" id=52]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-bg-highlight.png" type="Texture" id=53]
+[ext_resource path="res://pck/assets/shankoemee/lose-bg.png" type="Texture" id=55]
+[ext_resource path="res://pck/assets/audio/win-1.mp3" type="AudioStream" id=56]
+[ext_resource path="res://pck/assets/audio/lose-1.mp3" type="AudioStream" id=57]
+[ext_resource path="res://pck/assets/shankoemee/MenuPacks/setting.png" type="Texture" id=58]
+[ext_resource path="res://pck/assets/bugyeeNew/Poker Phit - ma Phit/01.png" type="Texture" id=59]
+[ext_resource path="res://pck/assets/shankoemee/MenuPacks/Back.png" type="Texture" id=60]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl2.png" type="Texture" id=61]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=62]
+[ext_resource path="res://pck/assets/shankoemee/game_rules.png" type="Texture" id=63]
+[ext_resource path="res://pck/assets/common/panel-top.png" type="Texture" id=64]
+[ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=65]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl4.png" type="Texture" id=67]
+[ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=68]
+[ext_resource path="res://pck/assets/common/WINYADA0.TTF" type="DynamicFontData" id=69]
+[ext_resource path="res://pck/assets/shankoemee/Skomi-Main/icon-skomi-table.png" type="Texture" id=194]
+[ext_resource path="res://pck/assets/shankoemee/Skomi-Main/icon-skomi-carpet.png" type="Texture" id=195]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV4.png" type="Texture" id=197]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV2.png" type="Texture" id=198]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV5.png" type="Texture" id=199]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV1.png" type="Texture" id=200]
+[ext_resource path="res://pck/assets/common/messages/bet_more.png" type="Texture" id=201]
+[ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=202]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV6.png" type="Texture" id=203]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/abstractbottom.png" type="Texture" id=204]
+[ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=205]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ01-1.png.png" type="Texture" id=206]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ2-2.png.png" type="Texture" id=207]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ9-1.png.png" type="Texture" id=208]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ11-1.png.png" type="Texture" id=209]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ12-1.png.png" type="Texture" id=210]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ4-1.png.png" type="Texture" id=211]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ5-1.png.png" type="Texture" id=212]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ13-1.png.png" type="Texture" id=213]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ14-1.png.png" type="Texture" id=214]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ10-1.png.png" type="Texture" id=215]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ15-1.png.png" type="Texture" id=216]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ16-1.png.png" type="Texture" id=217]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ8-1.png.png" type="Texture" id=218]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ3-1.png.png" type="Texture" id=219]
+[ext_resource path="res://pck/assets/common/emoji/NewEmoji/EJ7-1.png.png" type="Texture" id=220]
+[ext_resource path="res://pck/assets/shankoemee/audio/music-skomi-betcoin.mp3" type="AudioStream" id=221]
+[ext_resource path="res://pck/assets/shankoemee/audio/music-skomi-givecard.mp3" type="AudioStream" id=222]
+[ext_resource path="res://pck/assets/shankoemee/audio/music-skomi-betmore.mp3" type="AudioStream" id=223]
+[ext_resource path="res://pck/assets/shankoemee/audio/music-skomi-donttakeanothercard.mp3" type="AudioStream" id=224]
+[ext_resource path="res://pck/assets/shankoemee/audio/music-skomi-auto89.mp3" type="AudioStream" id=225]
+[ext_resource path="res://pck/assets/shankoemee/LoadingFrame/bankerBar.png" type="Texture" id=226]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/enoBackground2.png" type="Texture" id=227]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/icon-emoji1.png" type="Texture" id=228]
+[ext_resource path="res://pck/assets/shankoemee/EmoPacks/icon-message2.png" type="Texture" id=229]
+[ext_resource path="res://pck/scripts/EmojiButton.gd" type="Script" id=230]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/FFV3.png" type="Texture" id=231]
+[ext_resource path="res://pck/assets/shankoemee/messagePacks/Reply.png" type="Texture" id=232]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl3.png" type="Texture" id=233]
+[ext_resource path="res://pck/assets/shankoemee/ButtonPacks/icon-button-swl1.png" type="Texture" id=234]
+[ext_resource path="res://pck/assets/common/btn-6.png" type="Texture" id=235]
+[ext_resource path="res://pck/scripts/MessageButton.gd" type="Script" id=236]
+[ext_resource path="res://pck/assets/shankoemee/Models/Girl 01.png" type="Texture" id=237]
+[ext_resource path="res://pck/scripts/Skm_setting.gd" type="Script" id=238]
+[ext_resource path="res://pck/scripts/Skm_Screentouch.gd" type="Script" id=239]
+
+[sub_resource type="DynamicFontData" id=352]
+font_path = "res://pck/assets/common/zawgyi-one.ttf"
+
+[sub_resource type="DynamicFont" id=353]
+size = 20
+use_filter = true
+font_data = SubResource( 352 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=350]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowRight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("ArrowRight:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("ArrowRight:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -190, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=351]
+resource_name = "arrow"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ArrowRight:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 100, -0.25, 0, 0.25, 0, 120, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[sub_resource type="Animation" id=347]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowRight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("ArrowRight:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("ArrowRight:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -190, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=348]
+resource_name = "arrow"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ArrowRight:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 100, -0.25, 0, 0.25, 0, 120, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+outline_size = 1
+outline_color = Color( 0.54902, 0.54902, 0.54902, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+outline_size = 2
+outline_color = Color( 0.537255, 0, 0.596078, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=288]
+texture = ExtResource( 50 )
+region_rect = Rect2( 0, 0, 100, 360 )
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id=289]
+texture = ExtResource( 53 )
+region_rect = Rect2( 0, 0, 100, 360 )
+
+[sub_resource type="StyleBoxTexture" id=290]
+
+[sub_resource type="DynamicFont" id=357]
+size = 40
+outline_size = 2
+outline_color = Color( 1, 0.615686, 0.0156863, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=56]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Dealer:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Flare-1:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Flare-1:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Flare-1:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Player:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Dealer:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("ResultFlag:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("ResultFlag:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 320, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("ResultFlag:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 530, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "show"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -1240, -0.25, 0, 0.25, 0, -400, -0.25, 0, 0.25, 0, -400, -0.25, 0, 0.25, 0, -1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Dealer:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1240, -0.25, 0, 0.25, 0, 400, -0.25, 0, 0.25, 0, 400, -0.25, 0, 0.25, 0, 1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Flare-1:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 360, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Flare-1:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Flare-1:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Player:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Dealer:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("ResultFlag:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 530, -0.25, 0, 0.25, 0, 320, -0.25, 0, 0.25, 0, 320, -0.25, 0, 0.25, 0, 530, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1, 1.7, 2 )
+}
+
+[sub_resource type="DynamicFont" id=59]
+size = 80
+outline_size = 2
+outline_color = Color( 0.337255, 0.00784314, 0.00784314, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=60]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("WinBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("WinBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("WinBg:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("WinBg:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("WinBg:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("WinBg:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=61]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("WinBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 2.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("WinBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 2.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("WinBg:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=291]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("LoseBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("LoseBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("LoseBg:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("LoseBg:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("LoseBg:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("LoseBg:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=292]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("LoseBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("LoseBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("LoseBg:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="StyleBoxFlat" id=356]
+bg_color = Color( 0.0509804, 0.12549, 0.258824, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.760784, 0.760784, 0.760784, 0.588235 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxTexture" id=294]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, -10, 200, 210 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="DynamicFont" id=295]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=344]
+size = 50
+outline_size = 2
+outline_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+font_data = ExtResource( 69 )
+
+[sub_resource type="Animation" id=345]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=346]
+resource_name = "show"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 227 )
+region_rect = Rect2( 0, 0, 2536, 3344 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+modulate_color = Color( 0.392157, 0.780392, 0.886275, 1 )
+
+[sub_resource type="DynamicFont" id=354]
+size = 35
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=355]
+bg_color = Color( 0.054902, 0.0313726, 0.164706, 1 )
+border_color = Color( 0.333333, 0.0823529, 0.631373, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="root" type="Node2D"]
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_vertical_guides_": [ 1000.0 ]
+}
+
+[node name="SkomiBg" type="Sprite" parent="."]
+position = Vector2( 1000, 448 )
+scale = Vector2( 1.33333, 1.19467 )
+z_index = -2
+texture = ExtResource( 195 )
+
+[node name="DeskBoard" type="Sprite" parent="."]
+position = Vector2( 998, 415 )
+scale = Vector2( 1.02969, 0.941667 )
+z_index = -2
+texture = ExtResource( 194 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerPos" type="Node" parent="."]
+
+[node name="0" type="Node2D" parent="PlayerPos"]
+position = Vector2( 986, 620 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/0"]
+position = Vector2( 3, -72 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/0" groups=["Bet"]]
+position = Vector2( 3, -126 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/0/Bet"]
+visible = false
+position = Vector2( 32, 29 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/0/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="1" type="Node2D" parent="PlayerPos"]
+position = Vector2( 630, 625 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/1"]
+position = Vector2( 42, -72 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/1" groups=["Bet"]]
+position = Vector2( 100, -126 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/1/Bet"]
+visible = false
+position = Vector2( 28, 33 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/1/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="2" type="Node2D" parent="PlayerPos"]
+position = Vector2( 426, 523 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/2"]
+position = Vector2( 61, -57 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/2" groups=["Bet"]]
+position = Vector2( 186, -78 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/2/Bet"]
+visible = false
+position = Vector2( 21, 29 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/2/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="3" type="Node2D" parent="PlayerPos"]
+position = Vector2( 420, 283 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/3"]
+position = Vector2( 84, 62 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/3" groups=["Bet"]]
+position = Vector2( 230, 52 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/3/Bet"]
+visible = false
+position = Vector2( -102, 11 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/3/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="4" type="Node2D" parent="PlayerPos"]
+position = Vector2( 627, 127 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/4"]
+position = Vector2( 80, 125 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/4" groups=["Bet"]]
+position = Vector2( 128, 138 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/4/Bet"]
+visible = false
+position = Vector2( -76, -6 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/4/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="5" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1390, 136 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/5"]
+position = Vector2( -88, 107 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/5" groups=["Bet"]]
+position = Vector2( -130, 125 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/5/Bet"]
+visible = false
+position = Vector2( 114, -16 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/5/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="6" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1580, 283 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/6"]
+position = Vector2( -129, 60 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/6" groups=["Bet"]]
+position = Vector2( -208, 65 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/6/Bet"]
+visible = false
+position = Vector2( 152, -18 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/6/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="7" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1586, 487 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/7"]
+position = Vector2( -126, -29 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/7" groups=["Bet"]]
+position = Vector2( -263, -63 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/7/Bet"]
+visible = false
+position = Vector2( 164, 98 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/7/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="8" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1357, 625 )
+
+[node name="Load3" type="Node2D" parent="PlayerPos/8"]
+position = Vector2( -29.987, -93 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/8" groups=["Bet"]]
+position = Vector2( -129, -127 )
+
+[node name="Load" type="Node2D" parent="PlayerPos/8/Bet"]
+visible = false
+position = Vector2( 100, 38 )
+
+[node name="Load2" type="Node2D" parent="PlayerPos/8/Bet"]
+position = Vector2( 30, 30 )
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="0" type="Node" parent="Cards"]
+
+[node name="1" type="Node" parent="Cards"]
+
+[node name="2" type="Node" parent="Cards"]
+
+[node name="3" type="Node" parent="Cards"]
+
+[node name="4" type="Node" parent="Cards"]
+
+[node name="5" type="Node" parent="Cards"]
+
+[node name="6" type="Node" parent="Cards"]
+
+[node name="7" type="Node" parent="Cards"]
+
+[node name="8" type="Node" parent="Cards"]
+
+[node name="Banker" type="Sprite" parent="."]
+position = Vector2( 1000, 420 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+script = ExtResource( 9 )
+
+[node name="BackDrop" parent="." instance=ExtResource( 19 )]
+visible = false
+
+[node name="CardHome" type="Node2D" parent="."]
+position = Vector2( 1000, 220 )
+
+[node name="DealerPot" type="Sprite" parent="."]
+position = Vector2( 1000, 260 )
+texture = ExtResource( 226 )
+
+[node name="L1" type="Label" parent="DealerPot"]
+margin_left = 86.0
+margin_top = -11.0
+margin_right = 115.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="L2" type="Label" parent="DealerPot"]
+margin_left = 65.0
+margin_top = -11.0
+margin_right = 94.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="L3" type="Label" parent="DealerPot"]
+margin_left = 44.0
+margin_top = -11.0
+margin_right = 73.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="L4" type="Label" parent="DealerPot"]
+margin_left = 19.0
+margin_top = -11.0
+margin_right = 48.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="L5" type="Label" parent="DealerPot"]
+margin_left = -2.0
+margin_top = -11.0
+margin_right = 27.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="L6" type="Label" parent="DealerPot"]
+margin_left = -22.0
+margin_top = -11.0
+margin_right = 7.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="L7" type="Label" parent="DealerPot"]
+margin_left = -48.0
+margin_top = -11.0
+margin_right = -19.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="L8" type="Label" parent="DealerPot"]
+margin_left = -69.0
+margin_top = -11.0
+margin_right = -40.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "0"
+
+[node name="Title" type="Label" parent="."]
+margin_left = 884.0
+margin_top = 248.0
+margin_right = 913.0
+margin_bottom = 282.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = "Pot"
+
+[node name="comma1" type="Label" parent="."]
+margin_left = 1033.0
+margin_top = 248.0
+margin_right = 1042.0
+margin_bottom = 282.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = ","
+
+[node name="comma2" type="Label" parent="."]
+margin_left = 967.0
+margin_top = 248.0
+margin_right = 976.0
+margin_bottom = 282.0
+custom_colors/font_color = Color( 0.976471, 0.811765, 0.0509804, 1 )
+custom_fonts/font = SubResource( 353 )
+text = ","
+
+[node name="DealerBet" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1001, 158 )
+z_index = 10
+texture = ExtResource( 18 )
+
+[node name="Label" type="Label" parent="DealerBet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -5.0
+margin_right = -90.0
+margin_bottom = -45.0
+custom_colors/font_color = Color( 1, 0.886275, 0.501961, 1 )
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="CardCheck" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 20
+script = ExtResource( 20 )
+
+[node name="BG" type="Sprite" parent="CardCheck"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="1" type="Sprite" parent="CardCheck"]
+position = Vector2( -16, -62 )
+scale = Vector2( 0.56, 0.61708 )
+texture = ExtResource( 21 )
+
+[node name="2" type="Sprite" parent="CardCheck"]
+position = Vector2( 1, -62 )
+scale = Vector2( 0.56, 0.61708 )
+texture = ExtResource( 21 )
+
+[node name="3" type="Sprite" parent="CardCheck"]
+position = Vector2( 20, -62 )
+scale = Vector2( 0.56, 0.61708 )
+texture = ExtResource( 21 )
+
+[node name="ArrowRight" type="Sprite" parent="CardCheck"]
+position = Vector2( 100, -190 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardCheck"]
+autoplay = "arrow"
+anims/RESET = SubResource( 350 )
+anims/arrow = SubResource( 351 )
+
+[node name="CardCheck_original" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 20
+script = ExtResource( 20 )
+
+[node name="BG" type="Sprite" parent="CardCheck_original"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="1" type="Sprite" parent="CardCheck_original"]
+position = Vector2( -16, -62 )
+scale = Vector2( 0.56, 0.61708 )
+texture = ExtResource( 21 )
+
+[node name="2" type="Sprite" parent="CardCheck_original"]
+position = Vector2( 1, -62 )
+scale = Vector2( 0.56, 0.61708 )
+texture = ExtResource( 21 )
+
+[node name="3" type="Sprite" parent="CardCheck_original"]
+position = Vector2( 20, -62 )
+scale = Vector2( 0.56, 0.61708 )
+texture = ExtResource( 21 )
+
+[node name="ArrowRight" type="Sprite" parent="CardCheck_original"]
+position = Vector2( 100, -190 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardCheck_original"]
+autoplay = "arrow"
+anims/RESET = SubResource( 347 )
+anims/arrow = SubResource( 348 )
+
+[node name="BetPanel" type="Node2D" parent="."]
+
+[node name="Bet" type="TextureButton" parent="BetPanel"]
+visible = false
+margin_left = 1641.0
+margin_top = 784.0
+margin_right = 1962.0
+margin_bottom = 883.0
+texture_normal = ExtResource( 233 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/Bet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "ေလာင္းမည္"
+align = 1
+valign = 1
+
+[node name="C1" type="TextureButton" parent="BetPanel"]
+visible = false
+margin_left = 1800.0
+margin_top = 720.0
+margin_right = 1980.0
+margin_bottom = 800.0
+texture_normal = ExtResource( 23 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="C2" type="TextureButton" parent="BetPanel"]
+margin_left = 28.0
+margin_top = 795.0
+margin_right = 248.0
+margin_bottom = 875.0
+rect_min_size = Vector2( 220, 80 )
+texture_normal = ExtResource( 234 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = 5.0
+custom_fonts/font = SubResource( 5 )
+text = "200"
+align = 1
+valign = 1
+
+[node name="C3" type="TextureButton" parent="BetPanel"]
+margin_left = 280.0
+margin_top = 795.0
+margin_right = 500.0
+margin_bottom = 875.0
+rect_min_size = Vector2( 220, 80 )
+texture_normal = ExtResource( 234 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 5.0
+margin_right = 2.0
+margin_bottom = 5.0
+custom_fonts/font = SubResource( 5 )
+text = "300"
+align = 1
+valign = 1
+
+[node name="C4" type="TextureButton" parent="BetPanel"]
+margin_left = 536.0
+margin_top = 795.0
+margin_right = 756.0
+margin_bottom = 875.0
+texture_normal = ExtResource( 234 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = 5.0
+custom_fonts/font = SubResource( 5 )
+text = "500"
+align = 1
+valign = 1
+
+[node name="Amount" type="Label" parent="BetPanel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 1712.0
+margin_top = 309.0
+margin_right = 1892.0
+margin_bottom = 389.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Slider" type="VSlider" parent="BetPanel"]
+visible = false
+margin_left = 1712.0
+margin_top = 390.0
+margin_right = 1892.0
+margin_bottom = 750.0
+custom_icons/grabber_highlight = ExtResource( 52 )
+custom_icons/grabber = ExtResource( 51 )
+custom_styles/slider = SubResource( 288 )
+custom_styles/grabber_area_highlight = SubResource( 289 )
+custom_styles/grabber_area = SubResource( 290 )
+
+[node name="BetAll" type="TextureButton" parent="BetPanel"]
+margin_left = 1283.0
+margin_top = 795.0
+margin_right = 1606.0
+margin_bottom = 875.0
+texture_normal = ExtResource( 61 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/BetAll"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "Max:barnyr"
+align = 1
+valign = 1
+
+[node name="ChooseBet" type="TextureButton" parent="BetPanel"]
+margin_left = 1640.0
+margin_top = 785.0
+margin_right = 1963.0
+margin_bottom = 884.0
+rect_min_size = Vector2( 323, 80 )
+texture_normal = ExtResource( 233 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/ChooseBet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 7.0
+margin_right = -6.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 357 )
+text = "ေလာင္းေၾကးေရြးပါ"
+align = 1
+valign = 1
+
+[node name="Clear" type="TextureButton" parent="BetPanel"]
+visible = false
+margin_left = 1620.0
+margin_top = 800.0
+margin_right = 1800.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/Clear"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "ပယ္ဖ်က္"
+align = 1
+valign = 1
+
+[node name="CatchAllDraw" type="TextureButton" parent="."]
+visible = false
+margin_left = 1642.0
+margin_top = 663.0
+margin_right = 1965.0
+margin_bottom = 753.0
+rect_min_size = Vector2( 323, 90 )
+texture_normal = ExtResource( 235 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="CatchAllDraw"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 27.0
+margin_top = 12.0
+margin_right = -15.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 5 )
+text = "ဆြဲဖဲအကုန္ဖမ္း"
+align = 1
+valign = 1
+
+[node name="DrawBtns" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1648, 803 )
+scale = Vector2( 0.7, 0.7 )
+z_index = 30
+
+[node name="Draw" type="TextureButton" parent="DrawBtns"]
+margin_left = -317.0
+margin_right = 6.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 323, 80 )
+texture_normal = ExtResource( 67 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="DrawBtns/Draw"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "ထပ္ဆြဲ"
+align = 1
+valign = 1
+
+[node name="Stop" type="TextureButton" parent="DrawBtns"]
+margin_left = 34.0
+margin_top = 2.0
+margin_right = 357.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 323, 80 )
+texture_normal = ExtResource( 233 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="DrawBtns/Stop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "ေတာ္္ၿပီ"
+align = 1
+valign = 1
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="GameVoice" type="AudioStreamPlayer" parent="Audio"]
+bus = "Effect"
+
+[node name="CoinMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 33 )
+bus = "Effect"
+
+[node name="M9CoinMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 221 )
+volume_db = 20.0
+bus = "Effect"
+
+[node name="CardMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 205 )
+bus = "Effect"
+
+[node name="M9CardMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 222 )
+volume_db = 24.0
+bus = "Effect"
+
+[node name="M9betMoney" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 223 )
+volume_db = 6.0
+bus = "Effect"
+
+[node name="M9donttakecard" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 224 )
+volume_db = 6.0
+bus = "Effect"
+
+[node name="M9auto89" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 225 )
+volume_db = 15.0
+bus = "Effect"
+
+[node name="Emoji" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 48 )
+bus = "Effect"
+
+[node name="BankerCoinPos" type="Node2D" parent="."]
+position = Vector2( 1000, 380 )
+
+[node name="CoinContainer" type="Node" parent="."]
+
+[node name="CatchScene" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 10
+script = ExtResource( 29 )
+
+[node name="BG" type="Sprite" parent="CatchScene"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="Flare-1" type="Sprite" parent="CatchScene"]
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 30 )
+
+[node name="Player" type="Node2D" parent="CatchScene"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1240, 0 )
+
+[node name="3" type="Sprite" parent="CatchScene/Player"]
+position = Vector2( -80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="2" type="Sprite" parent="CatchScene/Player"]
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="1" type="Sprite" parent="CatchScene/Player"]
+position = Vector2( 80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="Dealer" type="Node2D" parent="CatchScene"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1240, 0 )
+
+[node name="3" type="Sprite" parent="CatchScene/Dealer"]
+position = Vector2( 80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="2" type="Sprite" parent="CatchScene/Dealer"]
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="1" type="Sprite" parent="CatchScene/Dealer"]
+position = Vector2( -80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="Banner" type="Sprite" parent="CatchScene"]
+position = Vector2( 0, -370 )
+texture = ExtResource( 31 )
+
+[node name="Label" type="Label" parent="CatchScene/Banner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -420.0
+margin_top = -80.0
+margin_right = -420.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 56 )
+text = "ဒိုင္သင့္ကိုဖမ္းလိုက္ၿပီ။"
+align = 1
+valign = 1
+
+[node name="ResultFlag" type="Sprite" parent="CatchScene"]
+position = Vector2( 0, 530 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 32 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CatchScene"]
+anims/RESET = SubResource( 57 )
+anims/show = SubResource( 58 )
+
+[node name="DealerWinScene" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 10
+
+[node name="BG" type="Sprite" parent="DealerWinScene"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="WinBg" type="Sprite" parent="DealerWinScene"]
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 34 )
+
+[node name="Label" type="Label" parent="DealerWinScene/WinBg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -307.0
+margin_top = 5.0
+margin_right = -307.0
+margin_bottom = -110.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 59 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Banner" type="Sprite" parent="DealerWinScene"]
+position = Vector2( 0, -550 )
+texture = ExtResource( 31 )
+
+[node name="Label" type="Label" parent="DealerWinScene/Banner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -420.0
+margin_top = -80.0
+margin_right = -420.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 56 )
+text = "ဒိုင္ရရွိသည့္ေငြပမာဏ"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DealerWinScene"]
+anims/RESET = SubResource( 60 )
+anims/show = SubResource( 61 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DealerWinScene"]
+stream = ExtResource( 56 )
+bus = "Music"
+
+[node name="DealerLoseScene" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 10
+
+[node name="BG" type="Sprite" parent="DealerLoseScene"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="LoseBg" type="Sprite" parent="DealerLoseScene"]
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 55 )
+
+[node name="Banner" type="Sprite" parent="DealerLoseScene"]
+position = Vector2( 0, -550 )
+texture = ExtResource( 31 )
+
+[node name="Label" type="Label" parent="DealerLoseScene/Banner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -420.0
+margin_top = -80.0
+margin_right = -420.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 56 )
+text = "ဒိုင္ရႈံးပါတယ္။"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DealerLoseScene"]
+anims/RESET = SubResource( 291 )
+anims/show = SubResource( 292 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DealerLoseScene"]
+stream = ExtResource( 57 )
+bus = "Music"
+
+[node name="Menu" type="TextureButton" parent="."]
+margin_right = 110.0
+margin_bottom = 110.0
+texture_normal = ExtResource( 59 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 14 )
+
+[node name="MenuHomePanel" type="Node2D" parent="."]
+z_index = 21
+
+[node name="MenuPanel" type="Panel" parent="MenuHomePanel"]
+margin_left = 6.0
+margin_top = 110.0
+margin_right = 246.0
+margin_bottom = 343.0
+custom_styles/panel = SubResource( 356 )
+
+[node name="Exit" type="TextureButton" parent="MenuHomePanel/MenuPanel"]
+margin_left = 10.0
+margin_top = 22.0
+margin_right = 230.0
+margin_bottom = 82.0
+texture_normal = ExtResource( 60 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Rules" type="TextureButton" parent="MenuHomePanel/MenuPanel"]
+margin_left = 10.0
+margin_top = 92.0
+margin_right = 230.0
+margin_bottom = 152.0
+texture_normal = ExtResource( 22 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Setting" type="TextureButton" parent="MenuHomePanel/MenuPanel"]
+margin_left = 10.0
+margin_top = 162.0
+margin_right = 230.0
+margin_bottom = 222.0
+texture_normal = ExtResource( 58 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="EmojiToggle" type="TextureButton" parent="."]
+visible = false
+margin_left = 40.0
+margin_top = 760.0
+margin_right = 140.0
+margin_bottom = 856.0
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="EmojiToggleSprite" type="Sprite" parent="EmojiToggle"]
+position = Vector2( 49, 47 )
+texture = ExtResource( 42 )
+
+[node name="MessageToggle" type="TextureButton" parent="."]
+visible = false
+margin_left = 208.0
+margin_top = 762.0
+margin_right = 308.0
+margin_bottom = 842.0
+texture_normal = ExtResource( 202 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Setting" parent="." instance=ExtResource( 62 )]
+visible = false
+script = ExtResource( 238 )
+
+[node name="Rules" type="Node2D" parent="."]
+visible = false
+z_index = 30
+
+[node name="Panel" type="Panel" parent="Rules"]
+margin_left = 480.0
+margin_top = 40.0
+margin_right = 1520.0
+margin_bottom = 780.0
+custom_styles/panel = SubResource( 294 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Rules/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0
+margin_top = 140.0
+margin_right = -14.0
+margin_bottom = -60.0
+scroll_horizontal_enabled = false
+
+[node name="TextureRect" type="TextureRect" parent="Rules/Panel/ScrollContainer"]
+margin_right = 1000.0
+margin_bottom = 3042.0
+texture = ExtResource( 63 )
+
+[node name="Panel-top" type="Sprite" parent="Rules"]
+position = Vector2( 1000, 132 )
+texture = ExtResource( 64 )
+
+[node name="Label" type="Label" parent="Rules/Panel-top"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -259.0
+margin_top = -66.0
+margin_right = -255.0
+margin_bottom = -84.0
+custom_fonts/font = SubResource( 295 )
+text = "ရွမ္းကိုးမီးကစားနည္း"
+align = 1
+valign = 1
+
+[node name="Close" type="TextureButton" parent="Rules"]
+margin_left = 1394.0
+margin_top = 72.0
+margin_right = 1494.0
+margin_bottom = 172.0
+texture_normal = ExtResource( 65 )
+script = ExtResource( 14 )
+
+[node name="AlertBox" parent="." instance=ExtResource( 68 )]
+position = Vector2( 1000, 980 )
+targetY = 840.0
+
+[node name="GameCount" type="Node2D" parent="."]
+position = Vector2( 1000, 340 )
+scale = Vector2( 1e-05, 1e-05 )
+z_index = 15
+
+[node name="Label" type="Label" parent="GameCount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -280.0
+margin_top = -40.0
+margin_right = 280.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 1, 0.956863, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 344 )
+text = "'dkifudkif tvSnfh (1)"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameCount"]
+anims/RESET = SubResource( 345 )
+anims/show = SubResource( 346 )
+
+[node name="Backdrop" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 1000, 450 )
+scale = Vector2( 10, 10 )
+z_index = 20
+texture = ExtResource( 17 )
+
+[node name="MessagePanel" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1345, 116 )
+z_index = 20
+
+[node name="Panel" type="Panel" parent="MessagePanel"]
+margin_top = 2.0
+margin_right = 652.0
+margin_bottom = 779.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="1" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -42.0
+margin_top = 134.0
+margin_right = 683.0
+margin_bottom = 209.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_normal = ExtResource( 200 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 236 )
+
+[node name="2" type="TextureButton" parent="MessagePanel/Panel"]
+visible = false
+margin_left = 221.0
+margin_top = 206.0
+margin_right = 421.0
+margin_bottom = 286.0
+texture_normal = ExtResource( 201 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 236 )
+
+[node name="3" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -43.0
+margin_top = 219.0
+margin_right = 683.0
+margin_bottom = 294.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_normal = ExtResource( 198 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 236 )
+
+[node name="4" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -42.0
+margin_top = 474.0
+margin_right = 682.0
+margin_bottom = 549.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_normal = ExtResource( 199 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 236 )
+
+[node name="5" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -42.0
+margin_top = 304.0
+margin_right = 683.0
+margin_bottom = 379.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_normal = ExtResource( 231 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 236 )
+
+[node name="6" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -43.0
+margin_top = 389.0
+margin_right = 684.0
+margin_bottom = 464.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_normal = ExtResource( 197 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 236 )
+
+[node name="7" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = -42.0
+margin_top = 559.0
+margin_right = 683.0
+margin_bottom = 634.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_normal = ExtResource( 203 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 236 )
+
+[node name="Texter" type="Sprite" parent="MessagePanel"]
+modulate = Color( 0.647059, 0.152941, 0.686275, 1 )
+position = Vector2( 327.348, 713.375 )
+scale = Vector2( 0.2584, 0.260763 )
+texture = ExtResource( 204 )
+
+[node name="TexterLineEdit" type="LineEdit" parent="MessagePanel"]
+margin_left = 31.0
+margin_top = 664.0
+margin_right = 421.0
+margin_bottom = 759.0
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 354 )
+custom_styles/normal = SubResource( 355 )
+placeholder_text = "Enter text here..."
+
+[node name="ReplyText" type="TextureButton" parent="MessagePanel"]
+margin_left = 444.0
+margin_top = 676.0
+margin_right = 638.0
+margin_bottom = 748.0
+texture_normal = ExtResource( 232 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="EmojiHomePanel" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1345, 116 )
+z_index = 20
+
+[node name="EmojiPanel" type="Panel" parent="EmojiHomePanel"]
+margin_right = 655.0
+margin_bottom = 780.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ee1" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+visible = false
+margin_left = 20.0
+margin_top = 520.0
+margin_right = 120.0
+margin_bottom = 620.0
+texture_normal = ExtResource( 41 )
+script = ExtResource( 14 )
+
+[node name="ee2" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+visible = false
+margin_left = 20.0
+margin_top = 420.0
+margin_right = 120.0
+margin_bottom = 520.0
+texture_normal = ExtResource( 43 )
+script = ExtResource( 14 )
+
+[node name="ee3" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+visible = false
+margin_left = 20.0
+margin_top = 320.0
+margin_right = 120.0
+margin_bottom = 420.0
+texture_normal = ExtResource( 44 )
+script = ExtResource( 14 )
+
+[node name="ee4" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+visible = false
+margin_left = 20.0
+margin_top = 220.0
+margin_right = 120.0
+margin_bottom = 320.0
+texture_normal = ExtResource( 47 )
+script = ExtResource( 14 )
+
+[node name="ee5" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+visible = false
+margin_left = 20.0
+margin_top = 120.0
+margin_right = 120.0
+margin_bottom = 220.0
+texture_normal = ExtResource( 45 )
+script = ExtResource( 14 )
+
+[node name="ee6" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 46 )
+script = ExtResource( 14 )
+
+[node name="e1" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 20.0
+margin_top = 137.0
+margin_right = 120.0
+margin_bottom = 237.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 206 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e2" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 189.0
+margin_top = 137.0
+margin_right = 289.0
+margin_bottom = 237.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 207 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e3" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 356.0
+margin_top = 137.0
+margin_right = 456.0
+margin_bottom = 237.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 219 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e4" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 521.0
+margin_top = 137.0
+margin_right = 621.0
+margin_bottom = 237.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 211 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e5" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 20.0
+margin_top = 296.0
+margin_right = 120.0
+margin_bottom = 396.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 212 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e6" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 189.0
+margin_top = 294.0
+margin_right = 289.0
+margin_bottom = 394.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 220 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e7" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 356.0
+margin_top = 294.0
+margin_right = 456.0
+margin_bottom = 394.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 218 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e8" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 521.0
+margin_top = 294.0
+margin_right = 621.0
+margin_bottom = 394.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 208 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e9" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 20.0
+margin_top = 455.0
+margin_right = 120.0
+margin_bottom = 555.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 215 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e10" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 189.0
+margin_top = 455.0
+margin_right = 289.0
+margin_bottom = 555.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 209 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e11" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 356.0
+margin_top = 455.0
+margin_right = 456.0
+margin_bottom = 555.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 210 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e12" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 521.0
+margin_top = 455.0
+margin_right = 621.0
+margin_bottom = 555.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 213 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e13" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 20.0
+margin_top = 615.0
+margin_right = 120.0
+margin_bottom = 715.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 214 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e14" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 189.0
+margin_top = 615.0
+margin_right = 289.0
+margin_bottom = 715.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 216 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="e15" type="TextureButton" parent="EmojiHomePanel/EmojiPanel"]
+margin_left = 356.0
+margin_top = 615.0
+margin_right = 456.0
+margin_bottom = 715.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 217 )
+expand = true
+script = ExtResource( 230 )
+
+[node name="EmojiHomeToggle" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1509, 168.5 )
+z_index = 20
+
+[node name="EmojiToggle2" type="TextureButton" parent="EmojiHomeToggle"]
+margin_left = -125.0
+margin_top = -39.0
+margin_right = 127.0
+margin_bottom = 51.0
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="EmojiToggleSprite" type="Sprite" parent="EmojiHomeToggle/EmojiToggle2"]
+position = Vector2( 125.6, 46 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 228 )
+
+[node name="MessageHomeToggle" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1838, 168.5 )
+z_index = 20
+
+[node name="MessageToggle2" type="TextureButton" parent="MessageHomeToggle"]
+margin_left = -125.0
+margin_top = -39.0
+margin_right = 127.0
+margin_bottom = 51.0
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="MessageToggleSprite" type="Sprite" parent="MessageHomeToggle/MessageToggle2"]
+position = Vector2( 123.9, 46 )
+scale = Vector2( 1.29213, 1.3 )
+texture = ExtResource( 229 )
+
+[node name="M9Girl" type="Sprite" parent="."]
+position = Vector2( 1000, 114 )
+scale = Vector2( 0.208333, 0.208333 )
+texture = ExtResource( 237 )
+
+[node name="Screentouch" type="Area2D" parent="."]
+script = ExtResource( 239 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Screentouch"]
+polygon = PoolVector2Array( 112, -1, 117, 40, 105, 97, 260, 105, 257, 343, 235, 359, 1, 356, 1, 896, 1342, 895, 1338, 113, 2000, 112, 2001, 0 )
+
+[connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]
+[connection signal="pressed" from="BetPanel/C1" to="." method="_on_Bet_select" binds= [ 0 ]]
+[connection signal="pressed" from="BetPanel/C2" to="." method="_on_Bet_select" binds= [ 1 ]]
+[connection signal="pressed" from="BetPanel/C3" to="." method="_on_Bet_select" binds= [ 2 ]]
+[connection signal="pressed" from="BetPanel/C4" to="." method="_on_Bet_select" binds= [ 3 ]]
+[connection signal="value_changed" from="BetPanel/Slider" to="." method="_on_Slider_value_changed"]
+[connection signal="pressed" from="BetPanel/BetAll" to="." method="_on_BetAll_pressed"]
+[connection signal="pressed" from="BetPanel/ChooseBet" to="." method="_on_ChooseBet_pressed"]
+[connection signal="pressed" from="BetPanel/Clear" to="." method="_on_Clear_pressed"]
+[connection signal="pressed" from="CatchAllDraw" to="." method="_on_CatchAllDraw_pressed"]
+[connection signal="pressed" from="DrawBtns/Draw" to="." method="_on_Draw_pressed"]
+[connection signal="pressed" from="DrawBtns/Stop" to="." method="_on_Stop_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="MenuHomePanel/MenuPanel/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MenuHomePanel/MenuPanel/Rules" to="." method="_on_Rules_pressed"]
+[connection signal="pressed" from="MenuHomePanel/MenuPanel/Setting" to="." method="_on_Setting_pressed"]
+[connection signal="pressed" from="EmojiToggle" to="." method="_on_EmojiToggle_pressed"]
+[connection signal="pressed" from="MessageToggle" to="." method="_on_MessageToggle_pressed"]
+[connection signal="pressed" from="Rules/Close" to="." method="_on_GameRules_Close_pressed"]
+[connection signal="pressed" from="MessagePanel/Panel/1" to="." method="_on_message_pressed" binds= [ "mingalar" ]]
+[connection signal="pressed" from="MessagePanel/Panel/2" to="." method="_on_message_pressed" binds= [ "bet_more" ]]
+[connection signal="pressed" from="MessagePanel/Panel/3" to="." method="_on_message_pressed" binds= [ "haha" ]]
+[connection signal="pressed" from="MessagePanel/Panel/4" to="." method="_on_message_pressed" binds= [ "hurry" ]]
+[connection signal="pressed" from="MessagePanel/Panel/5" to="." method="_on_message_pressed" binds= [ "lose" ]]
+[connection signal="pressed" from="MessagePanel/Panel/6" to="." method="_on_message_pressed" binds= [ "play_again" ]]
+[connection signal="pressed" from="MessagePanel/Panel/7" to="." method="_on_message_pressed" binds= [ "quit" ]]
+[connection signal="pressed" from="MessagePanel/ReplyText" to="." method="_on_ReplyText_pressed" binds= [ "msg" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee1" to="." method="_on_Emoji_pressed" binds= [ "e1" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee2" to="." method="_on_Emoji_pressed" binds= [ "e2" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee3" to="." method="_on_Emoji_pressed" binds= [ "e3" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee4" to="." method="_on_Emoji_pressed" binds= [ "e4" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee5" to="." method="_on_Emoji_pressed" binds= [ "e5" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/ee6" to="." method="_on_Emoji_pressed" binds= [ "e6" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e1" to="." method="_on_Emoji_pressed" binds= [ "e1" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e2" to="." method="_on_Emoji_pressed" binds= [ "e2" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e3" to="." method="_on_Emoji_pressed" binds= [ "e3" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e4" to="." method="_on_Emoji_pressed" binds= [ "e4" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e5" to="." method="_on_Emoji_pressed" binds= [ "e5" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e6" to="." method="_on_Emoji_pressed" binds= [ "e6" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e7" to="." method="_on_Emoji_pressed" binds= [ "e7" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e8" to="." method="_on_Emoji_pressed" binds= [ "e8" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e9" to="." method="_on_Emoji_pressed" binds= [ "e9" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e10" to="." method="_on_Emoji_pressed" binds= [ "e10" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e11" to="." method="_on_Emoji_pressed" binds= [ "e11" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e12" to="." method="_on_Emoji_pressed" binds= [ "e12" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e13" to="." method="_on_Emoji_pressed" binds= [ "e13" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e14" to="." method="_on_Emoji_pressed" binds= [ "e14" ]]
+[connection signal="pressed" from="EmojiHomePanel/EmojiPanel/e15" to="." method="_on_Emoji_pressed" binds= [ "e15" ]]
+[connection signal="pressed" from="EmojiHomeToggle/EmojiToggle2" to="." method="_on_EmojiToggle2_pressed"]
+[connection signal="pressed" from="MessageHomeToggle/MessageToggle2" to="." method="_on_MessageToggle2_pressed"]

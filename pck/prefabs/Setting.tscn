@@ -1,0 +1,177 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://pck/assets/Home-Setting/icon-setting-box.png" type="Texture" id=1]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=3]
+[ext_resource path="res://pck/assets/common/btn-1.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/Home-Setting/icon-setting-suggestion.png" type="Texture" id=5]
+[ext_resource path="res://pck/prefabs/Setting.gd" type="Script" id=6]
+[ext_resource path="res://pck/assets/Home-Setting/icon-setting-logout.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/Home-Setting/icon-setting-on.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/Home-Setting/icon-setting-cancel.png" type="Texture" id=10]
+[ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxTexture" id=306]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 1200, 766 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Setting" type="CanvasLayer"]
+script = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color( 0.164706, 0.164706, 0.164706, 0.596078 )
+position = Vector2( 10, -11 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+modulate = Color( 0.0666667, 0.262745, 0.858824, 1 )
+position = Vector2( 983, 475 )
+scale = Vector2( 0.867188, 0.865741 )
+texture = ExtResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -13, 20 )
+polygon = PoolVector2Array( 3, 902, 1994, 919, 1998, -3, 1577, 4, 1588, 165, 1580, 741, 532, 749, 532, 165, 1572, 165, 1584, 0, -7, -3 )
+
+[node name="settingbox" type="Panel" parent="."]
+margin_left = 505.0
+margin_top = 134.0
+margin_right = 1605.0
+margin_bottom = 784.0
+custom_styles/panel = SubResource( 306 )
+
+[node name="Label" type="Label" parent="settingbox"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -438.0
+margin_top = 224.0
+margin_right = -235.0
+margin_bottom = 318.0
+custom_fonts/font = SubResource( 15 )
+text = "ေတးဂီတ"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="settingbox"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -430.0
+margin_top = 376.0
+margin_right = -236.0
+margin_bottom = 446.0
+custom_fonts/font = SubResource( 15 )
+text = "ဂိမ္းအသံ"
+align = 1
+valign = 1
+
+[node name="SliderEffect" type="HSlider" parent="settingbox"]
+visible = false
+margin_left = -806.0
+margin_top = 102.0
+margin_right = -636.0
+margin_bottom = 122.0
+rect_scale = Vector2( 2, 2 )
+min_value = -50.0
+max_value = 0.0
+
+[node name="SliderMusic" type="HSlider" parent="settingbox"]
+visible = false
+margin_left = -839.0
+margin_top = 261.0
+margin_right = -669.0
+margin_bottom = 281.0
+rect_scale = Vector2( 2, 2 )
+min_value = -50.0
+max_value = 0.0
+
+[node name="Submit" type="TextureButton" parent="settingbox"]
+visible = false
+margin_left = -953.0
+margin_top = 502.0
+margin_right = -697.0
+margin_bottom = 582.0
+texture_normal = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="settingbox/Submit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 16 )
+text = "သိမ္းမည္"
+align = 1
+valign = 1
+
+[node name="sugestion" type="TextureButton" parent="settingbox"]
+margin_left = 656.0
+margin_top = 216.0
+margin_right = 1000.0
+margin_bottom = 336.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="settingbox/sugestion"]
+position = Vector2( 167, 63 )
+scale = Vector2( 0.39, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="logout" type="TextureButton" parent="settingbox"]
+margin_left = 640.0
+margin_top = 376.0
+margin_right = 992.0
+margin_bottom = 480.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="settingbox/logout"]
+position = Vector2( 180, 60 )
+scale = Vector2( 0.46, 0.45 )
+texture = ExtResource( 7 )
+
+[node name="Exit" type="TextureButton" parent="settingbox"]
+margin_left = 952.0
+margin_top = 16.0
+margin_right = 1055.0
+margin_bottom = 122.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="settingbox/Exit"]
+position = Vector2( 55, 63 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+
+[node name="music" type="TextureButton" parent="settingbox"]
+margin_left = 376.0
+margin_top = 240.0
+margin_right = 544.0
+margin_bottom = 296.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="sound" type="TextureButton" parent="settingbox"]
+margin_left = 376.0
+margin_top = 384.0
+margin_right = 544.0
+margin_bottom = 440.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[connection signal="pressed" from="settingbox/logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="settingbox/Exit" to="." method="_on_Exit_pressed"]

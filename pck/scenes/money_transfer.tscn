@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://pck/assets/Home-Withdraw/Home-Withdraw/icon-withdraw-question.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/Home-Withdraw/icon-withdraw-question.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="Withdraw" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 804.0
+margin_top = 237.0
+margin_right = 1197.0
+margin_bottom = 285.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="question" type="TextureButton" parent="."]
+margin_left = 1941.0
+margin_top = 6.0
+margin_right = 1991.0
+margin_bottom = 56.0
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="question"]
+visible = false
+position = Vector2( 26.772, 26.6499 )
+texture = ExtResource( 2 )
