@@ -15,6 +15,11 @@
 [ext_resource path="res://pck/assets/menu/icon-sign-cancel.png" type="Texture" id=13]
 [ext_resource path="res://pck/scenes/CustomKeyboard2.tscn" type="PackedScene" id=14]
 
+[sub_resource type="DynamicFont" id=14]
+size = 20
+use_filter = true
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=5]
 size = 30
 font_data = ExtResource( 6 )
@@ -174,11 +179,6 @@ size = 30
 use_filter = true
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=14]
-size = 20
-use_filter = true
-font_data = ExtResource( 6 )
-
 [node name="root" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -194,6 +194,14 @@ __meta__ = {
 position = Vector2( 1000, 536 )
 scale = Vector2( 0.525, 0.525 )
 texture = ExtResource( 4 )
+
+[node name="version" type="Label" parent="."]
+margin_left = 918.0
+margin_top = 811.0
+margin_right = 1018.0
+margin_bottom = 840.0
+custom_fonts/font = SubResource( 14 )
+text = "Version 1.1"
 
 [node name="Blur" type="Area2D" parent="." groups=["ScreenTouch"]]
 modulate = Color( 0.164706, 0.164706, 0.164706, 0.596078 )
@@ -388,14 +396,6 @@ one_shot = true
 [node name="keyboard_pw_timer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
-
-[node name="version" type="Label" parent="."]
-margin_left = 918.0
-margin_top = 811.0
-margin_right = 1018.0
-margin_bottom = 840.0
-custom_fonts/font = SubResource( 14 )
-text = "Version 1.1"
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="animation_finished" from="loginAnimationPlayer" to="." method="_on_loginAnimationPlayer_animation_finished"]
