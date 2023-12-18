@@ -22,8 +22,10 @@ func loadSettings():
 		var savedData = file.get_as_text()
 		var data = JSON.parse(savedData)
 		file.close()
-		isMusicMuted = data.result.music_muted
-		isSoundMuted = data.result.sound_muted
+		if "music_muted" in data:
+			isMusicMuted = data["music_muted"]
+		if "sound_muted" in data:
+			isSoundMuted = data["sound_muted"]
 		if isMusicMuted:
 			muteMusic()
 		else:
