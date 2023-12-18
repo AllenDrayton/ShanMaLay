@@ -35,8 +35,8 @@ var prev_selected=0
 
 var _client = WebSocketClient.new()
 var history_result = preload("res://pck/assets/horse_bet/Result.tscn")
-var road_texture = preload("res://pck/assets/horse_bet/NewAssets/roadABNNN1.jpg")
-var road_alt_texture = preload("res://pck/assets/horse_bet/NewAssets/roadABNNN.jpg")
+var road_texture = preload("res://pck/assets/horse_bet/NewAssets/roadANew.jpg")
+var road_alt_texture = preload("res://pck/assets/horse_bet/NewAssets/roadABNew.jpg")
 var music = preload("res://pck/assets/horse_bet/bg.ogg")
 
 var GameVoices = {
