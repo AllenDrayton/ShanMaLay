@@ -43,13 +43,14 @@
 [ext_resource path="res://pck/assets/common/messages/Hello.png" type="Texture" id=41]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00007.png" type="Texture" id=42]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00005.png" type="Texture" id=43]
-[ext_resource path="res://pck/assets/common/messages/Come on, more.png" type="Texture" id=44]
+[ext_resource path="res://pck/assets/common/messages/T2.png" type="Texture" id=44]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00004.png" type="Texture" id=45]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00003.png" type="Texture" id=46]
-[ext_resource path="res://pck/assets/common/messages/Lost again.png" type="Texture" id=47]
+[ext_resource path="res://pck/assets/common/messages/T.png" type="Texture" id=47]
 [ext_resource path="res://pck/assets/common/messages/hahaha.png" type="Texture" id=48]
 [ext_resource path="res://pck/assets/common/messages/Bet more.png" type="Texture" id=49]
 [ext_resource path="res://pck/assets/common/messages/I'm leaving.png" type="Texture" id=50]
+[ext_resource path="res://pck/assets/common/messages/T3.png" type="Texture" id=51]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00002.png" type="Texture" id=53]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00012.png" type="Texture" id=68]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00006.png" type="Texture" id=69]
@@ -93,7 +94,6 @@
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00009.png" type="Texture" id=166]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00043.png" type="Texture" id=167]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00024.png" type="Texture" id=168]
-[ext_resource path="res://pck/assets/common/messages/hurry.png" type="Texture" id=186]
 [ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=189]
 [ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=192]
 
@@ -1015,7 +1015,7 @@ margin_left = 20.0
 margin_top = 260.0
 margin_right = 220.0
 margin_bottom = 340.0
-texture_normal = ExtResource( 186 )
+texture_normal = ExtResource( 44 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 22 )
@@ -1025,7 +1025,7 @@ margin_left = 20.0
 margin_top = 340.0
 margin_right = 220.0
 margin_bottom = 420.0
-texture_normal = ExtResource( 47 )
+texture_normal = ExtResource( 51 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 22 )
@@ -1035,7 +1035,7 @@ margin_left = 20.0
 margin_top = 420.0
 margin_right = 220.0
 margin_bottom = 500.0
-texture_normal = ExtResource( 44 )
+texture_normal = ExtResource( 47 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 22 )
@@ -1055,7 +1055,7 @@ position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
 frames = SubResource( 377 )
 animation = "idle"
-frame = 4
+frame = 9
 playing = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

@@ -19,13 +19,13 @@ var multiplier_texture = [
 ]
 
 var msg_textures = {
-	"bet_more":preload("res://pck/assets/common/messages/bet_more.png"),
-	"haha":preload("res://pck/assets/common/messages/haha.png"),
-	"hurry":preload("res://pck/assets/common/messages/hurry.png"),
-	"lose":preload("res://pck/assets/common/messages/lose.png"),
-	"mingalar":preload("res://pck/assets/common/messages/mingalar.png"),
-	"play_again":preload("res://pck/assets/common/messages/play_again.png"),
-	"quit":preload("res://pck/assets/common/messages/quit.png")
+	"bet_more":preload("res://pck/assets/common/messages/Bet more.png"),
+	"haha":preload("res://pck/assets/common/messages/hahaha.png"),
+	"hurry":preload("res://pck/assets/common/messages/dbequick.png"),
+	"lose":preload("res://pck/assets/common/messages/dImlosing.png"),
+	"mingalar":preload("res://pck/assets/common/messages/Hello.png"),
+	"play_again":preload("res://pck/assets/common/messages/donotgo.png"),
+	"quit":preload("res://pck/assets/common/messages/I\'m leaving.png")
 }
 
 var voices = {

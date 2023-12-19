@@ -1,18 +1,14 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://pck/scenes/splashScene.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/common/girlGif/open.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/girlGif/splash.png" type="Texture" id=3]
+[ext_resource path="res://pck/assets/audio/logn_shanmalay.ogg" type="AudioStream" id=4]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 700, 315 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 700, 0, 700, 315 )
+region = Rect2( 1400, 315, 700, 315 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -28,11 +24,6 @@ region = Rect2( 0, 315, 700, 315 )
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 700, 315, 700, 315 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1400, 315, 700, 315 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
@@ -109,32 +100,12 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 1400, 1890, 700, 315 )
 
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 2205, 700, 315 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 700, 2205, 700, 315 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1400, 2205, 700, 315 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 2520, 700, 315 )
-
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"frames": [ SubResource( 6 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 5 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 12 ), SubResource( 11 ), SubResource( 10 ), SubResource( 8 ), SubResource( 9 ), SubResource( 7 ), SubResource( 5 ), SubResource( 4 ), SubResource( 3 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 16 ), SubResource( 17 ), SubResource( 17 ), SubResource( 18 ), SubResource( 18 ), SubResource( 19 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": false,
 "name": "in",
-"speed": 15.0
+"speed": 8.0
 } ]
 
 [sub_resource type="AtlasTexture" id=27]
@@ -284,7 +255,7 @@ region = Rect2( 0, 2205, 700, 315 )
 
 [sub_resource type="SpriteFrames" id=56]
 animations = [ {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ) ],
 "loop": false,
 "name": "splash",
 "speed": 15.0
@@ -295,12 +266,17 @@ position = Vector2( 1005.44, 461 )
 scale = Vector2( 2.89524, 2.89524 )
 frames = SubResource( 26 )
 animation = "in"
-frame = 24
+frame = 38
+playing = true
 script = ExtResource( 1 )
 
 [node name="splash" type="AnimatedSprite" parent="."]
 frames = SubResource( 56 )
 animation = "splash"
+frame = 35
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="animation_finished" from="." to="." method="_on_splashScene_animation_finished"]
 [connection signal="animation_finished" from="splash" to="." method="_on_splash_animation_finished"]

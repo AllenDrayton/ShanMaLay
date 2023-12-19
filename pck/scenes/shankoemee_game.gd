@@ -69,6 +69,7 @@ func _ready():
 	
 	# Reset Music
 	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = 0
 	
 	_init_all()
 	websocket_url = $"/root/Config".config.gameState.url
@@ -136,7 +137,7 @@ func _on_server_respond(respond):
 	match respond.head:
 		"room info":
 			if body.room == null :
-				$"/root/bgm".volume_db = -80
+				$"/root/bgm".volume_db = -50
 				#get_tree().change_scene("res://pck/scenes/menu.tscn")
 				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 				return
@@ -180,7 +181,7 @@ func _exit_respond(status):
 
 func _update_room(room):
 	if room.players[myIndex] == null:
-		$"/root/bgm".volume_db = -80
+		$"/root/bgm".volume_db = -50
 		#get_tree().change_scene("res://pck/scenes/menu.tscn")
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return

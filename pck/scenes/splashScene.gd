@@ -4,6 +4,7 @@ func _ready():
 	frame = 0
 	play("in")
 	$splash.hide()
+	$AudioStreamPlayer.play()
 
 
 func _on_splashScene_animation_finished():

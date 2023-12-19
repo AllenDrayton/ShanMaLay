@@ -147,7 +147,7 @@ func _rejoin_game(gameState) :
 func _on_Login_pressed():
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	var username = $Control/Username.text
 	var password = $Store.text

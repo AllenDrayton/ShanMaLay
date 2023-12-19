@@ -21,10 +21,10 @@ const multiply = {
 var msg_textures = {
 	"bet_more":preload("res://pck/assets/common/messages/Bet more.png"),
 	"haha":preload("res://pck/assets/common/messages/hahaha.png"),
-	"hurry":preload("res://pck/assets/common/messages/hurry.png"),
-	"lose":preload("res://pck/assets/common/messages/Lost again.png"),
+	"hurry":preload("res://pck/assets/common/messages/dbequick.png"),
+	"lose":preload("res://pck/assets/common/messages/dImlosing.png"),
 	"mingalar":preload("res://pck/assets/common/messages/Hello.png"),
-	"play_again":preload("res://pck/assets/common/messages/Come on, more.png"),
+	"play_again":preload("res://pck/assets/common/messages/donotgo.png"),
 	"quit":preload("res://pck/assets/common/messages/I\'m leaving.png")
 }
 

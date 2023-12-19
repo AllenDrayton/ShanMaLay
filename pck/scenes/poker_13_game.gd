@@ -21,7 +21,7 @@ var GameVoices = {
 	"new_game":preload("res://pck/assets/shankoemee/audio/new_game_dealer.ogg"),
 	"eat_or_draw":preload("res://pck/assets/common/audio/eat_or_draw.ogg"),
 	"eat":preload("res://pck/assets/common/audio/eat_only.ogg"),
-	"draw":preload("res://pck/assets/common/audio/draw_only.ogg"),
+	"draw":preload("res://pck/assets/common/audio/darw_only.ogg"),
 	"down":preload("res://pck/assets/common/audio/poker_down.ogg"),
 	"compare_money":preload("res://pck/assets/common/audio/compare_money_cards.ogg"),
 	"exit":preload("res://pck/assets/common/audio/exit.ogg"),
@@ -213,7 +213,7 @@ func _on_server_respond(respond):
 	match respond.head:
 		"room info":
 			if body == null :
-				$"/root/bgm".volume_db = -80
+				$"/root/bgm".volume_db = -50
 				#get_tree().change_scene("res://pck/scenes/menu.tscn")
 				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 				return
@@ -246,7 +246,7 @@ func _handshake(body):
 
 func _update_room(room):
 	if room.players[myIndex] == null:
-		$"/root/bgm".volume_db = -80
+		$"/root/bgm".volume_db = -50
 		#get_tree().change_scene("res://pck/scenes/menu.tscn")
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
