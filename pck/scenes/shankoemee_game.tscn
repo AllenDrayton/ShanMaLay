@@ -1,16 +1,16 @@
-[gd_scene load_steps=160 format=2]
+[gd_scene load_steps=157 format=2]
 
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/arrow_right.png" type="Texture" id=3]
 [ext_resource path="res://pck/assets/menu/NewMenu/panel-top.png" type="Texture" id=4]
-[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-Idle.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-2.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00008.png" type="Texture" id=8]
 [ext_resource path="res://pck/scripts/shankoemee/banker.gd" type="Script" id=9]
 [ext_resource path="res://pck/assets/shankoemee/banker.png" type="Texture" id=10]
-[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-Shuffle.png" type="Texture" id=11]
+[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-1.png" type="Texture" id=11]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00007.png" type="Texture" id=12]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00005.png" type="Texture" id=13]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=14]
@@ -931,144 +931,129 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5, 1.5, 2 )
 }
 
-[sub_resource type="AtlasTexture" id=375]
+[sub_resource type="AtlasTexture" id=403]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 290, 359 )
+region = Rect2( 0, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=376]
+[sub_resource type="AtlasTexture" id=404]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 290, 0, 290, 359 )
+region = Rect2( 900, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=352]
+[sub_resource type="AtlasTexture" id=405]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 580, 0, 290, 359 )
+region = Rect2( 1800, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=353]
+[sub_resource type="AtlasTexture" id=406]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 870, 0, 290, 359 )
+region = Rect2( 2700, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=354]
+[sub_resource type="AtlasTexture" id=407]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 0, 359, 290, 359 )
+region = Rect2( 0, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=355]
+[sub_resource type="AtlasTexture" id=408]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 290, 359, 290, 359 )
+region = Rect2( 900, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=356]
+[sub_resource type="AtlasTexture" id=409]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 580, 359, 290, 359 )
+region = Rect2( 1800, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=357]
+[sub_resource type="AtlasTexture" id=410]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 870, 359, 290, 359 )
+region = Rect2( 2700, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=358]
+[sub_resource type="AtlasTexture" id=411]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 0, 718, 290, 359 )
+region = Rect2( 0, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=359]
+[sub_resource type="AtlasTexture" id=412]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 290, 718, 290, 359 )
+region = Rect2( 900, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=360]
+[sub_resource type="AtlasTexture" id=413]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 580, 718, 290, 359 )
+region = Rect2( 1800, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=361]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 870, 718, 290, 359 )
-
-[sub_resource type="AtlasTexture" id=362]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 1077, 290, 359 )
-
-[sub_resource type="AtlasTexture" id=363]
+[sub_resource type="AtlasTexture" id=414]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 0, 0, 290, 374 )
+region = Rect2( 0, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=364]
+[sub_resource type="AtlasTexture" id=415]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 290, 0, 290, 374 )
+region = Rect2( 900, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=365]
+[sub_resource type="AtlasTexture" id=416]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 580, 0, 290, 374 )
+region = Rect2( 1800, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=366]
+[sub_resource type="AtlasTexture" id=417]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 870, 0, 290, 374 )
+region = Rect2( 2700, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=367]
+[sub_resource type="AtlasTexture" id=418]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 0, 374, 290, 374 )
+region = Rect2( 0, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=368]
+[sub_resource type="AtlasTexture" id=419]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 290, 374, 290, 374 )
+region = Rect2( 900, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=369]
+[sub_resource type="AtlasTexture" id=420]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 580, 374, 290, 374 )
+region = Rect2( 1800, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=370]
+[sub_resource type="AtlasTexture" id=421]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 870, 374, 290, 374 )
+region = Rect2( 2700, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=371]
+[sub_resource type="AtlasTexture" id=422]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 0, 748, 290, 374 )
+region = Rect2( 0, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=372]
+[sub_resource type="AtlasTexture" id=423]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 290, 748, 290, 374 )
+region = Rect2( 900, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=373]
+[sub_resource type="AtlasTexture" id=424]
 flags = 4
 atlas = ExtResource( 11 )
-region = Rect2( 580, 748, 290, 374 )
+region = Rect2( 1800, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=374]
-flags = 4
-atlas = ExtResource( 11 )
-region = Rect2( 870, 748, 290, 374 )
-
-[sub_resource type="SpriteFrames" id=377]
+[sub_resource type="SpriteFrames" id=425]
 animations = [ {
 "frames": [ ExtResource( 120 ), ExtResource( 128 ), ExtResource( 38 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 13 ), ExtResource( 80 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 177 ), ExtResource( 172 ), ExtResource( 82 ), ExtResource( 79 ), ExtResource( 87 ), ExtResource( 161 ), ExtResource( 89 ), ExtResource( 139 ), ExtResource( 125 ), ExtResource( 118 ), ExtResource( 141 ), ExtResource( 136 ), ExtResource( 122 ), ExtResource( 117 ), ExtResource( 162 ), ExtResource( 179 ), ExtResource( 137 ), ExtResource( 135 ), ExtResource( 165 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 147 ), ExtResource( 144 ), ExtResource( 174 ), ExtResource( 131 ), ExtResource( 140 ), ExtResource( 153 ), ExtResource( 157 ), ExtResource( 160 ), ExtResource( 134 ), ExtResource( 166 ), ExtResource( 175 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 178 ), ExtResource( 146 ), ExtResource( 173 ), ExtResource( 163 ), ExtResource( 145 ) ],
 "loop": true,
 "name": "deliver",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 375 ), SubResource( 376 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ), SubResource( 355 ), SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ) ],
+"frames": [ SubResource( 403 ), SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 363 ), SubResource( 364 ), SubResource( 365 ), SubResource( 366 ), SubResource( 367 ), SubResource( 368 ), SubResource( 369 ), SubResource( 370 ), SubResource( 371 ), SubResource( 372 ), SubResource( 373 ), SubResource( 374 ) ],
+"frames": [ SubResource( 414 ), SubResource( 415 ), SubResource( 416 ), SubResource( 417 ), SubResource( 418 ), SubResource( 419 ), SubResource( 420 ), SubResource( 421 ), SubResource( 422 ), SubResource( 423 ), SubResource( 424 ) ],
 "loop": true,
 "name": "shuffle",
 "speed": 5.0
@@ -1932,12 +1917,10 @@ anims/RESET = SubResource( 345 )
 anims/show = SubResource( 346 )
 
 [node name="ShanMa" type="AnimatedSprite" parent="."]
-position = Vector2( 1010.25, 101.741 )
-scale = Vector2( 0.618965, 0.618965 )
-frames = SubResource( 377 )
-animation = "idle"
-frame = 4
-playing = true
+position = Vector2( 999, 106 )
+scale = Vector2( 0.242569, 0.242569 )
+frames = SubResource( 425 )
+animation = "shuffle"
 
 [connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]
 [connection signal="pressed" from="BetPanel/C1" to="." method="_on_Bet_select" binds= [ 0 ]]

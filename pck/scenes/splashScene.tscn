@@ -262,7 +262,7 @@ animations = [ {
 } ]
 
 [node name="splashScene" type="AnimatedSprite"]
-position = Vector2( 1005.44, 461 )
+position = Vector2( 1005.44, 450 )
 scale = Vector2( 2.89524, 2.89524 )
 frames = SubResource( 26 )
 animation = "in"

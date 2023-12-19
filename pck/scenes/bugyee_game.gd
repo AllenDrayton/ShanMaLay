@@ -257,7 +257,7 @@ func _start(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Start")
-#	$ShanMa.play("shuffle")
+	$ShanMa.play("shuffle")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
