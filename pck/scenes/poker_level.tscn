@@ -553,14 +553,13 @@ __meta__ = {
 "_edit_vertical_guides_": [ 1000.0 ]
 }
 
+[node name="backgroundScroll" parent="." instance=ExtResource( 9 )]
+
 [node name="Bg" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.562, 1.562 )
 texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="backgroundScroll" parent="." instance=ExtResource( 9 )]
 

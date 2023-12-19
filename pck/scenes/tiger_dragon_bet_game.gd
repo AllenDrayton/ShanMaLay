@@ -40,8 +40,8 @@ var CardStatusVoices = [
 var music = preload("res://pck/assets/dragon_tiger_bet/bg.ogg")
 var GameVoices = {
 	"exit":preload("res://pck/assets/common/audio/exit.ogg"),
-	"new_game":preload("res://pck/assets/dragon_tiger_bet/tg_sa_pe_l_mal.mp3"),
-	"stop_bet":preload("res://pck/assets/dragon_tiger_bet/tg_stop.mp3"),
+	"new_game":preload("res://pck/assets/dragon_tiger_bet/tg_sa_pe_l_mal.ogg"),
+	"stop_bet":preload("res://pck/assets/dragon_tiger_bet/tg_stop.ogg"),
 	"dragon_win":preload("res://pck/assets/dragon_tiger_bet/d_.mp3"),
 	"tiger_win":preload("res://pck/assets/dragon_tiger_bet/tg_tiger_voice.mp3"),
 }
@@ -68,7 +68,12 @@ func _ready():
 	$"/root/bgm".play()
 	
 	# Reset Music
-	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
 	
 	for i in range(4):
 		for j in range(1,10):

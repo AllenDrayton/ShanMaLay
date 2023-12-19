@@ -70,7 +70,12 @@ func _ready():
 	$"/root/bgm".play()
 	
 	# Reset Music
-	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
 	
 	_init_all()
 	
@@ -257,7 +262,7 @@ func _start(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Start")
-#	$ShanMa.play("shuffle")
+	$ShanMa.play("shuffle")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL

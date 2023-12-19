@@ -238,8 +238,10 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				var user = {"username":respond.username,"session":respond.session,"id":respond.id}
 				$"/root/Config".config.user = user
 				#get_tree().change_scene("res://pck/scenes/menu.tscn")
+				$"/root/bgm".volume_db = -50
 				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 			else :
+				$"/root/bgm".volume_db = -50
 				_change_to_menu(respond.username,respond.session,respond.id)
 		"incorrect username":
 			$AlertBox._show("Username number does not exist!")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=139 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://pck/scenes/bugyee_game.gd" type="Script" id=1]
-[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-Idle.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-2.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=3]
 [ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00008.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/bugyee/banker.png" type="Texture" id=5]
@@ -36,7 +36,7 @@
 [ext_resource path="res://pck/assets/common/newEmoji/3.png" type="Texture" id=34]
 [ext_resource path="res://pck/assets/common/btn-7.png" type="Texture" id=35]
 [ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=36]
-[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-Shuffle.png" type="Texture" id=37]
+[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-1.png" type="Texture" id=37]
 [ext_resource path="res://pck/assets/bugyee/bugyee-howto.png" type="Texture" id=38]
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=39]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=40]
@@ -311,130 +311,115 @@ margin_right = 60.0
 margin_top = 80.0
 margin_bottom = 60.0
 
-[sub_resource type="AtlasTexture" id=375]
+[sub_resource type="AtlasTexture" id=403]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 290, 359 )
+region = Rect2( 0, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=376]
+[sub_resource type="AtlasTexture" id=404]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 290, 0, 290, 359 )
+region = Rect2( 900, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=352]
+[sub_resource type="AtlasTexture" id=405]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 580, 0, 290, 359 )
+region = Rect2( 1800, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=353]
+[sub_resource type="AtlasTexture" id=406]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 870, 0, 290, 359 )
+region = Rect2( 2700, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=354]
+[sub_resource type="AtlasTexture" id=407]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 359, 290, 359 )
+region = Rect2( 0, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=355]
+[sub_resource type="AtlasTexture" id=408]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 290, 359, 290, 359 )
+region = Rect2( 900, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=356]
+[sub_resource type="AtlasTexture" id=409]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 580, 359, 290, 359 )
+region = Rect2( 1800, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=357]
+[sub_resource type="AtlasTexture" id=410]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 870, 359, 290, 359 )
+region = Rect2( 2700, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=358]
+[sub_resource type="AtlasTexture" id=411]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 718, 290, 359 )
+region = Rect2( 0, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=359]
+[sub_resource type="AtlasTexture" id=412]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 290, 718, 290, 359 )
+region = Rect2( 900, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=360]
+[sub_resource type="AtlasTexture" id=413]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 580, 718, 290, 359 )
+region = Rect2( 1800, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=361]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 870, 718, 290, 359 )
-
-[sub_resource type="AtlasTexture" id=362]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 1077, 290, 359 )
-
-[sub_resource type="AtlasTexture" id=363]
+[sub_resource type="AtlasTexture" id=414]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 0, 0, 290, 374 )
+region = Rect2( 0, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=364]
+[sub_resource type="AtlasTexture" id=415]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 290, 0, 290, 374 )
+region = Rect2( 900, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=365]
+[sub_resource type="AtlasTexture" id=416]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 580, 0, 290, 374 )
+region = Rect2( 1800, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=366]
+[sub_resource type="AtlasTexture" id=417]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 870, 0, 290, 374 )
+region = Rect2( 2700, 0, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=367]
+[sub_resource type="AtlasTexture" id=418]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 0, 374, 290, 374 )
+region = Rect2( 0, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=368]
+[sub_resource type="AtlasTexture" id=419]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 290, 374, 290, 374 )
+region = Rect2( 900, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=369]
+[sub_resource type="AtlasTexture" id=420]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 580, 374, 290, 374 )
+region = Rect2( 1800, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=370]
+[sub_resource type="AtlasTexture" id=421]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 870, 374, 290, 374 )
+region = Rect2( 2700, 1132, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=371]
+[sub_resource type="AtlasTexture" id=422]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 0, 748, 290, 374 )
+region = Rect2( 0, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=372]
+[sub_resource type="AtlasTexture" id=423]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 290, 748, 290, 374 )
+region = Rect2( 900, 2264, 900, 1132 )
 
-[sub_resource type="AtlasTexture" id=373]
+[sub_resource type="AtlasTexture" id=424]
 flags = 4
 atlas = ExtResource( 37 )
-region = Rect2( 580, 748, 290, 374 )
-
-[sub_resource type="AtlasTexture" id=374]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 870, 748, 290, 374 )
+region = Rect2( 1800, 2264, 900, 1132 )
 
 [sub_resource type="SpriteFrames" id=377]
 animations = [ {
@@ -443,12 +428,12 @@ animations = [ {
 "name": "deliver",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 375 ), SubResource( 376 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ), SubResource( 355 ), SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ) ],
+"frames": [ SubResource( 403 ), SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 363 ), SubResource( 364 ), SubResource( 365 ), SubResource( 366 ), SubResource( 367 ), SubResource( 368 ), SubResource( 369 ), SubResource( 370 ), SubResource( 371 ), SubResource( 372 ), SubResource( 373 ), SubResource( 374 ) ],
+"frames": [ SubResource( 414 ), SubResource( 415 ), SubResource( 416 ), SubResource( 417 ), SubResource( 418 ), SubResource( 419 ), SubResource( 420 ), SubResource( 421 ), SubResource( 422 ), SubResource( 423 ), SubResource( 424 ) ],
 "loop": true,
 "name": "shuffle",
 "speed": 5.0
@@ -463,6 +448,9 @@ __meta__ = {
 [node name="Bg" type="Sprite" parent="."]
 position = Vector2( 1000, 450 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Menu" type="TextureButton" parent="."]
 margin_right = 120.0
@@ -1051,12 +1039,10 @@ stretch_mode = 5
 script = ExtResource( 22 )
 
 [node name="ShanMa" type="AnimatedSprite" parent="."]
-position = Vector2( 1010.25, 101.741 )
-scale = Vector2( 0.618965, 0.618965 )
+position = Vector2( 999, 106 )
+scale = Vector2( 0.242569, 0.242569 )
 frames = SubResource( 377 )
-animation = "idle"
-frame = 9
-playing = true
+animation = "shuffle"
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="MenuPanel/Exit" to="." method="_on_Exit_pressed"]

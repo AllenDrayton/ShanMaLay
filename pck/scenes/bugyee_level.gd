@@ -10,8 +10,14 @@ extends Node2D
 func _ready():
 	
 	# Reset The Music
-	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
 	#$"/root/bgm".volume_db = 0
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
+	
 	
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tg_stop.ogg-22beba29c0c080171eb8ad7bf75c581f.oggstr"
+
+[deps]
+
+source_file="res://pck/assets/dragon_tiger_bet/tg_stop.ogg"
+dest_files=[ "res://.import/tg_stop.ogg-22beba29c0c080171eb8ad7bf75c581f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

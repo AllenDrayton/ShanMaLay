@@ -68,8 +68,13 @@ func _ready():
 	$"/root/bgm".play()
 	
 	# Reset Music
-	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
 	#$"/root/bgm".volume_db = 0
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
 	
 	_init_all()
 	websocket_url = $"/root/Config".config.gameState.url
@@ -252,7 +257,7 @@ func _wait():
 
 
 func _start(room):
-#	$ShanMa.play("shuffle")
+	$ShanMa.play("shuffle")
 	_check_dealer_change(room)
 	_check_player_bet_for_coin_move(room)
 	_room = room

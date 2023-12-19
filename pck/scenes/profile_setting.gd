@@ -26,7 +26,12 @@ var new_password_entered = false
 func _ready():
 	
 	# Reset The Music
-	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
 	
 	_load_profile_textures()
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
@@ -256,7 +261,7 @@ func _profile_changed(result, response_code, headers, body):
 func _on_Exit_pressed():
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	#get_tree().change_scene("res://pck/scenes/menu.tscn")
 	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")

@@ -5,7 +5,12 @@ extends Node2D
 func _ready():
 	
 	# Reset The Music
-	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
 	
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
@@ -32,7 +37,7 @@ func comma_sep(number):
 func _on_Exit_pressed():
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	$UpperPanelAnimation.play("out")
 	yield(get_tree().create_timer(0.5), "timeout")
@@ -46,7 +51,7 @@ func _notification(what):
 func _on_SKM_pressed():
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	$AnimatedSprite.show()
 	$AnimatedSprite.frame = 0
@@ -79,7 +84,7 @@ func _on_skm_respond(result, response_code, headers, body):
 func _on_HorseRacing_pressed():
 	
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	$AnimatedSprite2.show()
 	$AnimatedSprite2.frame = 0
@@ -110,7 +115,7 @@ func _on_HorseRacing_respond(result, response_code, headers, body):
 
 func _on_TigerDragon_pressed():
 	# For Music
-	$"/root/bgm".volume_db = -80
+	$"/root/bgm".volume_db = -50
 	
 	$AnimatedSprite3.show()
 	$AnimatedSprite3.frame = 0

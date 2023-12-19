@@ -8,7 +8,12 @@ const music = preload("res://pck/assets/audio/music-1.mp3")
 func _ready():
 	
 	# Reset The Music
-	$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
 	
 	_load_profile_textures()
 	$AnimationPlayer.play("in")
