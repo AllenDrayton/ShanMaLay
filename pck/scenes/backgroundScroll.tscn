@@ -5,7 +5,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
-length = 120.0
+length = 300.0
+step = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Bg-scroll-1:position")
 tracks/0/interp = 1
@@ -13,10 +14,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 120 ),
+"times": PoolRealArray( 0, 300 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25067, 0 ), Vector2( 2847, 0 ) ]
+"values": [ Vector2( -26902, 0 ), Vector2( 3216, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Bg-scroll-2:position")
@@ -25,10 +26,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 120 ),
+"times": PoolRealArray( 0, 300 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -15076, 0 ), Vector2( 12835, 0 ) ]
+"values": [ Vector2( -16302, 0 ), Vector2( 13815, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Bg-scroll-3:position")
@@ -37,10 +38,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 120 ),
+"times": PoolRealArray( 0, 300 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -5081, 0 ), Vector2( 22830, 0 ) ]
+"values": [ Vector2( -5513, 0 ), Vector2( 24605, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -108,7 +109,8 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "loop"
-length = 120.0
+length = 300.0
+step = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Bg-scroll-2:position")
 tracks/0/interp = 1
@@ -116,10 +118,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 120 ),
+"times": PoolRealArray( 0, 300 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -17279, 0 ), Vector2( 12795, 0 ) ]
+"values": [ Vector2( -18487, 0 ), Vector2( 13166, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Bg-scroll-1:position")
@@ -128,10 +130,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 120 ),
+"times": PoolRealArray( 0, 300 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -27225, 0 ), Vector2( 2849, 0 ) ]
+"values": [ Vector2( -28433, 0 ), Vector2( 3220, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Bg-scroll-3:position")
@@ -140,10 +142,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 120 ),
+"times": PoolRealArray( 0, 300 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -7292, 0 ), Vector2( 22782, 0 ) ]
+"values": [ Vector2( -7711, 3.05176e-05 ), Vector2( 23942, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("black:rect_position")
@@ -152,10 +154,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 120 ),
+"times": PoolRealArray( 0, 300 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2381, -530 ), Vector2( 27692, -520 ) ]
+"values": [ Vector2( -2381, -530 ), Vector2( 29272, -544 ) ]
 }
 
 [node name="backgroundScroll" type="Node2D"]
@@ -176,18 +178,18 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Bg-scroll-1" type="Sprite" parent="."]
 position = Vector2( 3213.15, 4.37496 )
-scale = Vector2( 1, 1.05 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 1 )
 
 [node name="Bg-scroll-2" type="Sprite" parent="."]
 position = Vector2( 5214, 0 )
-scale = Vector2( 1, 1.05 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 1 )
 flip_h = true
 
 [node name="Bg-scroll-3" type="Sprite" parent="."]
 position = Vector2( 2370, 0 )
-scale = Vector2( 1, 1.05 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 1 )
 flip_h = true
 

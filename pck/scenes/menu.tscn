@@ -1074,7 +1074,7 @@ valign = 1
 position = Vector2( 1000, 1400 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 32 )
-frame = 9
+frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1101,7 +1101,6 @@ margin_top = -39.0
 margin_right = -366.0
 margin_bottom = -147.0
 custom_fonts/font = SubResource( 10 )
-text = "fffffffffff"
 valign = 1
 
 [node name="Nickname" type="Label" parent="ProfileBg"]
@@ -1113,7 +1112,6 @@ margin_right = -366.0
 margin_bottom = -103.0
 custom_colors/font_color = Color( 0.972549, 1, 0.0823529, 1 )
 custom_fonts/font = SubResource( 10 )
-text = "fffffffffffff"
 valign = 1
 
 [node name="Profile" type="TextureButton" parent="ProfileBg"]
