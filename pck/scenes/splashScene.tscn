@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://pck/scenes/splashScene.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/common/girlGif/open.png" type="Texture" id=2]
@@ -62,16 +62,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 1260, 700, 315 )
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 700, 1260, 700, 315 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1400, 1260, 700, 315 )
-
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 2 )
@@ -97,14 +87,9 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 700, 1890, 700, 315 )
 
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1400, 1890, 700, 315 )
-
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 17 ), SubResource( 17 ), SubResource( 17 ), SubResource( 18 ), SubResource( 18 ), SubResource( 18 ), SubResource( 19 ), SubResource( 19 ), SubResource( 19 ), SubResource( 20 ), SubResource( 20 ), SubResource( 21 ) ],
+"frames": [ SubResource( 6 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": false,
 "name": "in",
 "speed": 8.0
@@ -270,10 +255,10 @@ region = Rect2( 0, 2205, 700, 315 )
 
 [sub_resource type="SpriteFrames" id=56]
 animations = [ {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ) ],
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ) ],
 "loop": false,
 "name": "splash",
-"speed": 15.0
+"speed": 18.0
 } ]
 
 [sub_resource type="AtlasTexture" id=58]
@@ -336,10 +321,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ Vector2( -42.618, -4.61844 ), Vector2( -42.618, 170 ) ]
+"values": [  ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("openButton:modulate")

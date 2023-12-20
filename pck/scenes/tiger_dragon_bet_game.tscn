@@ -24,7 +24,7 @@
 [ext_resource path="res://pck/assets/skm_bet/100.png" type="Texture" id=22]
 [ext_resource path="res://pck/assets/skm_bet/5k.png" type="Texture" id=23]
 [ext_resource path="res://pck/assets/skm_bet/1k.png" type="Texture" id=24]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=25]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=25]
 [ext_resource path="res://pck/assets/dragon_tiger_bet/tiger_lightning.png" type="Texture" id=26]
 [ext_resource path="res://pck/assets/dragon_tiger_bet/tie_lightning.png" type="Texture" id=27]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=28]
@@ -1288,14 +1288,6 @@ text = "0"
 align = 1
 valign = 1
 
-[node name="Exit" type="TextureButton" parent="."]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 100.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 25 )
-script = ExtResource( 3 )
-
 [node name="BackDrop" parent="." instance=ExtResource( 30 )]
 visible = false
 
@@ -1437,6 +1429,14 @@ anims/end_bet = SubResource( 26 )
 anims/start_bet = SubResource( 27 )
 
 [node name="Setting" parent="." instance=ExtResource( 34 )]
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 25 )
+script = ExtResource( 3 )
 
 [connection signal="pressed" from="BetSelect/0" to="." method="_on_bet_select" binds= [ 0 ]]
 [connection signal="pressed" from="BetSelect/1" to="." method="_on_bet_select" binds= [ 1 ]]

@@ -19,7 +19,7 @@
 [ext_resource path="res://pck/assets/skm_bet/2k.png" type="Texture" id=17]
 [ext_resource path="res://pck/assets/skm_bet/bet3.png" type="Texture" id=18]
 [ext_resource path="res://pck/assets/horse_bet/highlight.png" type="Texture" id=19]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=20]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=20]
 [ext_resource path="res://pck/assets/audio/coin_move_1.mp3" type="AudioStream" id=21]
 [ext_resource path="res://pck/assets/horse_bet/horse_run.mp3" type="AudioStream" id=22]
 [ext_resource path="res://pck/assets/horse_bet/prize.png" type="Texture" id=23]
@@ -1736,7 +1736,6 @@ anims/show = SubResource( 95 )
 [node name="Highlight" type="AnimatedSprite" parent="BetPanel"]
 position = Vector2( -200, -200 )
 frames = SubResource( 98 )
-frame = 1
 playing = true
 
 [node name="BetSelect" type="Node2D" parent="BetPanel"]
@@ -1901,14 +1900,6 @@ no = 6
 
 [node name="Road" type="Node2D" parent="."]
 
-[node name="Exit" type="TextureButton" parent="."]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 100.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 20 )
-script = ExtResource( 15 )
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="GameVoice" type="AudioStreamPlayer" parent="Audio"]
@@ -2014,6 +2005,14 @@ bus = "Effect"
 
 [node name="Setting" parent="." instance=ExtResource( 44 )]
 
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 34.0
+margin_top = 25.0
+margin_right = 301.0
+margin_bottom = 112.0
+texture_normal = ExtResource( 20 )
+script = ExtResource( 15 )
+
 [connection signal="pressed" from="BetPanel/Buttons/0" to="." method="_on_bet" binds= [ 0 ]]
 [connection signal="pressed" from="BetPanel/Buttons/1" to="." method="_on_bet" binds= [ 1 ]]
 [connection signal="pressed" from="BetPanel/Buttons/2" to="." method="_on_bet" binds= [ 2 ]]
@@ -2035,4 +2034,3 @@ bus = "Effect"
 [connection signal="pressed" from="BetPanel/BetSelect/3" to="." method="_on_bet_select" binds= [ 3 ]]
 [connection signal="pressed" from="BetPanel/BetSelect/4" to="." method="_on_bet_select" binds= [ 4 ]]
 [connection signal="pressed" from="BetPanel/BetSelect/5" to="." method="_on_bet_select" binds= [ 5 ]]
-[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

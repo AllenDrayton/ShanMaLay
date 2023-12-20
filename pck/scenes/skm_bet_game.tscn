@@ -24,7 +24,7 @@
 [ext_resource path="res://pck/assets/common/WINYADA0.TTF" type="DynamicFontData" id=22]
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=23]
 [ext_resource path="res://pck/assets/shankoemee/win.png" type="Texture" id=24]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=25]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=25]
 [ext_resource path="res://pck/assets/skm_bet/bg_a.png" type="Texture" id=26]
 [ext_resource path="res://pck/assets/skm_bet/10k.png" type="Texture" id=27]
 [ext_resource path="res://pck/assets/skm_bet/5k.png" type="Texture" id=28]
@@ -1357,14 +1357,6 @@ position = Vector2( 1316, 496 )
 z_index = 1
 texture = ExtResource( 24 )
 
-[node name="Exit" type="TextureButton" parent="."]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 100.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 25 )
-script = ExtResource( 11 )
-
 [node name="AmountTransfer" type="Node2D" parent="."]
 z_index = 1
 
@@ -1499,10 +1491,18 @@ position = Vector2( 1010.25, 101.741 )
 scale = Vector2( 0.618965, 0.618965 )
 frames = SubResource( 375 )
 animation = "idle"
-frame = 4
+frame = 10
 playing = true
 
 [node name="Setting" parent="." instance=ExtResource( 89 )]
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 25 )
+script = ExtResource( 11 )
 
 [connection signal="pressed" from="BetArea/B1/Btn" to="." method="_on_bet" binds= [ 0 ]]
 [connection signal="pressed" from="BetArea/B2/Btn" to="." method="_on_bet" binds= [ 1 ]]
