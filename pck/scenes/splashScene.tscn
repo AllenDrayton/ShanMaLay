@@ -343,7 +343,6 @@ tracks/1/keys = {
 position = Vector2( 1005.44, 456 )
 scale = Vector2( 2.89524, 2.89524 )
 frames = SubResource( 26 )
-animation = "Idle"
 script = ExtResource( 1 )
 
 [node name="Door" type="AnimatedSprite" parent="."]
@@ -372,6 +371,7 @@ position = Vector2( 44.2105, 19.3421 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 61 )
 animation = "open"
+frame = 2
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
