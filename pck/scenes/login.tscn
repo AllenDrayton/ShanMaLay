@@ -161,7 +161,7 @@ texture = ExtResource( 2 )
 position = Vector2( 519, 458.465 )
 scale = Vector2( 2.96552, 2.96552 )
 frames = SubResource( 29 )
-frame = 2
+frame = 18
 playing = true
 
 [node name="VersionControl" type="Label" parent="."]
