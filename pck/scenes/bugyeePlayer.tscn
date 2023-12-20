@@ -2803,7 +2803,7 @@ scale = Vector2( 1.5, 1.5 )
 z_index = 1
 frames = SubResource( 8 )
 animation = "e1"
-frame = 6
+frame = 9
 playing = true
 
 [node name="Emoji" type="AnimatedSprite" parent="."]

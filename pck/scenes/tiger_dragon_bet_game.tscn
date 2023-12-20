@@ -12,6 +12,7 @@
 [ext_resource path="res://pck/assets/tg_tiger_voice/tg_money.mp3" type="AudioStream" id=10]
 [ext_resource path="res://pck/assets/Tiger_Dragon/1k.png" type="Texture" id=11]
 [ext_resource path="res://pck/assets/Tiger_Dragon/TD3.png" type="Texture" id=12]
+[ext_resource path="res://pck/assets/skm_bet_new/Back Key.png" type="Texture" id=13]
 [ext_resource path="res://pck/assets/Tiger_Dragon/tiger_win.png" type="Texture" id=14]
 [ext_resource path="res://pck/assets/Tiger_Dragon/image-tiger-carpet.png" type="Texture" id=15]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=16]
@@ -23,7 +24,6 @@
 [ext_resource path="res://pck/assets/Tiger_Dragon/TD6.png" type="Texture" id=22]
 [ext_resource path="res://pck/assets/Tiger_Dragon/100kl.png" type="Texture" id=23]
 [ext_resource path="res://pck/assets/Tiger_Dragon/5kl.png" type="Texture" id=24]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=25]
 [ext_resource path="res://pck/assets/Tiger_Dragon/10kl.png" type="Texture" id=26]
 [ext_resource path="res://pck/assets/Tiger_Dragon/1kl.png" type="Texture" id=27]
 [ext_resource path="res://pck/assets/Tiger_Dragon/2kl.png" type="Texture" id=28]
@@ -1500,9 +1500,11 @@ position = Vector2( 179, 93 )
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 100.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 25 )
+margin_right = 120.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 13 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
 
 [node name="BackDrop" parent="." instance=ExtResource( 30 )]
@@ -1512,14 +1514,13 @@ visible = false
 position = Vector2( 1157, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
-frame = 4
 playing = true
 
 [node name="card_gif_2" type="AnimatedSprite" parent="."]
 position = Vector2( 848, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="C1" type="Sprite" parent="."]

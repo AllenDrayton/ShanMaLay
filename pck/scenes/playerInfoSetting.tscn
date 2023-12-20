@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://pck/assets/HomeScence/Home-Photo/icon-photo-box.png" type="Texture" id=1]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://pck/assets/HomeScence/Home-Photo/icon-photo-confirm.png" type="Texture" id=6]
 [ext_resource path="res://pck/assets/common/profiles/1.png" type="Texture" id=7]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://pck/scenes/changePW.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=2]
 resource_name = "In"
@@ -117,7 +116,7 @@ __meta__ = {
 
 [node name="Container" type="GridContainer" parent="ProfilePanel/ScrollContainer"]
 margin_right = 970.0
-margin_bottom = 1020.0
+margin_bottom = 840.0
 custom_constants/vseparation = 60
 custom_constants/hseparation = 50
 columns = 6
@@ -134,7 +133,9 @@ margin_left = 170.0
 margin_right = 290.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
+texture_normal = ExtResource( 5 )
 expand = true
+stretch_mode = 4
 script = ExtResource( 2 )
 
 [node name="3" type="TextureButton" parent="ProfilePanel/ScrollContainer/Container"]
@@ -369,65 +370,6 @@ texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 2 )
 
-[node name="27" type="TextureButton" parent="ProfilePanel/ScrollContainer/Container"]
-margin_left = 340.0
-margin_top = 720.0
-margin_right = 460.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 120, 120 )
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 2 )
-
-[node name="28" type="TextureButton" parent="ProfilePanel/ScrollContainer/Container"]
-margin_left = 510.0
-margin_top = 720.0
-margin_right = 630.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 120, 120 )
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 2 )
-
-[node name="29" type="TextureButton" parent="ProfilePanel/ScrollContainer/Container"]
-margin_left = 680.0
-margin_top = 720.0
-margin_right = 800.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 120, 120 )
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 2 )
-
-[node name="30" type="TextureButton" parent="ProfilePanel/ScrollContainer/Container"]
-margin_left = 850.0
-margin_top = 720.0
-margin_right = 970.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 120, 120 )
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 2 )
-
-[node name="31" type="TextureButton" parent="ProfilePanel/ScrollContainer/Container"]
-margin_top = 900.0
-margin_right = 120.0
-margin_bottom = 1020.0
-rect_min_size = Vector2( 120, 120 )
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 9 )
-
-[node name="32" type="TextureButton" parent="ProfilePanel/ScrollContainer/Container"]
-margin_left = 170.0
-margin_top = 900.0
-margin_right = 290.0
-margin_bottom = 1020.0
-rect_min_size = Vector2( 120, 120 )
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 9 )
-
 [node name="Profile" type="Sprite" parent="ProfilePanel"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
@@ -486,10 +428,4 @@ stretch_mode = 4
 [connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/24" to="." method="_on_profile_select" binds= [ "24" ]]
 [connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/25" to="." method="_on_profile_select" binds= [ "25" ]]
 [connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/26" to="." method="_on_profile_select" binds= [ "26" ]]
-[connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/27" to="." method="_on_profile_select" binds= [ "27" ]]
-[connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/28" to="." method="_on_profile_select" binds= [ "28" ]]
-[connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/29" to="." method="_on_profile_select" binds= [ "29" ]]
-[connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/30" to="." method="_on_profile_select" binds= [ "30" ]]
-[connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/31" to="." method="_on_profile_select" binds= [ "31" ]]
-[connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/32" to="." method="_on_profile_select" binds= [ "32" ]]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

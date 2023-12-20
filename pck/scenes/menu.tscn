@@ -2544,7 +2544,7 @@ __meta__ = {
 position = Vector2( 126, 148 )
 scale = Vector2( 1.55, 1.55 )
 frames = SubResource( 330 )
-frame = 52
+frame = 63
 playing = true
 
 [node name="BuGyee" type="TextureButton" parent="."]
@@ -2563,7 +2563,7 @@ __meta__ = {
 position = Vector2( 160, 47 )
 scale = Vector2( 1.55, 1.55 )
 frames = SubResource( 406 )
-frame = 29
+frame = 40
 playing = true
 
 [node name="ABCD" type="TextureButton" parent="."]
@@ -2601,7 +2601,7 @@ __meta__ = {
 position = Vector2( 186.75, 56.375 )
 scale = Vector2( 1.55, 1.55 )
 frames = SubResource( 482 )
-frame = 1
+frame = 12
 playing = true
 
 [node name="Fishing" type="TextureButton" parent="."]

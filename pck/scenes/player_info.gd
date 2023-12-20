@@ -91,7 +91,7 @@ func _on_usernameUpdate(name):
 	$Nickname.text = name
 
 func _load_profile_textures():
-	for i in range(13):
+	for i in range(26):
 		var path = "res://pck/assets/common/profiles/" + str(i) + ".png"
 		var texture = load(path)
 		profile_textures.append(texture) 

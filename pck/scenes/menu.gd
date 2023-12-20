@@ -91,7 +91,7 @@ func _on_usernameUpdate(name):
 	$Nickname.text = name
 
 func _load_profile_textures():
-	for i in range(32):
+	for i in range(26):
 		var path = "res://pck/assets/HomeScence/Home-Photo/icon-photo-" + str(i+1) + ".png"
 		var texture = load(path)
 		profile_textures.append(texture)
@@ -233,7 +233,7 @@ func _on_ABCD_pressed():
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
 func _on_skm_respond(result, response_code, headers, body):
-	Signals.emit_signal("menuMusicOff")
+#	Signals.emit_signal("menuMusicOff")
 	var json = JSON.parse(body.get_string_from_utf8())
 	var res = json.result;
 	print(res)

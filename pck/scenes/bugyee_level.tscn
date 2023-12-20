@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://pck/assets/common/back_button.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://pck/assets/menu/icon-arena-senior.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/menu/icon-arena-millionaire.png" type="Texture" id=5]
@@ -9,7 +10,6 @@
 [ext_resource path="res://pck/assets/common/coin.png" type="Texture" id=8]
 [ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=9]
 [ext_resource path="res://pck/assets/menu/icon-arena-billionaire.png" type="Texture" id=10]
-[ext_resource path="res://pck/assets/common/btn-exit.png" type="Texture" id=11]
 [ext_resource path="res://pck/assets/HomeScence/icon-home-money.png" type="Texture" id=12]
 [ext_resource path="res://pck/assets/common/panel-1.png" type="Texture" id=13]
 [ext_resource path="res://pck/scenes/bugyee_level.gd" type="Script" id=14]
@@ -693,11 +693,11 @@ position = Vector2( 1000, 980 )
 targetY = 840.0
 
 [node name="Exit" type="TextureButton" parent="."]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 120.0
-texture_normal = ExtResource( 11 )
+margin_right = 250.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 15 )
 
 [connection signal="pressed" from="level1" to="." method="_on_level_pressed" binds= [ 0 ]]

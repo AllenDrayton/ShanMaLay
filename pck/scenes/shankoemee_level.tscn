@@ -418,6 +418,9 @@ __meta__ = {
 position = Vector2( 1000, 450 )
 scale = Vector2( 0.868, 0.84 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level1" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -727,12 +730,11 @@ position = Vector2( 1000, 980 )
 targetY = 840.0
 
 [node name="Exit" type="TextureButton" parent="."]
-margin_left = 40.0
-margin_top = 20.0
-margin_right = 165.0
+margin_right = 250.0
 margin_bottom = 100.0
-rect_scale = Vector2( 1.8, 1.8 )
 texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 15 )
 
 [node name="Balance_Boarder" type="Sprite" parent="."]

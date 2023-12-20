@@ -457,7 +457,7 @@ func _bet_respond(body):
 	$CoinContainer.add_child(coin)
 
 func _load_profile_textures():
-	for i in range(32):
+	for i in range(26):
 		var path = "res://pck/assets/HomeScence/Home-Photo/icon-photo-" + str(i+1) + ".png"
 		var texture = load(path)
 		profile_textures.append(texture)  
