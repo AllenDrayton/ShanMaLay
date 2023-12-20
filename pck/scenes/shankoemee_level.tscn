@@ -189,7 +189,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 710, -0.25, 0, 0.25, 0, 653, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 640, -0.25, 0, 0.25, 0, 653, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.3, 0.8 )
 }
 tracks/5/type = "bezier"
@@ -199,7 +199,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 370, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 384, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.4, 0.9 )
 }
 tracks/6/type = "bezier"
@@ -209,7 +209,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 638, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 600, -0.25, 0, 0.25, 0, 640, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.5, 1 )
 }
 tracks/7/type = "bezier"
@@ -312,7 +312,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 653, -0.25, 0, 0.25, 0, 710, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 640, -0.25, 0, 0.25, 0, 710, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.2, 0.7 )
 }
 tracks/5/type = "bezier"
@@ -322,7 +322,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 370, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 384, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.1, 0.6 )
 }
 tracks/6/type = "bezier"
@@ -332,7 +332,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 638, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 640, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/7/type = "bezier"
@@ -680,9 +680,9 @@ position = Vector2( 97, 59 )
 
 [node name="level4" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 882.0
+margin_left = 1016.0
 margin_top = 600.0
-margin_right = 1082.0
+margin_right = 1216.0
 margin_bottom = 700.0
 expand = true
 stretch_mode = 3
@@ -719,9 +719,9 @@ position = Vector2( 97, 64 )
 
 [node name="level5" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1207.0
+margin_left = 1344.0
 margin_top = 600.0
-margin_right = 1407.0
+margin_right = 1544.0
 margin_bottom = 700.0
 expand = true
 stretch_mode = 3
@@ -758,9 +758,9 @@ position = Vector2( 99, 55 )
 
 [node name="level6" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1654.0
+margin_left = 1712.0
 margin_top = 600.0
-margin_right = 1854.0
+margin_right = 1912.0
 margin_bottom = 700.0
 expand = true
 stretch_mode = 3

@@ -114,7 +114,7 @@ texture = ExtResource( 1 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 22 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="."]
