@@ -281,7 +281,7 @@ func _deliver(room):
 	prev_gameState = room.gameState
 	print("Game State : Deliver")
 	$BetPanel.visible = false
-	$ShanMa.play("deliver")
+
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
@@ -303,6 +303,7 @@ func _deliver(room):
 	yield(get_tree().create_timer(1), "timeout")
 	
 	_playVoice(GameVoices.deliver)
+	$ShanMa.play("deliver")
 	for j in range(5):
 		for i in range(TOTAL_PLAYER):
 			var player = room.players[i]

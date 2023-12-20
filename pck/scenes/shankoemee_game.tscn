@@ -1053,7 +1053,7 @@ animations = [ {
 "frames": [ SubResource( 426 ), SubResource( 427 ), SubResource( 428 ), SubResource( 429 ), SubResource( 430 ), SubResource( 431 ), SubResource( 432 ), SubResource( 433 ), SubResource( 434 ), SubResource( 435 ), SubResource( 436 ), SubResource( 426 ), SubResource( 427 ), SubResource( 429 ), SubResource( 430 ), SubResource( 431 ), SubResource( 432 ) ],
 "loop": false,
 "name": "deliver",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [ SubResource( 403 ), SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ) ],
 "loop": true,
