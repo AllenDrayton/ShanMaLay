@@ -66,6 +66,7 @@ var _client = WebSocketClient.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$ShanMa.play("idle")
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
 	
@@ -257,7 +258,7 @@ func _start(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Start")
-	$ShanMa.play("shuffle")
+#	$ShanMa.play("shuffle")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
@@ -280,7 +281,7 @@ func _deliver(room):
 	prev_gameState = room.gameState
 	print("Game State : Deliver")
 	$BetPanel.visible = false
-#	$ShanMa.play("deliver")
+	$ShanMa.play("deliver")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
