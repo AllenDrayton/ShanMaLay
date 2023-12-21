@@ -70,6 +70,7 @@ func _ready():
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
 	
+	$ShanMa.play("deliver")
 	# Reset Music
 	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
 	
@@ -277,7 +278,7 @@ func _deliver(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Deliver")
-#	$ShanMa.play("deliver")
+	$ShanMa.play("deliver")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL

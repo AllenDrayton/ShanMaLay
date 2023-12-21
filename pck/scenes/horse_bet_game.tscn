@@ -1556,7 +1556,6 @@ anims/show = SubResource( 95 )
 [node name="Highlight" type="AnimatedSprite" parent="BetPanel"]
 position = Vector2( -200, -200 )
 frames = SubResource( 98 )
-frame = 1
 playing = true
 
 [node name="BetSelect" type="Node2D" parent="BetPanel"]

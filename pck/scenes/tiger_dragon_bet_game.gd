@@ -2,6 +2,8 @@ extends Node
 
 var CARD_DELIVER_DELAY = 0.2
 
+var max_length = 7
+
 var betArr = [100,500,1000,2000,5000,10000]
 var betArea = []
 var betAmount = [0,0,0]
@@ -343,9 +345,22 @@ func _end(body):
 	
 	$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
 
+
+# For truncating Username
+func truncateUsername(username, max_length):
+	if username.length() > max_length:
+		var truncated = username.left(max_length)
+		var overflowCount = username.length() - max_length
+		var overflowString = " ..."
+		return truncated + overflowString
+	else:
+		return username
+
+
 func _handshake_respond(body):
 	if body.status == "ok":
-		$Profile/Panel/Nickname.text = body.player.info.nickname
+		var truncatedUsername = truncateUsername(body.player.info.nickname, max_length)
+		$Profile/Panel/Nickname.text = truncatedUsername
 		$Profile/Panel/Balance.text = str(_balance_round(body.player.balance))
 		$Profile/Img.texture = profile_textures[int(body.player.info.profile)]
 

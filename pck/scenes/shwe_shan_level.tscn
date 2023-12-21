@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=1]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=8]
-[ext_resource path="res://pck/assets/menu/bg-0.jpg" type="Texture" id=9]
 [ext_resource path="res://pck/scenes/backgroundScroll.tscn" type="PackedScene" id=10]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=14]
 
@@ -629,12 +628,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 200.0 ],
 "_edit_vertical_guides_": [ 1000.0 ]
 }
-
-[node name="Bg" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1000, 450 )
-scale = Vector2( 1.562, 1.562 )
-texture = ExtResource( 9 )
 
 [node name="backgroundScroll" parent="." instance=ExtResource( 10 )]
 

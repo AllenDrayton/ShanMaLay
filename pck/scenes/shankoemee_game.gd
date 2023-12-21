@@ -79,6 +79,7 @@ func _ready():
 	_init_all()
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
+	$ShanMa.play("idle")
 	
 #	if $"/root/ws".rejoin :
 #		$BackDrop._show("Reconnecting please wait!")
@@ -257,7 +258,6 @@ func _wait():
 
 
 func _start(room):
-	$ShanMa.play("shuffle")
 	_check_dealer_change(room)
 	_check_player_bet_for_coin_move(room)
 	_room = room
@@ -302,7 +302,7 @@ func _first_deliver(room):
 	prev_gameState = room.gameState
 	
 	print("Game State : First Deliver")
-#	$ShanMa.play("deliver")
+	
 	
 	var players = room.players
 	
@@ -314,6 +314,7 @@ func _first_deliver(room):
 		playersNode[v]._set_count_down(count_down)
 	
 	_playVoice(GameVoices.deliver)
+	$ShanMa.play("deliver")
 	$BetPanel.visible = false
 	var start = room.dealerIndex + 1
 	for j in range(2):

@@ -81,6 +81,7 @@ func _ready():
 	
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
+	$ShanMa.play("idle")
 
 func _connect_ws():
 	_client.connect("connection_closed", self, "_closed")
@@ -262,7 +263,6 @@ func _start(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Start")
-	$ShanMa.play("shuffle")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
@@ -285,7 +285,6 @@ func _deliver(room):
 	prev_gameState = room.gameState
 	print("Game State : Deliver")
 	$BetPanel.visible = false
-#	$ShanMa.play("deliver")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
@@ -307,6 +306,7 @@ func _deliver(room):
 	yield(get_tree().create_timer(1), "timeout")
 	
 	_playVoice(GameVoices.deliver)
+	$ShanMa.play("deliver")
 	for j in range(5):
 		for i in range(TOTAL_PLAYER):
 			var player = room.players[i]

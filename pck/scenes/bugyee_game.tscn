@@ -1,9 +1,9 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://pck/scenes/bugyee_game.gd" type="Script" id=1]
-[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-2.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/common/girlGif/Girl_Idle.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=3]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00008.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/common/girlGif/Girl_shuffle.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/bugyee/banker.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=7]
@@ -36,64 +36,16 @@
 [ext_resource path="res://pck/assets/common/newEmoji/3.png" type="Texture" id=34]
 [ext_resource path="res://pck/assets/common/btn-7.png" type="Texture" id=35]
 [ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=36]
-[ext_resource path="res://pck/assets/common/girlGif/Girl-animation-1.png" type="Texture" id=37]
 [ext_resource path="res://pck/assets/bugyee/bugyee-howto.png" type="Texture" id=38]
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=39]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=40]
 [ext_resource path="res://pck/assets/common/messages/Hello.png" type="Texture" id=41]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00007.png" type="Texture" id=42]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00005.png" type="Texture" id=43]
 [ext_resource path="res://pck/assets/common/messages/T2.png" type="Texture" id=44]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00004.png" type="Texture" id=45]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00003.png" type="Texture" id=46]
 [ext_resource path="res://pck/assets/common/messages/T.png" type="Texture" id=47]
 [ext_resource path="res://pck/assets/common/messages/hahaha.png" type="Texture" id=48]
 [ext_resource path="res://pck/assets/common/messages/Bet more.png" type="Texture" id=49]
 [ext_resource path="res://pck/assets/common/messages/I'm leaving.png" type="Texture" id=50]
 [ext_resource path="res://pck/assets/common/messages/T3.png" type="Texture" id=51]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00002.png" type="Texture" id=53]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00012.png" type="Texture" id=68]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00006.png" type="Texture" id=69]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00011.png" type="Texture" id=71]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00013.png" type="Texture" id=76]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00015.png" type="Texture" id=78]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00022.png" type="Texture" id=106]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00018.png" type="Texture" id=107]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00000.png" type="Texture" id=109]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00021.png" type="Texture" id=111]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00017.png" type="Texture" id=114]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00001.png" type="Texture" id=117]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00033.png" type="Texture" id=120]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00038.png" type="Texture" id=123]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00026.png" type="Texture" id=124]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00020.png" type="Texture" id=125]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00025.png" type="Texture" id=126]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00016.png" type="Texture" id=128]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00034.png" type="Texture" id=129]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00019.png" type="Texture" id=130]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00031.png" type="Texture" id=133]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00047.png" type="Texture" id=134]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00044.png" type="Texture" id=135]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00030.png" type="Texture" id=136]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00028.png" type="Texture" id=138]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00029.png" type="Texture" id=139]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00035.png" type="Texture" id=142]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00036.png" type="Texture" id=146]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00037.png" type="Texture" id=149]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00014.png" type="Texture" id=150]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00023.png" type="Texture" id=151]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00046.png" type="Texture" id=152]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00027.png" type="Texture" id=154]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00039.png" type="Texture" id=155]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00041.png" type="Texture" id=157]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00042.png" type="Texture" id=158]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00010.png" type="Texture" id=161]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00045.png" type="Texture" id=162]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00032.png" type="Texture" id=163]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00040.png" type="Texture" id=164]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00009.png" type="Texture" id=166]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00043.png" type="Texture" id=167]
-[ext_resource path="res://pck/assets/common/ShanMa/deliver/SG3_00024.png" type="Texture" id=168]
 [ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=189]
 [ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=192]
 
@@ -311,131 +263,126 @@ margin_right = 60.0
 margin_top = 80.0
 margin_bottom = 60.0
 
-[sub_resource type="AtlasTexture" id=403]
+[sub_resource type="AtlasTexture" id=389]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=390]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 300, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=391]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 600, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=392]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 900, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=393]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=394]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 300, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=395]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 600, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=396]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 900, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=397]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=398]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 300, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=399]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 600, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=378]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 900, 1132 )
+region = Rect2( 0, 0, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=404]
+[sub_resource type="AtlasTexture" id=379]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 900, 0, 900, 1132 )
+region = Rect2( 300, 0, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=405]
+[sub_resource type="AtlasTexture" id=380]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1800, 0, 900, 1132 )
+region = Rect2( 600, 0, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=406]
+[sub_resource type="AtlasTexture" id=381]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 2700, 0, 900, 1132 )
+region = Rect2( 900, 0, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=407]
+[sub_resource type="AtlasTexture" id=382]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 1132, 900, 1132 )
+region = Rect2( 0, 377, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=408]
+[sub_resource type="AtlasTexture" id=383]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 900, 1132, 900, 1132 )
+region = Rect2( 300, 377, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=409]
+[sub_resource type="AtlasTexture" id=384]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1800, 1132, 900, 1132 )
+region = Rect2( 600, 377, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=410]
+[sub_resource type="AtlasTexture" id=385]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 2700, 1132, 900, 1132 )
+region = Rect2( 900, 377, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=411]
+[sub_resource type="AtlasTexture" id=386]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 2264, 900, 1132 )
+region = Rect2( 0, 754, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=412]
+[sub_resource type="AtlasTexture" id=387]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 900, 2264, 900, 1132 )
+region = Rect2( 300, 754, 300, 377 )
 
-[sub_resource type="AtlasTexture" id=413]
+[sub_resource type="AtlasTexture" id=388]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1800, 2264, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=414]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 0, 0, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=415]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 900, 0, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=416]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 1800, 0, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=417]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 2700, 0, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=418]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 0, 1132, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=419]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 900, 1132, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=420]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 1800, 1132, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=421]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 2700, 1132, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=422]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 0, 2264, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=423]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 900, 2264, 900, 1132 )
-
-[sub_resource type="AtlasTexture" id=424]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 1800, 2264, 900, 1132 )
+region = Rect2( 600, 754, 300, 377 )
 
 [sub_resource type="SpriteFrames" id=377]
 animations = [ {
-"frames": [ ExtResource( 109 ), ExtResource( 117 ), ExtResource( 53 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 43 ), ExtResource( 69 ), ExtResource( 42 ), ExtResource( 4 ), ExtResource( 166 ), ExtResource( 161 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 76 ), ExtResource( 150 ), ExtResource( 78 ), ExtResource( 128 ), ExtResource( 114 ), ExtResource( 107 ), ExtResource( 130 ), ExtResource( 125 ), ExtResource( 111 ), ExtResource( 106 ), ExtResource( 151 ), ExtResource( 168 ), ExtResource( 126 ), ExtResource( 124 ), ExtResource( 154 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 136 ), ExtResource( 133 ), ExtResource( 163 ), ExtResource( 120 ), ExtResource( 129 ), ExtResource( 142 ), ExtResource( 146 ), ExtResource( 149 ), ExtResource( 123 ), ExtResource( 155 ), ExtResource( 164 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 167 ), ExtResource( 135 ), ExtResource( 162 ), ExtResource( 152 ), ExtResource( 134 ) ],
-"loop": true,
+"frames": [ SubResource( 389 ), SubResource( 390 ), SubResource( 391 ), SubResource( 392 ), SubResource( 393 ), SubResource( 394 ), SubResource( 395 ), SubResource( 396 ), SubResource( 397 ), SubResource( 398 ), SubResource( 399 ) ],
+"loop": false,
 "name": "deliver",
-"speed": 20.0
+"speed": 15.0
 }, {
-"frames": [ SubResource( 403 ), SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ) ],
+"frames": [ SubResource( 378 ), SubResource( 379 ), SubResource( 380 ), SubResource( 381 ), SubResource( 382 ), SubResource( 383 ), SubResource( 384 ), SubResource( 385 ), SubResource( 386 ), SubResource( 387 ), SubResource( 388 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 414 ), SubResource( 415 ), SubResource( 416 ), SubResource( 417 ), SubResource( 418 ), SubResource( 419 ), SubResource( 420 ), SubResource( 421 ), SubResource( 422 ), SubResource( 423 ), SubResource( 424 ) ],
-"loop": true,
-"name": "shuffle",
 "speed": 5.0
 } ]
 
@@ -1040,9 +987,9 @@ script = ExtResource( 22 )
 
 [node name="ShanMa" type="AnimatedSprite" parent="."]
 position = Vector2( 999, 106 )
-scale = Vector2( 0.242569, 0.242569 )
+scale = Vector2( 0.693, 0.676 )
 frames = SubResource( 377 )
-animation = "shuffle"
+animation = "deliver"
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="MenuPanel/Exit" to="." method="_on_Exit_pressed"]

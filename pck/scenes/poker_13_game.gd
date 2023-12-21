@@ -58,6 +58,8 @@ func _ready():
 	$"/root/bgm".stream = music
 	$"/root/bgm".play()
 	
+	$ShanMa.play("idle")
+	
 	# Reset Music
 	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
 	
@@ -430,7 +432,7 @@ func _start(room):
 	for N in $"Cards".get_children():
 		N.queue_free()
 	
-#	$ShanMa.play("deliver")
+	$ShanMa.play("deliver")
 	
 	for i in range(13):
 		var card = deckCardArray[i]
