@@ -2,6 +2,8 @@ extends Node2D
 
 const profile_textures = []
 
+var max_length = 9
+
 const textures = {
 	"win":preload("res://pck/assets/shankoemee/win.png"),
 	"lose":preload("res://pck/assets/shankoemee/lose.png")
@@ -58,8 +60,21 @@ func _reset():
 	$Bet/Label.text = "0"
 	_hide_multiply()
 
+# For truncating Username
+func truncateUsername(username, max_length):
+	if username.length() > max_length:
+		var truncated = username.left(max_length)
+		var overflowCount = username.length() - max_length
+		var overflowString = " ..."
+		return truncated + overflowString
+	else:
+		return username
+
+
 func _set_info(nickname, balance, profile):
-	$Panel/Nickname.text = nickname
+	var truncatedUsername = truncateUsername(nickname, max_length)
+	$Panel/Nickname.text = truncatedUsername
+	#$Panel/Nickname.text = nickname
 	_set_balance(balance)
 	$Profile.texture = profile_textures[int(profile)]
 
