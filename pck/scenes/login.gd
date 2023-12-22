@@ -22,8 +22,10 @@ func _ready():
 #	_load_session()
 	var savedData = _load()
 	if savedData != null:
+		var password = savedData["password"]
+		$StorePassword.text = password
 		$LoginBox/UsernameControl/Username.text = savedData["username"]
-		$LoginBox/PasswordControl/Password.text = savedData["password"]
+		$LoginBox/PasswordControl/Password.text = interpolateStar(password)
 	$version.text = "Version " + str(Config.VERSION)
 	_load_bgm()
 	Config.MUSIC.stream = music
@@ -32,13 +34,22 @@ func _ready():
 	Signals.connect("screenTouch",self,"_on_screen_touch")
 
 	
-	
 	# For Keyboard Functions
 	usernameControl.connect("mouse_entered", self, "on_userName_entered")
 	passwordControl.connect("mouse_entered", self, "on_passWord_entered")
 	$CustomKeyboard.connect("enter_pressed", self,"_on_custom_keyboard_enter_pressed")
 	$CustomKeyboard.connect("cancel_pressed", self, "_on_custom_keyboard_cancel_pressed")
 	show_placeholder()
+
+func interpolateStar(text):
+	var hiddenText = ""
+	if text != "":
+			for i in text.length():
+				hiddenText += "*"
+				password_txt.text = hiddenText
+	else:
+		text.text = ""
+	return hiddenText
 
 func _on_MenuMusicOff():
 	print("Menu Music Off ok")
@@ -315,7 +326,7 @@ func _on_keyboard_pw_timer_timeout():
 
 func _on_Remember_pressed():
 	var username = $LoginBox/UsernameControl/Username.text
-	var password = $LoginBox/PasswordControl/Password.text
+	var password = $StorePassword.text
 	
 	var data = {
 		"username": username,
