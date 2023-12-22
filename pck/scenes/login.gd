@@ -21,6 +21,7 @@ var passwordSide = false
 func _ready():
 #	$Remember.pressed = true
 #	_load_session()
+	$version.text = "Version " + str(Config.VERSION)
 	_load_bgm()
 	Config.MUSIC.stream = music
 	Config.MUSIC.play()

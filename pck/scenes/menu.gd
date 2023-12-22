@@ -245,8 +245,8 @@ func _on_skm_respond(result, response_code, headers, body):
 		get_tree().change_scene("res://pck/scenes/skm_bet_game.tscn")
 
 func _on_Members_pressed():
-	$info.show()
-	$info/InfoAnimation.play("In")
+	Config.MUSIC.volume_db = -80
+	get_tree().change_scene("res://pck/scenes/info.tscn")
 
 func _on_bank_Transfer_pressed():
 	$transfer.show()

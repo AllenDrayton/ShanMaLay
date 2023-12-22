@@ -8,6 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Config.MUSIC.volume_db = 0
+	$InfoAnimation.play("In")
 	var request = {
 		"head":"user info"
 	}
@@ -16,7 +18,6 @@ func _ready():
 	add_child(http)
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
-	$InfoAnimation.play("In")
 	
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
@@ -36,8 +37,9 @@ func comma_sep(number):
 	return res
 
 func _on_Exit_pressed():
-	hide()
-#	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	Config.MUSIC.volume_db = -80
+	$InfoAnimation.play("Out")
+	get_tree().change_scene("res://pck/scenes/menu.tscn")
 
 func _on_bank_info_pressed():
 	$bank_info.show()
