@@ -3,7 +3,8 @@ extends CanvasLayer
 
 var filepath = "user://setting.txt"
 var isMusicMuted = false
-var isSoundMuted =false
+var isSoundMuted = false
+#var data 
 
 const BlankMusic = preload("res://pck/assets/shankoemee/audio/EmptySound.ogg")
 
@@ -19,6 +20,7 @@ func saveSettings():
 		"sound_muted": isSoundMuted
 	}
 	_save(data)
+	print(data)
 
 func loadSettings():
 	var file = File.new()
@@ -27,10 +29,13 @@ func loadSettings():
 		var savedData = file.get_as_text()
 		var data = JSON.parse(savedData)
 		file.close()
-		if "music_muted" in data:
-			isMusicMuted = data["music_muted"]
-		if "sound_muted" in data:
-			isSoundMuted = data["sound_muted"]
+		print(data)
+#		if "music_muted" in data:
+#			isMusicMuted = data["music_muted"]
+#		if "sound_muted" in data:
+#			isSoundMuted = data["sound_muted"]
+		isMusicMuted = data.result.music_muted
+		isSoundMuted = data.result.sound_muted
 		if isMusicMuted:
 			muteMusic()
 		else:

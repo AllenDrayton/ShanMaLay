@@ -10,12 +10,12 @@ var newPw_side = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	hide()
+	_load_profile_textures()
+	Config.MUSIC.volume_db = 0
+	$playerInfoAnimation.play("In")
 	Config.connect("usernameUpdate",self,"_on_usernameUpdate")
 	$playerInfoSetting.hide()
-	$playerInfoAnimation.play("RESET")
 	$playerInfoSetting.get_node("playerInfoAnimation").play("RESET")
-#	$playerInfoAnimation.play("In")
 	profile.rect_scale = Vector2(1.6,1.6)
 	$Exit.connect("pressed", self, "_on_exit")
 	
@@ -24,7 +24,27 @@ func _ready():
 	$CustomKeyboard.connect("enter_pressed", self,"_on_custom_keyboard_enter_pressed")
 	$CustomKeyboard.connect("cancel_pressed", self, "_on_custom_keyboard_cancel_pressed")
 	show_placeholder()
-	
+	var request = {
+		"head":"user info"
+	}
+	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.connect("request_completed",self,"_update_info")
+	http.request(url)
+	var currentMusic = $"/root/bgm".stream.resource_path.get_file().get_basename()
+	Signals.connect("profileChanged",self,"_on_profile_changed")
+
+func _update_info(result, response_code, headers, body):
+	var respond = JSON.parse(body.get_string_from_utf8()).result
+	$Username.text = respond.username
+	$Nickname.text = respond.nickname
+	$Profile.texture_normal = profile_textures[int(respond.profile) - 1]
+	$changePW/PWpanel/Username.text = respond.username
+
+func _on_profile_changed(selected_texture):
+	$Profile.texture_normal = selected_texture
+	$Profile.texture_normal = selected_texture
 
 func _process(delta):
 	show_placeholder()
@@ -92,7 +112,7 @@ func _on_usernameUpdate(name):
 
 func _load_profile_textures():
 	for i in range(26):
-		var path = "res://pck/assets/common/profiles/" + str(i) + ".png"
+		var path = "res://pck/assets/HomeScence/Home-Photo/icon-photo-" + str(i+1) + ".png"
 		var texture = load(path)
 		profile_textures.append(texture) 
 
@@ -102,7 +122,7 @@ func _on_exit():
 
 func _on_Profile_pressed():
 	$playerInfoSetting.show()
-	$playerInfoSetting.get_node("playerInfoAnimation").play("In")
+	$playerInfoSetting/playerInfoAnimation.play("In")
 
 
 func _on_Edit_pressed():
@@ -137,3 +157,8 @@ func _on_NewPw_timer_timeout():
 	$changePW/PWpanel/PwNewControl.hide()
 	$changePW/PWpanel/ConfirmPwControl.hide()
 	$changePW/PWpanel/Accept.hide()
+
+
+func _on_Exit_pressed():
+	Config.MUSIC.volume_db = -80
+	get_tree().change_scene("res://pck/scenes/menu.tscn")

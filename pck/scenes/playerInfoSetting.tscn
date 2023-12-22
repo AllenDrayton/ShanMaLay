@@ -393,14 +393,16 @@ texture = ExtResource( 3 )
 [node name="Accept" type="TextureButton" parent="."]
 margin_left = 810.0
 margin_top = 710.0
-margin_right = 1160.0
+margin_right = 1138.0
 margin_bottom = 810.0
 rect_min_size = Vector2( 200, 70 )
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 4
+script = ExtResource( 2 )
 
 [node name="AlertBox" parent="." instance=ExtResource( 8 )]
+position = Vector2( 995, 840 )
 
 [connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/1" to="." method="_on_profile_select" binds= [ "1" ]]
 [connection signal="pressed" from="ProfilePanel/ScrollContainer/Container/2" to="." method="_on_profile_select" binds= [ "2" ]]

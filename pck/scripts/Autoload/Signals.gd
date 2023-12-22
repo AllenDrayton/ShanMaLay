@@ -9,8 +9,9 @@ signal message_sent(messageInput)
 signal screenTouch
 signal winner
 signal menuMusic(data)
+signal profileChanged(selectedTexture)
 
-var user_mute_music = false
+var user_mute_music
 
 var two_card_auto = false
 

@@ -1,13 +1,8 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"res://pck/scenes/transfer.tscn""
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	$transferAnimation.play("In")
+	Config.MUSIC.volume_db = 0
 	var request = {
 		"head":"user info"
 	}
@@ -34,15 +29,11 @@ func comma_sep(number):
 
 	return res
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Exit_pressed():
-	hide()
-#	get_tree().change_scene("res://pck/scenes/menu.tscn")
+#	hide()
+	$transferAnimation.play("Out")
+	Config.MUSIC.volume_db = -80
+	get_tree().change_scene("res://pck/scenes/menu.tscn")
 	
 func _on_transfer_pressed():
 	$transfer_history.show()

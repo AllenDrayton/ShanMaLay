@@ -1,4 +1,4 @@
-[gd_scene load_steps=259 format=2]
+[gd_scene load_steps=258 format=2]
 
 [ext_resource path="res://pck/scenes/bugyee_game.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/common/ShanMa/idle/SG1_00000.png" type="Texture" id=2]
@@ -235,7 +235,6 @@
 [ext_resource path="res://pck/assets/bugyeeNew/Win/win design.png" type="Texture" id=233]
 [ext_resource path="res://pck/assets/bugyeeNew/timerTexture/Untitled-4.png" type="Texture" id=234]
 [ext_resource path="res://pck/assets/bugyeeNew/timerTexture/Untitled-3.png" type="Texture" id=235]
-[ext_resource path="res://pck/scripts/bugyee_setting.gd" type="Script" id=236]
 
 [sub_resource type="StyleBoxTexture" id=266]
 texture = ExtResource( 21 )
@@ -1157,7 +1156,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 288 )
 animation = "idle"
-frame = 29
+frame = 21
 playing = true
 
 [node name="Black" type="Sprite" parent="."]
@@ -1581,7 +1580,6 @@ wait_time = 1.5
 
 [node name="Setting" parent="." instance=ExtResource( 40 )]
 visible = false
-script = ExtResource( 236 )
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="MenuPanel/Exit" to="." method="_on_Exit_pressed"]

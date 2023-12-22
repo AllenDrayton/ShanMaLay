@@ -175,14 +175,14 @@ func _on_music_pressed():
 func muteMusic():
 #	$"/root/bgm".stop()
 	Config.MUSIC.volume_db = -80
-	musicAction=off
+	musicAction = off
 	$settingbox/music.texture_normal = musicAction
 	print("Tunroff")
 
 func unmuteMusic():
 #	$"/root/bgm".play()
 	Config.MUSIC.volume_db = 0
-	musicAction=on
+	musicAction = on
 	$settingbox/music.texture_normal = musicAction
 	print("Music unmuted")
 

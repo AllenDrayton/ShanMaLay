@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://pck/assets/HomeScence/Home-Profile/icon-profile-box.png" type="Texture" id=1]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://pck/scenes/changePW.tscn" type="PackedScene" id=15]
 [ext_resource path="res://pck/scenes/changeUsername.tscn" type="PackedScene" id=16]
 [ext_resource path="res://pck/scenes/CustomKeyboard2.tscn" type="PackedScene" id=17]
+[ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=18]
 
 [sub_resource type="Animation" id=4]
 resource_name = "In"
@@ -122,6 +123,14 @@ margin_right = -1992.0
 margin_bottom = -896.4
 script = ExtResource( 6 )
 
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 1001.5, 451.5 )
+scale = Vector2( 0.86849, 0.839815 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="playerInfoAnimation" type="AnimationPlayer" parent="."]
 anims/In = SubResource( 4 )
 anims/Null = SubResource( 8 )
@@ -163,9 +172,6 @@ margin_right = 736.997
 margin_bottom = 416.0
 texture_normal = ExtResource( 3 )
 expand = true
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Profile-frame" type="Sprite" parent="Profile"]
 visible = false
@@ -199,9 +205,6 @@ texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Username" type="Label" parent="."]
 anchor_right = 1.0
@@ -212,9 +215,6 @@ margin_right = 896.0
 margin_bottom = 331.0
 custom_fonts/font = SubResource( 1 )
 valign = 1
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Nickname" type="Label" parent="."]
 anchor_right = 1.0
@@ -225,9 +225,6 @@ margin_right = 897.0
 margin_bottom = 399.0
 custom_fonts/font = SubResource( 1 )
 valign = 1
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Winstreak" type="Label" parent="."]
 anchor_right = 1.0
@@ -240,9 +237,6 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "အုပ္စုလိုက္ အတြဲလိုက္ပြဲ:"
 valign = 1
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Icon-profile-gender" type="Sprite" parent="."]
 position = Vector2( 853, 376 )
@@ -304,6 +298,7 @@ wait_time = 0.6
 one_shot = true
 
 [connection signal="pressed" from="Profile" to="." method="_on_Profile_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="PW_Change" to="." method="_on_PW_Change_pressed"]
 [connection signal="pressed" from="Edit" to="." method="_on_Edit_pressed"]
 [connection signal="timeout" from="OldPw_timer" to="." method="_on_OldPw_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/arrow_right.png" type="Texture" id=3]
@@ -91,7 +91,6 @@
 [ext_resource path="res://pck/assets/common/btn-6.png" type="Texture" id=235]
 [ext_resource path="res://pck/scripts/MessageButton.gd" type="Script" id=236]
 [ext_resource path="res://pck/assets/shankoemee/Models/Girl 01.png" type="Texture" id=237]
-[ext_resource path="res://pck/scripts/Skm_setting.gd" type="Script" id=238]
 [ext_resource path="res://pck/scripts/Skm_Screentouch.gd" type="Script" id=239]
 
 [sub_resource type="DynamicFontData" id=352]
@@ -1914,7 +1913,6 @@ script = ExtResource( 14 )
 
 [node name="Setting" parent="." instance=ExtResource( 62 )]
 visible = false
-script = ExtResource( 238 )
 
 [node name="Rules" type="Node2D" parent="."]
 visible = false

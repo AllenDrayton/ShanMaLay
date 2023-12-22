@@ -14,8 +14,6 @@ func _ready():
 	elif Signals.user_mute_music == false:
 		Config.MUSIC.volume_db = 0
 	
-#	print(Config.MUSIC)
-#	print($"/root/bgm")
 #	$ABCD.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$Fishing/FishSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$Slots/SlotSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
@@ -24,9 +22,7 @@ func _ready():
 	_load_profile_textures()
 	_animationIn()
 	Config.connect("usernameUpdate",self,"_on_usernameUpdate")
-	#Config.connect("musicOn",self,"musicOn")
-	#Config.connect("musicOff",self,"musicOff")
-	#Signals.connect("menuMusic",self,"_on_MenuMusic")
+
 	var request = {
 		"head":"user info"
 	}
@@ -39,7 +35,7 @@ func _ready():
 	if currentMusic != "music-main-background":
 		Config.MUSIC.stream = music
 		Config.MUSIC.play()
-	get_node("player_info").get_node("playerInfoSetting").connect("profile_changed",self,"_on_profile_changed")
+	Signals.connect("profileChanged",self,"_on_profile_changed")
 
 func _on_MenuMusic(data):
 	print(data)
@@ -69,7 +65,6 @@ func _disable_buttons(disable):
 	$Bank_withdraw.disabled = disable
 	
 func _on_profile_changed(selected_texture):
-#	print(str(selected_texture))
 	$player_info/Profile.texture_normal = selected_texture
 	$Profile.texture_normal = selected_texture
 
@@ -119,15 +114,9 @@ func comma_sep(number):
 
 
 func _on_Profile_pressed():
-#	$AnimationPlayer.play("out")
-#	$GamesOutAnimation.play("Games_out")
-#	$UpperbracketAnimation.play("out")
-#	$BottomBarAnimation.play("Out")
-#	yield(get_tree().create_timer(0.5), "timeout")
-#	get_tree().change_scene("res://pck/scenes/profile_setting.tscn")
-	$player_info.show()
-	$player_info.get_node("playerInfoAnimation").play("In")
-#	$player_info.visible = true
+	Config.MUSIC.volume_db = -80
+	get_tree().change_scene("res://pck/scenes/player_info.tscn")
+
 
 
 func _on_SettingToggle_pressed():
@@ -249,11 +238,12 @@ func _on_Members_pressed():
 	get_tree().change_scene("res://pck/scenes/info.tscn")
 
 func _on_bank_Transfer_pressed():
-	$transfer.show()
+	Config.MUSIC.volume_db = -80
+	get_tree().change_scene("res://pck/scenes/transfer.tscn")
 
 func _on_Bank_withdraw_pressed():
-	$Withdraw.show()
-	$Withdraw/withdrawAnimation.play("In")
+	Config.MUSIC.volume_db = -80
+	get_tree().change_scene("res://pck/scenes/Withdraw.tscn")
 
 
 func _on_Fish_pressed():

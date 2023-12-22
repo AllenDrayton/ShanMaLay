@@ -111,15 +111,14 @@ func _ready():
 	Config.MUSIC.stream = music
 	Config.MUSIC.play()
 	
-	if Signals.user_mute_music == true:
-		Config.MUSIC.volume_db = -80
-	elif Signals.user_mute_music == false:
-		Config.MUSIC.volume_db = 0
+#	if Signals.user_mute_music == true:
+#		Config.MUSIC.volume_db = -80
+#	elif Signals.user_mute_music == false:
+#		Config.MUSIC.volume_db = 0
 	
 	_init_all()
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
-	
 	
 	# Populate the labels array with Label nodes based on the provided paths
 	for path in label_paths:
@@ -137,6 +136,7 @@ func _ready():
 #		return
 
 	
+
 # Function to update labels based on a given number
 func update_labels(number):
 	# Convert the number to a string with leading zeros

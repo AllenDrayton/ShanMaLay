@@ -458,7 +458,7 @@ func _reset():
 		var balance = (randi() % 100000) + 100000
 		botBalance[i] = balance
 		bot[i].get_node("Panel/Balance").text = _balance_round(balance)
-		bot[i].get_node("Profile").texture = profile_textures[randi()%13]
+		bot[i].get_node("Profile").texture = profile_textures[randi()%26]
 	betAmount = [0,0,0,0]
 	myBetAmount = [0,0,0,0]
 	for i in range(4):

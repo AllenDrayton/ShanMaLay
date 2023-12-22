@@ -8,6 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$withdrawAnimation.play("In")
+	Config.MUSIC.volume_db = -80
 	var request = {
 		"head":"user info"
 	}
@@ -35,9 +37,11 @@ func comma_sep(number):
 		res += string[i]
 
 	return res
+	
 func _on_Exit_pressed():
-#	get_tree().change_scene("res://pck/scenes/menu.tscn")
-	hide()
+	Config.MUSIC.volume_db = -80
+	get_tree().change_scene("res://pck/scenes/menu.tscn")
+#	hide()
 
 func _on_TextureButton_pressed():
 	get_tree().change_scene("res://pck/scenes/Bank_info.tscn")
