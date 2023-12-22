@@ -21,8 +21,10 @@ func _ready():
 	$player_info.hide()
 	_load_profile_textures()
 	_animationIn()
+# warning-ignore:return_value_discarded
 	Config.connect("usernameUpdate",self,"_on_usernameUpdate")
 
+# warning-ignore:unused_variable
 	var request = {
 		"head":"user info"
 	}
@@ -35,6 +37,7 @@ func _ready():
 	if currentMusic != "music-main-background":
 		Config.MUSIC.stream = music
 		Config.MUSIC.play()
+# warning-ignore:return_value_discarded
 	Signals.connect("profileChanged",self,"_on_profile_changed")
 
 func _on_MenuMusic(data):
@@ -68,6 +71,9 @@ func _on_profile_changed(selected_texture):
 	$player_info/Profile.texture_normal = selected_texture
 	$Profile.texture_normal = selected_texture
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	print(respond)
@@ -97,6 +103,7 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
 		_animationOut()
 		yield(get_tree().create_timer(0.5), "timeout")
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://pck/scenes/confirm_exit.tscn")
 
 
@@ -115,6 +122,7 @@ func comma_sep(number):
 
 func _on_Profile_pressed():
 	Config.MUSIC.volume_db = -80
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/player_info.tscn")
 
 
@@ -139,6 +147,7 @@ func _on_ShanKoeMee_pressed():
 	Config.MUSIC.volume_db = -80
 	_animationOut()
 	yield(get_tree().create_timer(0.5), "timeout")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/shankoemee_level.tscn")
 
 
@@ -147,6 +156,7 @@ func _on_BuGyee_pressed():
 	Config.MUSIC.volume_db = -80
 	_animationOut()
 	yield(get_tree().create_timer(0.5), "timeout")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
 
 
@@ -159,16 +169,19 @@ func _on_BuGyee_pressed():
 func _on_ShweShan_pressed():
 	_animationOut()
 	yield(get_tree().create_timer(0.5), "timeout")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/shwe_shan_level.tscn")
 
 
 func _on_Poker_pressed():
 	_animationOut()
 	yield(get_tree().create_timer(0.5), "timeout")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/poker_level.tscn")
 
 
 func _on_Viber_pressed():
+# warning-ignore:return_value_discarded
 	OS.shell_open("viber://chat/?number=%2B959266714552")
 
 
@@ -194,6 +207,9 @@ func _on_TigerDragon_pressed():
 	var body = JSON.print(data)
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_dragon_tiger_respond(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	var res = json.result;
@@ -203,6 +219,7 @@ func _on_dragon_tiger_respond(result, response_code, headers, body):
 			"passcode":res.passcode,
 			"url":res.url
 		}
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://pck/scenes/tiger_dragon_bet_game.tscn")
 
 
@@ -221,6 +238,9 @@ func _on_ABCD_pressed():
 	var body = JSON.print(data)
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_skm_respond(result, response_code, headers, body):
 #	Signals.emit_signal("menuMusicOff")
 	var json = JSON.parse(body.get_string_from_utf8())
@@ -231,18 +251,22 @@ func _on_skm_respond(result, response_code, headers, body):
 			"passcode":res.passcode,
 			"url":res.url
 		}
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://pck/scenes/skm_bet_game.tscn")
 
 func _on_Members_pressed():
 	Config.MUSIC.volume_db = -80
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/info.tscn")
 
 func _on_bank_Transfer_pressed():
 	Config.MUSIC.volume_db = -80
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/transfer.tscn")
 
 func _on_Bank_withdraw_pressed():
 	Config.MUSIC.volume_db = -80
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/Withdraw.tscn")
 
 

@@ -1,7 +1,10 @@
 extends Node
 
+# warning-ignore:unused_signal
 signal usernameUpdate(name)
+# warning-ignore:unused_signal
 signal musicOn
+# warning-ignore:unused_signal
 signal musicOff
 
 var MUSIC = null

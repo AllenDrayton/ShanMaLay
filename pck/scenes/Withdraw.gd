@@ -9,7 +9,8 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$withdrawAnimation.play("In")
-	Config.MUSIC.volume_db = -80
+	Config.MUSIC.volume_db = 0
+# warning-ignore:unused_variable
 	var request = {
 		"head":"user info"
 	}
@@ -20,6 +21,9 @@ func _ready():
 	http.request(url)
 #	$withdrawAnimation.play("In")
 	
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	print(respond)
@@ -40,14 +44,16 @@ func comma_sep(number):
 	
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = -80
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/menu.tscn")
 #	hide()
 
 func _on_TextureButton_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/Bank_info.tscn")
 
 
 func _on_withdraw2_pressed():
-	get_parent().get_node("transfer").show()
-	get_parent().get_node("transfer").get_node("transfer_history").show()
-#	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")
+	Config.MUSIC.volume_db = -80
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")

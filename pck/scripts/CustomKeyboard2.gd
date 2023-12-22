@@ -21,6 +21,7 @@ func character_pressed(chr):
 			chr = chr.to_lower()
 	label.text += chr
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if shift_pressed:
 		if uppercase_mode:

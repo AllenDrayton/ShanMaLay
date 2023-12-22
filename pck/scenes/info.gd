@@ -43,4 +43,3 @@ func _on_Exit_pressed():
 
 func _on_bank_info_pressed():
 	$bank_info.show()
-#	get_tree().change_scene("res://pck/scenes/Bank_info.tscn")

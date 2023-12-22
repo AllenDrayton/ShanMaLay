@@ -26,6 +26,9 @@ func _ready():
 		if button is TextureButton:
 			button.texture_normal = profile_textures[i]
 	
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	$ProfilePanel/Profile.texture = profile_textures[int(respond.profile) - 1]
@@ -34,6 +37,7 @@ func _on_profile_select(index):
 	if $Accept.is_connected("pressed", self, "_on_Accept_pressed"):
 		$Accept.disconnect("pressed", self, "_on_Accept_pressed")
 
+# warning-ignore:return_value_discarded
 	$Accept.connect("pressed", self, "_on_Accept_pressed", [index])
 	$ProfilePanel/Profile.texture = profile_textures[int(index) - 1]
 	var data = {

@@ -143,17 +143,17 @@ scale = Vector2( 0.46, 0.45 )
 texture = ExtResource( 7 )
 
 [node name="Exit" type="TextureButton" parent="settingbox"]
-margin_left = 952.0
-margin_top = 16.0
-margin_right = 1055.0
-margin_bottom = 122.0
+margin_left = 966.0
+margin_top = 42.0
+margin_right = 1072.0
+margin_bottom = 118.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="settingbox/Exit"]
-position = Vector2( 55, 63 )
+position = Vector2( 55, 37 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 10 )
 

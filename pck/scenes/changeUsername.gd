@@ -33,6 +33,7 @@ func _on_affirmative_pressed():
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 	var name = data["nickname"]
 	Config.emit_signal("usernameUpdate",name)
+	hide()
 
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result

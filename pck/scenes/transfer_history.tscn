@@ -76,12 +76,12 @@ margin_bottom = 902.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="rightbg2" type="Sprite" parent="Panel"]
-position = Vector2( 1004, 485 )
-scale = Vector2( 0.38, 0.3 )
+position = Vector2( 1005.73, 472.5 )
+scale = Vector2( 1.67411, 1.32167 )
 texture = ExtResource( 5 )
 
 [node name="Icon-bottom-bar" type="Sprite" parent="Panel"]
-position = Vector2( 985, -16 )
+position = Vector2( 985, -23 )
 scale = Vector2( 0.685556, 1 )
 texture = ExtResource( 11 )
 
@@ -213,9 +213,9 @@ valign = 1
 
 [node name="question" type="TextureRect" parent="Panel"]
 margin_left = 1900.0
-margin_top = 6.0
+margin_top = -1.0
 margin_right = 1966.0
-margin_bottom = 86.0
+margin_bottom = 79.0
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 5

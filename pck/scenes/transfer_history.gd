@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Config.MUSIC.volume_db = 0
 	var request = {
 		"head":"user info"
 	}
@@ -35,11 +36,7 @@ func comma_sep(number):
 	return res
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Exit_pressed():
-#	get_tree().change_scene("res://pck/scenes/transfer.tscn")
-	hide()
+	Config.MUSIC.volume_db = 0
+	get_tree().change_scene("res://pck/scenes/transfer.tscn")

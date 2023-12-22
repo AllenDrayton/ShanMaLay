@@ -31,13 +31,16 @@ func _ready():
 	Config.MUSIC.stream = music
 	Config.MUSIC.play()
 	$loginAnimationPlayer.play("Null")
+# warning-ignore:return_value_discarded
 	Signals.connect("screenTouch",self,"_on_screen_touch")
 
 	
 	# For Keyboard Functions
 	usernameControl.connect("mouse_entered", self, "on_userName_entered")
 	passwordControl.connect("mouse_entered", self, "on_passWord_entered")
+# warning-ignore:return_value_discarded
 	$CustomKeyboard.connect("enter_pressed", self,"_on_custom_keyboard_enter_pressed")
+# warning-ignore:return_value_discarded
 	$CustomKeyboard.connect("cancel_pressed", self, "_on_custom_keyboard_cancel_pressed")
 	show_placeholder()
 
@@ -140,6 +143,7 @@ func _on_screen_touch():
 	_loginBoxOut()
 
 
+# warning-ignore:unused_argument
 func _process(delta):
 #	print(Config.MUSIC)
 	if $LoginBox.visible == true:
@@ -155,6 +159,7 @@ func _rejoin_game(gameState) :
 	$"/root/ws".gameState = gameState
 	match gameState.game :
 		"shankoemee":
+# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://pck/scenes/shankoemee_game.tscn")
 
 
@@ -200,6 +205,7 @@ func _change_to_menu(username,session,id):
 	$"/root/Config".config.user = user
 	if $Remember.pressed:
 		_save(user)
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/loginLoadingScreen.tscn")
 
 
@@ -244,6 +250,9 @@ func _load():
 			return obj.result
 	return null
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 #	print(respond)
@@ -255,6 +264,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			if respond.sessionLogin :
 				var user = {"username":respond.username,"session":respond.session,"id":respond.id}
 				$"/root/Config".config.user = user
+# warning-ignore:return_value_discarded
 				get_tree().change_scene("res://pck/scenes/menu.tscn")
 			else :
 				_change_to_menu(respond.username,respond.session,respond.id)

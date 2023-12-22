@@ -35,9 +35,9 @@ func comma_sep(number):
 	return res
 
 func _on_Exit_pressed():
-#	hide()
+	Config.MUSIC.volume_db = 0
 	get_tree().change_scene("res://pck/scenes/menu.tscn")
 	
 func _on_info_pressed():
-	hide()
-#	get_tree().change_scene("res://pck/scenes/info.tscn")
+	Config.MUSIC.volume_db = 0
+	get_tree().change_scene("res://pck/scenes/info.tscn")
