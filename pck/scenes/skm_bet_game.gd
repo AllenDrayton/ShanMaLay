@@ -39,6 +39,7 @@ var CardStatusVoices = [
 ]
 
 var music = preload("res://pck/assets/audio/music-2.mp3")
+const sifiMusic = preload("res://pck/assets/audio/SML_Sifi_song.ogg")
 var coinPrefab = preload("res://pck/prefabs/Coin.tscn")
 var cardPrefab = preload("res://pck/assets/skm_bet/Card.tscn")
 var historyPrefab = preload("res://pck/assets/skm_bet/HistoryRow.tscn")
@@ -61,7 +62,7 @@ var GameVoices = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"/root/bgm".stream = music
+	$"/root/bgm".stream = sifiMusic
 	$"/root/bgm".play()
 	
 	$ShanMa.play("idle")

@@ -29,6 +29,7 @@ var GameVoices = {
 
 # Static
 const music = preload("res://pck/assets/audio/music-2.mp3")
+const sifiMusic = preload("res://pck/assets/audio/SML_Sifi_song.ogg")
 
 const playerPrefab = preload("res://pck/assets/poker_13/poker_13_player.tscn")
 const deckCardPrefab = preload("res://pck/assets/poker_13/DeckCard.tscn")
@@ -55,7 +56,7 @@ var _client = WebSocketClient.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"/root/bgm".stream = music
+	$"/root/bgm".stream = sifiMusic
 	$"/root/bgm".play()
 	
 	$ShanMa.play("idle")

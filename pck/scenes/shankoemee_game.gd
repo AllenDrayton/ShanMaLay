@@ -8,6 +8,7 @@ const CARD_CHECK_TIME = 3
 
 # Static
 const music = preload("res://pck/assets/audio/music-2.mp3")
+const sifiMusic = preload("res://pck/assets/audio/SML_Sifi_song.ogg")
 
 const GameStates = {
 	"wait": 0,
@@ -64,7 +65,7 @@ var _client = WebSocketClient.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"/root/bgm".stream = music
+	$"/root/bgm".stream = sifiMusic
 	$"/root/bgm".play()
 	
 	# Reset Music
