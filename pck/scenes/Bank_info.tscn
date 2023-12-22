@@ -61,17 +61,17 @@ texture = ExtResource( 2 )
 
 [node name="Exit" type="TextureButton" parent="Panel"]
 anchor_top = -0.022
-margin_left = 8.28937
-margin_top = -4.288
-margin_right = 229.289
-margin_bottom = 111.488
+margin_left = 0.28937
+margin_top = -1.288
+margin_right = 221.289
+margin_bottom = 114.488
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Panel/Exit"]
-position = Vector2( 82.502, 67.5 )
-scale = Vector2( 0.18, 0.2 )
+position = Vector2( 99.502, 67.5 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
 [node name="question" type="TextureRect" parent="Panel"]

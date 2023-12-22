@@ -19,8 +19,11 @@ var passwordSide = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	$Remember.pressed = true
 #	_load_session()
+	var savedData = _load()
+	if savedData != null:
+		$LoginBox/UsernameControl/Username.text = savedData["username"]
+		$LoginBox/PasswordControl/Password.text = savedData["password"]
 	$version.text = "Version " + str(Config.VERSION)
 	_load_bgm()
 	Config.MUSIC.stream = music
@@ -126,7 +129,6 @@ func _on_screen_touch():
 	_loginBoxOut()
 
 
-
 func _process(delta):
 #	print(Config.MUSIC)
 	if $LoginBox.visible == true:
@@ -185,7 +187,7 @@ func _on_Login_pressed():
 func _change_to_menu(username,session,id):
 	var user = {"username":username,"session":session,"id":id}
 	$"/root/Config".config.user = user
-	if $Remember.pressed :
+	if $Remember.pressed:
 		_save(user)
 	get_tree().change_scene("res://pck/scenes/loginLoadingScreen.tscn")
 
@@ -220,6 +222,16 @@ func _save(data):
 	file.store_string(JSON.print(data))
 	file.close()
 
+func _load():
+	var file = File.new()
+	if file.file_exists(filepath):
+		file.open(filepath, File.READ)
+		var txt = file.get_as_text()
+		file.close()
+		var obj = JSON.parse(txt)
+		if obj.error == OK:
+			return obj.result
+	return null
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
@@ -297,3 +309,16 @@ func _on_keyboard_pw_timer_timeout():
 	$LoginBox/PasswordControl.hide()
 	$AccountButton.hide()
 	$LoginBox/Login.hide()
+
+
+
+
+func _on_Remember_pressed():
+	var username = $LoginBox/UsernameControl/Username.text
+	var password = $LoginBox/PasswordControl/Password.text
+	
+	var data = {
+		"username": username,
+		"password": password
+	}
+	_save(data)

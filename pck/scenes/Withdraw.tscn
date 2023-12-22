@@ -206,13 +206,13 @@ texture = ExtResource( 13 )
 [node name="Exit" type="TextureButton" parent="Withdraw_panel"]
 anchor_top = -0.022
 margin_left = 3.0
-margin_top = 15.712
-margin_right = 110.0
-margin_bottom = 100.328
+margin_top = 16.108
+margin_right = 195.0
+margin_bottom = 101.0
 
 [node name="Sprite" type="Sprite" parent="Withdraw_panel/Exit"]
-position = Vector2( 70, 52.396 )
-scale = Vector2( 0.1465, 0.216049 )
+position = Vector2( 98, 52.396 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="confirm" type="TextureButton" parent="Withdraw_panel"]
