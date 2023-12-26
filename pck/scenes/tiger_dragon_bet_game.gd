@@ -146,10 +146,10 @@ func _connect_ws():
 
 func _closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://start/conn_error.tscn")
-	#set_process(false)
-	#_client = null
 
+# warning-ignore:unused_argument
 func _connected(proto = ""):
 	var request = {
 		"head":"handshake",
@@ -162,7 +162,7 @@ func _connected(proto = ""):
 
 func _on_data():
 	var respond = _client.get_peer(1).get_packet().get_string_from_utf8();
-	print("From server: ", respond)
+#	print("From server: ", respond)
 	print("")
 	var obj = JSON.parse(respond);
 	var res = obj.result
@@ -175,7 +175,7 @@ func send(data):
 	_client.get_peer(1).put_packet(json.to_utf8())
 
 func _on_server_respond(respond):
-	print("Respond: ",respond)
+#	print("Respond: ",respond)
 	match respond.head:
 		"handshake":
 			_handshake_respond(respond.body)
@@ -193,11 +193,14 @@ func firstcoinselect():
 	pos.y-=30
 	sel.rect_position.y=pos.y
 
+
+
 func _start(body):
+	print(body)
 	if isExit:
 		#Config.MUSIC.stream = BlankMusic
 		Config.MUSIC.volume_db = -80
-#		get_tree().change_scene("res://pck/scenes/menu.tscn")
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
 		return
 	
@@ -355,11 +358,13 @@ func _end(body):
 				coin.target = target
 #				winCoinCount -= 1
 	else:
+# warning-ignore:integer_division
 		var mid=floor($CoinContainer.get_child_count()/2)
 		print("Same Shape checking for true: ",sameShape)
 		for coin in $CoinContainer.get_children().slice(0,mid+1):
 				if coin.playerIndex == -1 && winCoinCount>0:
 					var rx = (randi() % 60) - 30
+# warning-ignore:unused_variable
 					var ry = (randi() % 60) - 30
 					var sameShapeTarget = betArea[3].get_node("Pos").global_position
 					sameShapeTarget.x += rx
@@ -486,7 +491,6 @@ func _reset():
 
 func _process(delta):
 	_client.poll()
-	
 	tick += delta
 	if tick > wait && fakeBet :
 		tick = 0
@@ -525,6 +529,7 @@ func _bot_bet():
 			betArea[rb].get_node("Total").text = _balance_round(betAmount[rb])
 	# Players bet
 	var t = randi() % 10 + 1
+# warning-ignore:unused_variable
 	for i in range(t):
 		var coin = coinPrefab.instance()
 		coin.position = $Bots/Players.position

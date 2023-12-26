@@ -77,8 +77,6 @@ text = "ေက်းဇူးျပဳ၍ ခဏေစာင့္ေပးပ�
 align = 1
 valign = 1
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="spinner" type="Sprite" parent="."]
 position = Vector2( 1009, 473 )
 scale = Vector2( 0.4, 0.4 )
@@ -93,5 +91,7 @@ texture = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/New Anim" = SubResource( 24 )
 anims/RESET = SubResource( 25 )
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

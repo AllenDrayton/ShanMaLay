@@ -93,7 +93,7 @@ func _on_Exit_pressed():
 	#Config.MUSIC.stream = BlankMusic
 	Config.MUSIC.volume_db = -80
 	$AnimationPlayer.play("out")
-#	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "out":

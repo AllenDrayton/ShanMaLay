@@ -1514,13 +1514,13 @@ visible = false
 position = Vector2( 1157, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
+frame = 1
 playing = true
 
 [node name="card_gif_2" type="AnimatedSprite" parent="."]
 position = Vector2( 848, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
-frame = 5
 playing = true
 
 [node name="C1" type="Sprite" parent="."]

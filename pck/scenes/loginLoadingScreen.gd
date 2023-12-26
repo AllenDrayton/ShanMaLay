@@ -9,5 +9,3 @@ func _ready():
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://pck/scenes/menu.tscn")
-
-
