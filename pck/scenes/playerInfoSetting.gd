@@ -48,7 +48,6 @@ func _on_profile_select(index):
 	var url = $"/root/Config".config.account_url + "profile_change"
 	var http = HTTPRequest.new()
 	add_child(http)
-	http.connect("request_completed",self,"_profile_changed")
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.print(data)
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
@@ -56,26 +55,9 @@ func _on_profile_select(index):
 
 func _on_Accept_pressed(index):
 	var selectedTexture = profile_textures[int(index) - 1]
-	print(str(index) + " OK")
-	var data = {
-		"username": $"/root/Config".config.user.username,
-		"session": $"/root/Config".config.user.session,
-		"index": index
-	}
-
-	var url = $"/root/Config".config.account_url + "profile_change"
-	var http = HTTPRequest.new()
-	add_child(http)
-	http.connect("request_completed", self, "_profile_changed")
-	var headers = ["Content-Type: application/json"]
-	var body = JSON.print(data)
-	http.request(url, headers, false, HTTPClient.METHOD_POST, body)
-	print(data)
 	Signals.emit_signal("profileChanged",selectedTexture)
 	hide()
 
-func _profile_changed():
-	pass
 
 func _on_Exit_pressed():
 	$playerInfoAnimation.play("Out")

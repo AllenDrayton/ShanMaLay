@@ -45,7 +45,7 @@ func comma_sep(number):
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = -80
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://pck/scenes/menu.tscn")
+	get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
 #	hide()
 
 func _on_TextureButton_pressed():
