@@ -30,11 +30,13 @@ func comma_sep(number):
 	return res
 
 func _on_Exit_pressed():
-#	hide()
 	$transferAnimation.play("Out")
 	Config.MUSIC.volume_db = -80
-	get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+	
 	
 func _on_transfer_pressed():
 	$transfer_history.show()
-#	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")
+
+func _on_transferAnimation_animation_finished(anim_name):
+	if anim_name == "Out":
+		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")

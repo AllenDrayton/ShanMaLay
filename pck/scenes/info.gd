@@ -39,7 +39,12 @@ func comma_sep(number):
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = -80
 	$InfoAnimation.play("Out")
-	get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+	
 
 func _on_bank_info_pressed():
 	$bank_info.show()
+
+
+func _on_InfoAnimation_animation_finished(anim_name):
+	if anim_name == "Out":
+		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")

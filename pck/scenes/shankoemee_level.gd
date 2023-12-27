@@ -88,13 +88,9 @@ func _level_selected(result, response_code, headers, body):
 
 
 func _on_Exit_pressed():
-	#$"/root/bgm".stream = BlankMusic
 	Config.MUSIC.volume_db = -80
 	$AnimationPlayer.play("out")
-	#yield(get_tree().create_timer(1), "timeout")
-	
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "out":
-#		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")

@@ -379,5 +379,6 @@ position = Vector2( 50.5313, 47.3125 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 
+[connection signal="animation_finished" from="withdrawAnimation" to="." method="_on_withdrawAnimation_animation_finished"]
 [connection signal="pressed" from="Withdraw_panel/withdraw2" to="." method="_on_withdraw2_pressed"]
 [connection signal="pressed" from="Withdraw_panel/Exit" to="." method="_on_Exit_pressed"]

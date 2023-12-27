@@ -161,4 +161,9 @@ func _on_NewPw_timer_timeout():
 
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = -80
-	get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+	$playerInfoAnimation.play("Out")
+
+
+func _on_playerInfoAnimation_animation_finished(anim_name):
+	if anim_name == "Out":
+		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")

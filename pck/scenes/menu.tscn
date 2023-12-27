@@ -2543,7 +2543,7 @@ position = Vector2( 126, 148 )
 scale = Vector2( 1.95, 1.95 )
 frames = SubResource( 330 )
 animation = "New Anim"
-frame = 27
+frame = 67
 playing = true
 
 [node name="BuGyee" type="TextureButton" parent="."]
@@ -2563,7 +2563,7 @@ position = Vector2( 160, 47 )
 scale = Vector2( 1.1, 1.1 )
 frames = SubResource( 406 )
 animation = "New Anim"
-frame = 22
+frame = 62
 playing = true
 
 [node name="ABCD" type="TextureButton" parent="."]
@@ -2602,7 +2602,7 @@ position = Vector2( 186.75, 56.375 )
 scale = Vector2( 1.1, 1.1 )
 frames = SubResource( 482 )
 animation = "New Anim"
-frame = 1
+frame = 41
 playing = true
 
 [node name="Fishing" type="TextureButton" parent="."]

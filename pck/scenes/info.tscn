@@ -306,5 +306,6 @@ texture = ExtResource( 4 )
 [node name="bank_info" parent="." instance=ExtResource( 15 )]
 visible = false
 
+[connection signal="animation_finished" from="InfoAnimation" to="." method="_on_InfoAnimation_animation_finished"]
 [connection signal="pressed" from="info_panel/bank_info" to="." method="_on_bank_info_pressed"]
 [connection signal="pressed" from="info_panel/Exit" to="." method="_on_Exit_pressed"]

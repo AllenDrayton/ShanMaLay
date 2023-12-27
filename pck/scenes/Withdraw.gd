@@ -1,12 +1,5 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$withdrawAnimation.play("In")
 	Config.MUSIC.volume_db = 0
@@ -44,9 +37,9 @@ func comma_sep(number):
 	
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = -80
+	$withdrawAnimation.play("Out")
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
-#	hide()
+
 
 func _on_TextureButton_pressed():
 # warning-ignore:return_value_discarded
@@ -57,3 +50,8 @@ func _on_withdraw2_pressed():
 	Config.MUSIC.volume_db = -80
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/transfer_history.tscn")
+
+
+func _on_withdrawAnimation_animation_finished(anim_name):
+	if anim_name == "Out":
+		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
