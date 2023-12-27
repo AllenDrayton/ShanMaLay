@@ -585,7 +585,6 @@ region_rect = Rect2( 0, 0, 724, 801 )
 
 [node name="Player" type="Node2D"]
 position = Vector2( 920, 740 )
-z_index = -1
 script = ExtResource( 16 )
 
 [node name="Profile" type="TextureRect" parent="."]
@@ -690,14 +689,18 @@ valign = 1
 visible = false
 position = Vector2( 90, 20 )
 scale = Vector2( 0.8, 0.8 )
+z_index = 2
 
 [node name="card1" parent="CardPos" instance=ExtResource( 14 )]
+z_index = 0
 
 [node name="card2" parent="CardPos" instance=ExtResource( 14 )]
 position = Vector2( 35, 0 )
+z_index = 0
 
 [node name="card3" parent="CardPos" instance=ExtResource( 14 )]
 position = Vector2( 70, 0 )
+z_index = 0
 
 [node name="TransferBalance" type="Node2D" parent="."]
 z_index = 2

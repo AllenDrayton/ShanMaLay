@@ -18,17 +18,24 @@ func _ready():
 		Config.MUSIC.volume_db = 0
 	Signals.emit_signal("disableButtons")
 	$playerInfoAnimation.play("In")
+# warning-ignore:return_value_discarded
 	Config.connect("usernameUpdate",self,"_on_usernameUpdate")
 	$playerInfoSetting.hide()
 	$playerInfoSetting.get_node("playerInfoAnimation").play("RESET")
 	profile.rect_scale = Vector2(1.6,1.6)
+# warning-ignore:return_value_discarded
 	$Exit.connect("pressed", self, "_on_exit")
 	
+# warning-ignore:return_value_discarded
 	$changePW/PWpanel/PwNewControl.connect("mouse_entered", self, "mouse_in_Oldpw")
+# warning-ignore:return_value_discarded
 	$changePW/PWpanel/ConfirmPwControl.connect("mouse_entered", self, "mouse_in_NewPw")
+# warning-ignore:return_value_discarded
 	$CustomKeyboard.connect("enter_pressed", self,"_on_custom_keyboard_enter_pressed")
+# warning-ignore:return_value_discarded
 	$CustomKeyboard.connect("cancel_pressed", self, "_on_custom_keyboard_cancel_pressed")
 	show_placeholder()
+# warning-ignore:unused_variable
 	var request = {
 		"head":"user info"
 	}
@@ -37,11 +44,16 @@ func _ready():
 	add_child(http)
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
+# warning-ignore:unused_variable
 	var currentMusic = $"/root/bgm".stream.resource_path.get_file().get_basename()
+# warning-ignore:return_value_discarded
 	Signals.connect("profileChanged",self,"_on_profile_changed")
 	
 	
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	$Username.text = respond.username
@@ -53,6 +65,7 @@ func _on_profile_changed(selected_texture):
 	$Profile.texture_normal = selected_texture
 	$Profile.texture_normal = selected_texture
 
+# warning-ignore:unused_argument
 func _process(delta):
 	show_placeholder()
 

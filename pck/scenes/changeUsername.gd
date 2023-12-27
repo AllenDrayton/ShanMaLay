@@ -4,6 +4,7 @@ onready var tick = load("res://pck/assets/HomeScence/Home-Change-Username/icon-c
 
 func _ready():
 
+# warning-ignore:return_value_discarded
 	$Male.connect("pressed",self,"_on_male_pressed")
 	$Male.texture_normal = null
 	$Female.connect("pressed",self,"_on_female_pressed")

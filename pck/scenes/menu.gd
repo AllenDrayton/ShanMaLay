@@ -116,9 +116,7 @@ func comma_sep(number):
 func _on_Profile_pressed():
 	Config.MUSIC.volume_db = -80
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://pck/scenes/player_info.tscn")
-
-
+	LoadingScript.load_scene(self,"res://pck/scenes/player_info.tscn")
 
 func _on_SettingToggle_pressed():
 	$Setting.show()

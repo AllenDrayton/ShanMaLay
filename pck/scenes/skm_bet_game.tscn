@@ -1457,6 +1457,7 @@ position = Vector2( 999, 130 )
 scale = Vector2( 0.914109, 0.914109 )
 frames = SubResource( 12 )
 animation = "idle"
+frame = 16
 playing = true
 
 [node name="Girl" type="Sprite" parent="."]

@@ -992,13 +992,11 @@ __meta__ = {
 [node name="SkomiBg" type="Sprite" parent="."]
 position = Vector2( 1000, 448 )
 scale = Vector2( 1.33333, 1.19467 )
-z_index = -2
 texture = ExtResource( 195 )
 
 [node name="DeskBoard" type="Sprite" parent="."]
 position = Vector2( 998, 415 )
 scale = Vector2( 1.02969, 0.941667 )
-z_index = -2
 texture = ExtResource( 194 )
 __meta__ = {
 "_edit_lock_": true
