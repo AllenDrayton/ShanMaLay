@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://pck/prefabs/Loading.gd" type="Script" id=3]
 [ext_resource path="res://pck/assets/common/spinner.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/menu/NewMenu/bg-1.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=6]
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
@@ -101,6 +102,11 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=24]
+size = 60
+use_filter = true
+font_data = ExtResource( 6 )
+
 [node name="BackDrop" type="Node2D"]
 z_index = 20
 script = ExtResource( 3 )
@@ -119,7 +125,7 @@ texture = ExtResource( 1 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 22 )
-frame = 6
+frame = 7
 playing = true
 
 [node name="Label" type="Label" parent="."]
@@ -131,5 +137,15 @@ margin_bottom = 318.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 23 )
 text = "ေက်းဇူးျပဳ၍ ခဏေစာင့္ေပးပါ။"
+align = 1
+valign = 1
+
+[node name="ProgressPercentage" type="Label" parent="."]
+margin_left = 940.0
+margin_top = 409.0
+margin_right = 1061.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 24 )
+text = "0%"
 align = 1
 valign = 1

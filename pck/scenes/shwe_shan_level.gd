@@ -30,6 +30,9 @@ func _ready():
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	$Balance/Label.text = comma_sep(respond.balance)
+	if respond == null:
+		$"/root/bgm".stop()
+		LoadingScript.load_scene(self, "res://start/conn_error.tscn")
 
 
 func _notification(what):

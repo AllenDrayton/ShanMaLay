@@ -25,9 +25,15 @@ func load_scene(current_scene, next_scene):
 	while true:
 		var error = loader.poll()
 		# when we get a chunk of data
+		
+		# allow the engine to process events and update the UI
+		yield(get_tree(), "idle_frame")
+		
 		if error == OK:
-			# update the progress bar according to amount of data loaded
-			pass
+			# update the progress percentage according to amount of data loaded
+			var progress_percentage = loading_scene_instance.get_node("ProgressPercentage")
+			progress_percentage.text = str(int(float(loader.get_stage())/loader.get_stage_count() * 100)) + "%"
+			
 		# when all the data have been loaded
 		elif error == ERR_FILE_EOF:
 			# creating scene instance from loaded data

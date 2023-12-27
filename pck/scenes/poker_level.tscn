@@ -9,7 +9,6 @@
 [ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=7]
 [ext_resource path="res://pck/scenes/backgroundScroll.tscn" type="PackedScene" id=9]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=13]
-[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="DynamicFont" id=11]
 size = 30
@@ -171,10 +170,15 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=16]
+size = 30
+use_filter = true
+font_data = ExtResource( 13 )
+
 [sub_resource type="DynamicFont" id=12]
 size = 30
 use_filter = true
-font_data = ExtResource( 16 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="Animation" id=13]
 length = 0.001
@@ -568,7 +572,6 @@ margin_top = -19.0
 margin_right = -180.0
 margin_bottom = -72.0
 custom_fonts/font = SubResource( 11 )
-text = "0"
 align = 1
 valign = 1
 
@@ -605,13 +608,13 @@ __meta__ = {
 [node name="Bet" type="Label" parent="level1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 72.0
+margin_left = 43.0
 margin_top = 122.0
-margin_right = -64.0
-margin_bottom = 51.0
+margin_right = -45.0
+margin_bottom = 53.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "Level 1"
+custom_fonts/font = SubResource( 16 )
+text = "Level - 1"
 align = 1
 valign = 1
 

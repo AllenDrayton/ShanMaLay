@@ -228,6 +228,9 @@ func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	nickname_txt.text = respond.nickname
 	$ProfilePanel/Profile.texture = profile_textures[int(respond.profile)]
+	if respond == null:
+		$"/root/bgm".stop()
+		LoadingScript.load_scene(self, "res://start/conn_error.tscn")
 
 
 func _load_profile_textures():
@@ -314,6 +317,10 @@ func _password_changed(result, response_code, headers, body):
 
 
 func _on_Logout_pressed():
+	
+	# For Music
+	$"/root/bgm".volume_db = -50
+	
 	var file = File.new()
 	file.open(filepath, File.WRITE)
 	file.store_string("")

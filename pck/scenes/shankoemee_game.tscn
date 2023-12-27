@@ -379,6 +379,7 @@ tracks/8/keys = {
 size = 80
 outline_size = 2
 outline_color = Color( 0.337255, 0.00784314, 0.00784314, 1 )
+use_filter = true
 font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=60]

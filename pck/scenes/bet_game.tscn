@@ -240,7 +240,6 @@ margin_top = -19.0
 margin_right = -180.0
 margin_bottom = -72.0
 custom_fonts/font = SubResource( 10 )
-text = "0"
 align = 1
 valign = 1
 

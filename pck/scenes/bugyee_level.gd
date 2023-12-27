@@ -5,7 +5,6 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -28,9 +27,13 @@ func _ready():
 	$UpperPanelAnimation.play("in")
 
 
+
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	$Balance/Label.text = comma_sep(respond.balance)
+	if respond == null:
+		$"/root/bgm".stop()
+		LoadingScript.load_scene(self, "res://start/conn_error.tscn")
 
 
 func _notification(what):
@@ -99,3 +102,4 @@ func _on_Exit_pressed():
 	yield(get_tree().create_timer(1), "timeout")
 	#get_tree().change_scene("res://pck/scenes/menu.tscn")
 	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
+

@@ -36,11 +36,14 @@ func _ready():
 
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
-	print(respond)
+	print("This is Respond : ", respond)
 	$MoneyBg/Balance.text = comma_sep(respond.balance)
 	$ProfileBg/Username.text = respond.username
 	$ProfileBg/Nickname.text = respond.nickname
 	$ProfileBg/Profile.texture_normal = profile_textures[int(respond.profile)]
+	if respond == null:
+		$"/root/bgm".stop()
+		LoadingScript.load_scene(self, "res://start/conn_error.tscn")
 
 
 func _load_profile_textures():

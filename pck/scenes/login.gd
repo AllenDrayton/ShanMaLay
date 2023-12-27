@@ -1,5 +1,6 @@
 extends Node2D
 
+const music = preload("res://pck/assets/audio/music-1.mp3")
 
 var filepath = "user://session.txt"
 
@@ -17,6 +18,12 @@ var password_entered = false
 func _ready():
 	_load_session()
 	_load_bgm()
+	
+	if $Setting/SliderMusic.value == 0:
+		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+	else:
+		$"/root/bgm".volume_db += 45
+	
 	userName.connect("mouse_entered", self, "on_userName_mouse_entered")
 	passWord.connect("mouse_entered", self, "on_passWord_mouse_entered")
 #	userName.connect("mouse_entered", self, "on_userName_entered")
@@ -27,6 +34,10 @@ func _ready():
 	
 	label_placeholder()
 	
+	var currentMusic = $"/root/bgm".stream.resource_path.get_file().get_basename()
+	if currentMusic != "music-1":
+		$"/root/bgm".stream = music
+		$"/root/bgm".play()
 
 func _process(delta):
 	label_placeholder()

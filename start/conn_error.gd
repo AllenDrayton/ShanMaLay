@@ -18,3 +18,4 @@ func _ready():
 
 func _on_Retry_pressed():
 	get_tree().change_scene("res://start/start.tscn")
+	#LoadingScript.load_scene(self, "res://start/start.tscn")
