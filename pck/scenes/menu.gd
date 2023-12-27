@@ -67,7 +67,6 @@ func _disable_buttons(disable):
 	$Bank_withdraw.disabled = disable
 	
 func _on_profile_changed(selected_texture):
-	$player_info/Profile.texture_normal = selected_texture
 	$Profile.texture_normal = selected_texture
 
 # warning-ignore:unused_argument
