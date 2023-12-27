@@ -14,6 +14,7 @@ func _ready():
 	elif Signals.user_mute_music == false:
 		Config.MUSIC.volume_db = 0
 	
+# warning-ignore:return_value_discarded
 	Signals.connect("disableButtons",self,"_on_disable_buttons")
 	
 #	$ABCD.modulate = Color(0.5, 0.5, 0.5, 0.8)

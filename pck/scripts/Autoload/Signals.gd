@@ -20,6 +20,7 @@ signal winner
 signal menuMusic(data)
 # warning-ignore:unused_signal
 signal profileChanged(selectedTexture)
+# warning-ignore:unused_signal
 signal disableButtons
 var user_mute_music
 

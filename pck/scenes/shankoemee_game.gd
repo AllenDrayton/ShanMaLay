@@ -161,10 +161,8 @@ func _connect_ws():
 
 
 func _closed(was_clean = false):
-#	print("Closed, clean: ", was_clean)
-	get_tree().change_scene("res://start/conn_error.tscn")
-	#set_process(false)
-	#_client = null
+	print("Closed, clean: ", was_clean)
+	LoadingScript.load_scene(self,"res://start/conn_error.tscn")
 
 
 func _connected(proto = ""):

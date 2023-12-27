@@ -61,7 +61,7 @@ func _on_Accept_pressed(index):
 
 func _on_Exit_pressed():
 	$playerInfoAnimation.play("Out")
-	hide()	
+	hide()
 
 
 

@@ -9,6 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Config.MUSIC.volume_db = 0
+# warning-ignore:unused_variable
 	var request = {
 		"head":"user info"
 	}
@@ -18,6 +19,9 @@ func _ready():
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	print(respond)
@@ -39,4 +43,5 @@ func comma_sep(number):
 
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = 0
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/transfer.tscn")

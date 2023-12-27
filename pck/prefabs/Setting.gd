@@ -226,4 +226,5 @@ func unmuteSound():
 
 func _on_logout_pressed():
 	Config.MUSIC.stream = BlankMusic
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/login.tscn")
