@@ -23,6 +23,7 @@ AudioClick="*res://start/AudioClick.tscn"
 Config="*res://start/Config.tscn"
 ExitClick="*res://start/ExitClick.tscn"
 Signals="*res://pck/scripts/Autoload/Signals.gd"
+LoadingScript="*res://pck/scripts/Autoload/LoadingScript.gd"
 
 [display]
 

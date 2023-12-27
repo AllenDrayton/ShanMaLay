@@ -93,4 +93,5 @@ func _on_Exit_pressed():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "out":
-		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+#		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")

@@ -196,7 +196,7 @@ func _on_server_respond(respond):
 #				get_tree().change_scene("res://pck/scenes/menu.tscn")
 				#$"/root/bgm".stream = BlankMusic
 				Config.MUSIC.volume_db = -80
-				get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 				return
 			_update_room(body)
 		"emoji":
@@ -321,7 +321,7 @@ func _update_room(room):
 #		get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
 		#$"/root/bgm".stream = BlankMusic
 		Config.MUSIC.volume_db = -80
-		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 		
 	if room.players[myIndex].isWaiting:

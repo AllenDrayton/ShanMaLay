@@ -164,7 +164,6 @@ func _rejoin_game(gameState) :
 
 
 func _on_Login_pressed():
-	#Config.MUSIC.stream = BlankMusic
 	Config.MUSIC.volume_db = -80
 	var username = username_txt.text
 	var password = $StorePassword.text
@@ -207,7 +206,7 @@ func _change_to_menu(username,session,id):
 		_save(user)
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://pck/scenes/loginLoadingScreen.tscn")
-
+#	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 
 func _load_session():
 	var file = File.new()

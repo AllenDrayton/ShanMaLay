@@ -12,7 +12,11 @@ func _ready():
 	add_child(http)
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
-#	$withdrawAnimation.play("In")
+	
+	if Signals.user_mute_music == true:
+		Config.MUSIC.volume_db = -80
+	elif Signals.user_mute_music == false:
+		Config.MUSIC.volume_db = 0
 	
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
@@ -54,4 +58,4 @@ func _on_withdraw2_pressed():
 
 func _on_withdrawAnimation_animation_finished(anim_name):
 	if anim_name == "Out":
-		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")

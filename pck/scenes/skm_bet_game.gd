@@ -213,7 +213,7 @@ func _start(body):
 		#Config.MUSIC.stream = BlankMusic
 		Config.MUSIC.volume_db = -80
 #		get_tree().change_scene("res://pck/scenes/menu.tscn")
-		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 	
 	_reset()

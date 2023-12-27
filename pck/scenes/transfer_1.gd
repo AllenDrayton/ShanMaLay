@@ -12,6 +12,11 @@ func _ready():
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	
+	if Signals.user_mute_music == true:
+		Config.MUSIC.volume_db = -80
+	elif Signals.user_mute_music == false:
+		Config.MUSIC.volume_db = 0
+	
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 	print(respond)
@@ -39,4 +44,4 @@ func _on_transfer_pressed():
 
 func _on_transferAnimation_animation_finished(anim_name):
 	if anim_name == "Out":
-		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")

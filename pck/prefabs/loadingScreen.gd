@@ -5,7 +5,7 @@ export (float) var time = 0.5
 func _ready():
 	$AnimationPlayer.play("New Anim")
 	$Timer.wait_time = time
-	$Timer.start()
+#	$Timer.start()
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://pck/scenes/menu.tscn")

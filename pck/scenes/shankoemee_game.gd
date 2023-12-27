@@ -207,7 +207,7 @@ func _on_server_respond(respond):
 				#Config.MUSIC.stop()
 				Config.MUSIC.volume_db = -80
 #				get_tree().change_scene("res://pck/scenes/shankoemee_level.tscn")
-				get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 				return
 			_update_room(body.room)
 		"emoji":
@@ -256,7 +256,7 @@ func _update_room(room):
 		#Config.MUSIC.stream = BlankMusic
 		Config.MUSIC.volume_db = -80
 #		get_tree().change_scene("res://pck/scenes/shankoemee_level.tscn")
-		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 		
 	if room.gameState != GameStates.start && isStart:

@@ -11,7 +11,12 @@ var newPw_side = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_load_profile_textures()
-	Config.MUSIC.volume_db = 0
+	
+	if Signals.user_mute_music == true:
+		Config.MUSIC.volume_db = -80
+	elif Signals.user_mute_music == false:
+		Config.MUSIC.volume_db = 0
+	Signals.emit_signal("disableButtons")
 	$playerInfoAnimation.play("In")
 	Config.connect("usernameUpdate",self,"_on_usernameUpdate")
 	$playerInfoSetting.hide()
@@ -34,6 +39,8 @@ func _ready():
 	http.request(url)
 	var currentMusic = $"/root/bgm".stream.resource_path.get_file().get_basename()
 	Signals.connect("profileChanged",self,"_on_profile_changed")
+	
+	
 
 func _update_info(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
@@ -166,4 +173,4 @@ func _on_Exit_pressed():
 
 func _on_playerInfoAnimation_animation_finished(anim_name):
 	if anim_name == "Out":
-		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")

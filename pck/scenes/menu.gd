@@ -14,11 +14,12 @@ func _ready():
 	elif Signals.user_mute_music == false:
 		Config.MUSIC.volume_db = 0
 	
+	Signals.connect("disableButtons",self,"_on_disable_buttons")
+	
 #	$ABCD.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$Fishing/FishSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$Slots/SlotSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
 #	$BuGyee/BuGyee_GIF.modulate = Color(0.5, 0.5, 0.5, 0.8)
-	$player_info.hide()
 	_load_profile_textures()
 	_animationIn()
 # warning-ignore:return_value_discarded
@@ -43,18 +44,15 @@ func _ready():
 func _on_MenuMusic(data):
 	print(data)
 
+func on_disabel_buttons():
+	_disable_buttons(true)
+
 func musicOn():
 	Config.MUSIC.volume_db = 0
 
 func musicOff():
 	Config.MUSIC.volume_db = -80
 
-func _process(_delta):
-#	print(Config.MUSIC)
-	if $player_info.visible == true:
-		_disable_buttons(true)
-	elif $player_info.visible == false:
-		_disable_buttons(false)
 	
 func _disable_buttons(disable):
 	$ShanKoeMee.disabled = disable
@@ -81,12 +79,7 @@ func _update_info(result, response_code, headers, body):
 	$Username.text = respond.username
 	$Nickname.text = respond.nickname
 	$Profile.texture_normal = profile_textures[int(respond.profile) - 1]
-#	print(str(respond.profile))
-	$player_info/Username.text = respond.username
-	$player_info/Nickname.text = respond.nickname
-	$player_info/Profile.texture_normal = profile_textures[int(respond.profile) - 1]
-	$player_info/changePW/PWpanel/Username.text = respond.username
-#	print(str(respond.profile))
+
 
 func _on_usernameUpdate(name):
 	$Nickname.text = name
