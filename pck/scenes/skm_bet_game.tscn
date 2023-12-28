@@ -1430,17 +1430,14 @@ modulate = Color( 1, 1, 1, 0.784314 )
 position = Vector2( 511, 81 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 10 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Timer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -705.0
-margin_top = -667.0
-margin_right = -733.0
-margin_bottom = -680.0
+margin_left = -275.0
+margin_top = -237.0
+margin_right = -1210.0
+margin_bottom = -1166.0
 custom_colors/font_color = Color( 0.721569, 0.372549, 0.141176, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "0"
@@ -1457,7 +1454,7 @@ position = Vector2( 999, 130 )
 scale = Vector2( 0.914109, 0.914109 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 16
+frame = 38
 playing = true
 
 [node name="Girl" type="Sprite" parent="."]

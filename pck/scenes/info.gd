@@ -10,28 +10,13 @@ extends Control
 func _ready():
 	Config.MUSIC.volume_db = 0
 	$InfoAnimation.play("In")
-# warning-ignore:unused_variable
-	var request = {
-		"head":"user info"
-	}
-	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
-	var http = HTTPRequest.new()
-	add_child(http)
-	http.connect("request_completed",self,"_update_info")
-	http.request(url)
-	
+
 	if Signals.user_mute_music == true:
 		Config.MUSIC.volume_db = -80
 	elif Signals.user_mute_music == false:
 		Config.MUSIC.volume_db = 0
 	
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-func _update_info(result, response_code, headers, body):
-	var respond = JSON.parse(body.get_string_from_utf8()).result
-	print(respond)
-	$info_panel/Balance.text = comma_sep(respond.balance)
+
 	
 func comma_sep(number):
 	var string = str(number)

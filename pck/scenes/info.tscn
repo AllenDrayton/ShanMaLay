@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/Home-Member-Info/image-member-info-rightbg.png" type="Texture" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=10]
 [ext_resource path="res://pck/assets/HomeScence/icon-bottom-bar.png" type="Texture" id=11]
 [ext_resource path="res://start/zawgyi-one.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://pck/assets/HomeScence/icon-home-money.png" type="Texture" id=13]
+[ext_resource path="res://start/button.gd" type="Script" id=13]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://pck/scenes/Bank_info.tscn" type="PackedScene" id=15]
 
@@ -72,11 +72,6 @@ modulate_color = Color( 1, 1, 1, 0.741176 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 30
-font_data = ExtResource( 14 )
-
-[sub_resource type="DynamicFont" id=17]
-size = 25
-use_filter = true
 font_data = ExtResource( 14 )
 
 [sub_resource type="StyleBoxFlat" id=23]
@@ -215,23 +210,6 @@ text = "နာမည္အရင္း:"
 align = 1
 valign = 1
 
-[node name="Balance_Boarder" type="Sprite" parent="info_panel"]
-position = Vector2( 492, 46 )
-scale = Vector2( 0.589109, 0.589109 )
-texture = ExtResource( 13 )
-
-[node name="Balance" type="Label" parent="info_panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 397.0
-margin_top = 33.0
-margin_right = -1456.0
-margin_bottom = -826.0
-custom_fonts/font = SubResource( 17 )
-text = "0"
-align = 1
-valign = 1
-
 [node name="question" type="TextureRect" parent="info_panel"]
 margin_left = 1881.0
 margin_top = -3.0
@@ -290,17 +268,18 @@ caret_blink_speed = 0.5
 
 [node name="Exit" type="TextureButton" parent="info_panel"]
 anchor_top = -0.022
-margin_left = 8.28937
-margin_top = -4.288
-margin_right = 229.289
-margin_bottom = 111.488
+margin_left = 0.28937
+margin_top = 18.712
+margin_right = 200.289
+margin_bottom = 99.0
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="info_panel/Exit"]
-position = Vector2( 82.502, 67.5 )
-scale = Vector2( 0.18, 0.2 )
+position = Vector2( 98, 52 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
 [node name="bank_info" parent="." instance=ExtResource( 15 )]

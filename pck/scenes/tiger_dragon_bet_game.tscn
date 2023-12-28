@@ -1514,14 +1514,13 @@ visible = false
 position = Vector2( 1157, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="card_gif_2" type="AnimatedSprite" parent="."]
 position = Vector2( 848, 88 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 74 )
-frame = 4
 playing = true
 
 [node name="C1" type="Sprite" parent="."]
@@ -1593,10 +1592,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="Timer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -705.0
-margin_top = -678.0
-margin_right = -733.0
-margin_bottom = -691.0
+margin_left = -255.0
+margin_top = -228.0
+margin_right = -1210.0
+margin_bottom = -1177.0
 custom_colors/font_color = Color( 0.917647, 0.215686, 0.145098, 1 )
 custom_fonts/font = SubResource( 10 )
 text = "0"

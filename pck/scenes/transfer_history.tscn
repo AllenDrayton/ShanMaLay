@@ -182,16 +182,16 @@ text = "အေျခအေန"
 [node name="Exit" type="TextureButton" parent="Panel"]
 anchor_top = -0.022
 margin_left = 4.0
-margin_top = -14.288
-margin_right = 111.0
-margin_bottom = 97.0
+margin_top = 3.712
+margin_right = 204.0
+margin_bottom = 84.198
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Panel/Exit"]
-position = Vector2( 73.75, 67.45 )
-scale = Vector2( 0.15, 0.199794 )
+position = Vector2( 98, 52 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 
 [node name="Balance_Boarder" type="Sprite" parent="Panel"]
