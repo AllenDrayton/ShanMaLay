@@ -12,7 +12,8 @@ func _on_splashScene_animation_finished():
 
 func _on_splash_animation_finished():
 	$AudioStreamPlayer.volume_db = -80
-	get_tree().change_scene("res://pck/scenes/login.tscn")
+	#get_tree().change_scene("res://pck/scenes/login.tscn")
+	LoadingScript.load_scene(self, "res://pck/scenes/login.tscn")
 
 
 func _on_openButton_pressed():

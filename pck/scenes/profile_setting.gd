@@ -4,6 +4,7 @@ extends Node2D
 const profile_textures = []
 var filepath = "user://session.txt"
 
+var http
 
 onready var nickname_control = $NicknamePanel/NicknameControl
 onready var old_pw_control = $PasswordPanel/OldPwControl
@@ -35,8 +36,9 @@ func _ready():
 	
 	_load_profile_textures()
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
-	var http = HTTPRequest.new()
+	http = HTTPRequest.new()
 	add_child(http)
+	http.timeout = 3
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 
@@ -225,12 +227,13 @@ func _input(event):
 
 
 func _update_info(result, response_code, headers, body):
-	var respond = JSON.parse(body.get_string_from_utf8()).result
-	nickname_txt.text = respond.nickname
-	$ProfilePanel/Profile.texture = profile_textures[int(respond.profile)]
-	if respond == null:
-		$"/root/bgm".stop()
+	if response_code != 200:
+		$"/root/bgm".volume_db = -50
 		LoadingScript.load_scene(self, "res://start/conn_error.tscn")
+	else:
+		var respond = JSON.parse(body.get_string_from_utf8()).result
+		nickname_txt.text = respond.nickname
+		$ProfilePanel/Profile.texture = profile_textures[int(respond.profile)]
 
 
 func _load_profile_textures():
@@ -325,4 +328,5 @@ func _on_Logout_pressed():
 	file.open(filepath, File.WRITE)
 	file.store_string("")
 	file.close()
-	get_tree().change_scene("res://pck/scenes/login.tscn")
+	#get_tree().change_scene("res://pck/scenes/login.tscn")
+	LoadingScript.load_scene(self, "res://pck/scenes/login.tscn")

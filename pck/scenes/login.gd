@@ -24,6 +24,7 @@ func _ready():
 	else:
 		$"/root/bgm".volume_db += 45
 	
+	
 	userName.connect("mouse_entered", self, "on_userName_mouse_entered")
 	passWord.connect("mouse_entered", self, "on_passWord_mouse_entered")
 #	userName.connect("mouse_entered", self, "on_userName_entered")
@@ -193,6 +194,7 @@ func _on_Login_pressed():
 	var headers = ["Content-Type: application/json"]
 	var url = $"/root/Config".config.account_url + "login"
 	var body = JSON.print(data)
+	$HTTPRequest.timeout = 3
 	$HTTPRequest.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
 
@@ -239,28 +241,32 @@ func _save(data):
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
-	print(respond)
-	match respond.status:
-		"ok":
-			if respond.rejoin == true :
-				_rejoin_game(respond.gameState)
-				return
-			if respond.sessionLogin :
-				var user = {"username":respond.username,"session":respond.session,"id":respond.id}
-				$"/root/Config".config.user = user
-				#get_tree().change_scene("res://pck/scenes/menu.tscn")
-				$"/root/bgm".volume_db = -50
-				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
-			else :
-				$"/root/bgm".volume_db = -50
-				_change_to_menu(respond.username,respond.session,respond.id)
-		"incorrect username":
-			$AlertBox._show("Username number does not exist!")
-		"incorrect password":
-			$AlertBox._show("Password incorrect " + str(respond.tryCount) + "/10")
-		"tmp lock":
-			$AlertBox._show("This account is temporary lock. Try again in " + str(respond.body.time) + " minutes")
-		"account lock":
-			$AlertBox._show("This account is lock!")
-		"device lock":
-			$AlertBox._show("This device is lock!")
+	print("This is Login Response Code : ", response_code)
+	if response_code != 200:
+		$"/root/bgm".volume_db = -50
+		LoadingScript.load_scene(self, "res://start/conn_error.tscn")
+	else:
+		match respond.status:
+			"ok":
+				if respond.rejoin == true :
+					_rejoin_game(respond.gameState)
+					return
+				if respond.sessionLogin :
+					var user = {"username":respond.username,"session":respond.session,"id":respond.id}
+					$"/root/Config".config.user = user
+					#get_tree().change_scene("res://pck/scenes/menu.tscn")
+					$"/root/bgm".volume_db = -50
+					LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
+				else :
+					$"/root/bgm".volume_db = -50
+					_change_to_menu(respond.username,respond.session,respond.id)
+			"incorrect username":
+				$AlertBox._show("Username number does not exist!")
+			"incorrect password":
+				$AlertBox._show("Password incorrect " + str(respond.tryCount) + "/10")
+			"tmp lock":
+				$AlertBox._show("This account is temporary lock. Try again in " + str(respond.body.time) + " minutes")
+			"account lock":
+				$AlertBox._show("This account is lock!")
+			"device lock":
+				$AlertBox._show("This device is lock!")

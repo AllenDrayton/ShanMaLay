@@ -371,7 +371,7 @@ position = Vector2( 44.2105, 19.3421 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 61 )
 animation = "open"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

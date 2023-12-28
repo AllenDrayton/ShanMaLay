@@ -5,6 +5,7 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+var http
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +20,8 @@ func _ready():
 		$"/root/bgm".volume_db += 45
 	
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
-	var http = HTTPRequest.new()
+	http = HTTPRequest.new()
+	http.timeout = 3
 	add_child(http)
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
@@ -28,11 +30,19 @@ func _ready():
 
 
 func _update_info(result, response_code, headers, body):
-	var respond = JSON.parse(body.get_string_from_utf8()).result
-	$Balance/Label.text = comma_sep(respond.balance)
-	if respond == null:
-		$"/root/bgm".stop()
+	print("This is Poker Respond code : ", response_code)
+	if response_code != 200:
+		$"/root/bgm".volume_db = -50
 		LoadingScript.load_scene(self, "res://start/conn_error.tscn")
+	else:
+		var json_parse_result = JSON.parse(body.get_string_from_utf8())
+		if json_parse_result.error != OK:
+			print("Error: JSON parsing failed -", json_parse_result.error)
+		else:
+			var respond = json_parse_result.result
+#			var respond = JSON.parse(body.get_string_from_utf8()).result
+			$Balance/Label.text = comma_sep(respond.balance)
+
 
 
 func _notification(what):
