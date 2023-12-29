@@ -15,9 +15,7 @@ func _ready():
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	$AnimationPlayer.play("in")
-#	Config.MUSIC.stream = music
-#	Config.MUSIC.play()
-#	$"/root/bgm".volume_db = 0
+
 	if Signals.user_mute_music == true:
 		Config.MUSIC.volume_db = -80
 	elif Signals.user_mute_music == false:

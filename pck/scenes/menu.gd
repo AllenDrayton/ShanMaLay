@@ -15,12 +15,13 @@ func _ready():
 		Config.MUSIC.volume_db = 0
 	
 # warning-ignore:return_value_discarded
-	Signals.connect("disableButtons",self,"_on_disable_buttons")
+	Signals.connect("disableButtons",self,"on_disable_buttons")
 	
 #	$ABCD.modulate = Color(0.5, 0.5, 0.5, 0.8)
 	$Fishing/FishSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
-	$Slots/SlotSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
+#	$Slots/SlotSprite.modulate = Color(0.5, 0.5, 0.5, 0.8)
 #	$BuGyee/BuGyee_GIF.modulate = Color(0.5, 0.5, 0.5, 0.8)
+
 	_load_profile_textures()
 	_animationIn()
 # warning-ignore:return_value_discarded
@@ -45,7 +46,7 @@ func _ready():
 func _on_MenuMusic(data):
 	print(data)
 
-func on_disabel_buttons():
+func on_disable_buttons():
 	_disable_buttons(true)
 
 func musicOn():
@@ -176,12 +177,10 @@ func _on_Viber_pressed():
 	OS.shell_open("viber://chat/?number=%2B959266714552")
 
 
-func _on_Slot_pressed():
-	pass
-#	var username = $"/root/Config".config.user.username
-#	var session = $"/root/Config".config.user.session
-#	OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
-
+func _on_Slots_pressed():
+	Config.MUSIC.volume_db = -80
+	LoadingScript.load_scene(self, "res://pck/scenes/slots.tscn")
+	
 
 func _on_TigerDragon_pressed():
 	#Config.MUSIC.stream = BlankMusic

@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://pck/assets/Home-Member-Info/image-member-info-rightbg.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/Home-Withdraw/Home-Withdraw/EER1.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/common/back_button.png" type="Texture" id=3]
 [ext_resource path="res://pck/assets/menu/icon-main-back.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/Home-Member-Bank/icon-member-bank-bankinfo.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/Home-Member-Bank/icon-member-bank-info.png" type="Texture" id=6]
@@ -62,14 +63,15 @@ texture = ExtResource( 2 )
 [node name="Exit" type="TextureButton" parent="Panel"]
 anchor_top = -0.022
 margin_left = 0.28937
-margin_top = -1.288
-margin_right = 221.289
-margin_bottom = 114.488
-__meta__ = {
-"_edit_group_": true
-}
+margin_top = 17.712
+margin_right = 220.289
+margin_bottom = 133.0
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
 
 [node name="Sprite" type="Sprite" parent="Panel/Exit"]
+visible = false
 position = Vector2( 99.502, 67.5 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )

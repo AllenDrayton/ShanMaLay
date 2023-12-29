@@ -3,7 +3,7 @@
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/Home-Member-Info/image-member-info-rightbg.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/Home-Withdraw/Home-Withdraw/EER1.png" type="Texture" id=3]
-[ext_resource path="res://pck/assets/menu/icon-main-back.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/common/back_button.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/Home-Member-Info/icon-member-info-data.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/Home-Member-Info/icon-member-info-bankinfo.png" type="Texture" id=6]
 [ext_resource path="res://pck/assets/Home-Withdraw/icon-withdraw-question.png" type="Texture" id=7]
@@ -270,17 +270,15 @@ caret_blink_speed = 0.5
 anchor_top = -0.022
 margin_left = 0.28937
 margin_top = 18.712
-margin_right = 200.289
-margin_bottom = 99.0
+margin_right = 220.289
+margin_bottom = 134.0
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Sprite" type="Sprite" parent="info_panel/Exit"]
-position = Vector2( 98, 52 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
 
 [node name="bank_info" parent="." instance=ExtResource( 15 )]
 visible = false

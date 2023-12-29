@@ -7,8 +7,10 @@ func _ready():
 # warning-ignore:return_value_discarded
 	$Male.connect("pressed",self,"_on_male_pressed")
 	$Male.texture_normal = null
+# warning-ignore:return_value_discarded
 	$Female.connect("pressed",self,"_on_female_pressed")
 	$Female.texture_normal = null
+# warning-ignore:unused_variable
 	var request = {
 		"head":"user info"
 	}
@@ -36,11 +38,19 @@ func _on_affirmative_pressed():
 	Config.emit_signal("usernameUpdate",name)
 	hide()
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
+# warning-ignore:unused_variable
 	var respond = JSON.parse(body.get_string_from_utf8()).result
 #	$usernamePanel/NameTag2.text = respond.nickname
 #	print(respond.nickname)
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _nickname_changed(result, response_code, headers, body):
 	pass
 #	if body.get_string_from_utf8() == "ok":

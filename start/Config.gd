@@ -9,7 +9,7 @@ signal musicOff
 
 var MUSIC = null
 var cancel = true
-var VERSION = 1.3
+var VERSION = 1.4
 
 var config = {
 	"name":"ShanMaLay",

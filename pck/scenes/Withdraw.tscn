@@ -210,7 +210,7 @@ margin_bottom = 96.0
 script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="Withdraw_panel/Exit"]
-position = Vector2( 79, 52 )
+position = Vector2( 98, 52 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 

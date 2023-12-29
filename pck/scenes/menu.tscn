@@ -2541,7 +2541,7 @@ position = Vector2( 126, 148 )
 scale = Vector2( 1.95, 1.95 )
 frames = SubResource( 330 )
 animation = "New Anim"
-frame = 54
+frame = 41
 playing = true
 
 [node name="BuGyee" type="TextureButton" parent="."]
@@ -2561,7 +2561,7 @@ position = Vector2( 160, 47 )
 scale = Vector2( 1.1, 1.1 )
 frames = SubResource( 406 )
 animation = "New Anim"
-frame = 49
+frame = 36
 playing = true
 
 [node name="ABCD" type="TextureButton" parent="."]
@@ -2600,7 +2600,7 @@ position = Vector2( 186.75, 56.375 )
 scale = Vector2( 1.1, 1.1 )
 frames = SubResource( 482 )
 animation = "New Anim"
-frame = 28
+frame = 15
 playing = true
 
 [node name="Fishing" type="TextureButton" parent="."]
@@ -2742,6 +2742,7 @@ visible = false
 [connection signal="pressed" from="BuGyee" to="." method="_on_BuGyee_pressed"]
 [connection signal="pressed" from="ABCD" to="." method="_on_ABCD_pressed"]
 [connection signal="pressed" from="TigerDragon" to="." method="_on_TigerDragon_pressed"]
+[connection signal="pressed" from="Slots" to="." method="_on_Slots_pressed"]
 [connection signal="pressed" from="bank_Transfer" to="." method="_on_bank_Transfer_pressed"]
 [connection signal="pressed" from="Bank_withdraw" to="." method="_on_Bank_withdraw_pressed"]
 [connection signal="pressed" from="Members" to="." method="_on_Members_pressed"]

@@ -37,6 +37,9 @@ func _on_Accept_pressed():
 	http.request(url,headers,false,HTTPClient.METHOD_POST,body)
 	print(body)
 	
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _password_changed(result, response_code, headers, body):
 	if body.get_string_from_utf8() == "ok":
 		$AlertBox._show("Password changed!")
