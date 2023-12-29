@@ -7,7 +7,7 @@
 [ext_resource path="res://start/conn_error.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.282353, 0.0352941, 0.352941, 1 )
+bg_color = Color( 0.137255, 0.0352941, 0.352941, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="DynamicFont" id=3]
-size = 50
+size = 40
 use_filter = true
 font_data = ExtResource( 1 )
 
@@ -42,9 +42,9 @@ texture = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0.701961 )
-margin_left = 843.0
+margin_left = 930.0
 margin_top = 230.0
-margin_right = 1896.0
+margin_right = 1801.0
 margin_bottom = 611.0
 custom_styles/panel = SubResource( 4 )
 
