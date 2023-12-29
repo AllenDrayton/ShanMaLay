@@ -1074,7 +1074,7 @@ valign = 1
 position = Vector2( 1000, 1400 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 32 )
-frame = 8
+frame = 9
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1192,6 +1192,7 @@ stretch_mode = 3
 script = ExtResource( 9 )
 
 [node name="New" type="Sprite" parent="BlackJack"]
+visible = false
 position = Vector2( 57, 19 )
 texture = ExtResource( 24 )
 
