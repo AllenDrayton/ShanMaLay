@@ -153,8 +153,8 @@ func _on_Slot_pressed():
 	$"/root/bgm".volume_db = -45
 	var username = $"/root/Config".config.user.username
 	var session = $"/root/Config".config.user.session
-	LoadingScript.load_scene(self, "res://pck/scenes/slot_provider.tscn")
-#	OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
+	#LoadingScript.load_scene(self, "res://pck/scenes/slot_provider.tscn")
+	OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
 #	$SlotControl.show()
 #
 #	print("Username:", username)
