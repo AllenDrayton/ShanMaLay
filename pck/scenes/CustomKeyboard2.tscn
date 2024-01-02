@@ -106,6 +106,8 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 8 )
 align = 1
+virtual_keyboard_enabled = false
+selecting_enabled = false
 
 [node name="No1" type="Button" parent="."]
 margin_left = 37.0

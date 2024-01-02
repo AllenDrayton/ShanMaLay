@@ -181,10 +181,6 @@ func _start(body):
 	
 	_reset()
 	
-	$BetArea/Dragon/AnimatedSprite.visible=false
-	$BetArea/Tiger/AnimatedSprite.visible=false
-	$BetArea/Tie/AnimatedSprite.visible=false
-	
 	$BackDrop._hide()
 	
 	$start_bet.visible=true
@@ -209,15 +205,6 @@ func _start(body):
 	yield(get_tree().create_timer(1.5), "timeout")
 	
 	fakeBet = true
-	$BetArea/Dragon/AnimatedSprite.frame=0
-	$BetArea/Dragon/AnimatedSprite.visible=true
-	$BetArea/Dragon/AnimatedSprite.play("default")
-	$BetArea/Tiger/AnimatedSprite.frame=0
-	$BetArea/Tiger/AnimatedSprite.visible=true
-	$BetArea/Tiger/AnimatedSprite.play("default")
-	$BetArea/Tie/AnimatedSprite.frame=0
-	$BetArea/Tie/AnimatedSprite.visible=true
-	$BetArea/Tie/AnimatedSprite.play("default")
 
 func _end(body):
 	$end_bet.visible=true
@@ -226,9 +213,6 @@ func _end(body):
 	yield(get_tree().create_timer(1.5), "timeout")
 	$end_bet.visible=false
 	
-	$BetArea/Dragon/AnimatedSprite.visible=false
-	$BetArea/Tiger/AnimatedSprite.visible=false
-	$BetArea/Tie/AnimatedSprite.visible=false
 	fakeBet = false
 	yield(get_tree().create_timer(0.5), "timeout")
 	
@@ -251,22 +235,16 @@ func _end(body):
 			$win_animation.play("dragon_win")
 			yield(get_tree().create_timer(0.7), "timeout")
 			$dragon_win.visible=false
-			$BetArea/Dragon/AnimatedSprite.frame=0
-			$BetArea/Dragon/AnimatedSprite.visible=true
-			$BetArea/Dragon/AnimatedSprite.play("default")
+			
 		1:
-			$BetArea/Tie/AnimatedSprite.frame=0
-			$BetArea/Tie/AnimatedSprite.visible=true
-			$BetArea/Tie/AnimatedSprite.play("default")
+			pass
+			
 		2:
 			$tiger_win.visible=true
 			_playVoice("tiger_win")
 			$win_animation.play("tiger_win")
 			yield(get_tree().create_timer(0.7), "timeout")
 			$tiger_win.visible=false
-			$BetArea/Tiger/AnimatedSprite.frame=0
-			$BetArea/Tiger/AnimatedSprite.visible=true
-			$BetArea/Tiger/AnimatedSprite.play("default")
 			
 	$Audio/CoinMove.play()
 	var winCoinCount = 0

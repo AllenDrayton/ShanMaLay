@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://pck/assets/common/profiles/0.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/skm_bet/CLock.png" type="Texture" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://pck/assets/skm_bet/bet1.png" type="Texture" id=15]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://pck/assets/dragon_tiger_bet/dragon_lightning.png" type="Texture" id=18]
 [ext_resource path="res://pck/assets/skm_bet/2k.png" type="Texture" id=19]
 [ext_resource path="res://pck/assets/skm_bet/10k.png" type="Texture" id=20]
 [ext_resource path="res://pck/assets/dragon_tiger_bet/bg.jpg" type="Texture" id=21]
@@ -25,8 +24,6 @@
 [ext_resource path="res://pck/assets/skm_bet/5k.png" type="Texture" id=23]
 [ext_resource path="res://pck/assets/skm_bet/1k.png" type="Texture" id=24]
 [ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=25]
-[ext_resource path="res://pck/assets/dragon_tiger_bet/tiger_lightning.png" type="Texture" id=26]
-[ext_resource path="res://pck/assets/dragon_tiger_bet/tie_lightning.png" type="Texture" id=27]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=28]
 [ext_resource path="res://pck/scenes/tiger_dragon_bet_game.gd" type="Script" id=29]
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=30]
@@ -59,249 +56,10 @@ size = 25
 use_filter = true
 font_data = ExtResource( 28 )
 
-[sub_resource type="AtlasTexture" id=44]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 0, 0, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=45]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 446, 0, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=46]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 892, 0, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=47]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 1338, 0, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=48]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 1784, 0, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=49]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 0, 243, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=50]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 446, 243, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=51]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 892, 243, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=52]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 1338, 243, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=53]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 1784, 243, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=54]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 0, 486, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=55]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 446, 486, 446, 243 )
-
-[sub_resource type="AtlasTexture" id=56]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 892, 486, 446, 243 )
-
-[sub_resource type="SpriteFrames" id=43]
-animations = [ {
-"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [sub_resource type="DynamicFont" id=6]
 size = 30
 use_filter = true
 font_data = ExtResource( 28 )
-
-[sub_resource type="AtlasTexture" id=57]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 0, 0, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=58]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 366, 0, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=59]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 732, 0, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=60]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 1098, 0, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=61]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 1464, 0, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=62]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 0, 202, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=63]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 366, 202, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=64]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 732, 202, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=65]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 1098, 202, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=66]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 1464, 202, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=67]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 0, 404, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=68]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 366, 404, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=69]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 732, 404, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=70]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 1098, 404, 366, 202 )
-
-[sub_resource type="AtlasTexture" id=71]
-flags = 4
-atlas = ExtResource( 27 )
-region = Rect2( 1464, 404, 366, 202 )
-
-[sub_resource type="SpriteFrames" id=72]
-animations = [ {
-"frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=73]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 0, 0, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=74]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 443, 0, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=75]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 886, 0, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=76]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 1329, 0, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=77]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 1772, 0, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=78]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 0, 232, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=79]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 443, 232, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=80]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 886, 232, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=81]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 1329, 232, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=82]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 1772, 232, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=83]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 0, 464, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=84]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 443, 464, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=85]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 886, 464, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=86]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 1329, 464, 443, 232 )
-
-[sub_resource type="AtlasTexture" id=87]
-flags = 4
-atlas = ExtResource( 26 )
-region = Rect2( 1772, 464, 443, 232 )
-
-[sub_resource type="SpriteFrames" id=88]
-animations = [ {
-"frames": [ SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -1188,12 +946,6 @@ margin_top = 512.0
 margin_right = 837.0
 margin_bottom = 725.0
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="BetArea/Dragon"]
-visible = false
-position = Vector2( 222.057, 96 )
-frames = SubResource( 43 )
-frame = 8
-
 [node name="Pos" type="Node2D" parent="BetArea/Dragon"]
 position = Vector2( 333, 107 )
 
@@ -1224,11 +976,6 @@ margin_top = 512.0
 margin_right = 1217.0
 margin_bottom = 718.0
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="BetArea/Tie"]
-visible = false
-position = Vector2( 181, 104 )
-frames = SubResource( 72 )
-
 [node name="Pos" type="Node2D" parent="BetArea/Tie"]
 position = Vector2( 184, 106 )
 
@@ -1258,11 +1005,6 @@ margin_left = 1236.0
 margin_top = 520.0
 margin_right = 1668.0
 margin_bottom = 733.0
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="BetArea/Tiger"]
-visible = false
-position = Vector2( 222, 104 )
-frames = SubResource( 88 )
 
 [node name="Pos" type="Node2D" parent="BetArea/Tiger"]
 position = Vector2( 138, 98 )

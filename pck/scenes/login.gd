@@ -108,7 +108,7 @@ func on_userName_mouse_entered():
 	userSide = true
 	passwordSide = false
 	yield(get_tree().create_timer(0.5), "timeout")
-	$CustomKeyboard/Label.placeholder_text = "Username"
+	#$CustomKeyboard/Label.placeholder_text = "Username"
 
 	if $Control/Username.text == "Username":
 		$CustomKeyboard/Label.text = ""
@@ -126,7 +126,7 @@ func on_passWord_mouse_entered():
 	userSide = false
 	passwordSide = true
 	yield(get_tree().create_timer(0.5), "timeout")
-	$CustomKeyboard/Label.placeholder_text = "Password"
+	#$CustomKeyboard/Label.placeholder_text = "Password"
 
 	if $Control2/Password.text == "Password":
 		$CustomKeyboard/Label.text = ""

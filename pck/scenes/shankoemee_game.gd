@@ -80,7 +80,7 @@ func _ready():
 	_init_all()
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 	
 #	if $"/root/ws".rejoin :
 #		$BackDrop._show("Reconnecting please wait!")
@@ -317,7 +317,7 @@ func _first_deliver(room):
 		playersNode[v]._set_count_down(count_down)
 	
 	_playVoice(GameVoices.deliver)
-	$ShanMa.play("deliver")
+#	$ShanMa.play("deliver")
 	$BetPanel.visible = false
 	var start = room.dealerIndex + 1
 	for j in range(2):
@@ -341,7 +341,7 @@ func _first_deliver(room):
 		return
 	
 	yield(get_tree().create_timer(1), "timeout")
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 	if room.dealerIndex != myIndex :
 		$DrawBtns.visible = true
 		$DrawBtns.position = Vector2(1000,800)

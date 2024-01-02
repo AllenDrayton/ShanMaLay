@@ -71,7 +71,7 @@ func _ready():
 	$"/root/bgm".stream = sifiMusic
 	$"/root/bgm".play()
 	
-	$ShanMa.play("deliver")
+#	$ShanMa.play("deliver")
 	# Reset Music
 	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
 	
@@ -281,7 +281,7 @@ func _deliver(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : Deliver")
-	$ShanMa.play("deliver")
+#	$ShanMa.play("deliver")
 	
 	# Set Timer
 	countdown = (room.wait - room.tick) * SERVER_INTERVAL
@@ -302,7 +302,7 @@ func _deliver(room):
 	
 	yield(get_tree().create_timer(1), "timeout")
 	
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 	
 	if room.players[myIndex].isWaiting == false :
 		$CardCheck._show(room.players[myIndex].cards)

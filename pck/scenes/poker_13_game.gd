@@ -59,7 +59,7 @@ func _ready():
 	$"/root/bgm".stream = sifiMusic
 	$"/root/bgm".play()
 	
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 	
 	# Reset Music
 	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
@@ -435,7 +435,7 @@ func _start(room):
 	for N in $"Cards".get_children():
 		N.queue_free()
 	
-	$ShanMa.play("deliver")
+#	$ShanMa.play("deliver")
 	
 	for i in range(13):
 		var card = deckCardArray[i]
@@ -451,7 +451,7 @@ func _start(room):
 		$Audio/CardMove.play()
 		yield(get_tree().create_timer(CARD_DELIVER_DELAY), "timeout")
 	
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 
 func _taxMoney(room):
 	# Show tax card

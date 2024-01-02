@@ -37,9 +37,8 @@ var _client = WebSocketClient.new()
 var history_result = preload("res://pck/assets/horse_bet/Result.tscn")
 var music = preload("res://pck/assets/horse_bet/bg.ogg")
 
-# For Animated Road
-var road_animation1_frames = preload("res://pck/assets/horse_bet/NewWay/AnimatedRoad1.tscn")
-var road_animation2_frames = preload("res://pck/assets/horse_bet/NewWay/AnimatedRoad2.tscn")
+var road_alt_texture = preload("res://pck/assets/horse_bet/NewWay/roadABNew.jpg")
+var road_texture = preload("res://pck/assets/horse_bet/NewWay/roadANew.jpg")
 
 var GameVoices = {
 	"exit":preload("res://pck/assets/common/audio/exit.ogg"),
@@ -286,27 +285,15 @@ func _reset():
 		$BetPanel/Buttons.get_node(str(i)).get_node("Total").text = "0"
 	for N in $Road.get_children():
 		N.queue_free()
-#	for i in range(20):
-#		var sprite = Sprite.new()
-#		if i == 0 || i == 13:
-#			sprite.texture = road_alt_texture
-#		else :
-#			sprite.texture = road_texture
-#		sprite.position = Vector2((i*500) + 250,450)
-#		$Road.add_child(sprite)
-	
 	for i in range(20):
-		var animated_sprite = Node2D.new()
-		var animation_instance
-		if i == 0 or i == 13:
-			animation_instance = road_animation1_frames.instance()
-		else:
-			animation_instance = road_animation2_frames.instance()
-		
-		animated_sprite.add_child(animation_instance)  
-		animated_sprite.position = Vector2((i * 500) + 250, 450)
-		# Add the animated_sprite to the scene or a parent node
-		$Road.add_child(animated_sprite)
+		var sprite = Sprite.new()
+		if i == 0 || i == 13:
+			sprite.texture = road_alt_texture
+		else :
+			sprite.texture = road_texture
+		sprite.position = Vector2((i*500) + 250,450)
+		$Road.add_child(sprite)
+	
 	
 	for N in $Horses.get_children():
 		N.position.x = 200

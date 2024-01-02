@@ -82,7 +82,7 @@ func _ready():
 	
 	websocket_url = $"/root/Config".config.gameState.url
 	_connect_ws()
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 
 func _connect_ws():
 	_client.connect("connection_closed", self, "_closed")
@@ -309,7 +309,7 @@ func _deliver(room):
 	yield(get_tree().create_timer(1), "timeout")
 	
 	_playVoice(GameVoices.deliver)
-	$ShanMa.play("deliver")
+#	$ShanMa.play("deliver")
 	for j in range(5):
 		for i in range(TOTAL_PLAYER):
 			var player = room.players[i]
@@ -325,7 +325,7 @@ func _deliver(room):
 	
 	yield(get_tree().create_timer(1), "timeout")
 	
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 	$CardCheck._show(room.players[myIndex].cards)
 
 func _end(room):

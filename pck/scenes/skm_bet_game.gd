@@ -65,7 +65,7 @@ func _ready():
 	$"/root/bgm".stream = sifiMusic
 	$"/root/bgm".play()
 	
-	$ShanMa.play("idle")
+#	$ShanMa.play("idle")
 	
 	# Reset Music
 	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
@@ -189,8 +189,7 @@ func _start(body):
 		return
 	
 	_reset()
-	for i in range(0,4):
-		$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").visible=false
+	
 	$BackDrop._hide()
 	
 	$start/start_bet.visible=true
@@ -237,10 +236,7 @@ func _start(body):
 	yield(get_tree().create_timer(.5), "timeout")
 	
 	fakeBet = true
-	for i in range(0,4):
-		$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").visible=true
-		$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").frame=0
-		$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").play("default")
+
 
 func _end(body):
 	if fakeBet == false:
@@ -253,9 +249,6 @@ func _end(body):
 	$end/end_bet.visible=false
 	fakeBet = false
 	
-	for i in range(0,4):
-		$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").visible=false
-		
 	var winners = []
 	for w in body.winners:
 		winners.append(w)
@@ -296,12 +289,6 @@ func _end(body):
 	
 	yield(get_tree().create_timer(1), "timeout")
 	
-	for i in range(0,4):
-		if i in winners:
-			$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").visible=true
-			$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").frame=0
-			$BetArea.get_node("B"+str(i+1)+"/Btn/AnimatedSprite").play("default")
-
 	var j = 0
 	for f in $ResultFlag.get_children():
 		if _array_include(winners,j):

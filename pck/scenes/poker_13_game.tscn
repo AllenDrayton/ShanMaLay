@@ -1,11 +1,9 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://pck/scenes/poker_13_game.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/common/btn-3.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=3]
 [ext_resource path="res://pck/assets/poker_13/center-cards.png" type="Texture" id=4]
-[ext_resource path="res://pck/assets/common/girlGif/Girl_Idle.png" type="Texture" id=5]
-[ext_resource path="res://pck/assets/common/girlGif/Girl_shuffle.png" type="Texture" id=6]
 [ext_resource path="res://pck/assets/common/messages/Hello.png" type="Texture" id=7]
 [ext_resource path="res://pck/assets/common/messages/T2.png" type="Texture" id=8]
 [ext_resource path="res://pck/assets/menu/NewMenu/panel-1A.png" type="Texture" id=9]
@@ -83,129 +81,6 @@ margin_left = 60.0
 margin_right = 60.0
 margin_top = 80.0
 margin_bottom = 60.0
-
-[sub_resource type="AtlasTexture" id=387]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=388]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 300, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=389]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 600, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=390]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 900, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=391]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=392]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 300, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=393]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 600, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=394]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 900, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=395]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 754, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=396]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 300, 754, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=397]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 600, 754, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=376]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=377]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 300, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=378]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 600, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=379]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 900, 0, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=380]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=381]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 300, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=382]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 600, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=383]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 900, 377, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=384]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 754, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=385]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 300, 754, 300, 377 )
-
-[sub_resource type="AtlasTexture" id=386]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 600, 754, 300, 377 )
-
-[sub_resource type="SpriteFrames" id=375]
-animations = [ {
-"frames": [ SubResource( 387 ), SubResource( 388 ), SubResource( 389 ), SubResource( 390 ), SubResource( 391 ), SubResource( 392 ), SubResource( 393 ), SubResource( 394 ), SubResource( 395 ), SubResource( 396 ), SubResource( 397 ) ],
-"loop": false,
-"name": "deliver",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 376 ), SubResource( 377 ), SubResource( 378 ), SubResource( 379 ), SubResource( 380 ), SubResource( 381 ), SubResource( 382 ), SubResource( 383 ), SubResource( 384 ), SubResource( 385 ), SubResource( 386 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-} ]
 
 [node name="root" type="Node"]
 script = ExtResource( 1 )
@@ -633,13 +508,6 @@ texture_normal = ExtResource( 21 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 34 )
-
-[node name="ShanMa" type="AnimatedSprite" parent="."]
-position = Vector2( 1000, 102.581 )
-scale = Vector2( 0.713334, 0.691879 )
-frames = SubResource( 375 )
-animation = "deliver"
-frame = 2
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="MenuPanel/Exit" to="." method="_on_Exit_pressed"]
