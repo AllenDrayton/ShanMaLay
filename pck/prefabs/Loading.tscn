@@ -4,7 +4,7 @@
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://pck/prefabs/Loading.gd" type="Script" id=3]
 [ext_resource path="res://pck/assets/common/spinner.png" type="Texture" id=4]
-[ext_resource path="res://pck/assets/menu/NewMenu/bg-1.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=5]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=6]
 
 [sub_resource type="AtlasTexture" id=6]
@@ -112,7 +112,8 @@ z_index = 20
 script = ExtResource( 3 )
 
 [node name="Galaxy" type="Sprite" parent="."]
-position = Vector2( 1000, 450 )
+position = Vector2( 1005.5, 449 )
+scale = Vector2( 2.005, 2 )
 texture = ExtResource( 5 )
 
 [node name="BG" type="Sprite" parent="."]
@@ -125,7 +126,7 @@ texture = ExtResource( 1 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 22 )
-frame = 12
+frame = 7
 playing = true
 
 [node name="Label" type="Label" parent="."]

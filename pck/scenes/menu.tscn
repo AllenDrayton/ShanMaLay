@@ -6,7 +6,7 @@
 [ext_resource path="res://pck/assets/menu/NewMenu/bg-1_left.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/common/setting.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/menu/modal-2.png" type="Texture" id=6]
-[ext_resource path="res://pck/assets/menu/NewMenu/bg-1.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=7]
 [ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pck/scripts/button.gd" type="Script" id=9]
 [ext_resource path="res://pck/scenes/menu.gd" type="Script" id=10]
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 978, 453 ) ]
+"values": [ Vector2( 978, 503 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 978, 1400 ), Vector2( 978, 453 ) ]
+"values": [ Vector2( 978, 1400 ), Vector2( 978, 503 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -100,7 +100,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 978, 453 ), Vector2( 978, 1400 ) ]
+"values": [ Vector2( 978, 503 ), Vector2( 978, 1400 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -940,7 +940,8 @@ __meta__ = {
 }
 
 [node name="Bg" type="Sprite" parent="."]
-position = Vector2( 1000, 450 )
+position = Vector2( 998.5, 454.5 )
+scale = Vector2( 2.003, 2.02 )
 texture = ExtResource( 7 )
 
 [node name="MoneyBg" type="Sprite" parent="."]
@@ -959,8 +960,8 @@ align = 1
 valign = 1
 
 [node name="Modal" type="Sprite" parent="."]
-position = Vector2( 978, 453 )
-scale = Vector2( 0.9, 0.9 )
+position = Vector2( 978, 503 )
+scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1035,7 +1036,7 @@ margin_right = 400.0
 margin_bottom = 520.0
 texture_normal = ExtResource( 18 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="BuGyee" type="TextureButton" parent="."]
@@ -1045,7 +1046,7 @@ margin_right = 700.0
 margin_bottom = 520.0
 texture_normal = ExtResource( 21 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="ShweShan" type="TextureButton" parent="."]
@@ -1055,7 +1056,7 @@ margin_right = 400.0
 margin_bottom = 820.0
 texture_normal = ExtResource( 12 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="Poker" type="TextureButton" parent="."]
@@ -1065,7 +1066,7 @@ margin_right = 700.0
 margin_bottom = 820.0
 texture_normal = ExtResource( 13 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="BlackJack" type="TextureButton" parent="."]
@@ -1075,7 +1076,7 @@ margin_right = 1600.0
 margin_bottom = 520.0
 texture_normal = ExtResource( 20 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="New" type="Sprite" parent="BlackJack"]
@@ -1090,7 +1091,7 @@ margin_right = 1600.0
 margin_bottom = 820.0
 texture_normal = ExtResource( 16 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="Fish" type="TextureButton" parent="."]
@@ -1100,7 +1101,7 @@ margin_right = 1900.0
 margin_bottom = 520.0
 texture_normal = ExtResource( 15 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="Slot" type="TextureButton" parent="."]
@@ -1110,7 +1111,7 @@ margin_right = 1900.0
 margin_bottom = 820.0
 texture_normal = ExtResource( 19 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 script = ExtResource( 9 )
 
 [node name="Viber" type="TextureButton" parent="."]

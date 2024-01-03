@@ -43,7 +43,8 @@ font_data = ExtResource( 6 )
 script = ExtResource( 10 )
 
 [node name="Bg" type="Sprite" parent="."]
-position = Vector2( 1000, 450 )
+position = Vector2( 998, 448 )
+scale = Vector2( 2.008, 2.02222 )
 texture = ExtResource( 2 )
 
 [node name="VersionControl" type="Label" parent="."]
@@ -52,7 +53,7 @@ margin_top = 677.0
 margin_right = 1612.0
 margin_bottom = 735.0
 custom_fonts/font = SubResource( 30 )
-text = "Low Rank Version 0.1"
+text = "Low Rank Version 0.2"
 align = 2
 valign = 1
 
@@ -134,5 +135,6 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 
+[connection signal="pressed" from="Remember" to="." method="_on_Remember_pressed"]
 [connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

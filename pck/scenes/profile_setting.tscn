@@ -114,54 +114,55 @@ corner_radius_bottom_left = 30
 script = ExtResource( 5 )
 
 [node name="Bg2" type="Sprite" parent="."]
-position = Vector2( 1000, 450 )
+position = Vector2( 1002, 449.5 )
+scale = Vector2( 1.998, 2.00222 )
 texture = ExtResource( 2 )
 
-[node name="ChangeAvatar" type="Label" parent="Bg2"]
-margin_left = -499.0
-margin_top = -383.0
-margin_right = -276.0
-margin_bottom = -347.0
+[node name="ChangeAvatar" type="Label" parent="."]
+margin_left = 501.0
+margin_top = 67.0
+margin_right = 724.0
+margin_bottom = 103.0
 custom_fonts/font = SubResource( 10 )
 text = "Change Avatar"
 
-[node name="NameChange" type="Label" parent="Bg2"]
-margin_left = 290.0
-margin_top = -386.0
-margin_right = 513.0
-margin_bottom = -350.0
+[node name="NameChange" type="Label" parent="."]
+margin_left = 1290.0
+margin_top = 64.0
+margin_right = 1513.0
+margin_bottom = 100.0
 custom_fonts/font = SubResource( 10 )
 text = "Name change"
 
-[node name="PasswordChange" type="Label" parent="Bg2"]
-margin_left = 260.0
-margin_top = -100.0
-margin_right = 520.0
-margin_bottom = -64.0
+[node name="PasswordChange" type="Label" parent="."]
+margin_left = 1260.0
+margin_top = 350.0
+margin_right = 1520.0
+margin_bottom = 386.0
 custom_fonts/font = SubResource( 10 )
 text = "Password Change"
 
-[node name="Change" type="Label" parent="Bg2"]
-margin_left = 338.0
-margin_top = -219.0
-margin_right = 428.0
-margin_bottom = -188.0
+[node name="Change" type="Label" parent="."]
+margin_left = 1338.0
+margin_top = 231.0
+margin_right = 1428.0
+margin_bottom = 262.0
 custom_fonts/font = SubResource( 11 )
 text = "change"
 
-[node name="Change2" type="Label" parent="Bg2"]
-margin_left = 346.0
-margin_top = 177.0
-margin_right = 436.0
-margin_bottom = 208.0
+[node name="Change2" type="Label" parent="."]
+margin_left = 1346.0
+margin_top = 627.0
+margin_right = 1436.0
+margin_bottom = 658.0
 custom_fonts/font = SubResource( 11 )
 text = "change"
 
-[node name="ChangeAccount" type="Label" parent="Bg2"]
-margin_left = 293.0
-margin_top = 317.0
-margin_right = 495.0
-margin_bottom = 348.0
+[node name="ChangeAccount" type="Label" parent="."]
+margin_left = 1293.0
+margin_top = 767.0
+margin_right = 1495.0
+margin_bottom = 798.0
 custom_fonts/font = SubResource( 11 )
 text = "change Account"
 

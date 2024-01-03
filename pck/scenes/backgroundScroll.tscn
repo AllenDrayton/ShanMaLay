@@ -8,7 +8,7 @@ position = Vector2( 2148, 444 )
 script = ExtResource( 2 )
 
 [node name="Bg-scroll-1" type="Sprite" parent="."]
-position = Vector2( 2000, 0 )
-scale = Vector2( 3.4, 3.4 )
+position = Vector2( 88, 2 )
+scale = Vector2( 3.4, 6.91852 )
 texture = ExtResource( 1 )
 flip_h = true

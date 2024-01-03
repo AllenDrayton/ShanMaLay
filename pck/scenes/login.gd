@@ -6,6 +6,7 @@ var filepath = "user://session.txt"
 
 onready var userName = $Control
 onready var passWord = $Control2
+onready var password_txt = $Control2/Password
 
 
 var userSide = false
@@ -16,6 +17,17 @@ var password_entered = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+#	var savedData = _load()
+#	if savedData != null:
+#		var password = savedData["password"]
+#		$Store.text = password
+#		$Control/Username.text = savedData["username"]
+#		$Control2/Password.text = interpolateStar(password)
+	
+	
+	
+	
 	_load_session()
 	_load_bgm()
 	
@@ -42,6 +54,19 @@ func _ready():
 
 func _process(delta):
 	label_placeholder()
+
+
+
+func interpolateStar(text):
+	var hiddenText = ""
+	if text != "":
+			for i in text.length():
+				hiddenText += "*"
+				password_txt.text = hiddenText
+	else:
+		text.text = ""
+	return hiddenText
+
 
 
 #func _input(event):
@@ -270,3 +295,28 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				$AlertBox._show("This account is lock!")
 			"device lock":
 				$AlertBox._show("This device is lock!")
+
+
+func _load():
+	var file = File.new()
+	if file.file_exists(filepath):
+		file.open(filepath, File.READ)
+		var txt = file.get_as_text()
+		file.close()
+		var obj = JSON.parse(txt)
+		print(txt)
+		if obj.error == OK:
+			return obj.result
+	return null
+
+
+
+#func _on_Remember_pressed():
+#	var username = $Control/Username.text
+#	var password = $Store.text
+#
+#	var data = {
+#		"username": username,
+#		"password": password
+#	}
+#	_save(data)
