@@ -1074,7 +1074,6 @@ valign = 1
 position = Vector2( 1000, 1400 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 32 )
-frame = 5
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1260,16 +1259,6 @@ anims/out = SubResource( 16 )
 anims/RESET = SubResource( 18 )
 anims/in = SubResource( 19 )
 anims/out = SubResource( 17 )
-
-[node name="SlotControl" type="Control" parent="."]
-visible = false
-margin_right = 2000.0
-margin_bottom = 900.0
-
-[node name="WebViewContainer" type="Panel" parent="SlotControl"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 1000, 500 )
 
 [connection signal="pressed" from="ProfileBg/Profile" to="." method="_on_Profile_pressed"]
 [connection signal="pressed" from="SettingToggle" to="." method="_on_SettingToggle_pressed"]

@@ -153,18 +153,6 @@ func _on_Slot_pressed():
 	$"/root/bgm".volume_db = -45
 	var username = $"/root/Config".config.user.username
 	var session = $"/root/Config".config.user.session
-	#LoadingScript.load_scene(self, "res://pck/scenes/slot_provider.tscn")
-	OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
-#	$SlotControl.show()
-#
-#	print("Username:", username)
-#	print("Session:", session)
-#
-#	load_web_page("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
-#
-#func load_web_page(url: String):
-#	var iframe_code = "<iframe src=\"" + url + "\" width=\"100%\" height=\"100%\"></iframe>"
-#
-#	print("Iframe Code:", iframe_code)
-#
-#	$SlotControl/WebViewContainer.set("custom_html", iframe_code)
+	LoadingScript.load_scene(self, "res://pck/scenes/slot_provider.tscn")
+	#OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
+

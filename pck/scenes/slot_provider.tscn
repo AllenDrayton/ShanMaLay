@@ -120,3 +120,4 @@ script = ExtResource( 3 )
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="provider/p/1" to="." method="_on_provider_pressed" binds= [ "pragmatic" ]]
 [connection signal="pressed" from="provider/p/3" to="." method="_on_provider_pressed" binds= [ "kmr" ]]
+[connection signal="pressed" from="provider/p/4" to="." method="_on_provider_pressed" binds= [ "Jili" ]]

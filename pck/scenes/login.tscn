@@ -163,7 +163,7 @@ texture = ExtResource( 2 )
 position = Vector2( 696, 364.465 )
 scale = Vector2( 1.8, 1.8 )
 frames = SubResource( 29 )
-frame = 18
+frame = 9
 playing = true
 
 [node name="VersionControl" type="Label" parent="."]
@@ -172,7 +172,7 @@ margin_top = 677.0
 margin_right = 1555.0
 margin_bottom = 735.0
 custom_fonts/font = SubResource( 30 )
-text = "Version 1.8"
+text = "Version 1.9"
 align = 2
 valign = 1
 
