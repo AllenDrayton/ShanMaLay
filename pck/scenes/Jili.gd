@@ -3,6 +3,12 @@ extends Node
 # This is JILI Script
 var balance
 
+# Web Socket Variables
+export var websocket_url = "ws://redboxmm.tech:8081/acrf-qarava-slot/slotplaysocket"
+var _client = WebSocketClient.new()
+var isExit = false
+var isPlaying = false
+
 var slot_textures=[]
 var filepath="res://pck/assets/slot/slot-game-AWC(KINGMAKER).json"
 var acesskey
@@ -34,6 +40,182 @@ func _ready():
 		var button = buttons[i]
 		if button is TextureButton:
 			button.texture_normal =slot_textures[i]
+			
+	# For Implementing Web Socket
+	_connect_websocket()
+
+
+func _connect_websocket():
+	_client.connect("connection_closed", self, "_on_connection_closed")
+	_client.connect("connection_error", self, "_on_connection_error")
+	_client.connect("connection_established", self, "_on_connected")
+	_client.connect("data_received", self, "_on_data")
+	
+	var err = _client.connect_to_url(websocket_url)
+	if err != OK:
+		print("Unable to Connect")
+		set_process(false)
+
+
+func _process(delta):
+	_client.poll()
+#	print(_client.get_connection_status())
+
+
+func _on_connection_closed(was_clean = false):
+	print("Websocket Connection Closed, clean : ", was_clean)
+	set_process(false)
+
+func _on_connection_error():
+	print("Websocket Connection Error")
+
+# Sending Data request to Web Socket
+func _on_connected(proto = ""):
+	# Send message to the WebSocket based on the stateForSecond
+	print("Connection_Successful with Protocol : ", proto)
+	
+	var message = {
+		"uniquekey": "1215",
+		"username": "1001",
+		"sessionFor": "SECOND",
+		"stateForFirst": "",
+		"stateForSecond": "STATE_CONNECT",
+		"message": ""
+	}
+	print("This is on connected Message : ", message)
+	_send(message)
+
+
+func _on_data():
+	var message = _client.get_peer(1).get_packet().get_string_from_utf8()
+	print("Received data from Server:", message)
+	var obj = JSON.parse(message)
+	var res = obj.result
+	print("On data Respond after json parsing : ", res)
+	
+	# Handling different states
+	match res.stateForFirst:
+		
+		"STATE_CONNECT":
+			
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("Client has been Dinnected")
+				"STATE_READY":
+					$Backdrop.hide()
+					_enabled_buttons()
+				"STATE_PLAY":
+					$Backdrop.show()
+					_disabled_buttons()
+				"STATE_DISCONNECT":
+					print("Client has been Disconnected")
+				"STATE_EXIT":
+					$Timer.start()
+					
+		"STATE_READY":
+			
+			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("Client has been Dinnected")
+				"STATE_READY":
+					$Backdrop.hide()
+					_enabled_buttons()
+				"STATE_PLAY":
+					$Backdrop.show()
+					_disabled_buttons()
+					isPlaying = true
+				"STATE_DISCONNECT":
+					print("Client has been Disconnected")
+				"STATE_EXIT":
+					$Timer.start()
+			
+		"STATE_PLAY":
+			
+			print("State_play")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("Client has been Dinnected")
+				"STATE_READY":
+					$Backdrop.hide()
+					_enabled_buttons()
+				"STATE_PLAY":
+					$Backdrop.show()
+					_disabled_buttons()
+				"STATE_DISCONNECT":
+					print("Client has been Disconnected")
+				"STATE_EXIT":
+					$Timer.start()
+			
+		"STATE_DISCONNECT":
+			
+			print("State_disconnect")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("Client has been Dinnected")
+				"STATE_READY":
+					$Backdrop.hide()
+					_enabled_buttons()
+				"STATE_PLAY":
+					$Backdrop.show()
+					_disabled_buttons()
+				"STATE_DISCONNECT":
+					print("Client has been Disconnected")
+				"STATE_EXIT":
+					$Timer.start()
+			
+		"STATE_EXIT":
+			
+			print("state_exit")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("Client has been Dinnected")
+				"STATE_READY":
+					$Backdrop.hide()
+					_enabled_buttons()
+				"STATE_PLAY":
+					$Backdrop.show()
+					_disabled_buttons()
+				"STATE_DISCONNECT":
+					print("Client has been Disconnected")
+				"STATE_EXIT":
+					$Timer.start()
+					
+		"":
+			
+			print("Legit Disconnected")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("Client has been Dinnected")
+				"STATE_READY":
+					$Backdrop.hide()
+					_enabled_buttons()
+				"STATE_PLAY":
+					$Backdrop.show()
+					_disabled_buttons()
+				"STATE_DISCONNECT":
+					print("Client has been Disconnected")
+				"STATE_EXIT":
+						$Timer.start()
+			
+
+func _send(data):
+	var json = JSON.print(data)
+	print("From client --- " + json)
+#	var success = _client.get_peer(1).put_packet(json.to_utf8())
+	var peer = _client.get_peer(1)
+	
+	# Set the write mode to WebSocketPeer.WRITE_MODE_TEXT
+	peer.set_write_mode(WebSocketPeer.WRITE_MODE_TEXT)
+	
+	# Convert the JSON string to UTF-8 and send it as a text packet
+	var data_utf8 = json.to_utf8()
+	var success = peer.put_packet(data_utf8)
+	
+	if success != OK:
+		print("Failed to send data.")
+	else:
+		print("Data Has Been Sent Successfully")
 
 
 func _update_info(result, response_code, headers, body):
@@ -49,17 +231,40 @@ func _update_info(result, response_code, headers, body):
 			var respond = json_parse_result.result
 #			var respond = JSON.parse(body.get_string_from_utf8()).result
 			balance = respond.balance
+			$Balance/Label.text = comma_sep(respond.balance)
 
+
+func comma_sep(number):
+	var string = str(number)
+	var mod = string.length() % 3
+	var res = ""
+	for i in range(0, string.length()):
+		if i != 0 && i % 3 == mod:
+			res += ","
+		res += string[i]
+	return res
 
 
 func _on_Exit_pressed():
+	isExit = true
 	
-	# For Music
-	$"/root/bgm".volume_db = -50
-	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
+	var message = {
+		"uniquekey": "1215",
+		"username": "1001",
+		"sessionFor": "SECOND",
+		"stateForFirst": "",
+		"stateForSecond": "STATE_DISCONNECT",
+		"message": ""
+	}
+	print("This is on connected Message : ", message)
+	_send(message)
+#	# For Music
+#	$"/root/bgm".volume_db = -50
+#	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
 
 func _on_game_pressed(game_name,accesskey):
 	
+	isPlaying = true
 	# For Music
 	$"/root/bgm".volume_db = -50
 	
@@ -106,4 +311,35 @@ func on_body_request_completed(result, response_code, headers, body):
 	Config.slot_url = json_result["url"]
 	print("THis is slot_link : ", Config.slot_url)
 	OS.shell_open(Config.slot_url)
+	
+	var message = {
+		"uniquekey": "1215",
+		"username": "1001",
+		"sessionFor": "SECOND",
+		"stateForFirst": "",
+		"stateForSecond": "STATE_PLAY",
+		"message": Config.slot_url
+	}
+	print("This is on connected Message : ", message)
+	_send(message)
 
+
+
+func _on_Timer_timeout():
+	# For Music
+	$"/root/bgm".volume_db = -50
+	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
+
+func _disabled_buttons():
+	var buttons = $provider/p.get_children()
+	
+	for i in range(buttons.size()):
+		var button = buttons[i]
+		button.disabled = true
+
+func _enabled_buttons():
+	var buttons = $provider/p.get_children()
+	
+	for i in range(buttons.size()):
+		var button = buttons[i]
+		button.disabled = false
