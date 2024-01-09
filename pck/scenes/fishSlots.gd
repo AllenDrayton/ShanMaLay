@@ -277,4 +277,13 @@ func on_body_request_completed(result, response_code, headers, body):
 
 func _on_Back_pressed():
 	Config.MUSIC.volume_db = -80
-	LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+	var quit_data = {
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
+		"sessionFor": "SECOND",
+		"stateForFirst": "",
+		"stateForSecond":"STATE_DISCONNECT",
+		"message": Config.slot_url
+	}
+	_send_data(quit_data)
+	
