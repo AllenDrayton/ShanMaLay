@@ -14,7 +14,7 @@ var cancel = true
 var VERSION = 1.6
 var slot_url
 var balance = 0
-var UNIQUE
+var UNIQUE = ""
 
 var config = {
 	"name":"ShanMaLay",

@@ -410,8 +410,9 @@ func extract_unique_id_from_url(whole_url):
 # Function to use the whole URL
 func process_whole_url():
 	var whole_url = get_whole_url()
-#	var whole_url = "https://example.com/?12680947384937934u50u34098v0ou3r0uv3409uv0"
+#	var whole_url = "https://example.com/?123456789"
 	var uniqueid = extract_unique_id_from_url(whole_url)
 	if uniqueid != "":
 		print("Extracted unique ID: ",uniqueid)
 		Config.UNIQUE = uniqueid
+		$uniquekeyLabel.text = Config.UNIQUE

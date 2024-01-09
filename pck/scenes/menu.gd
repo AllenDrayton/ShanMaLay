@@ -9,7 +9,7 @@ const BlankMusic = preload("res://pck/assets/shankoemee/audio/EmptySound.ogg")
 
 
 func _ready():
-	print(Config.config)
+#	print(Config.config)
 	if Signals.user_mute_music == true:
 		Config.MUSIC.volume_db = -80
 	elif Signals.user_mute_music == false:

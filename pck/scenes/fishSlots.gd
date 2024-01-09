@@ -262,10 +262,8 @@ func on_fish_slot_pressed(slotName, accessKey):
 	
 func on_body_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
-#	print(json_result)
 	Config.slot_url = json_result["url"]
-	OS.shell_open(Config.slot_url)
-#	LoadingScript.load_scene(self,"res://CEF.tscn")
+
 
 
 func _on_Back_pressed():

@@ -320,7 +320,6 @@ func on_body_request_completed(result, response_code, headers, body):
 		"message": Config.slot_url
 	}
 	_send_data(play_data)
-#	OS.shell_open(Config.slot_url)
 	
 
 func get_parameter(parameter):
