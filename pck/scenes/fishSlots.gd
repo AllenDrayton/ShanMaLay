@@ -263,6 +263,15 @@ func on_fish_slot_pressed(slotName, accessKey):
 func on_body_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
 	Config.slot_url = json_result["url"]
+	var play_data = {
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
+		"sessionFor": "SECOND",
+		"stateForFirst": "",
+		"stateForSecond":"STATE_PLAY",
+		"message": Config.slot_url
+	}
+	_send_data(play_data)
 
 
 
