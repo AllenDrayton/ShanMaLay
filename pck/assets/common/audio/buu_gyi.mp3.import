@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/buu_gyi.mp3-8270057b55228dbd439b696ad56b6507.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/common/audio/buu_gyi.mp3"
+dest_files=[ "res://.import/buu_gyi.mp3-8270057b55228dbd439b696ad56b6507.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

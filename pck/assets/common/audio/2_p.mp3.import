@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2_p.mp3-5f0bc1b4e8e4f4abe337d1f896075139.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/common/audio/2_p.mp3"
+dest_files=[ "res://.import/2_p.mp3-5f0bc1b4e8e4f4abe337d1f896075139.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

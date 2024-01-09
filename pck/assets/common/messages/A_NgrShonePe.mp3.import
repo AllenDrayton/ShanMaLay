@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/A_NgrShonePe.mp3-87c32ceee7c99959becc2cd108c72c89.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/common/messages/A_NgrShonePe.mp3"
+dest_files=[ "res://.import/A_NgrShonePe.mp3-87c32ceee7c99959becc2cd108c72c89.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

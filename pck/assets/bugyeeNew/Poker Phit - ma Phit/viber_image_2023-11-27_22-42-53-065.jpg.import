@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/viber_image_2023-11-27_22-42-53-065.jpg-a174e628f91edf6d81a35e5d6f55a48d.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://pck/assets/bugyeeNew/Poker Phit - ma Phit/viber_image_2023-11-27_22-42-53-065.jpg"
+dest_files=[ "res://.import/viber_image_2023-11-27_22-42-53-065.jpg-a174e628f91edf6d81a35e5d6f55a48d.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

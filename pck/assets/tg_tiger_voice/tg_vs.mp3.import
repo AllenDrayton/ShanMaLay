@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tg_vs.mp3-4a819bbbbad82105744aded84b4af294.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/tg_tiger_voice/tg_vs.mp3"
+dest_files=[ "res://.import/tg_vs.mp3-4a819bbbbad82105744aded84b4af294.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
