@@ -1,16 +1,189 @@
 extends Node2D
 
 var slots = []
+var websocket = WebSocketClient.new()
+var websocket_url = "ws://redboxmm.tech:8081/acrf-qarava-slot/slotplaysocket"
 
 var balance
 
+func _connect_ws():
+	websocket.connect("connection_established", self, "_on_connected")
+	websocket.connect("data_received", self, "_on_data")
+	websocket.connect("connection_closed", self, "_closed")
+	websocket.connect("connection_error", self, "_error_closed")
+
+	var err = websocket.connect_to_url(websocket_url)
+	if err != OK:
+		print("Unable to connect")
+		set_process(false)
+	else:
+		print("... Connecting")
+		pass
+
+func on_balance_request_completed(result, response_code, headers, body):
+	var json_result = JSON.parse(body.get_string_from_utf8()).result
+	$Balance.text = comma_sep(json_result["balance"])
+
+
+func balance_update():
+	var http = HTTPRequest.new()
+	var url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotuserconnect/getuserbalance/"+$"/root/Config".config.user.username
+	add_child(http)
+	http.connect("request_completed",self,"on_balance_request_completed")
+	http.request(url)
+
+func _send_data(data):
+	var json = JSON.print(data)
+	print(json)
+	var peer = websocket.get_peer(1)
+	peer.set_write_mode(WebSocketPeer.WRITE_MODE_TEXT)
+
+	var data_utf8 = json.to_utf8()
+	var success = peer.put_packet(data_utf8)
+
+	if success != OK:
+		print("Failed to send data.")
+	else:
+		print("")
+
+func disable_buttons(disable):
+	for i in $slotContainer/slotProviderContainer.get_children():
+		i.disabled = disable
+
+func _on_data():
+	var message = websocket.get_peer(1).get_packet().get_string_from_utf8()
+	print("Received data from Server:", message)
+	var obj = JSON.parse(message)
+	var res = obj.result
+	print("--- Respond for First ---")
+	
+	# Handling different states
+	match res.stateForFirst:
+		"STATE_CONNECT":
+			print("CLIENT CONNECTED")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+		"STATE_READY":
+			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
+			balance_update()
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+		"STATE_PLAY":
+			print("READY TO PLAY")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+		"STATE_DISCONNECT":
+			print("Disconnected")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+		"STATE_EXIT":
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+		"":
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+
+func _on_connected(proto = ""):
+	# Send message to the WebSocket based on the stateForSecond
+	print("Connection_Successful with Protocol : ", proto)
+	
+	var message = {
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
+		"sessionFor": "SECOND",
+		"stateForFirst": "",
+		"stateForSecond":"STATE_CONNECT",
+		"message": ""
+	}
+#	print("This is on connected Message : ", message)
+	_send_data(message)
+	
+func _error_closed():
+	print("Unexpected error ocuured ")
+	LoadingScript.load_scene(self,"res://start/conn_error.tscn")
+
+func _closed(was_clean):
+	print("Closed, clean: ",was_clean)
+	LoadingScript.load_scene(self,"res://start/conn_error.tscn")
+
 func _ready():
+	_connect_ws()
 	loadTextures()
 	request_http()
 	if Signals.user_mute_music == true:
 		Config.MUSIC.volume_db = -80
 	elif Signals.user_mute_music == false:
 		Config.MUSIC.volume_db = 0
+
+func _process(delta):
+	websocket.poll()
 
 func request_http():
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
@@ -89,7 +262,7 @@ func on_fish_slot_pressed(slotName, accessKey):
 	
 func on_body_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
-	print(json_result)
+#	print(json_result)
 	Config.slot_url = json_result["url"]
 	OS.shell_open(Config.slot_url)
 #	LoadingScript.load_scene(self,"res://CEF.tscn")

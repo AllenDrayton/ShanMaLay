@@ -31,17 +31,12 @@ func _ready():
 	elif Signals.user_mute_music == false:
 		Config.MUSIC.volume_db = 0
 	
-	if Config.balance != 0:
-		$Balance.text = str(Config.balance)
-	
 # warning-ignore:shadowed_variable
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
 	add_child(http)
-	if Config.balance != 0:
-		$Balance.text = str(Config.balance)
-	else:
-		http.connect("request_completed",self,"_update_info")
+	
+	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	
 # warning-ignore:unused_argument
@@ -109,7 +104,6 @@ func _connect_ws():
 	websocket.connect("connection_error", self, "_error_closed")
 
 	var err = websocket.connect_to_url(websocket_url)
-#	var err = websocket.connect_to_url(websocket_url)
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
@@ -117,6 +111,17 @@ func _connect_ws():
 		print("... Connecting")
 		pass
 
+func on_balance_request_completed(result, response_code, headers, body):
+	var json_result = JSON.parse(body.get_string_from_utf8()).result
+	$Balance.text = comma_sep(json_result["balance"])
+
+
+func balance_update():
+	var http = HTTPRequest.new()
+	var url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotuserconnect/getuserbalance/"+$"/root/Config".config.user.username
+	add_child(http)
+	http.connect("request_completed",self,"on_balance_request_completed")
+	http.request(url)
 
 func _send_data(data):
 	var json = JSON.print(data)
@@ -131,7 +136,13 @@ func _send_data(data):
 		print("Failed to send data.")
 	else:
 		print("")
-	
+
+func disable_buttons(disable):
+	for i in $slotContainer_1/slotProviderContainer.get_children():
+		i.disabled = disable
+	for j in $slotContainer_2/slotProviderContainer.get_children():
+		j.disabled = disable
+
 func _on_data():
 	var message = websocket.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data from Server:", message)
@@ -142,27 +153,103 @@ func _on_data():
 	# Handling different states
 	match res.stateForFirst:
 		"STATE_CONNECT":
-			print("State_Connect")
+			print("CLIENT CONNECTED")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 		"STATE_READY":
 			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
+			balance_update()
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 		"STATE_PLAY":
-			OS.shell_open(Config.slot_url)
+			print("READY TO PLAY")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 		"STATE_DISCONNECT":
 			print("Disconnected")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 		"STATE_EXIT":
-			LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
-	
-	match res.stateForSecond:
-		"STATE_EXIT":
-			LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
+		"":
+			match res.stateForSecond:
+				"STATE_CONNECT":
+					print("connected")
+				"STATE_READY":
+					print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
+					$loadingScreen.hide()
+					disable_buttons(false)
+				"STATE_PLAY":
+					$loadingScreen.show()
+					disable_buttons(true)
+				"STATE_DISCONNECT":
+					print("Disconnected")
+				"STATE_EXIT":
+					LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 
 func _on_connected(proto = ""):
 	# Send message to the WebSocket based on the stateForSecond
 	print("Connection_Successful with Protocol : ", proto)
 	
 	var message = {
-		"uniquekey": "1215",
-		"username": "1001",
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
 		"sessionFor": "SECOND",
 		"stateForFirst": "",
 		"stateForSecond":"STATE_CONNECT",
@@ -225,8 +312,8 @@ func on_body_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
 	Config.slot_url = json_result["url"]
 	var play_data = {
-		"uniquekey": "1215",
-		"username": "1001",
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
 		"sessionFor": "SECOND",
 		"stateForFirst": "",
 		"stateForSecond":"STATE_PLAY",
@@ -235,6 +322,15 @@ func on_body_request_completed(result, response_code, headers, body):
 	_send_data(play_data)
 #	OS.shell_open(Config.slot_url)
 	
+
+func get_parameter(parameter):
+	if OS.has_feature('JavaScript'):
+		return JavaScript.eval(""" 
+				var url_string = window.location.href;
+				var url = new URL(url_string);
+				url.searchParams.get(parameter);
+			""")
+	return null
 
 func _on_Left_pressed():
 	$slotAnimation.play("left")
@@ -262,8 +358,8 @@ func _on_slotAnimation_animation_finished(anim_name):
 func _on_Back_pressed():
 	Config.MUSIC.volume_db = -80
 	var message = {
-		"uniquekey": "1215",
-		"username": "1001",
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
 		"sessionFor": "SECOND",
 		"stateForFirst": "",
 		"stateForSecond":"STATE_DISCONNECT",

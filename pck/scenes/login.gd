@@ -59,9 +59,8 @@ func parseCookies(cookies):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var id = OS.get_unique_id()
-	print(id)
-#	cookieRequest()
+#	print(Config.UNIQUE)
+	process_whole_url()
 	Signals.emit_signal("disableButtons")
 	var savedData = _load()
 	if savedData != null:
@@ -391,3 +390,28 @@ func _on_Remember_pressed():
 		"password": password
 	}
 	_save(data)
+	
+# Function to get the whole URL
+func get_whole_url():
+	if OS.has_feature('JavaScript'):
+		return JavaScript.eval("""
+			window.location.href;
+		""")
+	return ""
+
+func extract_unique_id_from_url(whole_url):
+	var query_start = whole_url.find("?")  # Find the position of the '?' character
+	if query_start >= 0:
+		var parameters = whole_url.substr(query_start+1)  # Extract substring starting from '?'
+		return parameters
+	else:
+		return ""
+
+# Function to use the whole URL
+func process_whole_url():
+	var whole_url = get_whole_url()
+#	var whole_url = "https://example.com/?12680947384937934u50u34098v0ou3r0uv3409uv0"
+	var uniqueid = extract_unique_id_from_url(whole_url)
+	if uniqueid != "":
+		print("Extracted unique ID: ",uniqueid)
+		Config.UNIQUE = uniqueid

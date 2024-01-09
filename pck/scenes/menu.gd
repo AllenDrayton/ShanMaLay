@@ -32,6 +32,7 @@ func _ready():
 	var request = {
 		"head":"user info"
 	}
+	
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
 	add_child(http)

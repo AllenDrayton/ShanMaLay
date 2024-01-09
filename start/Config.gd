@@ -11,9 +11,10 @@ signal show_cef
 
 var MUSIC = null
 var cancel = true
-var VERSION = 1.5
+var VERSION = 1.6
 var slot_url
 var balance = 0
+var UNIQUE
 
 var config = {
 	"name":"ShanMaLay",
@@ -27,7 +28,7 @@ var config = {
 	"web":{
 		"isMobile": "0",
 		"type": "false"
-	}
+	},
 }
 
 # Server ip : 167.71.221.136

@@ -375,13 +375,6 @@ anims/RESET = SubResource( 2 )
 anims/left = SubResource( 3 )
 anims/right = SubResource( 1 )
 
-[node name="Back" type="TextureButton" parent="."]
-margin_right = 220.0
-margin_bottom = 135.0
-texture_normal = ExtResource( 7 )
-expand = true
-stretch_mode = 4
-
 [node name="Balance_Boarder" type="Sprite" parent="."]
 position = Vector2( 492, 46 )
 scale = Vector2( 0.589109, 0.589109 )
@@ -406,6 +399,13 @@ texture = ExtResource( 10 )
 
 [node name="loadingScreen" parent="." instance=ExtResource( 11 )]
 visible = false
+
+[node name="Back" type="TextureButton" parent="."]
+margin_right = 220.0
+margin_bottom = 135.0
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 4
 
 [connection signal="pressed" from="slotContainer_1/slotProviderContainer/chin shit huang" to="." method="_on_slot_pressed" binds= [ "Chin Shi Huang", "JILI-SLOT-003" ]]
 [connection signal="pressed" from="slotContainer_1/slotProviderContainer/aliBaba" to="." method="_on_slot_pressed" binds= [ "Alibaba", "JILI-SLOT-049" ]]
