@@ -138,6 +138,7 @@ func _send_data(data):
 		print("")
 
 func disable_buttons(disable):
+	$Back.disabled = disable
 	for i in $slotContainer_1/slotProviderContainer.get_children():
 		i.disabled = disable
 	for j in $slotContainer_2/slotProviderContainer.get_children():
@@ -268,6 +269,8 @@ func _closed(was_clean):
 
 # warning-ignore:unused_argument
 func _on_slot_pressed(slotName,accessKey):
+	disable_buttons(true)
+	$loadingScreen.show()
 	Config.MUSIC.volume_db = -80
 	
 	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getplaylink"

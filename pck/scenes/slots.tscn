@@ -92,7 +92,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2000, 180 ), Vector2( 130, 180 ) ]
+"values": [ Vector2( 2000, 180 ), Vector2( 160, 180 ) ]
 }
 
 [sub_resource type="DynamicFont" id=4]
@@ -397,15 +397,15 @@ position = Vector2( 1820, 45 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 10 )
 
-[node name="loadingScreen" parent="." instance=ExtResource( 11 )]
-visible = false
-
 [node name="Back" type="TextureButton" parent="."]
 margin_right = 220.0
 margin_bottom = 135.0
 texture_normal = ExtResource( 7 )
 expand = true
 stretch_mode = 4
+
+[node name="loadingScreen" parent="." instance=ExtResource( 11 )]
+visible = false
 
 [connection signal="pressed" from="slotContainer_1/slotProviderContainer/chin shit huang" to="." method="_on_slot_pressed" binds= [ "Chin Shi Huang", "JILI-SLOT-003" ]]
 [connection signal="pressed" from="slotContainer_1/slotProviderContainer/aliBaba" to="." method="_on_slot_pressed" binds= [ "Alibaba", "JILI-SLOT-049" ]]
