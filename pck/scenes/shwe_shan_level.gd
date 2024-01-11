@@ -93,9 +93,11 @@ func _level_selected(result, response_code, headers, body):
 		#get_tree().change_scene("res://pck/scenes/shwe_shan_game.tscn")
 		LoadingScript.load_scene(self, "res://pck/scenes/shwe_shan_game.tscn")
 	elif res.status == "not enough balance":
-		$AlertBox._show("အခန္းထဲဝင္ရန္ပိုက္ဆံမလုံေလာက္ပါ။")
+		$AlertBox._show("not enough balance")
 	elif res.status == "too much balance":
-		$AlertBox._show("အခန္းထဲဝင္ရန္ပိုက္ဆံမ်ားေနပါသည္။")
+		$AlertBox._show("အခန္းထဲဝင္ရန္ပိုက္ဆံမ်ားေနပါသည္too much balance")
+	elif res.status == "player already exist":
+		$AlertBox._show("player already existအခန္းထဲဝင္ရန္ပိုက္ဆံမ်ားေနပါသည္။")
 	elif res.status == "not active":
 		$AlertBox._show("ShweShan server in maintenance please come back later")
 

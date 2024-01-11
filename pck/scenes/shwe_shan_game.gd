@@ -147,6 +147,7 @@ func _on_server_respond(respond):
 	match respond.head:
 		"room info":
 			if body == null :
+				print("Body: ",body)
 				$"/root/bgm".volume_db = -50
 				#get_tree().change_scene("res://pck/scenes/menu.tscn")
 				LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
@@ -167,7 +168,7 @@ func _init_all():
 	for i in range(TOTAL_PLAYER):
 		var player = playerPrefab.instance()
 		player.position = $PlayerPos.get_node(str(i)).position
-		if i == 4 || i == 5 :
+		if i == 4 || i == 5 || i==6:
 			player.get_node("CardPos").position.x = -200
 			player.get_node("CardStatus").position.x = -200
 		playersNode.append(player)
@@ -197,13 +198,15 @@ func _update_room(room):
 		#get_tree().change_scene("res://pck/scenes/menu.tscn")
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
-		
+	
+	var getIndex=room.players[myIndex].index
 	if room.players[myIndex].isWaiting:
 		$BackDrop._show("Please wait for this game to finish")
 		if !isWaitVoicePlayed:
 			_playVoice(GameVoices.wait_game)
 			isWaitVoicePlayed = true
-	
+			
+	print(room.players[myIndex].index,": ",room.players[myIndex])
 	# Game States
 	if room.gameState == GameStates.start:
 		_start(room)
@@ -295,7 +298,9 @@ func _deliver(room):
 			if player.isWaiting:
 				continue
 			var v = _get_vIndex(i)
+			print("v:",v)
 			var card = player.cards[j]
+			print("Card: ",card)
 			var pos = playersNode[v].cardPosArray[j]
 			_deliver_card(card,pos,v)
 			yield(get_tree().create_timer(CARD_DELIVER_DELAY), "timeout")
@@ -312,7 +317,7 @@ func _end(room):
 		return
 	prev_gameState = room.gameState
 	print("Game State : End")
-	print(room)
+#	print(room)
 	$CardCheck._hide()
 	_show_all_player_cards(room)
 	
@@ -637,6 +642,7 @@ func _show_final_win_lose_amount(room):
 		print(str(i) + " win amount : " + str(amt))
 
 func _deliver_card(card,pos,index):
+	print()
 	var sprite = cardPrefab.instance()
 	var key = str(card.rank)+str(card.shape)
 	sprite.position = $CardHome.position
@@ -653,16 +659,19 @@ func _clear_all_player_cards():
 func _show_all_player_cards(room):
 	for i in range(TOTAL_PLAYER):
 		var player  = room.players[i]
+		
 		if player == null:
 			continue
 		if player.isWaiting:
 			continue
+		print("player index:",i,"cards:",player.cards)
 		_show_player_cards(i,player.cards)
 
 func _show_player_cards(i,cards):
 	var v = _get_vIndex(i)
 	var N = $Cards.get_node(str(v))
 	var arr = N.get_children()
+	print("v: ",v,"N: ", N,"Arr: ",arr)
 	for j in range(8):
 		var card = cards[j]
 		var sprite = arr[j]

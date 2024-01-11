@@ -16,6 +16,9 @@ var password_entered = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	process_whole_url()
+	
 	_load_session()
 	_load_bgm()
 	
@@ -270,3 +273,28 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				$AlertBox._show("This account is lock!")
 			"device lock":
 				$AlertBox._show("This device is lock!")
+				
+# Function to get the whole URL
+func get_whole_url():
+	if OS.has_feature('JavaScript'):
+		return JavaScript.eval("""
+			window.location.href;
+		""")
+	return ""
+
+func extract_unique_id_from_url(whole_url):
+	var query_start = whole_url.find("?")  # Find the position of the '?' character
+	if query_start >= 0:
+		var parameters = whole_url.substr(query_start+1)  # Extract substring starting from '?'
+		return parameters
+	else:
+		return ""
+
+# Function to use the whole URL
+func process_whole_url():
+	var whole_url = get_whole_url()
+#	var whole_url = "https://example.com/?123456789"
+	var uniqueid = extract_unique_id_from_url(whole_url)
+	if uniqueid != "":
+		print("Extracted unique ID: ",uniqueid)
+		Config.UNIQUE = uniqueid

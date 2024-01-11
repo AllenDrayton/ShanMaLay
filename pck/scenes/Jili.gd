@@ -75,8 +75,8 @@ func _on_connected(proto = ""):
 	print("Connection_Successful with Protocol : ", proto)
 	
 	var message = {
-		"uniquekey": "1215",
-		"username": "1001",
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
 		"sessionFor": "SECOND",
 		"stateForFirst": "",
 		"stateForSecond": "STATE_CONNECT",
@@ -114,6 +114,7 @@ func _on_data():
 					
 		"STATE_READY":
 			
+			balance_update()
 			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
 			match res.stateForSecond:
 				"STATE_CONNECT":
@@ -124,7 +125,6 @@ func _on_data():
 				"STATE_PLAY":
 					$Backdrop.show()
 					_disabled_buttons()
-					isPlaying = true
 				"STATE_DISCONNECT":
 					print("Client has been Disconnected")
 				"STATE_EXIT":
@@ -244,25 +244,39 @@ func comma_sep(number):
 		res += string[i]
 	return res
 
+func on_balance_request_completed(result, response_code, headers, body):
+	var json_result = JSON.parse(body.get_string_from_utf8()).result
+	$Balance/Label.text = comma_sep(json_result["balance"])
+
+func balance_update():
+	var http = HTTPRequest.new()
+	var url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotuserconnect/getuserbalance/"+$"/root/Config".config.user.username
+	add_child(http)
+	http.connect("request_completed",self,"on_balance_request_completed")
+	http.request(url)
+
 
 func _on_Exit_pressed():
 	isExit = true
 	
 	var message = {
-		"uniquekey": "1215",
-		"username": "1001",
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
 		"sessionFor": "SECOND",
 		"stateForFirst": "",
 		"stateForSecond": "STATE_DISCONNECT",
 		"message": ""
 	}
-	print("This is on connected Message : ", message)
+	print("This is on Exit Message : ", message)
 	_send(message)
 #	# For Music
 #	$"/root/bgm".volume_db = -50
 #	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
 
 func _on_game_pressed(game_name,accesskey):
+	
+	$Backdrop.show()
+	_disabled_buttons()
 	
 	isPlaying = true
 	# For Music
@@ -283,9 +297,8 @@ func _on_game_pressed(game_name,accesskey):
 	"type": Config.config["web"]["type"],
 	"name": "",
 	"session": "",
-	"provider": "skme-mclub",
-#	"username": $"/root/Config".config.user.username,
-	"username":"mk0000640",
+	"provider": "SML99",
+	"username": $"/root/Config".config.user.username,
 	"beforeBalance": balance,
 	"amount": 0,
 	"afterBalance": 0,
@@ -310,17 +323,17 @@ func on_body_request_completed(result, response_code, headers, body):
 	print("This is Respond Jason Result : ", json_result)
 	Config.slot_url = json_result["url"]
 	print("THis is slot_link : ", Config.slot_url)
-	OS.shell_open(Config.slot_url)
+#	OS.shell_open(Config.slot_url)
 	
 	var message = {
-		"uniquekey": "1215",
-		"username": "1001",
+		"uniquekey": Config.UNIQUE,
+		"username": Config.config.user.username,
 		"sessionFor": "SECOND",
 		"stateForFirst": "",
 		"stateForSecond": "STATE_PLAY",
 		"message": Config.slot_url
 	}
-	print("This is on connected Message : ", message)
+	print("This is on Slot pressed Message : ", message)
 	_send(message)
 
 
@@ -331,6 +344,7 @@ func _on_Timer_timeout():
 	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
 
 func _disabled_buttons():
+	$Exit.disabled = true
 	var buttons = $provider/p.get_children()
 	
 	for i in range(buttons.size()):
@@ -338,6 +352,7 @@ func _disabled_buttons():
 		button.disabled = true
 
 func _enabled_buttons():
+	$Exit.disabled = false
 	var buttons = $provider/p.get_children()
 	
 	for i in range(buttons.size()):

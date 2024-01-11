@@ -344,6 +344,8 @@ position = Vector2( 1680, 440 )
 
 [node name="6" type="Node" parent="Cards"]
 
+[node name="7" type="Node" parent="Cards"]
+
 [node name="Audio" type="Node" parent="."]
 
 [node name="GameVoice" type="AudioStreamPlayer" parent="Audio"]

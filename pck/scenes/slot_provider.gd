@@ -3,7 +3,7 @@ extends Node
 var slot_textures=[]
 
 func _load_profile_textures():
-	for i in range(5):
+	for i in range(3):
 		var path = "res://pck/assets/slot/slot_provider/A" + str(i+1) + ".png"
 		var texture = load(path)
 		slot_textures.append(texture) 
@@ -21,7 +21,7 @@ func _ready():
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	_load_profile_textures()
-	var buttons = $provider/p.get_children()
+	var buttons = $p.get_children()
 	
 	for i in range(buttons.size()):
 		var button = buttons[i]
@@ -65,11 +65,6 @@ func _on_Exit_pressed():
 	# For Music
 	$"/root/bgm".volume_db = -50
 	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
-
-
-
-
-
 
 
 func _on_provider_pressed(provider_name):
