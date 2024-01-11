@@ -21,6 +21,12 @@ func _load_profile_textures():
 		slot_textures.append(texture) 
 
 func _ready():
+	
+	# Waiting For Websocket Connection
+	$Backdrop.show()
+	_disabled_buttons()
+	print("Show")
+	
 	if $Setting/SliderMusic.value == 0:
 		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
 	else:
@@ -84,6 +90,10 @@ func _on_connected(proto = ""):
 	}
 	print("This is on connected Message : ", message)
 	_send(message)
+	
+	$Backdrop.hide()
+	_enabled_buttons()
+	print("hide")
 
 
 func _on_data():
