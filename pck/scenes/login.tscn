@@ -440,7 +440,7 @@ margin_top = 848.0
 margin_right = 129.0
 margin_bottom = 862.0
 custom_fonts/font = SubResource( 16 )
-text = "placeholder"
+text = "null"
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="animation_finished" from="loginAnimationPlayer" to="." method="_on_loginAnimationPlayer_animation_finished"]

@@ -20,6 +20,8 @@ var arrows = {
 
 
 func _ready():
+	$loadingScreen.show()
+	disable_buttons(true)
 	_connect_ws()
 	$Left.disabled = true
 	$Left.texture_disabled = arrows["dull"]
@@ -258,6 +260,8 @@ func _on_connected(proto = ""):
 	}
 #	print("This is on connected Message : ", message)
 	_send_data(message)
+	$loadingScreen.hide()
+	disable_buttons(false)
 	
 func _error_closed():
 	print("Unexpected error ocuured ")

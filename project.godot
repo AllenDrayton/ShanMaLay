@@ -39,6 +39,7 @@ window/stretch/aspect="keep"
 [global]
 
 splash=false
+export=false
 
 [input_devices]
 
