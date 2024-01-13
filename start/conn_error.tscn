@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://start/zawgyi-one.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://pck/assets/common/btn-3.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/menu/Err.jpg" type="Texture" id=3]
+[ext_resource path="res://start/button.gd" type="Script" id=4]
+[ext_resource path="res://start/conn_error.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.137255, 0.0352941, 0.352941, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.176471, 0.0196078, 0.266667, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="root" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_vertical_guides_": [ 1000.0 ]
+}
+
+[node name="Bg" type="Sprite" parent="."]
+modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( 1002.5, 450.5 )
+scale = Vector2( 1.57578, 1.56969 )
+texture = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.701961 )
+margin_left = 930.0
+margin_top = 230.0
+margin_right = 1801.0
+margin_bottom = 611.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1153.0
+margin_top = 212.0
+margin_right = 1592.0
+margin_bottom = 387.0
+custom_fonts/font = SubResource( 3 )
+text = "NETWORK ERROR!"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 862.0
+margin_top = 319.0
+margin_right = 1880.0
+margin_bottom = 583.0
+custom_fonts/font = SubResource( 3 )
+text = "Internet Connection သို႔မဟုတ္ WiFi Connection
+ ခ်ိတ္ဆက္ထားျခင္းမ႐ွိပါသျဖင့္ ျပန္လည္စစ္ေဆး၍
+အသံုးျပဳေပးပါ႐ွင့္"
+align = 1
+valign = 1
+
+[node name="Retry" type="TextureButton" parent="."]
+margin_left = 1193.0
+margin_top = 624.0
+margin_right = 1526.0
+margin_bottom = 738.0
+texture_normal = ExtResource( 2 )
+expand = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Retry"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 120.0
+margin_right = -119.0
+custom_colors/font_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Retry"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Retry" to="." method="_on_Retry_pressed"]

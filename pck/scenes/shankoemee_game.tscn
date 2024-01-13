@@ -1,0 +1,1903 @@
+[gd_scene load_steps=109 format=2]
+
+[ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=1]
+[ext_resource path="res://pck/assets/common/btn-2.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/common/arrow_right.png" type="Texture" id=3]
+[ext_resource path="res://pck/assets/menu/NewMenu/panel-top.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/common/girlGif/Girl_Idle.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/common/joystick.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://pck/assets/common/girlGif/Girl_shuffle.png" type="Texture" id=8]
+[ext_resource path="res://pck/scripts/shankoemee/banker.gd" type="Script" id=9]
+[ext_resource path="res://pck/assets/shankoemee/banker.png" type="Texture" id=10]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=14]
+[ext_resource path="res://pck/scenes/shankoemee_game.gd" type="Script" id=15]
+[ext_resource path="res://pck/assets/common/messages/Hello.png" type="Texture" id=16]
+[ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=17]
+[ext_resource path="res://pck/assets/menu/NewMenu/dealer-betNew.png" type="Texture" id=18]
+[ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=19]
+[ext_resource path="res://pck/scripts/shankoemee/card_check.gd" type="Script" id=20]
+[ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=21]
+[ext_resource path="res://pck/assets/menu/NewMenu/panel-1A.png" type="Texture" id=22]
+[ext_resource path="res://pck/assets/common/btn-3.png" type="Texture" id=23]
+[ext_resource path="res://pck/assets/common/messages/T2.png" type="Texture" id=26]
+[ext_resource path="res://pck/assets/common/messages/T.png" type="Texture" id=27]
+[ext_resource path="res://pck/assets/common/messages/hahaha.png" type="Texture" id=28]
+[ext_resource path="res://pck/scripts/shankoemee/catch_scene.gd" type="Script" id=29]
+[ext_resource path="res://pck/assets/common/flare-1.png" type="Texture" id=30]
+[ext_resource path="res://pck/assets/common/banner-1.png" type="Texture" id=31]
+[ext_resource path="res://pck/assets/shankoemee/win.png" type="Texture" id=32]
+[ext_resource path="res://pck/assets/audio/coin_move_1.mp3" type="AudioStream" id=33]
+[ext_resource path="res://pck/assets/shankoemee/win-bg.png" type="Texture" id=34]
+[ext_resource path="res://pck/assets/common/messages/Bet more.png" type="Texture" id=35]
+[ext_resource path="res://pck/assets/common/messages/I'm leaving.png" type="Texture" id=36]
+[ext_resource path="res://pck/assets/common/messages/T3.png" type="Texture" id=37]
+[ext_resource path="res://pck/assets/common/newEmoji/6.png" type="Texture" id=41]
+[ext_resource path="res://pck/assets/common/emoji.png" type="Texture" id=42]
+[ext_resource path="res://pck/assets/common/newEmoji/1.png" type="Texture" id=43]
+[ext_resource path="res://pck/assets/common/newEmoji/5.png" type="Texture" id=44]
+[ext_resource path="res://pck/assets/common/newEmoji/4.png" type="Texture" id=45]
+[ext_resource path="res://pck/assets/common/newEmoji/2.png" type="Texture" id=46]
+[ext_resource path="res://pck/assets/common/newEmoji/3.png" type="Texture" id=47]
+[ext_resource path="res://pck/assets/audio/noti-1.mp3" type="AudioStream" id=48]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-bg.png" type="Texture" id=50]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-grabber.png" type="Texture" id=51]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-grabber-highlight.png" type="Texture" id=52]
+[ext_resource path="res://pck/assets/shankoemee/bet-slider-bg-highlight.png" type="Texture" id=53]
+[ext_resource path="res://pck/assets/shankoemee/lose-bg.png" type="Texture" id=55]
+[ext_resource path="res://pck/assets/audio/win-1.mp3" type="AudioStream" id=56]
+[ext_resource path="res://pck/assets/audio/lose-1.mp3" type="AudioStream" id=57]
+[ext_resource path="res://pck/assets/shankoemee/rules.png" type="Texture" id=58]
+[ext_resource path="res://pck/assets/shankoemee/menu.png" type="Texture" id=59]
+[ext_resource path="res://pck/assets/shankoemee/exit.png" type="Texture" id=60]
+[ext_resource path="res://pck/assets/shankoemee/setting.png" type="Texture" id=61]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=62]
+[ext_resource path="res://pck/assets/shankoemee/game_rules.png" type="Texture" id=63]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=64]
+[ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=65]
+[ext_resource path="res://pck/assets/common/btn-6-lg.png" type="Texture" id=67]
+[ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=68]
+[ext_resource path="res://pck/assets/common/WINYADA0.TTF" type="DynamicFontData" id=69]
+[ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=202]
+[ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=205]
+
+[sub_resource type="DynamicFont" id=351]
+size = 30
+outline_size = 1
+outline_color = Color( 0.0666667, 0.247059, 0.462745, 1 )
+use_filter = true
+font_data = ExtResource( 64 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 1
+outline_color = Color( 0.141176, 0.25098, 0.682353, 1 )
+use_filter = true
+font_data = ExtResource( 64 )
+
+[sub_resource type="Animation" id=347]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowRight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("ArrowRight:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 300, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("ArrowRight:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -190, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=348]
+resource_name = "arrow"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ArrowRight:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 300, -0.25, 0, 0.25, 0, 320, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0.439216, 1, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=350]
+size = 30
+outline_size = 1
+outline_color = Color( 0.121569, 0.352941, 0.623529, 1 )
+use_filter = true
+font_data = ExtResource( 64 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+outline_size = 2
+outline_color = Color( 0.596078, 0.223529, 0, 1 )
+use_filter = true
+font_data = ExtResource( 64 )
+
+[sub_resource type="StyleBoxTexture" id=288]
+texture = ExtResource( 50 )
+region_rect = Rect2( 0, 0, 100, 360 )
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id=289]
+texture = ExtResource( 53 )
+region_rect = Rect2( 0, 0, 100, 360 )
+
+[sub_resource type="StyleBoxTexture" id=290]
+
+[sub_resource type="DynamicFont" id=56]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Dealer:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Flare-1:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Flare-1:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Flare-1:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Player:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Dealer:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("ResultFlag:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("ResultFlag:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 320, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("ResultFlag:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 530, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "show"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -1240, -0.25, 0, 0.25, 0, -400, -0.25, 0, 0.25, 0, -400, -0.25, 0, 0.25, 0, -1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Dealer:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1240, -0.25, 0, 0.25, 0, 400, -0.25, 0, 0.25, 0, 400, -0.25, 0, 0.25, 0, 1240, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Flare-1:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 360, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Flare-1:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Flare-1:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Player:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Dealer:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("ResultFlag:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 530, -0.25, 0, 0.25, 0, 320, -0.25, 0, 0.25, 0, 320, -0.25, 0, 0.25, 0, 530, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1, 1.7, 2 )
+}
+
+[sub_resource type="DynamicFont" id=59]
+size = 80
+outline_size = 2
+outline_color = Color( 0.337255, 0.00784314, 0.00784314, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=60]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("WinBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("WinBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("WinBg:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("WinBg:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("WinBg:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("WinBg:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=61]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("WinBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 2.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("WinBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 2.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("WinBg:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=291]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("LoseBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("LoseBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("LoseBg:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("LoseBg:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("LoseBg:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("LoseBg:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=292]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Banner:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Banner:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -550, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -370, -0.25, 0, 0.25, 0, -550, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("LoseBg:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("LoseBg:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("LoseBg:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 2.5, 3 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="StyleBoxTexture" id=293]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 200, 200 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 200, 200 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="StyleBoxTexture" id=294]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 200, 200 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="DynamicFont" id=295]
+size = 40
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=344]
+size = 50
+outline_size = 2
+outline_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+font_data = ExtResource( 69 )
+
+[sub_resource type="Animation" id=345]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=346]
+resource_name = "show"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+
+[sub_resource type="AtlasTexture" id=437]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=438]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 300, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=439]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 600, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=440]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 900, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=441]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=442]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 300, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=443]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 600, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=444]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 900, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=445]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=446]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 300, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=447]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 600, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=426]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=427]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 300, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=428]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 600, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=429]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 900, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=430]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=431]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 300, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=432]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 600, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=433]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 900, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=434]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=435]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 300, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=436]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 600, 754, 300, 377 )
+
+[sub_resource type="SpriteFrames" id=425]
+animations = [ {
+"frames": [ SubResource( 437 ), SubResource( 438 ), SubResource( 439 ), SubResource( 440 ), SubResource( 441 ), SubResource( 442 ), SubResource( 443 ), SubResource( 444 ), SubResource( 445 ), SubResource( 446 ), SubResource( 447 ) ],
+"loop": false,
+"name": "deliver",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 426 ), SubResource( 427 ), SubResource( 428 ), SubResource( 429 ), SubResource( 430 ), SubResource( 431 ), SubResource( 432 ), SubResource( 433 ), SubResource( 434 ), SubResource( 435 ), SubResource( 436 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="root" type="Node2D"]
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_vertical_guides_": [ 1000.0 ]
+}
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 1000, 450 )
+texture = ExtResource( 1 )
+
+[node name="PlayerPos" type="Node" parent="."]
+
+[node name="0" type="Node2D" parent="PlayerPos"]
+position = Vector2( 920, 740 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/0"]
+position = Vector2( 80, -180 )
+
+[node name="1" type="Node2D" parent="PlayerPos"]
+position = Vector2( 600, 740 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/1"]
+position = Vector2( 160, -180 )
+
+[node name="2" type="Node2D" parent="PlayerPos"]
+position = Vector2( 300, 580 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/2"]
+position = Vector2( 280, -80 )
+
+[node name="3" type="Node2D" parent="PlayerPos"]
+position = Vector2( 300, 340 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/3"]
+position = Vector2( 280, -20 )
+
+[node name="4" type="Node2D" parent="PlayerPos"]
+position = Vector2( 420, 120 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/4"]
+position = Vector2( 280, 100 )
+
+[node name="5" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1600, 120 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/5"]
+position = Vector2( -280, 100 )
+
+[node name="6" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1700, 340 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/6"]
+position = Vector2( -280, -20 )
+
+[node name="7" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1700, 580 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/7"]
+position = Vector2( -280, -80 )
+
+[node name="8" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1240, 740 )
+
+[node name="Bet" type="Node2D" parent="PlayerPos/8"]
+position = Vector2( 0, -180 )
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="0" type="Node" parent="Cards"]
+
+[node name="1" type="Node" parent="Cards"]
+
+[node name="2" type="Node" parent="Cards"]
+
+[node name="3" type="Node" parent="Cards"]
+
+[node name="4" type="Node" parent="Cards"]
+
+[node name="5" type="Node" parent="Cards"]
+
+[node name="6" type="Node" parent="Cards"]
+
+[node name="7" type="Node" parent="Cards"]
+
+[node name="8" type="Node" parent="Cards"]
+
+[node name="Banker" type="Sprite" parent="."]
+position = Vector2( 1000, 420 )
+texture = ExtResource( 10 )
+script = ExtResource( 9 )
+
+[node name="BackDrop" parent="." instance=ExtResource( 19 )]
+visible = false
+
+[node name="CardHome" type="Node2D" parent="."]
+position = Vector2( 1000, 220 )
+
+[node name="DealerBet" type="Sprite" parent="."]
+position = Vector2( 1000, 260 )
+z_index = 10
+texture = ExtResource( 18 )
+
+[node name="Dealer" type="Label" parent="DealerBet"]
+margin_left = -78.0
+margin_top = -35.0
+margin_right = 79.0
+margin_bottom = -3.0
+custom_colors/font_color = Color( 0.854902, 0.917647, 0.121569, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 351 )
+text = "Dealer Bank"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="DealerBet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -5.0
+margin_right = -90.0
+margin_bottom = -45.0
+custom_colors/font_color = Color( 0.215686, 0.976471, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="CardCheck" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 20
+script = ExtResource( 20 )
+
+[node name="BG" type="Sprite" parent="CardCheck"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="1" type="Sprite" parent="CardCheck"]
+position = Vector2( -10, -60 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 21 )
+
+[node name="2" type="Sprite" parent="CardCheck"]
+position = Vector2( 0, -60 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 21 )
+
+[node name="3" type="Sprite" parent="CardCheck"]
+position = Vector2( 10, -60 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 21 )
+
+[node name="ArrowRight" type="Sprite" parent="CardCheck"]
+position = Vector2( 300, -190 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardCheck"]
+autoplay = "arrow"
+anims/RESET = SubResource( 347 )
+anims/arrow = SubResource( 348 )
+
+[node name="BetPanel" type="Node2D" parent="."]
+
+[node name="Bet" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 800.0
+margin_right = 1980.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/Bet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "ေလာင္းမည္"
+align = 1
+valign = 1
+
+[node name="C1" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 720.0
+margin_right = 1980.0
+margin_bottom = 800.0
+texture_normal = ExtResource( 23 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C1"]
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0.215686, 0.976471, 1, 1 )
+custom_fonts/font = SubResource( 350 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="C2" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 640.0
+margin_right = 1980.0
+margin_bottom = 720.0
+texture_normal = ExtResource( 23 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C2"]
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0.215686, 0.976471, 1, 1 )
+custom_fonts/font = SubResource( 350 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="C3" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 560.0
+margin_right = 1980.0
+margin_bottom = 640.0
+texture_normal = ExtResource( 23 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C3"]
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0.215686, 0.976471, 1, 1 )
+custom_fonts/font = SubResource( 350 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="C4" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 480.0
+margin_right = 1980.0
+margin_bottom = 560.0
+texture_normal = ExtResource( 23 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/C4"]
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 162.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0.215686, 0.976471, 1, 1 )
+custom_fonts/font = SubResource( 350 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Amount" type="Label" parent="BetPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 1800.0
+margin_top = 20.0
+margin_right = 1980.0
+margin_bottom = 100.0
+custom_colors/font_color = Color( 1, 0.960784, 0.0156863, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Slider" type="VSlider" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 100.0
+margin_right = 1980.0
+margin_bottom = 460.0
+custom_icons/grabber_highlight = ExtResource( 52 )
+custom_icons/grabber = ExtResource( 51 )
+custom_styles/slider = SubResource( 288 )
+custom_styles/grabber_area_highlight = SubResource( 289 )
+custom_styles/grabber_area = SubResource( 290 )
+
+[node name="BetAll" type="TextureButton" parent="BetPanel"]
+margin_left = 1440.0
+margin_top = 800.0
+margin_right = 1620.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 2 )
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/BetAll"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "ထိပ္ဆုံး"
+align = 1
+valign = 1
+
+[node name="Clear" type="TextureButton" parent="BetPanel"]
+margin_left = 1620.0
+margin_top = 800.0
+margin_right = 1800.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BetPanel/Clear"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "ပယ္ဖ်က္"
+align = 1
+valign = 1
+
+[node name="CatchAllDraw" type="TextureButton" parent="."]
+visible = false
+margin_left = 1760.0
+margin_top = 720.0
+margin_right = 1980.0
+margin_bottom = 800.0
+texture_normal = ExtResource( 67 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="CatchAllDraw"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "ဆြဲဖဲအကုန္ဖမ္း"
+align = 1
+valign = 1
+
+[node name="DrawBtns" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1760, 800 )
+z_index = 30
+
+[node name="Draw" type="TextureButton" parent="DrawBtns"]
+margin_left = 40.0
+margin_right = 220.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="DrawBtns/Draw"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "ဆြဲမယ္"
+align = 1
+valign = 1
+
+[node name="Stop" type="TextureButton" parent="DrawBtns"]
+margin_left = -140.0
+margin_right = 40.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="DrawBtns/Stop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "ေတာ္္ၿပီ"
+align = 1
+valign = 1
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="GameVoice" type="AudioStreamPlayer" parent="Audio"]
+bus = "Effect"
+
+[node name="CoinMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 33 )
+bus = "Effect"
+
+[node name="CardMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 205 )
+bus = "Effect"
+
+[node name="Emoji" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 48 )
+bus = "Effect"
+
+[node name="BankerCoinPos" type="Node2D" parent="."]
+position = Vector2( 1000, 380 )
+
+[node name="CoinContainer" type="Node" parent="."]
+
+[node name="CatchScene" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 10
+script = ExtResource( 29 )
+
+[node name="BG" type="Sprite" parent="CatchScene"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="Flare-1" type="Sprite" parent="CatchScene"]
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 30 )
+
+[node name="Player" type="Node2D" parent="CatchScene"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1240, 0 )
+
+[node name="3" type="Sprite" parent="CatchScene/Player"]
+position = Vector2( -80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="2" type="Sprite" parent="CatchScene/Player"]
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="1" type="Sprite" parent="CatchScene/Player"]
+position = Vector2( 80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="Dealer" type="Node2D" parent="CatchScene"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1240, 0 )
+
+[node name="3" type="Sprite" parent="CatchScene/Dealer"]
+position = Vector2( 80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="2" type="Sprite" parent="CatchScene/Dealer"]
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="1" type="Sprite" parent="CatchScene/Dealer"]
+position = Vector2( -80, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 21 )
+
+[node name="Banner" type="Sprite" parent="CatchScene"]
+position = Vector2( 0, -370 )
+texture = ExtResource( 31 )
+
+[node name="Label" type="Label" parent="CatchScene/Banner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -420.0
+margin_top = -80.0
+margin_right = -420.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 56 )
+text = "ဒိုင္သင့္ကိုဖမ္းလိုက္ၿပီ။"
+align = 1
+valign = 1
+
+[node name="ResultFlag" type="Sprite" parent="CatchScene"]
+position = Vector2( 0, 530 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 32 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CatchScene"]
+anims/RESET = SubResource( 57 )
+anims/show = SubResource( 58 )
+
+[node name="DealerWinScene" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 10
+
+[node name="BG" type="Sprite" parent="DealerWinScene"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="WinBg" type="Sprite" parent="DealerWinScene"]
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 34 )
+
+[node name="Label" type="Label" parent="DealerWinScene/WinBg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -307.0
+margin_top = 5.0
+margin_right = -307.0
+margin_bottom = -110.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 59 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Banner" type="Sprite" parent="DealerWinScene"]
+position = Vector2( 0, -550 )
+texture = ExtResource( 31 )
+
+[node name="Label" type="Label" parent="DealerWinScene/Banner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -420.0
+margin_top = -80.0
+margin_right = -420.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 56 )
+text = "ဒိုင္ရရွိသည့္ေငြပမာဏ"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DealerWinScene"]
+anims/RESET = SubResource( 60 )
+anims/show = SubResource( 61 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DealerWinScene"]
+stream = ExtResource( 56 )
+bus = "Music"
+
+[node name="DealerLoseScene" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 10
+
+[node name="BG" type="Sprite" parent="DealerLoseScene"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 17 )
+
+[node name="LoseBg" type="Sprite" parent="DealerLoseScene"]
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 55 )
+
+[node name="Banner" type="Sprite" parent="DealerLoseScene"]
+position = Vector2( 0, -550 )
+texture = ExtResource( 31 )
+
+[node name="Label" type="Label" parent="DealerLoseScene/Banner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -420.0
+margin_top = -80.0
+margin_right = -420.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 56 )
+text = "ဒိုင္ရႈံးပါတယ္။"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DealerLoseScene"]
+anims/RESET = SubResource( 291 )
+anims/show = SubResource( 292 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DealerLoseScene"]
+stream = ExtResource( 57 )
+bus = "Music"
+
+[node name="Menu" type="TextureButton" parent="."]
+margin_right = 120.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 59 )
+script = ExtResource( 14 )
+
+[node name="MenuPanel" type="Panel" parent="."]
+margin_top = 100.0
+margin_right = 220.0
+margin_bottom = 320.0
+custom_styles/panel = SubResource( 293 )
+
+[node name="Exit" type="TextureButton" parent="MenuPanel"]
+margin_top = 20.0
+margin_right = 220.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 60 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Rules" type="TextureButton" parent="MenuPanel"]
+margin_top = 80.0
+margin_right = 220.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 58 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="Setting" type="TextureButton" parent="MenuPanel"]
+margin_top = 140.0
+margin_right = 220.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 61 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="EmojiToggle" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 740.0
+margin_right = 140.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 42 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="EmojiPanel" type="Panel" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 120.0
+margin_right = 160.0
+margin_bottom = 760.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="e1" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 520.0
+margin_right = 120.0
+margin_bottom = 620.0
+texture_normal = ExtResource( 43 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 14 )
+
+[node name="e2" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 420.0
+margin_right = 120.0
+margin_bottom = 520.0
+texture_normal = ExtResource( 46 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 14 )
+
+[node name="e3" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 320.0
+margin_right = 120.0
+margin_bottom = 420.0
+texture_normal = ExtResource( 47 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 14 )
+
+[node name="e4" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 220.0
+margin_right = 120.0
+margin_bottom = 320.0
+texture_normal = ExtResource( 45 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 14 )
+
+[node name="e5" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 120.0
+margin_right = 120.0
+margin_bottom = 220.0
+texture_normal = ExtResource( 44 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 14 )
+
+[node name="e6" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 41 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 14 )
+
+[node name="MessageToggle" type="TextureButton" parent="."]
+margin_left = 160.0
+margin_top = 800.0
+margin_right = 260.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 202 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 14 )
+
+[node name="MessagePanel" type="Node2D" parent="."]
+visible = false
+position = Vector2( 160, 760 )
+z_index = 1
+
+[node name="Panel" type="Panel" parent="MessagePanel"]
+margin_left = -140.0
+margin_top = -600.0
+margin_right = 100.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="1" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 220.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 16 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 14 )
+
+[node name="2" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 100.0
+margin_right = 220.0
+margin_bottom = 180.0
+texture_normal = ExtResource( 35 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 14 )
+
+[node name="3" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 180.0
+margin_right = 220.0
+margin_bottom = 260.0
+texture_normal = ExtResource( 28 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 14 )
+
+[node name="4" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 260.0
+margin_right = 220.0
+margin_bottom = 340.0
+texture_normal = ExtResource( 26 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 14 )
+
+[node name="5" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 340.0
+margin_right = 220.0
+margin_bottom = 420.0
+texture_normal = ExtResource( 37 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 14 )
+
+[node name="6" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 420.0
+margin_right = 220.0
+margin_bottom = 500.0
+texture_normal = ExtResource( 27 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 14 )
+
+[node name="7" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 500.0
+margin_right = 220.0
+margin_bottom = 580.0
+texture_normal = ExtResource( 36 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 14 )
+
+[node name="Setting" parent="." instance=ExtResource( 62 )]
+
+[node name="Rules" type="Node2D" parent="."]
+visible = false
+z_index = 30
+
+[node name="Panel" type="Panel" parent="Rules"]
+margin_left = 480.0
+margin_top = 40.0
+margin_right = 1520.0
+margin_bottom = 780.0
+custom_styles/panel = SubResource( 294 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Rules/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0
+margin_top = 140.0
+margin_right = -14.0
+margin_bottom = -60.0
+scroll_horizontal_enabled = false
+
+[node name="TextureRect" type="TextureRect" parent="Rules/Panel/ScrollContainer"]
+margin_right = 1000.0
+margin_bottom = 3042.0
+texture = ExtResource( 63 )
+
+[node name="Panel-top" type="Sprite" parent="Rules"]
+position = Vector2( 1000, 132 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Rules/Panel-top"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -259.0
+margin_top = -66.0
+margin_right = -255.0
+margin_bottom = -84.0
+custom_fonts/font = SubResource( 295 )
+text = "ရွမ္းကိုးမီးကစားနည္း"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Close" type="TextureButton" parent="Rules"]
+margin_left = 1394.0
+margin_top = 72.0
+margin_right = 1494.0
+margin_bottom = 172.0
+texture_normal = ExtResource( 65 )
+script = ExtResource( 14 )
+
+[node name="AlertBox" parent="." instance=ExtResource( 68 )]
+position = Vector2( 1000, 980 )
+targetY = 840.0
+
+[node name="GameCount" type="Node2D" parent="."]
+position = Vector2( 1000, 340 )
+scale = Vector2( 1e-05, 1e-05 )
+z_index = 15
+
+[node name="Label" type="Label" parent="GameCount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -280.0
+margin_top = -40.0
+margin_right = 280.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 1, 0.956863, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 344 )
+text = "'dkifudkif tvSnfh (1)"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameCount"]
+anims/RESET = SubResource( 345 )
+anims/show = SubResource( 346 )
+
+[node name="ShanMa" type="AnimatedSprite" parent="."]
+position = Vector2( 999, 105.5 )
+scale = Vector2( 0.693333, 0.676393 )
+frames = SubResource( 425 )
+animation = "deliver"
+
+[connection signal="pressed" from="BetPanel/Bet" to="." method="_on_Bet_pressed"]
+[connection signal="pressed" from="BetPanel/C1" to="." method="_on_Bet_select" binds= [ 0 ]]
+[connection signal="pressed" from="BetPanel/C2" to="." method="_on_Bet_select" binds= [ 1 ]]
+[connection signal="pressed" from="BetPanel/C3" to="." method="_on_Bet_select" binds= [ 2 ]]
+[connection signal="pressed" from="BetPanel/C4" to="." method="_on_Bet_select" binds= [ 3 ]]
+[connection signal="value_changed" from="BetPanel/Slider" to="." method="_on_Slider_value_changed"]
+[connection signal="pressed" from="BetPanel/BetAll" to="." method="_on_BetAll_pressed"]
+[connection signal="pressed" from="BetPanel/Clear" to="." method="_on_Clear_pressed"]
+[connection signal="pressed" from="CatchAllDraw" to="." method="_on_CatchAllDraw_pressed"]
+[connection signal="pressed" from="DrawBtns/Draw" to="." method="_on_Draw_pressed"]
+[connection signal="pressed" from="DrawBtns/Stop" to="." method="_on_Stop_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="MenuPanel/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MenuPanel/Rules" to="." method="_on_Rules_pressed"]
+[connection signal="pressed" from="MenuPanel/Setting" to="." method="_on_Setting_pressed"]
+[connection signal="pressed" from="EmojiToggle" to="." method="_on_EmojiToggle_pressed"]
+[connection signal="pressed" from="EmojiPanel/e1" to="." method="_on_Emoji_pressed" binds= [ "e1" ]]
+[connection signal="pressed" from="EmojiPanel/e2" to="." method="_on_Emoji_pressed" binds= [ "e2" ]]
+[connection signal="pressed" from="EmojiPanel/e3" to="." method="_on_Emoji_pressed" binds= [ "e3" ]]
+[connection signal="pressed" from="EmojiPanel/e4" to="." method="_on_Emoji_pressed" binds= [ "e4" ]]
+[connection signal="pressed" from="EmojiPanel/e5" to="." method="_on_Emoji_pressed" binds= [ "e5" ]]
+[connection signal="pressed" from="EmojiPanel/e6" to="." method="_on_Emoji_pressed" binds= [ "e6" ]]
+[connection signal="pressed" from="MessageToggle" to="." method="_on_MessageToggle_pressed"]
+[connection signal="pressed" from="MessagePanel/Panel/1" to="." method="_on_message_pressed" binds= [ "mingalar" ]]
+[connection signal="pressed" from="MessagePanel/Panel/2" to="." method="_on_message_pressed" binds= [ "bet_more" ]]
+[connection signal="pressed" from="MessagePanel/Panel/3" to="." method="_on_message_pressed" binds= [ "haha" ]]
+[connection signal="pressed" from="MessagePanel/Panel/4" to="." method="_on_message_pressed" binds= [ "hurry" ]]
+[connection signal="pressed" from="MessagePanel/Panel/5" to="." method="_on_message_pressed" binds= [ "lose" ]]
+[connection signal="pressed" from="MessagePanel/Panel/6" to="." method="_on_message_pressed" binds= [ "play_again" ]]
+[connection signal="pressed" from="MessagePanel/Panel/7" to="." method="_on_message_pressed" binds= [ "quit" ]]
+[connection signal="pressed" from="Rules/Close" to="." method="_on_GameRules_Close_pressed"]

@@ -1,0 +1,352 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=3]
+[ext_resource path="res://pck/assets/menu/NewMenu/SKM_bet.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/menu/NewMenu/floaty_128.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_27.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_5.png" type="Texture" id=9]
+[ext_resource path="res://pck/scenes/bet_game.gd" type="Script" id=10]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_7.png" type="Texture" id=11]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_6.png" type="Texture" id=12]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_8.png" type="Texture" id=13]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_17.png" type="Texture" id=14]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_20.png" type="Texture" id=15]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_13.png" type="Texture" id=16]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_14.png" type="Texture" id=17]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_12.png" type="Texture" id=18]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_15.png" type="Texture" id=19]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_19.png" type="Texture" id=20]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_21.png" type="Texture" id=21]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_3.png" type="Texture" id=22]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_11.png" type="Texture" id=23]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_22.png" type="Texture" id=24]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_23.png" type="Texture" id=25]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_24.png" type="Texture" id=26]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_25.png" type="Texture" id=27]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_4.png" type="Texture" id=28]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_26.png" type="Texture" id=29]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_10.png" type="Texture" id=30]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_16.png" type="Texture" id=31]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_28.png" type="Texture" id=32]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_29.png" type="Texture" id=33]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_9.png" type="Texture" id=34]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_18.png" type="Texture" id=35]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_1.png" type="Texture" id=36]
+[ext_resource path="res://pck/assets/menu/NewSpriteSheet2/vnbvx_2.png" type="Texture" id=37]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=38]
+
+[sub_resource type="DynamicFont" id=10]
+size = 30
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Exit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 40 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Exit:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Balance:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1745, 99 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Balance:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Exit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, -121 ), Vector2( 40, 40 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Exit:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Balance:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1745, -62 ), Vector2( 1745, 99 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Balance:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Exit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, 40 ), Vector2( 40, -118 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Exit:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Balance:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1745, 99 ), Vector2( 1745, -59 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Balance:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=11]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = false
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 22 ), ExtResource( 28 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 31 ), ExtResource( 14 ), ExtResource( 35 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 7 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": false,
+"name": "playing",
+"speed": 20.0
+} ]
+
+[node name="root" type="Node2D"]
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 200.0 ],
+"_edit_vertical_guides_": [ 1000.0 ]
+}
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 1000, 450 )
+texture = ExtResource( 4 )
+
+[node name="Balance" type="Sprite" parent="."]
+position = Vector2( 1745, 99 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Balance"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -19.0
+margin_top = -19.0
+margin_right = -180.0
+margin_bottom = -72.0
+custom_fonts/font = SubResource( 10 )
+align = 1
+valign = 1
+
+[node name="AlertBox" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1000, 980 )
+targetY = 840.0
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 3 )
+
+[node name="SKM" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 102.0
+margin_top = 276.0
+margin_right = 568.0
+margin_bottom = 558.0
+expand = true
+stretch_mode = 3
+script = ExtResource( 3 )
+
+[node name="HorseRacing" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 777.0
+margin_top = 231.0
+margin_right = 1261.0
+margin_bottom = 527.0
+expand = true
+stretch_mode = 3
+script = ExtResource( 3 )
+
+[node name="TigerDragon" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1462.0
+margin_top = 152.0
+margin_right = 1937.0
+margin_bottom = 439.0
+expand = true
+stretch_mode = 3
+script = ExtResource( 3 )
+
+[node name="UpperPanelAnimation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 7 )
+anims/in = SubResource( 8 )
+anims/out = SubResource( 9 )
+
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 11 )
+position = Vector2( 341, 653 )
+texture = ExtResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 16.0
+gravity = Vector2( 0, -98 )
+anim_speed = 2.0
+anim_speed_random = 1.0
+
+[node name="Particles2D2" type="CPUParticles2D" parent="."]
+material = SubResource( 11 )
+position = Vector2( 1048, 628 )
+texture = ExtResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 16.0
+gravity = Vector2( 0, -98 )
+anim_speed = 2.0
+anim_speed_random = 1.0
+
+[node name="Particles2D3" type="CPUParticles2D" parent="."]
+material = SubResource( 11 )
+position = Vector2( 1708, 551 )
+texture = ExtResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 16.0
+gravity = Vector2( 0, -98 )
+anim_speed = 2.0
+anim_speed_random = 1.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 336, 422 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 12 )
+animation = "playing"
+frame = 24
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 1022, 372 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 12 )
+animation = "playing"
+frame = 28
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 1723, 289 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 12 )
+animation = "playing"
+frame = 28
+
+[node name="Setting" parent="." instance=ExtResource( 38 )]
+
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="SKM" to="." method="_on_SKM_pressed"]
+[connection signal="pressed" from="HorseRacing" to="." method="_on_HorseRacing_pressed"]
+[connection signal="pressed" from="TigerDragon" to="." method="_on_TigerDragon_pressed"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2" to="." method="_on_AnimatedSprite2_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite3" to="." method="_on_AnimatedSprite3_animation_finished"]

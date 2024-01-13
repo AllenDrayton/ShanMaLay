@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tg_tiger_voice.mp3-5f665c09ae80f7841d5f099535418889.mp3str"
+
+[deps]
+
+source_file="res://pck/assets/dragon_tiger_bet/tg_tiger_voice.mp3"
+dest_files=[ "res://.import/tg_tiger_voice.mp3-5f665c09ae80f7841d5f099535418889.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

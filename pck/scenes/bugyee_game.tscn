@@ -1,0 +1,1020 @@
+[gd_scene load_steps=88 format=2]
+
+[ext_resource path="res://pck/scenes/bugyee_game.gd" type="Script" id=1]
+[ext_resource path="res://pck/assets/common/girlGif/Girl_Idle.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/common/room_bg.jpg" type="Texture" id=3]
+[ext_resource path="res://pck/assets/common/girlGif/Girl_shuffle.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/bugyee/banker.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://pck/assets/bugyee/label-2.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/common/WINRESEA.TTF" type="DynamicFontData" id=9]
+[ext_resource path="res://pck/assets/shankoemee/audio/win_effect.mp3" type="AudioStream" id=10]
+[ext_resource path="res://pck/assets/menu/NewMenu/panel-top.png" type="Texture" id=11]
+[ext_resource path="res://pck/assets/common/newEmoji/6.png" type="Texture" id=12]
+[ext_resource path="res://pck/assets/common/newEmoji/1.png" type="Texture" id=13]
+[ext_resource path="res://pck/assets/common/newEmoji/5.png" type="Texture" id=14]
+[ext_resource path="res://pck/assets/common/newEmoji/4.png" type="Texture" id=15]
+[ext_resource path="res://pck/assets/common/emoji.png" type="Texture" id=16]
+[ext_resource path="res://pck/assets/shankoemee/exit.png" type="Texture" id=17]
+[ext_resource path="res://pck/assets/shankoemee/setting.png" type="Texture" id=18]
+[ext_resource path="res://pck/assets/shankoemee/rules.png" type="Texture" id=19]
+[ext_resource path="res://pck/assets/shankoemee/menu.png" type="Texture" id=20]
+[ext_resource path="res://pck/assets/menu/NewMenu/panel-1A.png" type="Texture" id=21]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=22]
+[ext_resource path="res://pck/assets/audio/coin_move_1.mp3" type="AudioStream" id=23]
+[ext_resource path="res://pck/assets/audio/noti-1.mp3" type="AudioStream" id=24]
+[ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=25]
+[ext_resource path="res://pck/assets/common/newEmoji/2.png" type="Texture" id=26]
+[ext_resource path="res://pck/assets/bugyee/card-frame.png" type="Texture" id=27]
+[ext_resource path="res://pck/assets/common/cards/10.png" type="Texture" id=28]
+[ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=29]
+[ext_resource path="res://pck/assets/bugyee/Bugyee_CardCheck.gd" type="Script" id=30]
+[ext_resource path="res://pck/assets/common/arrow_right.png" type="Texture" id=31]
+[ext_resource path="res://pck/assets/common/btn-8.png" type="Texture" id=32]
+[ext_resource path="res://pck/assets/common/btn-9.png" type="Texture" id=33]
+[ext_resource path="res://pck/assets/common/newEmoji/3.png" type="Texture" id=34]
+[ext_resource path="res://pck/assets/common/btn-7.png" type="Texture" id=35]
+[ext_resource path="res://pck/assets/common/cards/back.png" type="Texture" id=36]
+[ext_resource path="res://pck/assets/bugyee/bugyee-howto.png" type="Texture" id=38]
+[ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=39]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=40]
+[ext_resource path="res://pck/assets/common/messages/Hello.png" type="Texture" id=41]
+[ext_resource path="res://pck/assets/common/messages/T2.png" type="Texture" id=44]
+[ext_resource path="res://pck/assets/common/messages/T.png" type="Texture" id=47]
+[ext_resource path="res://pck/assets/common/messages/hahaha.png" type="Texture" id=48]
+[ext_resource path="res://pck/assets/common/messages/Bet more.png" type="Texture" id=49]
+[ext_resource path="res://pck/assets/common/messages/I'm leaving.png" type="Texture" id=50]
+[ext_resource path="res://pck/assets/common/messages/T3.png" type="Texture" id=51]
+[ext_resource path="res://pck/assets/common/btn-mail.png" type="Texture" id=189]
+[ext_resource path="res://pck/assets/common/audio/card_move.ogg" type="AudioStream" id=192]
+
+[sub_resource type="StyleBoxTexture" id=266]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 200, 200 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="Animation" id=270]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -440, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 150, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=271]
+resource_name = "show"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -480, -0.25, 0, 0.25, 0, -440, -0.25, 0, 0.25, 0, -480, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[sub_resource type="DynamicFont" id=272]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=282]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=283]
+resource_name = "hide"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=284]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=285]
+resource_name = "hide"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="DynamicFont" id=273]
+size = 25
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=275]
+size = 70
+outline_size = 1
+outline_color = Color( 0.0941176, 0.258824, 0.647059, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=276]
+size = 100
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=274]
+size = 35
+outline_size = 1
+outline_color = Color( 0.0980392, 0.25098, 0.615686, 1 )
+use_filter = true
+extra_spacing_top = 7
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxTexture" id=277]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 200, 200 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="StyleBoxTexture" id=280]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 200, 200 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="DynamicFont" id=281]
+size = 40
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=287]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 200, 200 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 80.0
+margin_bottom = 60.0
+
+[sub_resource type="AtlasTexture" id=389]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=390]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 300, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=391]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 600, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=392]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 900, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=393]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=394]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 300, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=395]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 600, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=396]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 900, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=397]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=398]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 300, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=399]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 600, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=378]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=379]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 300, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=380]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 600, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=381]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 900, 0, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=382]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=383]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 300, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=384]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 600, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=385]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 900, 377, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=386]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=387]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 300, 754, 300, 377 )
+
+[sub_resource type="AtlasTexture" id=388]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 600, 754, 300, 377 )
+
+[sub_resource type="SpriteFrames" id=377]
+animations = [ {
+"frames": [ SubResource( 389 ), SubResource( 390 ), SubResource( 391 ), SubResource( 392 ), SubResource( 393 ), SubResource( 394 ), SubResource( 395 ), SubResource( 396 ), SubResource( 397 ), SubResource( 398 ), SubResource( 399 ) ],
+"loop": false,
+"name": "deliver",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 378 ), SubResource( 379 ), SubResource( 380 ), SubResource( 381 ), SubResource( 382 ), SubResource( 383 ), SubResource( 384 ), SubResource( 385 ), SubResource( 386 ), SubResource( 387 ), SubResource( 388 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="root" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 1000.0 ]
+}
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 1000, 450 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Menu" type="TextureButton" parent="."]
+margin_right = 120.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 20 )
+script = ExtResource( 22 )
+
+[node name="MenuPanel" type="Panel" parent="."]
+margin_top = 100.0
+margin_right = 220.0
+margin_bottom = 320.0
+custom_styles/panel = SubResource( 266 )
+
+[node name="Exit" type="TextureButton" parent="MenuPanel"]
+margin_top = 20.0
+margin_right = 220.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 17 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 22 )
+
+[node name="Rules" type="TextureButton" parent="MenuPanel"]
+margin_top = 80.0
+margin_right = 220.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 19 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 22 )
+
+[node name="Setting" type="TextureButton" parent="MenuPanel"]
+margin_top = 140.0
+margin_right = 220.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 22 )
+
+[node name="PlayerPos" type="Node" parent="."]
+
+[node name="0" type="Node2D" parent="PlayerPos"]
+position = Vector2( 900, 720 )
+
+[node name="1" type="Node2D" parent="PlayerPos"]
+position = Vector2( 460, 720 )
+
+[node name="2" type="Node2D" parent="PlayerPos"]
+position = Vector2( 320, 440 )
+
+[node name="3" type="Node2D" parent="PlayerPos"]
+position = Vector2( 460, 140 )
+
+[node name="4" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1540, 140 )
+
+[node name="5" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1680, 440 )
+
+[node name="6" type="Node2D" parent="PlayerPos"]
+position = Vector2( 1340, 720 )
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="0" type="Node" parent="Cards"]
+
+[node name="1" type="Node" parent="Cards"]
+
+[node name="2" type="Node" parent="Cards"]
+
+[node name="3" type="Node" parent="Cards"]
+
+[node name="4" type="Node" parent="Cards"]
+
+[node name="5" type="Node" parent="Cards"]
+
+[node name="6" type="Node" parent="Cards"]
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="GameVoice" type="AudioStreamPlayer" parent="Audio"]
+bus = "Effect"
+
+[node name="CoinMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 23 )
+bus = "Effect"
+
+[node name="Emoji" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 24 )
+bus = "Effect"
+
+[node name="CardMove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 192 )
+bus = "Effect"
+
+[node name="BackDrop" parent="." instance=ExtResource( 25 )]
+visible = false
+
+[node name="CardHome" type="Node2D" parent="."]
+position = Vector2( 1000, 260 )
+
+[node name="CardCheck" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+z_index = 20
+script = ExtResource( 30 )
+
+[node name="BG" type="Sprite" parent="CardCheck"]
+modulate = Color( 1, 1, 1, 0.901961 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 29 )
+
+[node name="Arrow" type="Sprite" parent="CardCheck"]
+position = Vector2( -440, 150 )
+texture = ExtResource( 31 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardCheck/Arrow"]
+autoplay = "show"
+anims/RESET = SubResource( 270 )
+anims/show = SubResource( 271 )
+
+[node name="Label" type="Label" parent="CardCheck"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -920.0
+margin_top = 90.0
+margin_right = -590.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 272 )
+text = "ဘူရေအာင္တြဲပါ"
+align = 1
+valign = 1
+
+[node name="Card-frame" type="Sprite" parent="CardCheck"]
+texture = ExtResource( 27 )
+
+[node name="0" type="Sprite" parent="CardCheck"]
+position = Vector2( -100, -148 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 28 )
+
+[node name="1" type="Sprite" parent="CardCheck"]
+position = Vector2( 106, -148 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 28 )
+
+[node name="2" type="Sprite" parent="CardCheck"]
+position = Vector2( -205, 149 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 28 )
+
+[node name="3" type="Sprite" parent="CardCheck"]
+position = Vector2( 2, 150 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 28 )
+
+[node name="4" type="Sprite" parent="CardCheck"]
+position = Vector2( 207, 150 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 28 )
+
+[node name="B0" type="Sprite" parent="CardCheck"]
+position = Vector2( -99.9999, -148 )
+scale = Vector2( 0.35, 0.35 )
+z_index = 1
+texture = ExtResource( 36 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardCheck/B0"]
+anims/RESET = SubResource( 282 )
+anims/hide = SubResource( 283 )
+
+[node name="B1" type="Sprite" parent="CardCheck"]
+position = Vector2( 106, -148 )
+scale = Vector2( 0.35, 0.35 )
+z_index = 1
+texture = ExtResource( 36 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardCheck/B1"]
+anims/RESET = SubResource( 284 )
+anims/hide = SubResource( 285 )
+
+[node name="OK" type="TextureButton" parent="CardCheck"]
+margin_left = 600.0
+margin_top = 70.0
+margin_right = 820.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 32 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="CardCheck/OK"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 273 )
+text = "ရၿပီ"
+align = 1
+valign = 1
+
+[node name="Stop" type="TextureButton" parent="CardCheck"]
+margin_left = 600.0
+margin_top = 170.0
+margin_right = 820.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 33 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="CardCheck/Stop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 273 )
+text = "ေတာ္္ၿပီ"
+align = 1
+valign = 1
+
+[node name="Timer" type="Label" parent="CardCheck"]
+margin_left = -200.0
+margin_top = -410.0
+margin_right = 200.0
+margin_bottom = -310.0
+custom_colors/font_color = Color( 1, 0.913725, 0, 1 )
+custom_fonts/font = SubResource( 275 )
+text = "30"
+align = 1
+valign = 1
+
+[node name="Label1" type="Sprite" parent="CardCheck"]
+position = Vector2( 340, -150 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="CardCheck/Label1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -100.0
+margin_right = -100.0
+margin_bottom = -100.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.588235 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 276 )
+text = "6"
+align = 1
+valign = 1
+
+[node name="Label2" type="Sprite" parent="CardCheck"]
+position = Vector2( 440, 150 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="CardCheck/Label2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -100.0
+margin_right = -100.0
+margin_bottom = -100.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.588235 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 276 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Success" type="AudioStreamPlayer" parent="CardCheck"]
+stream = ExtResource( 10 )
+bus = "Effect"
+
+[node name="CoinContainer" type="Node" parent="."]
+
+[node name="BetPanel" type="Node2D" parent="."]
+
+[node name="C1" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 800.0
+margin_right = 1980.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 35 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="BetPanel/C1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 274 )
+text = "x1"
+align = 1
+valign = 1
+
+[node name="C2" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 720.0
+margin_right = 1980.0
+margin_bottom = 800.0
+texture_normal = ExtResource( 35 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="BetPanel/C2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 274 )
+text = "x2"
+align = 1
+valign = 1
+
+[node name="C3" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 640.0
+margin_right = 1980.0
+margin_bottom = 720.0
+texture_normal = ExtResource( 35 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="BetPanel/C3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 274 )
+text = "x3"
+align = 1
+valign = 1
+
+[node name="C4" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 560.0
+margin_right = 1980.0
+margin_bottom = 640.0
+texture_normal = ExtResource( 35 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="BetPanel/C4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 274 )
+text = "x4"
+align = 1
+valign = 1
+
+[node name="C5" type="TextureButton" parent="BetPanel"]
+margin_left = 1800.0
+margin_top = 480.0
+margin_right = 1980.0
+margin_bottom = 560.0
+texture_normal = ExtResource( 35 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="BetPanel/C5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 274 )
+text = "x5"
+align = 1
+valign = 1
+
+[node name="Banker" type="Sprite" parent="."]
+position = Vector2( 1000, 400 )
+texture = ExtResource( 5 )
+
+[node name="Timer" type="Label" parent="."]
+margin_left = 900.0
+margin_top = 220.0
+margin_right = 1100.0
+margin_bottom = 320.0
+custom_colors/font_color = Color( 1, 0.913725, 0, 1 )
+custom_fonts/font = SubResource( 275 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="EmojiToggle" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 720.0
+margin_right = 170.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 16 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 22 )
+
+[node name="EmojiPanel" type="Panel" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 120.0
+margin_right = 160.0
+margin_bottom = 760.0
+custom_styles/panel = SubResource( 277 )
+
+[node name="e1" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 520.0
+margin_right = 120.0
+margin_bottom = 620.0
+texture_normal = ExtResource( 13 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 22 )
+
+[node name="e2" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 420.0
+margin_right = 120.0
+margin_bottom = 520.0
+texture_normal = ExtResource( 26 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 22 )
+
+[node name="e3" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 320.0
+margin_right = 120.0
+margin_bottom = 420.0
+texture_normal = ExtResource( 34 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 22 )
+
+[node name="e4" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 220.0
+margin_right = 120.0
+margin_bottom = 320.0
+texture_normal = ExtResource( 15 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 22 )
+
+[node name="e5" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 120.0
+margin_right = 120.0
+margin_bottom = 220.0
+texture_normal = ExtResource( 14 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 22 )
+
+[node name="e6" type="TextureButton" parent="EmojiPanel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 22 )
+
+[node name="Rules" type="Node2D" parent="."]
+visible = false
+z_index = 30
+
+[node name="Panel" type="Panel" parent="Rules"]
+margin_left = 480.0
+margin_top = 40.0
+margin_right = 1520.0
+margin_bottom = 780.0
+custom_styles/panel = SubResource( 280 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Rules/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0
+margin_top = 140.0
+margin_right = -14.0
+margin_bottom = -60.0
+scroll_horizontal_enabled = false
+
+[node name="TextureRect" type="TextureRect" parent="Rules/Panel/ScrollContainer"]
+margin_right = 1000.0
+margin_bottom = 1175.0
+texture = ExtResource( 38 )
+
+[node name="Panel-top" type="Sprite" parent="Rules"]
+position = Vector2( 1000, 132 )
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="Rules/Panel-top"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -259.0
+margin_top = -66.0
+margin_right = -255.0
+margin_bottom = -84.0
+custom_fonts/font = SubResource( 281 )
+text = "ဘူႀကီးကစားနည္း"
+align = 1
+valign = 1
+
+[node name="Close" type="TextureButton" parent="Rules"]
+margin_left = 1394.0
+margin_top = 72.0
+margin_right = 1494.0
+margin_bottom = 172.0
+texture_normal = ExtResource( 39 )
+script = ExtResource( 22 )
+
+[node name="Setting" parent="." instance=ExtResource( 40 )]
+
+[node name="MessageToggle" type="TextureButton" parent="."]
+margin_left = 160.0
+margin_top = 800.0
+margin_right = 280.0
+margin_bottom = 880.0
+texture_normal = ExtResource( 189 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 22 )
+
+[node name="MessagePanel" type="Node2D" parent="."]
+visible = false
+position = Vector2( 160, 760 )
+
+[node name="Panel" type="Panel" parent="MessagePanel"]
+margin_left = -140.0
+margin_top = -600.0
+margin_right = 100.0
+custom_styles/panel = SubResource( 287 )
+
+[node name="1" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 220.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 41 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 22 )
+
+[node name="2" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 100.0
+margin_right = 220.0
+margin_bottom = 180.0
+texture_normal = ExtResource( 49 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 22 )
+
+[node name="3" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 180.0
+margin_right = 220.0
+margin_bottom = 260.0
+texture_normal = ExtResource( 48 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 22 )
+
+[node name="4" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 260.0
+margin_right = 220.0
+margin_bottom = 340.0
+texture_normal = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 22 )
+
+[node name="5" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 340.0
+margin_right = 220.0
+margin_bottom = 420.0
+texture_normal = ExtResource( 51 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 22 )
+
+[node name="6" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 420.0
+margin_right = 220.0
+margin_bottom = 500.0
+texture_normal = ExtResource( 47 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 22 )
+
+[node name="7" type="TextureButton" parent="MessagePanel/Panel"]
+margin_left = 20.0
+margin_top = 500.0
+margin_right = 220.0
+margin_bottom = 580.0
+texture_normal = ExtResource( 50 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 22 )
+
+[node name="ShanMa" type="AnimatedSprite" parent="."]
+position = Vector2( 999, 106 )
+scale = Vector2( 0.693, 0.676 )
+frames = SubResource( 377 )
+animation = "deliver"
+
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="MenuPanel/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MenuPanel/Rules" to="." method="_on_Rules_pressed"]
+[connection signal="pressed" from="MenuPanel/Setting" to="." method="_on_Setting_pressed"]
+[connection signal="pressed" from="CardCheck/OK" to="CardCheck" method="_on_OK_pressed"]
+[connection signal="pressed" from="CardCheck/Stop" to="CardCheck" method="_on_Stop_pressed"]
+[connection signal="pressed" from="BetPanel/C1" to="." method="_on_Bet_select" binds= [ 1 ]]
+[connection signal="pressed" from="BetPanel/C2" to="." method="_on_Bet_select" binds= [ 2 ]]
+[connection signal="pressed" from="BetPanel/C3" to="." method="_on_Bet_select" binds= [ 3 ]]
+[connection signal="pressed" from="BetPanel/C4" to="." method="_on_Bet_select" binds= [ 4 ]]
+[connection signal="pressed" from="BetPanel/C5" to="." method="_on_Bet_select" binds= [ 5 ]]
+[connection signal="pressed" from="EmojiToggle" to="." method="_on_EmojiToggle_pressed"]
+[connection signal="pressed" from="EmojiPanel/e1" to="." method="_on_Emoji_pressed" binds= [ "e1" ]]
+[connection signal="pressed" from="EmojiPanel/e2" to="." method="_on_Emoji_pressed" binds= [ "e2" ]]
+[connection signal="pressed" from="EmojiPanel/e3" to="." method="_on_Emoji_pressed" binds= [ "e3" ]]
+[connection signal="pressed" from="EmojiPanel/e4" to="." method="_on_Emoji_pressed" binds= [ "e4" ]]
+[connection signal="pressed" from="EmojiPanel/e5" to="." method="_on_Emoji_pressed" binds= [ "e5" ]]
+[connection signal="pressed" from="EmojiPanel/e6" to="." method="_on_Emoji_pressed" binds= [ "e6" ]]
+[connection signal="pressed" from="Rules/Close" to="." method="_on_GameRules_Close_pressed"]
+[connection signal="pressed" from="MessageToggle" to="." method="_on_MessageToggle_pressed"]
+[connection signal="pressed" from="MessagePanel/Panel/1" to="." method="_on_message_pressed" binds= [ "mingalar" ]]
+[connection signal="pressed" from="MessagePanel/Panel/2" to="." method="_on_message_pressed" binds= [ "bet_more" ]]
+[connection signal="pressed" from="MessagePanel/Panel/3" to="." method="_on_message_pressed" binds= [ "haha" ]]
+[connection signal="pressed" from="MessagePanel/Panel/4" to="." method="_on_message_pressed" binds= [ "hurry" ]]
+[connection signal="pressed" from="MessagePanel/Panel/5" to="." method="_on_message_pressed" binds= [ "lose" ]]
+[connection signal="pressed" from="MessagePanel/Panel/6" to="." method="_on_message_pressed" binds= [ "play_again" ]]
+[connection signal="pressed" from="MessagePanel/Panel/7" to="." method="_on_message_pressed" binds= [ "quit" ]]
