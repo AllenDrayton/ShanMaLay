@@ -2,6 +2,8 @@ extends Node2D
 
 
 var filepath = "user://session.txt"
+var slotFilepath = "user://slotSession.txt"
+
 const BlankMusic = preload("res://pck/assets/shankoemee/audio/EmptySound.ogg")
 const music = preload("res://pck/assets/audio/music-main-background.mp3")
 
@@ -61,6 +63,7 @@ func parseCookies(cookies):
 func _ready():
 #	print(Config.UNIQUE)
 	process_whole_url()
+	_load_session()
 	Signals.emit_signal("disableButtons")
 	var savedData = _load()
 	if savedData != null:
@@ -142,6 +145,8 @@ func _on_custom_keyboard_enter_pressed(text):
 	$LoginBox/PasswordControl.show()
 	$AccountButton.show()
 	$LoginBox/Login.show()
+	
+
  
  
 func _on_custom_keyboard_cancel_pressed():
@@ -206,6 +211,7 @@ func _rejoin_game(gameState) :
 
 
 func _on_Login_pressed():
+	
 	Config.MUSIC.volume_db = -80
 	var username = username_txt.text
 	var password = $StorePassword.text
@@ -248,44 +254,53 @@ func _on_Login_pressed():
 	var url = $"/root/Config".config.account_url + "login"
 	var body = JSON.print(data)
 	$HTTPRequest.request(url,headers,false,HTTPClient.METHOD_POST,body)
+	
 
 
 func _change_to_menu(username,session,id):
 	var user = {"username":username,"session":session,"id":id}
 	$"/root/Config".config.user = user
-	if $Remember.pressed:
-		_save(user)
+	slotSave(user)
+	LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://pck/scenes/loginLoadingScreen.tscn")
-#	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 
 func _load_session():
 	var file = File.new()
-	if file.file_exists(filepath):
-		file.open(filepath, File.READ)
+	if file.file_exists(slotFilepath):
+		file.open(slotFilepath, File.READ)
 		var txt = file.get_as_text()
-		var obj = JSON.parse(txt)
-		file.close()
-		if obj.error != OK:
+		if txt == "":
 			return
-		var deviceName = OS.get_model_name()
-		var deviceId = OS.get_unique_id()
-		var data = {
-				"username":obj.result.username,
-				"session":obj.result.session,
-				"device":{
-					"id":deviceId,
-					"name":deviceName
+		else:
+			var obj = JSON.parse(txt)
+			file.close()
+			if obj.error != OK:
+				return
+			var deviceName = OS.get_model_name()
+			var deviceId = OS.get_unique_id()
+			var data = {
+					"username":obj.result.username,
+					"session":obj.result.session,
+					"device":{
+						"id":deviceId,
+						"name":deviceName
+						}
 					}
-				}
-		var headers = ["Content-Type: application/json"]
-		var url = $"/root/Config".config.account_url + "login"
-		var body = JSON.print(data)
-		$HTTPRequest.request(url,headers,false,HTTPClient.METHOD_POST,body)
+			var headers = ["Content-Type: application/json"]
+			var url = $"/root/Config".config.account_url + "login"
+			var body = JSON.print(data)
+			$HTTPRequest.request(url,headers,false,HTTPClient.METHOD_POST,body)
+	
 
 func _save(data):
 	var file = File.new()
 	file.open(filepath, File.WRITE)
+	file.store_string(JSON.print(data))
+	file.close()
+
+func slotSave(data):
+	var file = File.new()
+	file.open(slotFilepath,File.WRITE)
 	file.store_string(JSON.print(data))
 	file.close()
 
@@ -315,8 +330,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				var user = {"username":respond.username,"session":respond.session,"id":respond.id}
 				$"/root/Config".config.user = user
 # warning-ignore:return_value_discarded
-				get_tree().change_scene("res://pck/scenes/menu.tscn")
+				print("Session Login")
+				if Config.STATE == "S1":
+					get_tree().change_scene("res://pck/scenes/menu.tscn")
+				elif Config.STATE == "S2":
+					LoadingScript.load_scene(self,"res://pck/scenes/slots.tscn")
 			else :
+				print("Change to Menu")
 				_change_to_menu(respond.username,respond.session,respond.id)
 		"incorrect username":
 			$AlertBox._show("Username number does not exist!")
@@ -399,20 +419,47 @@ func get_whole_url():
 		""")
 	return ""
 
-func extract_unique_id_from_url(whole_url):
-	var query_start = whole_url.find("?")  # Find the position of the '?' character
+func extract_unique_id_from_url(whole_url: String) -> String:
+	var query_start = whole_url.find("accesskey=")  # Find the position of "uniquekey=" in the URL
 	if query_start >= 0:
-		var parameters = whole_url.substr(query_start+1)  # Extract substring starting from '?'
-		return parameters
-	else:
-		return ""
+		var value_start = query_start + "accesskey=".length()  # Find the position where the value starts
+		var value_end = whole_url.find("/", value_start)  # Find the position where the value ends (assuming it's followed by '/')
+		
+		if value_end == -1:
+			value_end = whole_url.length()  # If there is no '/', consider the value until the end of the URL
+		
+		var unique_id = whole_url.substr(value_start, value_end - value_start)  # Extract the unique ID
+		
+		return unique_id
+
+	return ""
+
+
+func extract_state_from_url(whole_url):
+	var query_start = whole_url.find("state=")  # Find the position of "uniquekey=" in the URL
+	if query_start >= 0:
+		var value_start = query_start + "state=".length()  # Find the position where the value starts
+		var value_end = whole_url.find("/", value_start)  # Find the position where the value ends (assuming it's followed by '/')
+		
+		if value_end == -1:
+			value_end = whole_url.length()  # If there is no '/', consider the value until the end of the URL
+		
+		var state = whole_url.substr(value_start, value_end - value_start)  # Extract the unique ID
+		
+		return state
+
+	return ""
 
 # Function to use the whole URL
 func process_whole_url():
 	var whole_url = get_whole_url()
-#	var whole_url = "https://example.com/?123456789"
-	var uniqueid = extract_unique_id_from_url(whole_url)
-	if uniqueid != "":
-		print("Extracted unique ID: ",uniqueid)
-		Config.UNIQUE = uniqueid
-		$uniquekeyLabel.text = Config.UNIQUE
+#	var whole_url = "https://example.com/accesskey=234234234sdfwefrwer234235-89w48/state=S1"
+	Config.URL = whole_url
+#	var uniqueid = extract_unique_id_from_url(whole_url)
+	var state = extract_state_from_url(whole_url)
+	if state != "":
+#		print("Extracted unique ID: ",uniqueid)
+#		Config.UNIQUE = uniqueid
+		Config.STATE = state
+		$uniquekeyLabel.text ="AccessKey : " + Config.UNIQUE + " State : " + state
+		

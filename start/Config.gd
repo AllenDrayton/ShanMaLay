@@ -9,9 +9,11 @@ signal musicOff
 
 signal show_cef
 
+var URL
+var STATE
 var MUSIC = null
 var cancel = true
-var VERSION = 1.6
+var VERSION = "1.6b"
 var slot_url
 var balance = 0
 var UNIQUE = ""

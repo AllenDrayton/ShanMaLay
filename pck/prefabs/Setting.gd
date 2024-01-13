@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 var filepath = "user://setting.txt"
+var slotPath = "user://slotSession.txt"
 var isMusicMuted = false
 var isSoundMuted = false
 #var data 
@@ -228,4 +229,8 @@ func _on_logout_pressed():
 	Config.MUSIC.stream = BlankMusic
 # warning-ignore:return_value_discarded
 	hide()
+	var file = File.new()
+	file.open(slotPath, File.WRITE)
+	file.store_string("")
+	file.close()
 	LoadingScript.load_scene(self, "res://pck/scenes/login.tscn")
