@@ -11,7 +11,7 @@ signal show_cef
 
 var MUSIC = null
 var cancel = true
-var VERSION = 1.6
+var VERSION = "1.0"
 var slot_url
 var balance = 0
 var UNIQUE = ""

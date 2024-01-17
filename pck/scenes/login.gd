@@ -68,7 +68,7 @@ func _ready():
 		$StorePassword.text = password
 		$LoginBox/UsernameControl/Username.text = savedData["username"]
 		$LoginBox/PasswordControl/Password.text = interpolateStar(password)
-	$version.text = "Version " + str(Config.VERSION)
+	$version.text = "Version " + Config.VERSION
 	_load_bgm()
 	Config.MUSIC.stream = music
 	Config.MUSIC.play()
