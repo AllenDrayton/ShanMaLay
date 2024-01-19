@@ -1,0 +1,180 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://pck/assets/HomeScence/Home-Password/image-home-password-popup.png" type="Texture" id=1]
+[ext_resource path="res://pck/assets/HomeScence/Home-Password/icon-home-password-cancel.png" type="Texture" id=2]
+[ext_resource path="res://pck/scenes/changePW.gd" type="Script" id=3]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://pck/assets/HomeScence/Home-Password/icon-home-password-confirm.png" type="Texture" id=5]
+[ext_resource path="res://pck/prefabs/AlertBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 1200, 766 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="changePW" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="PWpanel" type="Panel" parent="."]
+margin_left = 438.0
+margin_top = 94.0
+margin_right = 1638.0
+margin_bottom = 860.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Username" type="Label" parent="PWpanel"]
+margin_left = 422.0
+margin_top = 168.0
+margin_right = 487.0
+margin_bottom = 219.0
+custom_fonts/font = SubResource( 2 )
+text = "zxcs"
+
+[node name="Name" type="Label" parent="PWpanel/Username"]
+margin_left = -201.0
+margin_top = -1.0
+margin_right = -91.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+text = "နာမည္"
+
+[node name="PwNewControl" type="Control" parent="PWpanel"]
+margin_left = 410.0
+margin_top = 300.0
+margin_right = 1092.0
+margin_bottom = 406.0
+
+[node name="PasswordNew_txt" type="Label" parent="PWpanel/PwNewControl"]
+margin_left = 13.0
+margin_top = 14.0
+margin_right = 663.0
+margin_bottom = 94.0
+custom_colors/font_color = Color( 0.529412, 0.776471, 0.956863, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+align = 1
+valign = 1
+
+[node name="PasswordNewPlaceholder" type="Label" parent="PWpanel/PwNewControl"]
+margin_left = 9.0
+margin_top = 16.0
+margin_right = 680.0
+margin_bottom = 92.0
+custom_colors/font_color = Color( 0.529412, 0.776471, 0.956863, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "ေက်းဇူးျပဳ၍ စကားဝွက္တစ္ခု သတ္မွတ္ပါ (အကၡရာ 6-18 လုံး၊ အဂၤလိပ္တစ္ခုတည္း)"
+valign = 1
+
+[node name="newPW" type="Label" parent="PWpanel"]
+margin_left = 90.0
+margin_top = 461.0
+margin_right = 378.0
+margin_bottom = 519.0
+custom_fonts/font = SubResource( 3 )
+text = "Password အသစ္"
+
+[node name="ConfirmPwControl" type="Control" parent="PWpanel"]
+margin_left = 408.0
+margin_top = 426.0
+margin_right = 1094.0
+margin_bottom = 533.0
+
+[node name="ConfirmNewPlaceholder" type="Label" parent="PWpanel/ConfirmPwControl"]
+margin_left = 11.0
+margin_top = 14.0
+margin_right = 682.0
+margin_bottom = 90.0
+custom_colors/font_color = Color( 0.529412, 0.776471, 0.956863, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "ေက်းဇူးျပဳ၍ စကားဝွက္တစ္ခု သတ္မွတ္ပါ (အကၡရာ 6-18 လုံး၊ အဂၤလိပ္တစ္ခုတည္း)"
+valign = 1
+
+[node name="ConfirmNewPw_txt" type="Label" parent="PWpanel/ConfirmPwControl"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 665.0
+margin_bottom = 91.0
+custom_colors/font_color = Color( 0.529412, 0.776471, 0.956863, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+align = 1
+valign = 1
+
+[node name="confirmNewPW" type="Label" parent="PWpanel"]
+margin_left = 52.0
+margin_top = 329.0
+margin_right = 355.0
+margin_bottom = 387.0
+custom_fonts/font = SubResource( 3 )
+text = "Password အေဟာင္း"
+
+[node name="Accept" type="TextureButton" parent="PWpanel"]
+margin_left = 474.0
+margin_top = 581.0
+margin_right = 724.0
+margin_bottom = 671.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 7 )
+
+[node name="Exit" type="TextureButton" parent="."]
+anchor_right = 0.04
+anchor_bottom = 0.089
+margin_left = 1525.0
+margin_top = 145.0
+margin_right = 1525.0
+margin_bottom = 144.9
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+
+[node name="AlertBox" parent="." instance=ExtResource( 6 )]
+
+[node name="Store_oldpw" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Store_newpw" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+
+[connection signal="pressed" from="PWpanel/Accept" to="." method="_on_Accept_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

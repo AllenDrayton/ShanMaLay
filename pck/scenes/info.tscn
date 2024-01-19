@@ -1,0 +1,288 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=1]
+[ext_resource path="res://pck/assets/Home-Member-Info/image-member-info-rightbg.png" type="Texture" id=2]
+[ext_resource path="res://pck/assets/Home-Withdraw/Home-Withdraw/EER1.png" type="Texture" id=3]
+[ext_resource path="res://pck/assets/common/back_button.png" type="Texture" id=4]
+[ext_resource path="res://pck/assets/Home-Member-Info/icon-member-info-data.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/Home-Member-Info/icon-member-info-bankinfo.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/Home-Withdraw/icon-withdraw-question.png" type="Texture" id=7]
+[ext_resource path="res://pck/assets/Home-Transfer-Topup/icon-transfer-cashin-confirm.png" type="Texture" id=8]
+[ext_resource path="res://pck/scenes/info.gd" type="Script" id=9]
+[ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=10]
+[ext_resource path="res://pck/assets/HomeScence/icon-bottom-bar.png" type="Texture" id=11]
+[ext_resource path="res://start/zawgyi-one.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://start/button.gd" type="Script" id=13]
+[ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://pck/scenes/Bank_info.tscn" type="PackedScene" id=15]
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="Animation" id=11]
+resource_name = "In"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 2304, 1080 )
+modulate_color = Color( 1, 1, 1, 0.741176 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 14 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.117647, 0.117647, 0.2, 1 )
+
+[sub_resource type="Theme" id=20]
+/styles/styleboxflat = SubResource( 23 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 25
+outline_color = Color( 0.184314, 0.180392, 0.345098, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.117647, 0.117647, 0.2, 1 )
+border_color = Color( 0.996078, 0.996078, 0.996078, 0.356863 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="info" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+script = ExtResource( 9 )
+
+[node name="InfoAnimation" type="AnimationPlayer" parent="."]
+anims/In = SubResource( 11 )
+anims/Out = SubResource( 12 )
+anims/RESET = SubResource( 13 )
+
+[node name="info_panel" type="Panel" parent="."]
+margin_right = 2002.0
+margin_bottom = 896.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Icon-bottom-bar" type="Sprite" parent="info_panel"]
+position = Vector2( 1016, 0 )
+scale = Vector2( 0.685556, 1 )
+texture = ExtResource( 11 )
+
+[node name="rightbg" type="Sprite" parent="info_panel"]
+position = Vector2( 1144, 497.5 )
+scale = Vector2( 1.38167, 1.38167 )
+texture = ExtResource( 2 )
+
+[node name="left" type="Sprite" parent="info_panel"]
+position = Vector2( 137.825, 518.861 )
+scale = Vector2( 0.272, 0.307 )
+texture = ExtResource( 3 )
+
+[node name="bank_info" type="TextureButton" parent="info_panel"]
+margin_left = -8.0
+margin_top = 280.0
+margin_right = 280.0
+margin_bottom = 399.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="info_panel/bank_info"]
+position = Vector2( 141.322, 55.625 )
+scale = Vector2( 0.338501, 0.327949 )
+texture = ExtResource( 6 )
+
+[node name="info" type="TextureButton" parent="info_panel"]
+margin_left = 1.0
+margin_top = 157.0
+margin_right = 286.0
+margin_bottom = 276.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="info_panel/info"]
+position = Vector2( 147.058, 55 )
+scale = Vector2( 0.335067, 0.320225 )
+texture = ExtResource( 5 )
+
+[node name="confirm" type="TextureButton" parent="info_panel"]
+margin_left = 984.0
+margin_top = 585.0
+margin_right = 1349.0
+margin_bottom = 700.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="info_panel/confirm"]
+position = Vector2( 184, 56 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 8 )
+
+[node name="game_account2" type="Label" parent="info_panel"]
+margin_left = 436.0
+margin_top = 178.0
+margin_right = 635.0
+margin_bottom = 239.0
+custom_fonts/font = SubResource( 7 )
+text = "ဂိမ္းအေကာင့္:"
+align = 1
+valign = 1
+
+[node name="game_account5" type="Label" parent="info_panel"]
+margin_left = 598.0
+margin_top = 727.0
+margin_right = 1707.0
+margin_bottom = 836.0
+custom_colors/font_color = Color( 0.956863, 0.788235, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "ေက်းဇူးျပဳၿပီးအခ်က္အလက္မွန္ကန္စြာျဖည့္ပါရန္ ၊ အတည္ျပဴၿပီးပါကျပန္လည္ျပင္ဆင္လို႔မရပါ ၊
+ ကိုယ္စားလည္မ်ားမွတဆင့္ဆက္သြယ္ျပဳျပင္ႏိုင္ပါသည္။"
+align = 1
+valign = 1
+
+[node name="game_account4" type="Label" parent="info_panel"]
+margin_left = 437.0
+margin_top = 425.0
+margin_right = 636.0
+margin_bottom = 486.0
+custom_fonts/font = SubResource( 7 )
+text = "ဖုန္းနံပါတ္:"
+align = 1
+valign = 1
+
+[node name="game_account3" type="Label" parent="info_panel"]
+margin_left = 438.0
+margin_top = 299.0
+margin_right = 637.0
+margin_bottom = 360.0
+custom_fonts/font = SubResource( 7 )
+text = "နာမည္အရင္း:"
+align = 1
+valign = 1
+
+[node name="question" type="TextureRect" parent="info_panel"]
+margin_left = 1881.0
+margin_top = -3.0
+margin_right = 1971.0
+margin_bottom = 77.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="info_panel/question"]
+position = Vector2( 50.5313, 47.3125 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
+
+[node name="game_account" type="LineEdit" parent="info_panel"]
+margin_left = 948.0
+margin_top = 308.0
+margin_right = 1792.0
+margin_bottom = 380.0
+theme = SubResource( 20 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0.184314, 0.180392, 0.345098, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/normal = SubResource( 22 )
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="game_account6" type="LineEdit" parent="info_panel"]
+margin_left = 952.0
+margin_top = 432.0
+margin_right = 1796.0
+margin_bottom = 504.0
+theme = SubResource( 20 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0.184314, 0.180392, 0.345098, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/normal = SubResource( 22 )
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="game_account7" type="LineEdit" parent="info_panel"]
+margin_left = 952.0
+margin_top = 192.0
+margin_right = 1796.0
+margin_bottom = 264.0
+theme = SubResource( 20 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0.184314, 0.180392, 0.345098, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/normal = SubResource( 22 )
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Exit" type="TextureButton" parent="info_panel"]
+anchor_top = -0.022
+margin_left = 0.28937
+margin_top = 18.712
+margin_right = 220.289
+margin_bottom = 134.0
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bank_info" parent="." instance=ExtResource( 15 )]
+visible = false
+
+[connection signal="animation_finished" from="InfoAnimation" to="." method="_on_InfoAnimation_animation_finished"]
+[connection signal="pressed" from="info_panel/bank_info" to="." method="_on_bank_info_pressed"]
+[connection signal="pressed" from="info_panel/Exit" to="." method="_on_Exit_pressed"]
