@@ -17,6 +17,10 @@ func _ready():
 #	get_tree().change_scene("res://pck/scenes/login.tscn")
 	get_tree().change_scene("res://pck/scenes/splashScene.tscn")
 
+
+
+
+
 #func _save(content):
 #	var file = File.new()
 #	file.open(config_location, File.WRITE)

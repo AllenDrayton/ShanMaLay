@@ -9,18 +9,75 @@ var _client = WebSocketClient.new()
 var isExit = false
 var isPlaying = false
 
-var slot_textures=[]
+var slot_textures1 = []
+var slot_textures2 = []
+var slot_textures3 = []
+var slot_textures4 = []
+
 var filepath="res://pck/assets/slot/slot-game-AWC(KINGMAKER).json"
 var acesskey
 var game_name
 
 func _load_profile_textures():
-	for i in range(36):
+	for i in range(10):
 		var path = "res://pck/assets/slot/slot_list/" + str(i+1) + ".png"
 		var texture = load(path)
-		slot_textures.append(texture) 
+		slot_textures1.append(texture)
+	for ii in range(10,20):
+		var path = "res://pck/assets/slot/slot_list/" + str(ii+1) + ".png"
+		var texture = load(path)
+		slot_textures2.append(texture)
+	for iii in range(20,30):
+		var path = "res://pck/assets/slot/slot_list/" + str(iii+1) + ".png"
+		var texture = load(path)
+		slot_textures3.append(texture)
+	for iiii in range(30,36):
+		var path = "res://pck/assets/slot/slot_list/" + str(iiii+1) + ".png"
+		var texture = load(path)
+		slot_textures4.append(texture)
+	var slot1 = $Slot_container1/p1.get_children()
+	for j in range(slot1.size()):
+		var slot = slot1[j]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures1[j]
+	var slot2 = $Slot_container2/p2.get_children()
+	for k in range(slot2.size()):
+		var slot = slot2[k]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures2[k]
+	var slot3 = $Slot_container3/p3.get_children()
+	for l in range(slot3.size()):
+		var slot = slot3[l]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures3[l] 
+	var slot4 = $Slot_container4/p4.get_children()
+	for m in range(slot4.size()):
+		var slot = slot4[m]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures4[m] 
 
 func _ready():
+	
+	# For Slot Animation
+	$Slot_Animation.play("RESET")
+	
+	$left2middle1.show()
+	$left2middle1.disabled = false
+	
+	$middle12middle2.hide()
+	$middle12middle2.disabled = true
+	
+	$middle22right.hide()
+	$middle22right.disabled = true
+	
+	$right2middle2.hide()
+	$right2middle2.disabled = true
+	
+	$middle22middle1.hide()
+	$middle22middle1.disabled = true
+	
+	$middle12left.hide()
+	$middle12left.disabled = true
 	
 	# Waiting For Websocket Connection
 	$Backdrop.show()
@@ -40,13 +97,7 @@ func _ready():
 	http.request(url)
 	
 	_load_profile_textures()
-	var buttons = $provider/p.get_children()
 	
-	for i in range(buttons.size()):
-		var button = buttons[i]
-		if button is TextureButton:
-			button.texture_normal =slot_textures[i]
-			
 	# For Implementing Web Socket
 	_connect_websocket()
 
@@ -61,6 +112,8 @@ func _connect_websocket():
 	if err != OK:
 		print("Unable to Connect")
 		set_process(false)
+		$"/root/bgm".volume_db = -50
+		LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
 
 
 func _process(delta):
@@ -91,9 +144,11 @@ func _on_connected(proto = ""):
 	print("This is on connected Message : ", message)
 	_send(message)
 	
-	$Backdrop.hide()
-	_enabled_buttons()
-	print("hide")
+	$Websocket_timer.start()
+	
+#	$Backdrop.hide()
+#	_enabled_buttons()
+#	print("hide")
 
 
 func _on_data():
@@ -123,7 +178,10 @@ func _on_data():
 					$Timer.start()
 					
 		"STATE_READY":
-			
+			$Websocket_timer.stop()
+			$Backdrop.hide()
+			_enabled_buttons()
+			print("hide")
 			balance_update()
 			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
 			match res.stateForSecond:
@@ -206,7 +264,7 @@ func _on_data():
 				"STATE_DISCONNECT":
 					print("Client has been Disconnected")
 				"STATE_EXIT":
-						$Timer.start()
+					print("Exit Slot Game!!!!!!!!!!!!!!!!")
 			
 
 func _send(data):
@@ -279,6 +337,8 @@ func _on_Exit_pressed():
 	}
 	print("This is on Exit Message : ", message)
 	_send(message)
+	
+	$Timer.start()
 #	# For Music
 #	$"/root/bgm".volume_db = -50
 #	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
@@ -298,10 +358,10 @@ func _on_game_pressed(game_name,accesskey):
 	
 	var data = {
 	"accesskey": "",
-	"gameProvider": "awc(jili)",
+	"gameProvider": "kingmaker",
 	"lang": "en",
 	"game": accesskey,
-	"gameName": accesskey,
+	"gameName": game_name,
 	"isMobile": Config.config["web"]["isMobile"],
 	"redirectLink": "",
 	"type": Config.config["web"]["type"],
@@ -355,16 +415,181 @@ func _on_Timer_timeout():
 
 func _disabled_buttons():
 	$Exit.disabled = true
-	var buttons = $provider/p.get_children()
 	
-	for i in range(buttons.size()):
-		var button = buttons[i]
-		button.disabled = true
+	var slot1 = $Slot_container1/p1.get_children()
+	for j in range(slot1.size()):
+		var slot = slot1[j]
+		slot.disabled = true
+	var slot2 = $Slot_container2/p2.get_children()
+	for k in range(slot2.size()):
+		var slot = slot2[k]
+		slot.disabled = true
+	var slot3 = $Slot_container3/p3.get_children()
+	for l in range(slot3.size()):
+		var slot = slot3[l]
+		slot.disabled = true
+	var slot4 = $Slot_container4/p4.get_children()
+	for m in range(slot4.size()):
+		var slot = slot4[m]
+		slot.disabled = true
 
 func _enabled_buttons():
 	$Exit.disabled = false
-	var buttons = $provider/p.get_children()
 	
-	for i in range(buttons.size()):
-		var button = buttons[i]
-		button.disabled = false
+	var slot1 = $Slot_container1/p1.get_children()
+	for j in range(slot1.size()):
+		var slot = slot1[j]
+		slot.disabled = false
+	var slot2 = $Slot_container2/p2.get_children()
+	for k in range(slot2.size()):
+		var slot = slot2[k]
+		slot.disabled = false
+	var slot3 = $Slot_container3/p3.get_children()
+	for l in range(slot3.size()):
+		var slot = slot3[l]
+		slot.disabled = false
+	var slot4 = $Slot_container4/p4.get_children()
+	for m in range(slot4.size()):
+		var slot = slot4[m]
+		slot.disabled = true
+
+
+func _on_right2middle2_pressed():
+	$Slot_Animation.play("right2middle2")
+
+
+func _on_middle22middle1_pressed():
+	$Slot_Animation.play("middle22middle1")
+
+
+func _on_middle12left_pressed():
+	$Slot_Animation.play("middle12left")
+
+
+func _on_left2middle1_pressed():
+	$Slot_Animation.play("left2middle1")
+
+
+func _on_middle12middle2_pressed():
+	$Slot_Animation.play("middle12middle2")
+
+
+func _on_middle22right_pressed():
+	$Slot_Animation.play("middle22right")
+
+
+func _on_Slot_Animation_animation_finished(anim_name):
+	match anim_name:
+		"left2middle1":
+			$left2middle1.hide()
+			$left2middle1.disabled = true
+			
+			$middle12left.show()
+			$middle12left.disabled = false
+			
+			$middle12middle2.show()
+			$middle12middle2.disabled = false
+			
+			$middle22middle1.hide()
+			$middle22middle1.disabled = true
+			
+			$middle22right.hide()
+			$middle22right.disabled = true
+			
+			$right2middle2.hide()
+			$right2middle2.disabled = true
+		"middle12middle2":
+			$middle12middle2.hide()
+			$middle12middle2.disabled = true
+			
+			$middle22middle1.show()
+			$middle22middle1.disabled = false
+			
+			$middle22right.show()
+			$middle22right.disabled = false
+			
+			$right2middle2.hide()
+			$right2middle2.disabled = true
+			
+			$middle12left.hide()
+			$middle12left.disabled = true
+			
+			$left2middle1.hide()
+			$left2middle1.disabled = true
+		"middle22right":
+			$middle22right.hide()
+			$middle22right.disabled = true
+			
+			$right2middle2.show()
+			$right2middle2.disabled = false
+			
+			$middle22middle1.hide()
+			$middle22middle1.disabled = true
+			
+			$middle12middle2.hide()
+			$middle12middle2.disabled = true
+			
+			$middle12left.hide()
+			$middle12left.disabled = true
+			
+			$left2middle1.hide()
+			$left2middle1.disabled = true
+		"right2middle2":
+			$right2middle2.hide()
+			$right2middle2.disabled = true
+			
+			$middle22right.show()
+			$middle22right.disabled = false
+			
+			$middle22middle1.show()
+			$middle22middle1.disabled = false
+			
+			$middle12middle2.hide()
+			$middle12middle2.disabled = true
+			
+			$middle12left.hide()
+			$middle12left.disabled = true
+			
+			$left2middle1.hide()
+			$left2middle1.disabled = true
+		"middle22middle1":
+			$middle22middle1.hide()
+			$middle22middle1.disabled = true
+			
+			$middle12middle2.show()
+			$middle12middle2.disabled = false
+			
+			$middle12left.show()
+			$middle12left.disabled = false
+			
+			$middle22right.hide()
+			$middle22right.disabled = true
+			
+			$left2middle1.hide()
+			$left2middle1.disabled = true
+			
+			$right2middle2.hide()
+			$right2middle2.disabled = true
+		"middle12left":
+			$middle12left.hide()
+			$middle12left.disabled = true
+			
+			$left2middle1.show()
+			$left2middle1.disabled = false
+			
+			$middle12middle2.hide()
+			$middle12middle2.disabled = true
+			
+			$middle22middle1.hide()
+			$middle22middle1.disabled = true
+			
+			$middle22right.hide()
+			$middle22right.disabled = true
+			
+			$right2middle2.hide()
+			$right2middle2.disabled = true
+
+
+func _on_Websocket_timer_timeout():
+	$"/root/bgm".volume_db = -50
+	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")

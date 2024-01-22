@@ -9,18 +9,143 @@ var _client = WebSocketClient.new()
 var isExit = false
 var isPlaying = false
 
-var slot_textures=[]
+var slot_textures1 = []
+var slot_textures2 = []
+var slot_textures3 = []
+var slot_textures4 = []
+var slot_textures5 = []
+var slot_textures6 = []
+var slot_textures7 = []
+var slot_textures8 = []
+var slot_textures9 = []
+
 var filepath="res://pck/assets/slot/slot-game-AWC(KINGMAKER).json"
 var acesskey
 var game_name
 
 func _load_profile_textures():
-	for i in range(22):
+	for i in range(10):
 		var path = "res://pck/assets/slot/pragmatic/" + str(i+1) + ".png"
 		var texture = load(path)
-		slot_textures.append(texture) 
+		slot_textures1.append(texture)
+	for ii in range(10,20):
+		var path = "res://pck/assets/slot/pragmatic/" + str(ii+1) + ".png"
+		var texture = load(path)
+		slot_textures2.append(texture)
+	for iii in range(20,30):
+		var path = "res://pck/assets/slot/pragmatic/" + str(iii+1) + ".png"
+		var texture = load(path)
+		slot_textures3.append(texture)
+	for iiii in range(30,40):
+		var path = "res://pck/assets/slot/pragmatic/" + str(iiii+1) + ".png"
+		var texture = load(path)
+		slot_textures4.append(texture)
+	for iiiii in range(40,50):
+		var path = "res://pck/assets/slot/pragmatic/" + str(iiiii+1) + ".png"
+		var texture = load(path)
+		slot_textures5.append(texture)
+	for iiiiii in range(50,60):
+		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiii+1) + ".png"
+		var texture = load(path)
+		slot_textures6.append(texture)
+	for iiiiiii in range(60,70):
+		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiiii+1) + ".png"
+		var texture = load(path)
+		slot_textures7.append(texture)
+	for iiiiiiii in range(70,80):
+		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiiiii+1) + ".png"
+		var texture = load(path)
+		slot_textures8.append(texture)
+	for iiiiiiiii in range(80,82):
+		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiiiiii+1) + ".png"
+		var texture = load(path)
+		slot_textures9.append(texture)
+	
+	var slot1 = $Slot_container1/p1.get_children()
+	for j in range(slot1.size()):
+		var slot = slot1[j]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures1[j]
+	var slot2 = $Slot_container2/p2.get_children()
+	for k in range(slot2.size()):
+		var slot = slot2[k]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures2[k]
+	var slot3 = $Slot_container3/p3.get_children()
+	for l in range(slot3.size()):
+		var slot = slot3[l]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures3[l]
+	var slot4 = $Slot_container4/p4.get_children()
+	for m in range(slot4.size()):
+		var slot = slot4[m]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures4[m]
+	var slot5 = $Slot_container5/p5.get_children()
+	for n in range(slot5.size()):
+		var slot = slot5[n]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures5[n]
+	var slot6 = $Slot_container6/p6.get_children()
+	for o in range(slot6.size()):
+		var slot = slot6[o]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures6[o]
+	var slot7 = $Slot_container7/p7.get_children()
+	for p in range(slot7.size()):
+		var slot = slot7[p]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures7[p]
+	var slot8 = $Slot_container8/p8.get_children()
+	for q in range(slot8.size()):
+		var slot = slot8[q]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures8[q]
+	var slot9 = $Slot_container9/p9.get_children()
+	for r in range(slot9.size()):
+		var slot = slot9[r]
+		if slot is TextureButton:
+			slot.texture_normal = slot_textures9[r]
+
+
+
 
 func _ready():
+	
+	# For Slot Animation
+	$Slot_Animation.play("RESET")
+	
+	$one2two.show()
+	
+	$two2three.hide()
+	
+	$three2four.hide()
+	
+	$four2five.hide()
+	
+	$five2six.hide()
+	
+	$six2seven.hide()
+	
+	$seven2eight.hide()
+	
+	$eight2nine.hide()
+	
+	$nine2eight.hide()
+	
+	$eight2seven.hide()
+	
+	$seven2six.hide()
+	
+	$six2five.hide()
+	
+	$five2four.hide()
+	
+	$four2three.hide()
+	
+	$three2two.hide()
+	
+	$two2one.hide()
 	
 	# Waiting For Websocket Connection
 	$Backdrop.show()
@@ -40,13 +165,7 @@ func _ready():
 	http.request(url)
 	
 	_load_profile_textures()
-	var buttons = $provider/p.get_children()
 	
-	for i in range(buttons.size()):
-		var button = buttons[i]
-		if button is TextureButton:
-			button.texture_normal =slot_textures[i]
-			
 	# For Implementing Web Socket
 	_connect_websocket()
 
@@ -61,6 +180,8 @@ func _connect_websocket():
 	if err != OK:
 		print("Unable to Connect")
 		set_process(false)
+		$"/root/bgm".volume_db = -50
+		LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
 
 
 func _process(delta):
@@ -91,9 +212,11 @@ func _on_connected(proto = ""):
 	print("This is on connected Message : ", message)
 	_send(message)
 	
-	$Backdrop.hide()
-	_enabled_buttons()
-	print("hide")
+	$Websocket_timer.start()
+	
+#	$Backdrop.hide()
+#	_enabled_buttons()
+#	print("hide")
 
 
 func _on_data():
@@ -123,7 +246,10 @@ func _on_data():
 					$Timer.start()
 					
 		"STATE_READY":
-			
+			$Websocket_timer.stop()
+			$Backdrop.hide()
+			_enabled_buttons()
+			print("hide")
 			balance_update()
 			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
 			match res.stateForSecond:
@@ -206,7 +332,7 @@ func _on_data():
 				"STATE_DISCONNECT":
 					print("Client has been Disconnected")
 				"STATE_EXIT":
-						$Timer.start()
+					print("Exit Slot Game!!!!!!!!!!!!!!!!!!!!")
 			
 
 func _send(data):
@@ -279,6 +405,8 @@ func _on_Exit_pressed():
 	}
 	print("This is on Exit Message : ", message)
 	_send(message)
+	
+	$Timer.start()
 #	# For Music
 #	$"/root/bgm".volume_db = -50
 #	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
@@ -287,21 +415,21 @@ func _on_game_pressed(game_name,accesskey):
 	
 	$Backdrop.show()
 	_disabled_buttons()
-	
-	isPlaying = true
+#
+#	isPlaying = true
 	# For Music
 	$"/root/bgm".volume_db = -50
 	
 	print(game_name,",",accesskey)
 	
 	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getplaylink"
-	
+
 	var data = {
 	"accesskey": "",
-	"gameProvider": "awc(jili)",
+	"gameProvider": "pragmatic",
 	"lang": "en",
 	"game": accesskey,
-	"gameName": accesskey,
+	"gameName": game_name,
 	"isMobile": Config.config["web"]["isMobile"],
 	"redirectLink": "",
 	"type": Config.config["web"]["type"],
@@ -355,16 +483,697 @@ func _on_Timer_timeout():
 
 func _disabled_buttons():
 	$Exit.disabled = true
-	var buttons = $provider/p.get_children()
 	
-	for i in range(buttons.size()):
-		var button = buttons[i]
-		button.disabled = true
+	var slot1 = $Slot_container1/p1.get_children()
+	for j in range(slot1.size()):
+		var slot = slot1[j]
+		slot.disabled = true
+	var slot2 = $Slot_container2/p2.get_children()
+	for k in range(slot2.size()):
+		var slot = slot2[k]
+		slot.disabled = true
+	var slot3 = $Slot_container3/p3.get_children()
+	for l in range(slot3.size()):
+		var slot = slot3[l]
+		slot.disabled = true
+	var slot4 = $Slot_container4/p4.get_children()
+	for m in range(slot4.size()):
+		var slot = slot4[m]
+		slot.disabled = true
+	var slot5 = $Slot_container5/p5.get_children()
+	for n in range(slot5.size()):
+		var slot = slot5[n]
+		slot.disabled = true
+	var slot6 = $Slot_container6/p6.get_children()
+	for o in range(slot6.size()):
+		var slot = slot6[o]
+		slot.disabled = true
+	var slot7 = $Slot_container7/p7.get_children()
+	for p in range(slot7.size()):
+		var slot = slot7[p]
+		slot.disabled = true
+	var slot8 = $Slot_container8/p8.get_children()
+	for q in range(slot8.size()):
+		var slot = slot8[q]
+		slot.disabled = true
+	var slot9 = $Slot_container9/p9.get_children()
+	for r in range(slot9.size()):
+		var slot = slot9[r]
+		slot.disabled = true
 
 func _enabled_buttons():
 	$Exit.disabled = false
-	var buttons = $provider/p.get_children()
 	
-	for i in range(buttons.size()):
-		var button = buttons[i]
-		button.disabled = false
+	var slot1 = $Slot_container1/p1.get_children()
+	for j in range(slot1.size()):
+		var slot = slot1[j]
+		slot.disabled = false
+	var slot2 = $Slot_container2/p2.get_children()
+	for k in range(slot2.size()):
+		var slot = slot2[k]
+		slot.disabled = false
+	var slot3 = $Slot_container3/p3.get_children()
+	for l in range(slot3.size()):
+		var slot = slot3[l]
+		slot.disabled = false
+	var slot4 = $Slot_container4/p4.get_children()
+	for m in range(slot4.size()):
+		var slot = slot4[m]
+		slot.disabled = false
+	var slot5 = $Slot_container5/p5.get_children()
+	for n in range(slot5.size()):
+		var slot = slot5[n]
+		slot.disabled = false
+	var slot6 = $Slot_container6/p6.get_children()
+	for o in range(slot6.size()):
+		var slot = slot6[o]
+		slot.disabled = false
+	var slot7 = $Slot_container7/p7.get_children()
+	for p in range(slot7.size()):
+		var slot = slot7[p]
+		slot.disabled = false
+	var slot8 = $Slot_container8/p8.get_children()
+	for q in range(slot8.size()):
+		var slot = slot8[q]
+		slot.disabled = false
+	var slot9 = $Slot_container9/p9.get_children()
+	for r in range(slot9.size()):
+		var slot = slot9[r]
+		slot.disabled = false
+
+
+func _on_Websocket_timer_timeout():
+	$"/root/bgm".volume_db = -50
+	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
+
+
+func _on_one2two_pressed():
+	$Slot_Animation.play("one2two")
+
+
+func _on_two2three_pressed():
+	$Slot_Animation.play("two2three")
+
+
+func _on_three2four_pressed():
+	$Slot_Animation.play("three2four")
+
+
+func _on_four2five_pressed():
+	$Slot_Animation.play("four2five")
+
+
+func _on_five2six_pressed():
+	$Slot_Animation.play("five2six")
+
+
+func _on_six2seven_pressed():
+	$Slot_Animation.play("six2seven")
+
+
+func _on_seven2eight_pressed():
+	$Slot_Animation.play("seven2eight")
+
+
+func _on_eight2nine_pressed():
+	$Slot_Animation.play("eight2nine")
+
+
+func _on_nine2eight_pressed():
+	$Slot_Animation.play("nine2eight")
+
+
+func _on_eight2seven_pressed():
+	$Slot_Animation.play("eight2seven")
+
+
+func _on_seven2six_pressed():
+	$Slot_Animation.play("seven2six")
+
+
+func _on_six2five_pressed():
+	$Slot_Animation.play("six2five")
+
+
+func _on_five2four_pressed():
+	$Slot_Animation.play("five2four")
+
+
+func _on_four2three_pressed():
+	$Slot_Animation.play("four2three")
+
+
+func _on_three2two_pressed():
+	$Slot_Animation.play("three2two")
+
+
+func _on_two2one_pressed():
+	$Slot_Animation.play("two2one")
+
+
+func _on_Slot_Animation_animation_finished(anim_name):
+	match anim_name:
+		
+		"one2two":
+			
+			$one2two.hide()
+			
+			$two2three.show()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.show()
+		
+		"two2three":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.show()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.show()
+			
+			$two2one.hide()
+			
+		"three2four":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.show()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.show()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"four2five":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.show()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.show()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"five2six":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.show()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.show()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"six2seven":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.show()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.show()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"seven2eight":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.show()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.show()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"eight2nine":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.show()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"nine2eight":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.show()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.show()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"eight2seven":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.show()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.show()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"seven2six":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.show()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.show()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"six2five":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.show()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.show()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"five2four":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.show()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.show()
+			
+			$three2two.hide()
+			
+			$two2one.hide()
+			
+		"four2three":
+			
+			$one2two.hide()
+			
+			$two2three.hide()
+			
+			$three2four.show()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.show()
+			
+			$two2one.hide()
+			
+		"three2two":
+			
+			$one2two.hide()
+			
+			$two2three.show()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.show()
+			
+		"two2one":
+			
+			$one2two.show()
+			
+			$two2three.hide()
+			
+			$three2four.hide()
+			
+			$four2five.hide()
+			
+			$five2six.hide()
+			
+			$six2seven.hide()
+			
+			$seven2eight.hide()
+			
+			$eight2nine.hide()
+			
+			$nine2eight.hide()
+			
+			$eight2seven.hide()
+			
+			$seven2six.hide()
+			
+			$six2five.hide()
+			
+			$five2four.hide()
+			
+			$four2three.hide()
+			
+			$three2two.hide()
+			
+			$two2one.hide()

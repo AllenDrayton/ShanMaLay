@@ -328,5 +328,8 @@ func _on_Logout_pressed():
 	file.open(filepath, File.WRITE)
 	file.store_string("")
 	file.close()
+	
+	Config.logout = true
+	
 	#get_tree().change_scene("res://pck/scenes/login.tscn")
 	LoadingScript.load_scene(self, "res://pck/scenes/login.tscn")

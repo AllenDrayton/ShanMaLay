@@ -4,9 +4,12 @@ const music = preload("res://pck/assets/audio/music-1.mp3")
 
 var filepath = "user://session.txt"
 
+var stored_data_path = "user://stored_data.txt"
+
 onready var userName = $Control
 onready var passWord = $Control2
 
+var txt
 
 var userSide = false
 var passwordSide = false
@@ -21,6 +24,11 @@ func _ready():
 	
 	_load_session()
 	_load_bgm()
+	
+	if Config.logout == true:
+		_load_data_after_logout()
+	else:
+		pass
 	
 	if $Setting/SliderMusic.value == 0:
 		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
@@ -204,8 +212,19 @@ func _on_Login_pressed():
 func _change_to_menu(username,session,id):
 	var user = {"username":username,"session":session,"id":id}
 	$"/root/Config".config.user = user
-	if $Remember.pressed :
+	if $Remember.pressed:
 		_save(user)
+		
+	# For storing Data
+	var user_name = $Control/Username.text
+	var pass_word = $Store.text
+	
+	var data = {
+			"username":user_name,
+			"password":pass_word,
+		}
+	_save_stored_data(data)
+		
 	#get_tree().change_scene("res://pck/scenes/menu.tscn")
 	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 
@@ -215,24 +234,27 @@ func _load_session():
 	if file.file_exists(filepath):
 		file.open(filepath, File.READ)
 		var txt = file.get_as_text()
-		var obj = JSON.parse(txt)
-		file.close()
-		if obj.error != OK:
+		if txt == "":
 			return
-		var deviceName = OS.get_model_name()
-		var deviceId = OS.get_unique_id()
-		var data = {
-				"username":obj.result.username,
-				"session":obj.result.session,
-				"device":{
-					"id":deviceId,
-					"name":deviceName
+		else:
+			var obj = JSON.parse(txt)
+			file.close()
+			if obj.error != OK:
+				return
+			var deviceName = OS.get_model_name()
+			var deviceId = OS.get_unique_id()
+			var data = {
+					"username":obj.result.username,
+					"session":obj.result.session,
+					"device":{
+						"id":deviceId,
+						"name":deviceName
+						}
 					}
-				}
-		var headers = ["Content-Type: application/json"]
-		var url = $"/root/Config".config.account_url + "login"
-		var body = JSON.print(data)
-		$HTTPRequest.request(url,headers,false,HTTPClient.METHOD_POST,body)
+			var headers = ["Content-Type: application/json"]
+			var url = $"/root/Config".config.account_url + "login"
+			var body = JSON.print(data)
+			$HTTPRequest.request(url,headers,false,HTTPClient.METHOD_POST,body)
 
 
 func _save(data):
@@ -241,6 +263,40 @@ func _save(data):
 	file.store_string(JSON.print(data))
 	file.close()
 
+func _save_stored_data(data):
+	var file = File.new()
+	file.open(stored_data_path, File.WRITE)
+	file.store_string(JSON.print(data))
+	file.close()
+	
+
+func _load_data_after_logout():
+	var file = File.new()
+	if file.file_exists(stored_data_path):
+		file.open(stored_data_path, File.READ)
+		var txt = file.get_as_text()
+		print(txt)
+		if txt == "":
+			return
+		else:
+			var obj = JSON.parse(txt)
+			file.close()
+			if obj.error != OK:
+				return
+			var password = obj.result["password"]
+			$Store.text = password
+			$Control/Username.text = obj.result["username"]
+			$Control2/Password.text = interpolateStar(password)
+			
+func interpolateStar(text):
+	var hiddenText = ""
+	if text != "":
+			for i in text.length():
+				hiddenText += "*"
+				$Control2/Password.text = hiddenText
+	else:
+		text.text = ""
+	return hiddenText
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = JSON.parse(body.get_string_from_utf8()).result
@@ -298,3 +354,5 @@ func process_whole_url():
 	if uniqueid != "":
 		print("Extracted unique ID: ",uniqueid)
 		Config.UNIQUE = uniqueid
+		$urlstore.text = Config.UNIQUE
+		print(Config.UNIQUE)

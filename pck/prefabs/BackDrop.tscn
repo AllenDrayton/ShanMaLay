@@ -94,9 +94,10 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=23]
-size = 40
+size = 45
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="BackDrop" type="Node2D"]
@@ -113,7 +114,7 @@ texture = ExtResource( 1 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 22 )
-frame = 7
+frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="."]

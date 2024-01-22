@@ -201,7 +201,7 @@ func _update_room(room):
 	
 	var getIndex=room.players[myIndex].index
 	if room.players[myIndex].isWaiting:
-		$BackDrop._show("Please wait for this game to finish")
+		$BackDrop._show("aus;Zl;jyKíupm;yGJNyD;wJhtxdapmihfay;yg")
 		if !isWaitVoicePlayed:
 			_playVoice(GameVoices.wait_game)
 			isWaitVoicePlayed = true
@@ -279,38 +279,39 @@ func _start(room):
 		$BackDrop._hide()
 
 func _deliver(room):
-	_common_update(room)
-	if room.gameState == prev_gameState:
-		return
-	prev_gameState = room.gameState
-	print("Game State : Deliver")
-	$ShanMa.play("deliver")
-	
-	# Set Timer
-	countdown = (room.wait - room.tick) * SERVER_INTERVAL
-	
-	_playVoice(GameVoices.deliver)
-	for j in range(8):
-		for i in range(TOTAL_PLAYER):
-			var player = room.players[i]
-			if player == null:
-				continue
-			if player.isWaiting:
-				continue
-			var v = _get_vIndex(i)
-			print("v:",v)
-			var card = player.cards[j]
-			print("Card: ",card)
-			var pos = playersNode[v].cardPosArray[j]
-			_deliver_card(card,pos,v)
-			yield(get_tree().create_timer(CARD_DELIVER_DELAY), "timeout")
-	
-	yield(get_tree().create_timer(1), "timeout")
-	
-	$ShanMa.play("idle")
-	
-	if room.players[myIndex].isWaiting == false :
-		$CardCheck._show(room.players[myIndex].cards)
+	if !room.players[myIndex].isWaiting:
+		_common_update(room)
+		if room.gameState == prev_gameState:
+			return
+		prev_gameState = room.gameState
+		print("Game State : Deliver")
+		$ShanMa.play("deliver")
+		
+		# Set Timer
+		countdown = (room.wait - room.tick) * SERVER_INTERVAL
+		
+		_playVoice(GameVoices.deliver)
+		for j in range(8):
+			for i in range(TOTAL_PLAYER):
+				var player = room.players[i]
+				if player == null:
+					continue
+				if player.isWaiting:
+					continue
+				var v = _get_vIndex(i)
+				print("v:",v)
+				var card = player.cards[j]
+				print("Card: ",card)
+				var pos = playersNode[v].cardPosArray[j]
+				_deliver_card(card,pos,v)
+				yield(get_tree().create_timer(CARD_DELIVER_DELAY), "timeout")
+		
+		yield(get_tree().create_timer(1), "timeout")
+		
+		$ShanMa.play("idle")
+		
+		if room.players[myIndex].isWaiting == false :
+			$CardCheck._show(room.players[myIndex].cards)
 
 func _end(room):
 	if room.gameState == prev_gameState:
@@ -331,8 +332,45 @@ func _fastEnding(room):
 	var players = room.players
 	
 	# Give Up
-	if room.giveUpFlow.size() > 0:
+	if !room.players[myIndex].isWaiting:
+		if room.giveUpFlow.size() > 0:
+			_unhighlight_all()
+			$Audio/CoinMove.play()
+			for i in range(TOTAL_PLAYER):
+				var v = _get_vIndex(i)
+				var N = playersNode[v]
+				var player = players[i]
+				if player == null:
+					continue
+				if player.isWaiting:
+					continue
+				if player.cardStatus[0] >= 0:
+					continue
+				_highlight_cards(i,[0,1])
+				N._show_card_status(players[i].cardStatus[0],0,0)
+				var amt = room.giveUpBalance[i]
+				if amt < 0:
+					var count = ceil(abs(amt) / betAmount)
+					for j in range(count):
+						_coin_move_to_center(i)
+					N._transfer_balance(amt)
+			yield(get_tree().create_timer(1.5), "timeout")
+			$Audio/CoinMove.play()
+			for i in range(len(room.giveUpBalance)):
+				var amt = room.giveUpBalance[i]
+				if amt > 0:
+					var v = _get_vIndex(i)
+					var N = playersNode[v]
+					N._transfer_balance(amt)
+					var count = ceil(amt / betAmount)
+					for j in range(count):
+						_coin_move_from_center(i)
+			yield(get_tree().create_timer(1.5), "timeout")
+			_hide_all_card_status()
+	
+	# First comparison
 		_unhighlight_all()
+		_playVoice(GameVoices.top)
 		$Audio/CoinMove.play()
 		for i in range(TOTAL_PLAYER):
 			var v = _get_vIndex(i)
@@ -342,11 +380,11 @@ func _fastEnding(room):
 				continue
 			if player.isWaiting:
 				continue
-			if player.cardStatus[0] >= 0:
+			if player.cardStatus[0] < 0:
 				continue
 			_highlight_cards(i,[0,1])
 			N._show_card_status(players[i].cardStatus[0],0,0)
-			var amt = room.giveUpBalance[i]
+			var amt = room.firstBalance[i]
 			if amt < 0:
 				var count = ceil(abs(amt) / betAmount)
 				for j in range(count):
@@ -354,81 +392,8 @@ func _fastEnding(room):
 				N._transfer_balance(amt)
 		yield(get_tree().create_timer(1.5), "timeout")
 		$Audio/CoinMove.play()
-		for i in range(len(room.giveUpBalance)):
-			var amt = room.giveUpBalance[i]
-			if amt > 0:
-				var v = _get_vIndex(i)
-				var N = playersNode[v]
-				N._transfer_balance(amt)
-				var count = ceil(amt / betAmount)
-				for j in range(count):
-					_coin_move_from_center(i)
-		yield(get_tree().create_timer(1.5), "timeout")
-		_hide_all_card_status()
-	
-	# First comparison
-	_unhighlight_all()
-	_playVoice(GameVoices.top)
-	$Audio/CoinMove.play()
-	for i in range(TOTAL_PLAYER):
-		var v = _get_vIndex(i)
-		var N = playersNode[v]
-		var player = players[i]
-		if player == null:
-			continue
-		if player.isWaiting:
-			continue
-		if player.cardStatus[0] < 0:
-			continue
-		_highlight_cards(i,[0,1])
-		N._show_card_status(players[i].cardStatus[0],0,0)
-		var amt = room.firstBalance[i]
-		if amt < 0:
-			var count = ceil(abs(amt) / betAmount)
-			for j in range(count):
-				_coin_move_to_center(i)
-			N._transfer_balance(amt)
-	yield(get_tree().create_timer(1.5), "timeout")
-	$Audio/CoinMove.play()
-	for i in range(len(room.firstBalance)):
-		var amt = room.firstBalance[i]
-		if amt > 0:
-			var v = _get_vIndex(i)
-			var N = playersNode[v]
-			N._transfer_balance(amt)
-			var count = ceil(amt / betAmount)
-			for j in range(count):
-				_coin_move_from_center(i)
-	yield(get_tree().create_timer(1.5), "timeout")
-	_hide_all_card_status()
-	
-	# Second comparison
-	_unhighlight_all()
-	if room.secondFlow.size() > 0:
-		_playVoice(GameVoices.middle)
-		$Audio/CoinMove.play()
-		for i in range(TOTAL_PLAYER):
-			var v = _get_vIndex(i)
-			var N = playersNode[v]
-			var player = players[i]
-			if player == null:
-				continue
-			if player.isWaiting:
-				continue
-			if player.cardStatus[0] < 0:
-				continue
-			_highlight_cards(i,[2,3,4])
-			N._show_card_status(players[i].cardStatus[1],0,1)
-			var amt = room.secondBalance[i]
-			if amt < 0:
-				var count = ceil(abs(amt) / betAmount)
-				for j in range(count):
-					_coin_move_to_center(i)
-				N._transfer_balance(amt)
-		yield(get_tree().create_timer(1.5), "timeout")
-		$Audio/CoinMove.play()
-		for i in range(len(room.secondBalance)):
-			var amt = room.secondBalance[i]
+		for i in range(len(room.firstBalance)):
+			var amt = room.firstBalance[i]
 			if amt > 0:
 				var v = _get_vIndex(i)
 				var N = playersNode[v]
@@ -439,175 +404,213 @@ func _fastEnding(room):
 		yield(get_tree().create_timer(1.5), "timeout")
 		_hide_all_card_status()
 		
-	# Third comparison
-	_unhighlight_all()
-	if room.thirdFlow.size() > 0:
-		_playVoice(GameVoices.bottom)
-		$Audio/CoinMove.play()
-		for i in range(TOTAL_PLAYER):
-			var v = _get_vIndex(i)
-			var N = playersNode[v]
-			var player = players[i]
-			if player == null:
-				continue
-			if player.isWaiting:
-				continue
-			if player.cardStatus[0] < 0:
-				continue
-			_highlight_cards(i,[5,6,7])
-			N._show_card_status(players[i].cardStatus[2],0,2)
-			var amt = room.thirdBalance[i]
-			if amt < 0:
-				var count = ceil(abs(amt) / betAmount)
-				for j in range(count):
-					_coin_move_to_center(i)
-				N._transfer_balance(amt)
-		yield(get_tree().create_timer(1.5), "timeout")
-		$Audio/CoinMove.play()
-		for i in range(len(room.thirdBalance)):
-			var amt = room.thirdBalance[i]
-			if amt > 0:
+		# Second comparison
+		_unhighlight_all()
+		if room.secondFlow.size() > 0:
+			_playVoice(GameVoices.middle)
+			$Audio/CoinMove.play()
+			for i in range(TOTAL_PLAYER):
 				var v = _get_vIndex(i)
 				var N = playersNode[v]
-				N._transfer_balance(amt)
-				var count = ceil(amt / betAmount)
-				for j in range(count):
-					_coin_move_from_center(i)
-		yield(get_tree().create_timer(1.5), "timeout")
-		_hide_all_card_status()
+				var player = players[i]
+				if player == null:
+					continue
+				if player.isWaiting:
+					continue
+				if player.cardStatus[0] < 0:
+					continue
+				_highlight_cards(i,[2,3,4])
+				N._show_card_status(players[i].cardStatus[1],0,1)
+				var amt = room.secondBalance[i]
+				if amt < 0:
+					var count = ceil(abs(amt) / betAmount)
+					for j in range(count):
+						_coin_move_to_center(i)
+					N._transfer_balance(amt)
+			yield(get_tree().create_timer(1.5), "timeout")
+			$Audio/CoinMove.play()
+			for i in range(len(room.secondBalance)):
+				var amt = room.secondBalance[i]
+				if amt > 0:
+					var v = _get_vIndex(i)
+					var N = playersNode[v]
+					N._transfer_balance(amt)
+					var count = ceil(amt / betAmount)
+					for j in range(count):
+						_coin_move_from_center(i)
+			yield(get_tree().create_timer(1.5), "timeout")
+			_hide_all_card_status()
+			
+		# Third comparison
+		_unhighlight_all()
+		if room.thirdFlow.size() > 0:
+			_playVoice(GameVoices.bottom)
+			$Audio/CoinMove.play()
+			for i in range(TOTAL_PLAYER):
+				var v = _get_vIndex(i)
+				var N = playersNode[v]
+				var player = players[i]
+				if player == null:
+					continue
+				if player.isWaiting:
+					continue
+				if player.cardStatus[0] < 0:
+					continue
+				_highlight_cards(i,[5,6,7])
+				N._show_card_status(players[i].cardStatus[2],0,2)
+				var amt = room.thirdBalance[i]
+				if amt < 0:
+					var count = ceil(abs(amt) / betAmount)
+					for j in range(count):
+						_coin_move_to_center(i)
+					N._transfer_balance(amt)
+			yield(get_tree().create_timer(1.5), "timeout")
+			$Audio/CoinMove.play()
+			for i in range(len(room.thirdBalance)):
+				var amt = room.thirdBalance[i]
+				if amt > 0:
+					var v = _get_vIndex(i)
+					var N = playersNode[v]
+					N._transfer_balance(amt)
+					var count = ceil(amt / betAmount)
+					for j in range(count):
+						_coin_move_from_center(i)
+			yield(get_tree().create_timer(1.5), "timeout")
+			_hide_all_card_status()
+			
+		# Fourth comparison
+		_unhighlight_all()
+		if room.fourthFlow.size() > 0:
+			var flow = room.fourthFlow[0]
+			_highlight_cards(flow.to,[0,1,2,3,4,5,6,7])
+			var vTo = _get_vIndex(flow.to)
+			playersNode[vTo]._show_card_status(10,5,2)
+			$Audio/CoinMove.play()
+			for i in range(TOTAL_PLAYER):
+				var v = _get_vIndex(i)
+				var N = playersNode[v]
+				var player = players[i]
+				if player == null:
+					continue
+				if player.isWaiting:
+					continue
+				var amt = room.fourthBalance[i]
+				if amt < 0:
+					var count = ceil(abs(amt) / betAmount)
+					for j in range(count):
+						_coin_move_to_center(i)
+					N._transfer_balance(amt)
+			yield(get_tree().create_timer(1.5), "timeout")
+			$Audio/CoinMove.play()
+			for i in range(len(room.fourthBalance)):
+				var amt = room.fourthBalance[i]
+				if amt > 0:
+					var v = _get_vIndex(i)
+					var N = playersNode[v]
+					N._transfer_balance(amt)
+					var count = ceil(amt / betAmount)
+					for j in range(count):
+						_coin_move_from_center(i)
+			yield(get_tree().create_timer(1.5), "timeout")
+			_hide_all_card_status()
 		
-	# Fourth comparison
-	_unhighlight_all()
-	if room.fourthFlow.size() > 0:
-		var flow = room.fourthFlow[0]
-		_highlight_cards(flow.to,[0,1,2,3,4,5,6,7])
-		var vTo = _get_vIndex(flow.to)
-		playersNode[vTo]._show_card_status(10,5,2)
-		$Audio/CoinMove.play()
-		for i in range(TOTAL_PLAYER):
-			var v = _get_vIndex(i)
-			var N = playersNode[v]
-			var player = players[i]
-			if player == null:
-				continue
-			if player.isWaiting:
-				continue
-			var amt = room.fourthBalance[i]
-			if amt < 0:
-				var count = ceil(abs(amt) / betAmount)
-				for j in range(count):
-					_coin_move_to_center(i)
-				N._transfer_balance(amt)
 		yield(get_tree().create_timer(1.5), "timeout")
-		$Audio/CoinMove.play()
-		for i in range(len(room.fourthBalance)):
-			var amt = room.fourthBalance[i]
-			if amt > 0:
-				var v = _get_vIndex(i)
-				var N = playersNode[v]
-				N._transfer_balance(amt)
-				var count = ceil(amt / betAmount)
-				for j in range(count):
-					_coin_move_from_center(i)
-		yield(get_tree().create_timer(1.5), "timeout")
-		_hide_all_card_status()
-	
-	yield(get_tree().create_timer(1.5), "timeout")
-	_show_final_win_lose_amount(room)
-	
-	_common_update(room)
+		_show_final_win_lose_amount(room)
+		
+		_common_update(room)
 
 func _oneByOneEnding(room):
 	# First comparison
-	_playVoice(GameVoices.top)
-	for flow in room.firstFlow :
-		_unhighlight_all()
-		_highlight_cards(flow.from,[0,1])
-		_highlight_cards(flow.to,[0,1])
-		var vFrom = _get_vIndex(flow.from)
-		var vTo = _get_vIndex(flow.to)
-		var paukFrom = room.players[flow.from].cardStatus[0]
-		var paukTo = room.players[flow.to].cardStatus[0]
-		playersNode[vFrom]._show_card_status(paukFrom,0,0)
-		playersNode[vTo]._show_card_status(paukTo,flow.multiplier,0)
-		yield(get_tree().create_timer(1), "timeout")
-		$Audio/CoinMove.play()
-		var count = ceil(flow.amount / betAmount)
-		for j in range(count):
-			_coin_move(vFrom,vTo)
-			yield(get_tree().create_timer(0.05), "timeout")
-		playersNode[vFrom]._transfer_balance(-flow.amount)
-		playersNode[vTo]._transfer_balance(flow.amount)
-		yield(get_tree().create_timer(1), "timeout")
-		playersNode[vFrom]._hide_card_status()
-		playersNode[vTo]._hide_card_status()
+	if !room.players[myIndex].isWaiting:
+		_playVoice(GameVoices.top)
+		for flow in room.firstFlow :
+			_unhighlight_all()
+			_highlight_cards(flow.from,[0,1])
+			_highlight_cards(flow.to,[0,1])
+			var vFrom = _get_vIndex(flow.from)
+			var vTo = _get_vIndex(flow.to)
+			var paukFrom = room.players[flow.from].cardStatus[0]
+			var paukTo = room.players[flow.to].cardStatus[0]
+			playersNode[vFrom]._show_card_status(paukFrom,0,0)
+			playersNode[vTo]._show_card_status(paukTo,flow.multiplier,0)
+			yield(get_tree().create_timer(1), "timeout")
+			$Audio/CoinMove.play()
+			var count = ceil(flow.amount / betAmount)
+			for j in range(count):
+				_coin_move(vFrom,vTo)
+				yield(get_tree().create_timer(0.05), "timeout")
+			playersNode[vFrom]._transfer_balance(-flow.amount)
+			playersNode[vTo]._transfer_balance(flow.amount)
+			yield(get_tree().create_timer(1), "timeout")
+			playersNode[vFrom]._hide_card_status()
+			playersNode[vTo]._hide_card_status()
 
-	# Second comparison
-	if room.secondFlow.size() > 0:
-		_playVoice(GameVoices.middle)
-	for flow in room.secondFlow :
-		_unhighlight_all()
-		_highlight_cards(flow.from,[2,3,4])
-		_highlight_cards(flow.to,[2,3,4])
-		var vFrom = _get_vIndex(flow.from)
-		var vTo = _get_vIndex(flow.to)
-		var paukFrom = room.players[flow.from].cardStatus[1]
-		var paukTo = room.players[flow.to].cardStatus[1]
-		playersNode[vFrom]._show_card_status(paukFrom,0,1)
-		playersNode[vTo]._show_card_status(paukTo,flow.multiplier,1)
-		yield(get_tree().create_timer(1), "timeout")
-		$Audio/CoinMove.play()
-		var count = ceil(flow.amount / betAmount)
-		for j in range(count):
-			_coin_move(vFrom,vTo)
-			yield(get_tree().create_timer(0.05), "timeout")
-		playersNode[vFrom]._transfer_balance(-flow.amount)
-		playersNode[vTo]._transfer_balance(flow.amount)
-		yield(get_tree().create_timer(1), "timeout")
-		playersNode[vFrom]._hide_card_status()
-		playersNode[vTo]._hide_card_status()
+		# Second comparison
+		if room.secondFlow.size() > 0:
+			_playVoice(GameVoices.middle)
+		for flow in room.secondFlow :
+			_unhighlight_all()
+			_highlight_cards(flow.from,[2,3,4])
+			_highlight_cards(flow.to,[2,3,4])
+			var vFrom = _get_vIndex(flow.from)
+			var vTo = _get_vIndex(flow.to)
+			var paukFrom = room.players[flow.from].cardStatus[1]
+			var paukTo = room.players[flow.to].cardStatus[1]
+			playersNode[vFrom]._show_card_status(paukFrom,0,1)
+			playersNode[vTo]._show_card_status(paukTo,flow.multiplier,1)
+			yield(get_tree().create_timer(1), "timeout")
+			$Audio/CoinMove.play()
+			var count = ceil(flow.amount / betAmount)
+			for j in range(count):
+				_coin_move(vFrom,vTo)
+				yield(get_tree().create_timer(0.05), "timeout")
+			playersNode[vFrom]._transfer_balance(-flow.amount)
+			playersNode[vTo]._transfer_balance(flow.amount)
+			yield(get_tree().create_timer(1), "timeout")
+			playersNode[vFrom]._hide_card_status()
+			playersNode[vTo]._hide_card_status()
 
-	# Third comparison
-	if room.thirdFlow.size() > 0:
-		_playVoice(GameVoices.bottom)
-	for flow in room.thirdFlow :
-		_unhighlight_all()
-		_highlight_cards(flow.from,[5,6,7])
-		_highlight_cards(flow.to,[5,6,7])
-		var vFrom = _get_vIndex(flow.from)
-		var vTo = _get_vIndex(flow.to)
-		var paukFrom = room.players[flow.from].cardStatus[2]
-		var paukTo = room.players[flow.to].cardStatus[2]
-		playersNode[vFrom]._show_card_status(paukFrom,0,2)
-		playersNode[vTo]._show_card_status(paukTo,flow.multiplier,2)
-		yield(get_tree().create_timer(1), "timeout")
-		$Audio/CoinMove.play()
-		var count = ceil(flow.amount / betAmount)
-		for j in range(count):
-			_coin_move(vFrom,vTo)
-			yield(get_tree().create_timer(0.05), "timeout")
-		playersNode[vFrom]._transfer_balance(-flow.amount)
-		playersNode[vTo]._transfer_balance(flow.amount)
-		yield(get_tree().create_timer(1), "timeout")
-		playersNode[vFrom]._hide_card_status()
-		playersNode[vTo]._hide_card_status()
+		# Third comparison
+		if room.thirdFlow.size() > 0:
+			_playVoice(GameVoices.bottom)
+		for flow in room.thirdFlow :
+			_unhighlight_all()
+			_highlight_cards(flow.from,[5,6,7])
+			_highlight_cards(flow.to,[5,6,7])
+			var vFrom = _get_vIndex(flow.from)
+			var vTo = _get_vIndex(flow.to)
+			var paukFrom = room.players[flow.from].cardStatus[2]
+			var paukTo = room.players[flow.to].cardStatus[2]
+			playersNode[vFrom]._show_card_status(paukFrom,0,2)
+			playersNode[vTo]._show_card_status(paukTo,flow.multiplier,2)
+			yield(get_tree().create_timer(1), "timeout")
+			$Audio/CoinMove.play()
+			var count = ceil(flow.amount / betAmount)
+			for j in range(count):
+				_coin_move(vFrom,vTo)
+				yield(get_tree().create_timer(0.05), "timeout")
+			playersNode[vFrom]._transfer_balance(-flow.amount)
+			playersNode[vTo]._transfer_balance(flow.amount)
+			yield(get_tree().create_timer(1), "timeout")
+			playersNode[vFrom]._hide_card_status()
+			playersNode[vTo]._hide_card_status()
 
-	# Fourth comparison
-	for flow in room.fourthFlow :
-		_unhighlight_all()
-		_highlight_cards(flow.to,[0,1,2,3,4,5,6,7])
-		var vFrom = _get_vIndex(flow.from)
-		var vTo = _get_vIndex(flow.to)
-		playersNode[vTo]._show_card_status(10,5,2)
-		$Audio/CoinMove.play()
-		var count = ceil(flow.amount / betAmount)
-		for j in range(count):
-			_coin_move(vFrom,vTo)
-			yield(get_tree().create_timer(0.05), "timeout")
-		playersNode[vFrom]._transfer_balance(-flow.amount)
-		playersNode[vTo]._transfer_balance(flow.amount)
-		
-	_common_update(room)
+		# Fourth comparison
+		for flow in room.fourthFlow :
+			_unhighlight_all()
+			_highlight_cards(flow.to,[0,1,2,3,4,5,6,7])
+			var vFrom = _get_vIndex(flow.from)
+			var vTo = _get_vIndex(flow.to)
+			playersNode[vTo]._show_card_status(10,5,2)
+			$Audio/CoinMove.play()
+			var count = ceil(flow.amount / betAmount)
+			for j in range(count):
+				_coin_move(vFrom,vTo)
+				yield(get_tree().create_timer(0.05), "timeout")
+			playersNode[vFrom]._transfer_balance(-flow.amount)
+			playersNode[vTo]._transfer_balance(flow.amount)
+			
+		_common_update(room)
 
 func _wait():
 	pass
@@ -657,15 +660,15 @@ func _clear_all_player_cards():
 			card.queue_free()
 
 func _show_all_player_cards(room):
-	for i in range(TOTAL_PLAYER):
-		var player  = room.players[i]
-		
-		if player == null:
-			continue
-		if player.isWaiting:
-			continue
-		print("player index:",i,"cards:",player.cards)
-		_show_player_cards(i,player.cards)
+	if !room.players[myIndex].isWaiting:
+		for i in range(TOTAL_PLAYER):
+			var player  = room.players[i]
+			if player == null:
+				continue
+			if player.isWaiting:
+				continue
+			print("player index:",i,"cards:",player.cards)
+			_show_player_cards(i,player.cards)
 
 func _show_player_cards(i,cards):
 	var v = _get_vIndex(i)

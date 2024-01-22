@@ -2,6 +2,7 @@ extends Node
 
 var UNIQUE = ""
 var balance = 0
+var logout = false
 
 var config = {
 	"name":"ShanMaLay",

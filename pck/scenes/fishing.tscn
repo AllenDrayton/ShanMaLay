@@ -1,0 +1,283 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=1]
+[ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pck/scenes/fishing.gd" type="Script" id=3]
+[ext_resource path="res://pck/scripts/button.gd" type="Script" id=4]
+[ext_resource path="res://pck/assets/menu/NewMenu/Back.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/menu/slot.png" type="Texture" id=6]
+[ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://pck/assets/menu/NewMenu/Money.png" type="Texture" id=8]
+[ext_resource path="res://pck/assets/common/spinner.png" type="Texture" id=9]
+[ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 200, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 400, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 600, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 200, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 400, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 600, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 200, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 400, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 600, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 200, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 400, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 600, 600, 200, 200 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[node name="Node" type="Node"]
+script = ExtResource( 3 )
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 1000, 449.5 )
+scale = Vector2( 1, 1.00333 )
+texture = ExtResource( 1 )
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 307.0
+margin_bottom = 127.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 4 )
+
+[node name="Balance" type="Sprite" parent="."]
+position = Vector2( 1792, 80 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Balance"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -21.0
+margin_top = -17.0
+margin_right = -182.0
+margin_bottom = -68.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+
+[node name="Setting" parent="." instance=ExtResource( 2 )]
+
+[node name="Slot_container1" type="VBoxContainer" parent="."]
+margin_left = 195.0
+margin_top = 165.0
+margin_right = 1798.0
+margin_bottom = 775.0
+
+[node name="p1" type="GridContainer" parent="Slot_container1"]
+margin_right = 1603.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 1600, 610 )
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="0" type="TextureButton" parent="Slot_container1/p1"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="1" type="TextureButton" parent="Slot_container1/p1"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="2" type="TextureButton" parent="Slot_container1/p1"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="3" type="TextureButton" parent="Slot_container1/p1"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="4" type="TextureButton" parent="Slot_container1/p1"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="5" type="TextureButton" parent="Slot_container1/p1"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="6" type="TextureButton" parent="Slot_container1/p1"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="7" type="TextureButton" parent="Slot_container1/p1"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="8" type="TextureButton" parent="Slot_container1/p1"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Backdrop" type="Node2D" parent="."]
+visible = false
+
+[node name="BG" type="Sprite" parent="Backdrop"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 1000, 450 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 10 )
+
+[node name="Spinner" type="AnimatedSprite" parent="Backdrop"]
+position = Vector2( 1000, 450 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 22 )
+frame = 11
+playing = true
+
+[node name="Websocket_timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Slot_container1/p1/0" to="." method="_on_game_pressed" binds= [ "Boom Legend", "JILI-FISH-008" ]]
+[connection signal="pressed" from="Slot_container1/p1/1" to="." method="_on_game_pressed" binds= [ "Mega Fishing", "JILI-FISH-007" ]]
+[connection signal="pressed" from="Slot_container1/p1/2" to="." method="_on_game_pressed" binds= [ "Dragon Fortune", "JILI-FISH-006" ]]
+[connection signal="pressed" from="Slot_container1/p1/3" to="." method="_on_game_pressed" binds= [ "Happy Fishing", "JILI-FISH-005" ]]
+[connection signal="pressed" from="Slot_container1/p1/4" to="." method="_on_game_pressed" binds= [ "Dinosaur Tycoon", "JILI-FISH-004" ]]
+[connection signal="pressed" from="Slot_container1/p1/5" to="." method="_on_game_pressed" binds= [ "Jackpot Fishing", "JILI-FISH-003" ]]
+[connection signal="pressed" from="Slot_container1/p1/6" to="." method="_on_game_pressed" binds= [ "Bombing Fishing", "JILI-FISH-002" ]]
+[connection signal="pressed" from="Slot_container1/p1/7" to="." method="_on_game_pressed" binds= [ "Royal Fishing", "JILI-FISH-001" ]]
+[connection signal="pressed" from="Slot_container1/p1/8" to="." method="_on_game_pressed" binds= [ "All-star Fishing", "JILI-FISH-009" ]]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Websocket_timer" to="." method="_on_Websocket_timer_timeout"]

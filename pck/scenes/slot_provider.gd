@@ -3,7 +3,7 @@ extends Node
 var slot_textures=[]
 
 func _load_profile_textures():
-	for i in range(3):
+	for i in range(5):
 		var path = "res://pck/assets/slot/slot_provider/A" + str(i+1) + ".png"
 		var texture = load(path)
 		slot_textures.append(texture) 
