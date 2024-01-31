@@ -145,6 +145,8 @@ func _input(event):
 			var pos = deckCardPosArray[i]
 			if touchPos.x > pos.x && touchPos.x < (pos.x + deckCardSpacing) && touchPos.y > pos.y && touchPos.y < (pos.y + 120):
 				if i != selectedDeckCard:
+					if !selectedCard:
+						return
 					var from = deckCardArray[selectedDeckCard].id;
 					var to = deckCardArray[i].id
 					var request = {

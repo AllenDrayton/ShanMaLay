@@ -3,6 +3,10 @@ extends Node
 # This is KMR Script
 var balance
 
+var Slot_Page = 1
+
+var can_press = true
+
 # Web Socket Variables
 export var websocket_url = "ws://redboxmm.tech:8081/acrf-qarava-slot/slotplaysocket"
 var _client = WebSocketClient.new()
@@ -61,23 +65,11 @@ func _ready():
 	# For Slot Animation
 	$Slot_Animation.play("RESET")
 	
-	$left2middle1.show()
-	$left2middle1.disabled = false
+	# For Slot Slider Buttons
+	$RightButton.connect("pressed", self, "Right_Button_Pressed", [Slot_Page])
+	$LeftButton.connect("pressed", self, "Left_Button_Pressed", [Slot_Page])
 	
-	$middle12middle2.hide()
-	$middle12middle2.disabled = true
-	
-	$middle22right.hide()
-	$middle22right.disabled = true
-	
-	$right2middle2.hide()
-	$right2middle2.disabled = true
-	
-	$middle22middle1.hide()
-	$middle22middle1.disabled = true
-	
-	$middle12left.hide()
-	$middle12left.disabled = true
+	$LeftButton.hide()
 	
 	# Waiting For Websocket Connection
 	$Backdrop.show()
@@ -454,142 +446,53 @@ func _enabled_buttons():
 		slot.disabled = true
 
 
-func _on_right2middle2_pressed():
-	$Slot_Animation.play("right2middle2")
-
-
-func _on_middle22middle1_pressed():
-	$Slot_Animation.play("middle22middle1")
-
-
-func _on_middle12left_pressed():
-	$Slot_Animation.play("middle12left")
-
-
-func _on_left2middle1_pressed():
-	$Slot_Animation.play("left2middle1")
-
-
-func _on_middle12middle2_pressed():
-	$Slot_Animation.play("middle12middle2")
-
-
-func _on_middle22right_pressed():
-	$Slot_Animation.play("middle22right")
+func Right_Button_Pressed(slot_page_no):
+	if can_press == true:
+		can_press = false
+		if slot_page_no != Slot_Page:
+			slot_page_no = Slot_Page
+		var page = str(int(slot_page_no),"to",int(slot_page_no + 1))
+		print("Animation: ",page)
+		$Slot_Animation.play(page)
+		$Cooldown.start()
+		Slot_Page += 1
+	
+func Left_Button_Pressed(slot_page_no):
+	if can_press == true:
+		can_press = false
+		if slot_page_no != Slot_Page:
+			slot_page_no = Slot_Page
+		var page = str(int(slot_page_no),"to",int(slot_page_no - 1))
+		print("Animation: ",page)
+		$Slot_Animation.play(page)
+		$Cooldown.start()
+		Slot_Page -= 1
 
 
 func _on_Slot_Animation_animation_finished(anim_name):
 	match anim_name:
-		"left2middle1":
-			$left2middle1.hide()
-			$left2middle1.disabled = true
+		"2to1":
+			$LeftButton.hide()
 			
-			$middle12left.show()
-			$middle12left.disabled = false
+		"3to4":
+			$RightButton.hide()
 			
-			$middle12middle2.show()
-			$middle12middle2.disabled = false
+		"2to3":
+			$LeftButton.show()
 			
-			$middle22middle1.hide()
-			$middle22middle1.disabled = true
+		"1to2":
+			$LeftButton.show()
 			
-			$middle22right.hide()
-			$middle22right.disabled = true
-			
-			$right2middle2.hide()
-			$right2middle2.disabled = true
-		"middle12middle2":
-			$middle12middle2.hide()
-			$middle12middle2.disabled = true
-			
-			$middle22middle1.show()
-			$middle22middle1.disabled = false
-			
-			$middle22right.show()
-			$middle22right.disabled = false
-			
-			$right2middle2.hide()
-			$right2middle2.disabled = true
-			
-			$middle12left.hide()
-			$middle12left.disabled = true
-			
-			$left2middle1.hide()
-			$left2middle1.disabled = true
-		"middle22right":
-			$middle22right.hide()
-			$middle22right.disabled = true
-			
-			$right2middle2.show()
-			$right2middle2.disabled = false
-			
-			$middle22middle1.hide()
-			$middle22middle1.disabled = true
-			
-			$middle12middle2.hide()
-			$middle12middle2.disabled = true
-			
-			$middle12left.hide()
-			$middle12left.disabled = true
-			
-			$left2middle1.hide()
-			$left2middle1.disabled = true
-		"right2middle2":
-			$right2middle2.hide()
-			$right2middle2.disabled = true
-			
-			$middle22right.show()
-			$middle22right.disabled = false
-			
-			$middle22middle1.show()
-			$middle22middle1.disabled = false
-			
-			$middle12middle2.hide()
-			$middle12middle2.disabled = true
-			
-			$middle12left.hide()
-			$middle12left.disabled = true
-			
-			$left2middle1.hide()
-			$left2middle1.disabled = true
-		"middle22middle1":
-			$middle22middle1.hide()
-			$middle22middle1.disabled = true
-			
-			$middle12middle2.show()
-			$middle12middle2.disabled = false
-			
-			$middle12left.show()
-			$middle12left.disabled = false
-			
-			$middle22right.hide()
-			$middle22right.disabled = true
-			
-			$left2middle1.hide()
-			$left2middle1.disabled = true
-			
-			$right2middle2.hide()
-			$right2middle2.disabled = true
-		"middle12left":
-			$middle12left.hide()
-			$middle12left.disabled = true
-			
-			$left2middle1.show()
-			$left2middle1.disabled = false
-			
-			$middle12middle2.hide()
-			$middle12middle2.disabled = true
-			
-			$middle22middle1.hide()
-			$middle22middle1.disabled = true
-			
-			$middle22right.hide()
-			$middle22right.disabled = true
-			
-			$right2middle2.hide()
-			$right2middle2.disabled = true
+		"4to3":
+			$RightButton.show()
 
 
 func _on_Websocket_timer_timeout():
 	$"/root/bgm".volume_db = -50
+	$Backdrop.hide()
 	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
+
+
+
+func _on_Cooldown_timeout():
+	can_press = true

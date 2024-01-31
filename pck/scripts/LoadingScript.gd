@@ -16,7 +16,7 @@ func load_scene(current_scene, next_scene):
 		print("error occured while getting the scene")
 		return
 
-	current_scene.queue_free()
+	#current_scene.queue_free()
 	# creating a little delay, that lets the loading screen to appear.
 	yield(get_tree().create_timer(0.5),"timeout")
 
@@ -34,12 +34,17 @@ func load_scene(current_scene, next_scene):
 			var progress_percentage = loading_scene_instance.get_node("ProgressPercentage")
 			progress_percentage.text = str(int(float(loader.get_stage())/loader.get_stage_count() * 100)) + "%"
 			
+			var progress_bar = loading_scene_instance.get_node("ProgressBar")
+			progress_bar.value = int(float(loader.get_stage())/loader.get_stage_count() * 100)
+			
 		# when all the data have been loaded
 		elif error == ERR_FILE_EOF:
 			# creating scene instance from loaded data
 			var scene = loader.get_resource().instance()
 			# adding scene to the root
 			get_tree().get_root().call_deferred("add_child",scene)
+			# removing current scene
+			current_scene.queue_free()
 			# removing loading scene
 			loading_scene_instance.queue_free()
 			return

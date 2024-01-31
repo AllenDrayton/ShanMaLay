@@ -201,7 +201,7 @@ func _update_room(room):
 	
 	var getIndex=room.players[myIndex].index
 	if room.players[myIndex].isWaiting:
-		$BackDrop._show("aus;Zl;jyKíupm;yGJNyD;wJhtxdapmihfay;yg")
+		$BackDrop._show("aus;Zl;jyKítjcm;orm;rsm;udkapmihfay;yg")
 		if !isWaitVoicePlayed:
 			_playVoice(GameVoices.wait_game)
 			isWaitVoicePlayed = true

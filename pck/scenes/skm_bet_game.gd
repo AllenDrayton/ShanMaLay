@@ -185,6 +185,7 @@ func _start(body):
 	if isExit:
 		$"/root/bgm".volume_db = -50
 		#get_tree().change_scene("res://pck/scenes/menu.tscn")
+		$BackDrop.hide()
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 	

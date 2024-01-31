@@ -434,4 +434,5 @@ func _on_Slot_Animation_animation_finished(anim_name):
 
 func _on_Websocket_timer_timeout():
 	$"/root/bgm".volume_db = -50
+	$Backdrop.hide()
 	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")

@@ -5,6 +5,10 @@ export var websocket_url = "ws://redboxmm.tech:8081/acrf-qarava-slot/slotplaysoc
 var _client = WebSocketClient.new()
 var balance = 0
 
+var Slot_Page = 1
+
+var can_press = true
+
 var PGLIST = {
 	#1
 	"Fruity Candy": ["1397455", preload("res://pck/assets/slot/PG/fruity candy.png")],
@@ -68,10 +72,15 @@ var PGLIST = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	# For Slot Slider Buttons
+	$animationControlButtons/Right/RightButton.connect("pressed", self, "Right_Button_Pressed", [Slot_Page])
+	$animationControlButtons/Left/LeftButton.connect("pressed", self, "Left_Button_Pressed", [Slot_Page])
+	
 	$Backdrop.show()
 	_disabled_buttons()
 	
 	$PGAnimation.play("RESET")
+	$animationControlButtons/Left/LeftButton.hide()
 	
 	var slots1 = $Slot_container1/p.get_children()
 	for i in slots1:
@@ -365,6 +374,29 @@ func balance_update():
 	http.connect("request_completed",self,"on_balance_request_completed")
 	http.request(url)
 		
+
+func Right_Button_Pressed(slot_page_no):
+	if can_press == true:
+		can_press = false
+		if slot_page_no != Slot_Page:
+			slot_page_no = Slot_Page
+		var page = str(int(slot_page_no),"to",int(slot_page_no + 1))
+		print("Animation: ",page)
+		$PGAnimation.play(page)
+		$Cooldown.start()
+		Slot_Page += 1
+	
+func Left_Button_Pressed(slot_page_no):
+	if can_press == true:
+		can_press = false
+		if slot_page_no != Slot_Page:
+			slot_page_no = Slot_Page
+		var page = str(int(slot_page_no),"to",int(slot_page_no - 1))
+		print("Animation: ",page)
+		$PGAnimation.play(page)
+		$Cooldown.start()
+		Slot_Page -= 1
+
 func _on_slot_pressed(button):
 	
 	$Backdrop.show()
@@ -435,85 +467,37 @@ func on_body_request_completed(result, response_code, headers, body):
 	_send(message)
 	
 
-func disableButtons(names):
-	for i in $animationControlButtons/Right.get_children():
-		if names.find(i.name) != -1:
-			i.disabled = false
-			i.show()
-		else:
-			i.disabled = true
-			i.hide()
-
-			
-	for j in $animationControlButtons/Left.get_children():
-		if names.find(j.name) != -1:
-			j.disabled = false
-			j.show()
-		else:
-			j.disabled = true
-			j.hide()
-
+#func disableButtons(names):
+#	for i in $animationControlButtons/Right.get_children():
+#		if names.find(i.name) != -1:
+#			i.disabled = false
+#			i.show()
+#		else:
+#			i.disabled = true
+#			i.hide()
+#
+#
+#	for j in $animationControlButtons/Left.get_children():
+#		if names.find(j.name) != -1:
+#			j.disabled = false
+#			j.show()
+#		else:
+#			j.disabled = true
+#			j.hide()
 
 func _on_PGAnimation_animation_finished(anim_name):
 	match anim_name:
-		# Rights
-		"1to2":
-			disableButtons(["2to3","2to1"])
-			print("2!")
-		"2to3":
-			disableButtons(["3to4","3to2"])
-			print("3!")
-		"3to4":
-			disableButtons(["4to5","4to3"])
-			print("4!")
 		"4to5":
-			disableButtons(["5to4"])
-			print("5!")
-		# Lefts
-		"5to4":
-			disableButtons(["4to3","4to5"])
-			print("4!")
-		"4to3":
-			disableButtons(["3to2","3to4"])
-			print("3!")
-		"3to2":
-			disableButtons(["2to1","2to3"])
-			print("2!")
+			$animationControlButtons/Right/RightButton.hide()
+			
 		"2to1":
-			disableButtons(["1to2"])
-			print("1!")
-
-func _on_1to2_pressed():
-	$PGAnimation.play("1to2")
-
-
-func _on_2to3_pressed():
-	$PGAnimation.play("2to3")
-
-
-func _on_3to4_pressed():
-	$PGAnimation.play("3to4")
-
-
-func _on_4to5_pressed():
-	$PGAnimation.play("4to5")
-
-
-func _on_5to4_pressed():
-	$PGAnimation.play("5to4")
-
-
-func _on_4to3_pressed():
-	$PGAnimation.play("4to3")
-
-
-func _on_3to2_pressed():
-	$PGAnimation.play("3to2")
-
-
-func _on_2to1_pressed():
-	$PGAnimation.play("2to1")
-
+			$animationControlButtons/Left/LeftButton.hide()
+			
+		"1to2":
+			$animationControlButtons/Left/LeftButton.show()
+			
+		"5to4":
+			$animationControlButtons/Right/RightButton.show()
 
 func _on_Exit_pressed():
 	$Timer.start()
@@ -527,4 +511,9 @@ func _on_Timer_timeout():
 
 func _on_Websocket_timer_timeout():
 	$"/root/bgm".volume_db = -50
+	$Backdrop.hide()
 	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
+
+
+func _on_Cooldown_timeout():
+	can_press = true

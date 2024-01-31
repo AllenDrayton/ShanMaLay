@@ -20,59 +20,8 @@ size = 30
 use_filter = true
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=24]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container1:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 195, 165 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container2:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 2035, 165 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 3875, 165 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 5715, 165 ) ]
-}
-
 [sub_resource type="Animation" id=25]
-resource_name = "left2middle1"
+resource_name = "1to2"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot_container1:rect_position")
@@ -124,7 +73,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=26]
-resource_name = "middle12left"
+resource_name = "2to1"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot_container1:rect_position")
@@ -176,7 +125,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=27]
-resource_name = "middle12middle2"
+resource_name = "2to3"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot_container1:rect_position")
@@ -228,7 +177,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=28]
-resource_name = "middle22middle1"
+resource_name = "3to2"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot_container1:rect_position")
@@ -280,7 +229,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=29]
-resource_name = "middle22right"
+resource_name = "3to4"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot_container1:rect_position")
@@ -332,7 +281,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=30]
-resource_name = "right2middle2"
+resource_name = "4to3"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot_container1:rect_position")
@@ -381,6 +330,57 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 195, 165 ), Vector2( 2035, 165 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2035, 165 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Slot_container3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3875, 165 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Slot_container4:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5715, 165 ) ]
 }
 
 [sub_resource type="AtlasTexture" id=6]
@@ -927,7 +927,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 4 )
 
-[node name="right2middle2" type="TextureButton" parent="."]
+[node name="LeftButton" type="TextureButton" parent="."]
 margin_left = 61.0
 margin_top = 394.0
 margin_right = 141.0
@@ -938,49 +938,7 @@ stretch_mode = 4
 flip_h = true
 script = ExtResource( 4 )
 
-[node name="middle22middle1" type="TextureButton" parent="."]
-margin_left = 61.0
-margin_top = 394.0
-margin_right = 141.0
-margin_bottom = 536.0
-texture_normal = ExtResource( 11 )
-expand = true
-stretch_mode = 4
-flip_h = true
-script = ExtResource( 4 )
-
-[node name="middle12left" type="TextureButton" parent="."]
-margin_left = 61.0
-margin_top = 394.0
-margin_right = 141.0
-margin_bottom = 536.0
-texture_normal = ExtResource( 11 )
-expand = true
-stretch_mode = 4
-flip_h = true
-script = ExtResource( 4 )
-
-[node name="left2middle1" type="TextureButton" parent="."]
-margin_left = 1850.0
-margin_top = 394.0
-margin_right = 1930.0
-margin_bottom = 536.0
-texture_normal = ExtResource( 11 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="middle12middle2" type="TextureButton" parent="."]
-margin_left = 1850.0
-margin_top = 394.0
-margin_right = 1930.0
-margin_bottom = 536.0
-texture_normal = ExtResource( 11 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="middle22right" type="TextureButton" parent="."]
+[node name="RightButton" type="TextureButton" parent="."]
 margin_left = 1850.0
 margin_top = 394.0
 margin_right = 1930.0
@@ -991,13 +949,13 @@ stretch_mode = 4
 script = ExtResource( 4 )
 
 [node name="Slot_Animation" type="AnimationPlayer" parent="."]
+anims/1to2 = SubResource( 25 )
+anims/2to1 = SubResource( 26 )
+anims/2to3 = SubResource( 27 )
+anims/3to2 = SubResource( 28 )
+anims/3to4 = SubResource( 29 )
+anims/4to3 = SubResource( 30 )
 anims/RESET = SubResource( 24 )
-anims/left2middle1 = SubResource( 25 )
-anims/middle12left = SubResource( 26 )
-anims/middle12middle2 = SubResource( 27 )
-anims/middle22middle1 = SubResource( 28 )
-anims/middle22right = SubResource( 29 )
-anims/right2middle2 = SubResource( 30 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -1015,11 +973,15 @@ texture = ExtResource( 9 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 23 )
-frame = 14
+frame = 11
 playing = true
 
 [node name="Websocket_timer" type="Timer" parent="."]
 wait_time = 15.0
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
 
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
@@ -1059,12 +1021,7 @@ one_shot = true
 [connection signal="pressed" from="Slot_container4/p4/33" to="." method="_on_game_pressed" binds= [ "HorseRacing", "KM-TABLE-048" ]]
 [connection signal="pressed" from="Slot_container4/p4/34" to="." method="_on_game_pressed" binds= [ "5CardPoker", "KM-TABLE-049" ]]
 [connection signal="pressed" from="Slot_container4/p4/35" to="." method="_on_game_pressed" binds= [ "Minesweeper", "KM-TABLE-042" ]]
-[connection signal="pressed" from="right2middle2" to="." method="_on_right2middle2_pressed"]
-[connection signal="pressed" from="middle22middle1" to="." method="_on_middle22middle1_pressed"]
-[connection signal="pressed" from="middle12left" to="." method="_on_middle12left_pressed"]
-[connection signal="pressed" from="left2middle1" to="." method="_on_left2middle1_pressed"]
-[connection signal="pressed" from="middle12middle2" to="." method="_on_middle12middle2_pressed"]
-[connection signal="pressed" from="middle22right" to="." method="_on_middle22right_pressed"]
 [connection signal="animation_finished" from="Slot_Animation" to="." method="_on_Slot_Animation_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Websocket_timer" to="." method="_on_Websocket_timer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

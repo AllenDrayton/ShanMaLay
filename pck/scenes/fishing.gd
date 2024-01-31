@@ -384,4 +384,5 @@ func _enabled_buttons():
 
 func _on_Websocket_timer_timeout():
 	$"/root/bgm".volume_db = -50
+	$Backdrop.hide()
 	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")

@@ -1341,40 +1341,7 @@ margin_bottom = 40.0
 
 [node name="Right" type="Node2D" parent="animationControlButtons"]
 
-[node name="1to2" type="TextureButton" parent="animationControlButtons/Right"]
-margin_left = 1850.0
-margin_top = 434.0
-margin_right = 1930.0
-margin_bottom = 576.0
-texture_normal = ExtResource( 9 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 6 )
-
-[node name="2to3" type="TextureButton" parent="animationControlButtons/Right"]
-visible = false
-margin_left = 1850.0
-margin_top = 434.0
-margin_right = 1930.0
-margin_bottom = 576.0
-texture_normal = ExtResource( 9 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 6 )
-
-[node name="3to4" type="TextureButton" parent="animationControlButtons/Right"]
-visible = false
-margin_left = 1850.0
-margin_top = 434.0
-margin_right = 1930.0
-margin_bottom = 576.0
-texture_normal = ExtResource( 9 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 6 )
-
-[node name="4to5" type="TextureButton" parent="animationControlButtons/Right"]
-visible = false
+[node name="RightButton" type="TextureButton" parent="animationControlButtons/Right"]
 margin_left = 1850.0
 margin_top = 434.0
 margin_right = 1930.0
@@ -1386,44 +1353,7 @@ script = ExtResource( 6 )
 
 [node name="Left" type="Node2D" parent="animationControlButtons"]
 
-[node name="5to4" type="TextureButton" parent="animationControlButtons/Left"]
-visible = false
-margin_left = 61.0
-margin_top = 434.0
-margin_right = 141.0
-margin_bottom = 576.0
-texture_normal = ExtResource( 9 )
-expand = true
-stretch_mode = 4
-flip_h = true
-script = ExtResource( 6 )
-
-[node name="4to3" type="TextureButton" parent="animationControlButtons/Left"]
-visible = false
-margin_left = 61.0
-margin_top = 434.0
-margin_right = 141.0
-margin_bottom = 576.0
-texture_normal = ExtResource( 9 )
-expand = true
-stretch_mode = 4
-flip_h = true
-script = ExtResource( 6 )
-
-[node name="3to2" type="TextureButton" parent="animationControlButtons/Left"]
-visible = false
-margin_left = 61.0
-margin_top = 434.0
-margin_right = 141.0
-margin_bottom = 576.0
-texture_normal = ExtResource( 9 )
-expand = true
-stretch_mode = 4
-flip_h = true
-script = ExtResource( 6 )
-
-[node name="2to1" type="TextureButton" parent="animationControlButtons/Left"]
-visible = false
+[node name="LeftButton" type="TextureButton" parent="animationControlButtons/Left"]
 margin_left = 61.0
 margin_top = 434.0
 margin_right = 141.0
@@ -1456,18 +1386,15 @@ texture = ExtResource( 10 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 27 )
-frame = 7
+frame = 5
 playing = true
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
 
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
 [connection signal="animation_finished" from="PGAnimation" to="." method="_on_PGAnimation_animation_finished"]
-[connection signal="pressed" from="animationControlButtons/Right/1to2" to="." method="_on_1to2_pressed"]
-[connection signal="pressed" from="animationControlButtons/Right/2to3" to="." method="_on_2to3_pressed"]
-[connection signal="pressed" from="animationControlButtons/Right/3to4" to="." method="_on_3to4_pressed"]
-[connection signal="pressed" from="animationControlButtons/Right/4to5" to="." method="_on_4to5_pressed"]
-[connection signal="pressed" from="animationControlButtons/Left/5to4" to="." method="_on_5to4_pressed"]
-[connection signal="pressed" from="animationControlButtons/Left/4to3" to="." method="_on_4to3_pressed"]
-[connection signal="pressed" from="animationControlButtons/Left/3to2" to="." method="_on_3to2_pressed"]
-[connection signal="pressed" from="animationControlButtons/Left/2to1" to="." method="_on_2to1_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Websocket_timer" to="." method="_on_Websocket_timer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

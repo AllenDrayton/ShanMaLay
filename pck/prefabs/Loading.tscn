@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=1]
 [ext_resource path="res://pck/assets/common/zawgyi-one.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://pck/assets/common/spinner.png" type="Texture" id=4]
 [ext_resource path="res://pck/assets/menu/NewMenu/bg-1.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/common/DS-DIGIB.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://pck/assets/menu/Black-Blur-PNG-Photos.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
@@ -107,13 +108,25 @@ size = 60
 use_filter = true
 font_data = ExtResource( 6 )
 
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.945098, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.109804, 0.105882, 0.137255, 1 )
+
 [node name="BackDrop" type="Node2D"]
 z_index = 20
 script = ExtResource( 3 )
 
 [node name="Galaxy" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1000, 450 )
 texture = ExtResource( 5 )
+
+[node name="Blur" type="Sprite" parent="."]
+position = Vector2( 1000.5, 450 )
+scale = Vector2( 0.521615, 0.417593 )
+texture = ExtResource( 7 )
 
 [node name="BG" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
@@ -125,6 +138,7 @@ texture = ExtResource( 1 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 22 )
+frame = 11
 playing = true
 
 [node name="Label" type="Label" parent="."]
@@ -149,3 +163,13 @@ custom_fonts/font = SubResource( 24 )
 text = "0%"
 align = 1
 valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+margin_left = 757.0
+margin_top = 579.0
+margin_right = 1249.0
+margin_bottom = 612.0
+custom_styles/fg = SubResource( 25 )
+custom_styles/bg = SubResource( 26 )
+percent_visible = false

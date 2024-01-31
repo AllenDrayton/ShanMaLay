@@ -3,6 +3,8 @@ extends Node2D
 const profile_textures = []
 const music = preload("res://pck/assets/audio/music-1.mp3")
 
+var blurShader = preload("res://blurShader.tres")
+
 # Constants for timeout
 var http
 
@@ -153,6 +155,10 @@ func _on_Slot_pressed():
 	$"/root/bgm".volume_db = -45
 	var username = $"/root/Config".config.user.username
 	var session = $"/root/Config".config.user.session
+	$AnimationPlayer.play("out")
+	$ButtonAnimation.play("out")
+	$UpperPanelAnimation.play("out")
+#	$Bg.material = blurShader
 	LoadingScript.load_scene(self, "res://pck/scenes/slot_provider.tscn")
 	#OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
 

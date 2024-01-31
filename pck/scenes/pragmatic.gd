@@ -3,149 +3,507 @@ extends Node
 # This is Pragmatic Script
 var balance
 
+var Slot_Page = 1
+
+var can_press = true
+
 # Web Socket Variables
 export var websocket_url = "ws://redboxmm.tech:8081/acrf-qarava-slot/slotplaysocket"
 var _client = WebSocketClient.new()
 var isExit = false
 var isPlaying = false
 
-var slot_textures1 = []
-var slot_textures2 = []
-var slot_textures3 = []
-var slot_textures4 = []
-var slot_textures5 = []
-var slot_textures6 = []
-var slot_textures7 = []
-var slot_textures8 = []
-var slot_textures9 = []
-
 var filepath="res://pck/assets/slot/slot-game-AWC(KINGMAKER).json"
 var acesskey
 var game_name
 
-func _load_profile_textures():
-	for i in range(10):
-		var path = "res://pck/assets/slot/pragmatic/" + str(i+1) + ".png"
-		var texture = load(path)
-		slot_textures1.append(texture)
-	for ii in range(10,20):
-		var path = "res://pck/assets/slot/pragmatic/" + str(ii+1) + ".png"
-		var texture = load(path)
-		slot_textures2.append(texture)
-	for iii in range(20,30):
-		var path = "res://pck/assets/slot/pragmatic/" + str(iii+1) + ".png"
-		var texture = load(path)
-		slot_textures3.append(texture)
-	for iiii in range(30,40):
-		var path = "res://pck/assets/slot/pragmatic/" + str(iiii+1) + ".png"
-		var texture = load(path)
-		slot_textures4.append(texture)
-	for iiiii in range(40,50):
-		var path = "res://pck/assets/slot/pragmatic/" + str(iiiii+1) + ".png"
-		var texture = load(path)
-		slot_textures5.append(texture)
-	for iiiiii in range(50,60):
-		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiii+1) + ".png"
-		var texture = load(path)
-		slot_textures6.append(texture)
-	for iiiiiii in range(60,70):
-		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiiii+1) + ".png"
-		var texture = load(path)
-		slot_textures7.append(texture)
-	for iiiiiiii in range(70,80):
-		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiiiii+1) + ".png"
-		var texture = load(path)
-		slot_textures8.append(texture)
-	for iiiiiiiii in range(80,82):
-		var path = "res://pck/assets/slot/pragmatic/" + str(iiiiiiiii+1) + ".png"
-		var texture = load(path)
-		slot_textures9.append(texture)
+var PRAGMATIC_LIST = {
 	
-	var slot1 = $Slot_container1/p1.get_children()
-	for j in range(slot1.size()):
-		var slot = slot1[j]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures1[j]
-	var slot2 = $Slot_container2/p2.get_children()
-	for k in range(slot2.size()):
-		var slot = slot2[k]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures2[k]
-	var slot3 = $Slot_container3/p3.get_children()
-	for l in range(slot3.size()):
-		var slot = slot3[l]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures3[l]
-	var slot4 = $Slot_container4/p4.get_children()
-	for m in range(slot4.size()):
-		var slot = slot4[m]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures4[m]
-	var slot5 = $Slot_container5/p5.get_children()
-	for n in range(slot5.size()):
-		var slot = slot5[n]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures5[n]
-	var slot6 = $Slot_container6/p6.get_children()
-	for o in range(slot6.size()):
-		var slot = slot6[o]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures6[o]
-	var slot7 = $Slot_container7/p7.get_children()
-	for p in range(slot7.size()):
-		var slot = slot7[p]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures7[p]
-	var slot8 = $Slot_container8/p8.get_children()
-	for q in range(slot8.size()):
-		var slot = slot8[q]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures8[q]
-	var slot9 = $Slot_container9/p9.get_children()
-	for r in range(slot9.size()):
-		var slot = slot9[r]
-		if slot is TextureButton:
-			slot.texture_normal = slot_textures9[r]
+	"Baccarat": "bca",
+	"Multihand Blackjack": "bjma",
+	"American Blackjack": "bjmb",
+	"Dragon Bonus Baccarat": "bnadvanced",
+	"Dragon Tiger": "bndt",
+	"Irish Charms": "cs3irishcharms",
+	"Diamonds are Forever 3 Lines": "cs3w",
+	"Money Roll": "cs5moneyroll",
+	"888 Gold": "cs5triple8gold",
+	"Roulette": "rla",
+	"Fire Hot 100™": "vs100firehot",
+	"Shining Hot 100": "vs100sh",
+	"Jade Butterfly": "vs1024butterfly",
+	"The Dragon Tiger": "vs1024dtiger",
+	"Gorilla Mayhem™": "vs1024gmayhem",
+	"5 Lions Dance": "vs1024lionsd",
+	"Mahjong Panda": "vs1024mahjpanda",
+	"Mahjong Wins": "vs1024mahjwins",
+	"Moonshot™": "vs1024moonsh",
+	"Temujin Treasures": "vs1024temuj",
+	"Amazing Money Machine": "vs10amm",
+	"Big Bass Bonanza": "vs10bbbonanza",
+	"Big Bass Amazon Xtreme": "vs10bbextreme",
+	"Big Bass - Hold & Spinner™": "vs10bbhas",
+	"Big Bass Bonanza - Keeping it Reel": "vs10bbkir",
+	"Bubble Pop": "vs10bblpop",
+	"Book of Aztec King": "vs10bookazteck",
+	"Book of Fallen": "vs10bookfallen",
+	"Book of Tut": "vs10bookoftut",
+	"Christmas Big Bass Bonanza": "vs10bxmasbnza",
+	"Chicken Chase": "vs10chkchase",
+	"Coffee Wild": "vs10coffee",
+	"Cowboys Gold": "vs10cowgold",
+	"Crown of Fire™": "vs10crownfire",
+	"Queen of Gods": "vs10egrich",
+	"Ancient Egypt": "vs10egypt",
+	"Ancient Egypt Classic": "vs10egyptcls",
+	"Eye of the Storm": "vs10eyestorm",
+	"Floating Dragon - Dragon Boat Festival": "vs10fdrasbf",
+	"Fire Strike": "vs10firestrike",
+	"Fire Strike 2": "vs10firestrike2",
+	"Fish Eye": "vs10fisheye",
+	"Floating Dragon": "vs10floatdrg",
+	"Extra Juicy": "vs10fruity2",
+	"Gods of Giza™": "vs10gizagods",
+	"Fishin Reels": "vs10goldfish",
+	"Jane Hunter and the Mask of Montezuma™": "vs10jnmntzma",
+	"Kingdom of The Dead": "vs10kingofdth",
+	"Lucky, Grace & Charm": "vs10luckcharm",
+	"Madame Destiny": "vs10madame",
+	"John Hunter And The Mayan Gods": "vs10mayangods",
+	"Magic Money Maze": "vs10mmm",
+	"Rise of Giza PowerNudge": "vs10nudgeit",
+	"Peak Power": "vs10powerlines",
+	"Return of the Dead": "vs10returndead",
+	"Gates of Valhalla": "vs10runes",
+	"Snakes & Ladders - Snake Eyes": "vs10snakeeyes",
+	"Snakes and Ladders Megadice": "vs10snakeladd",
+	"Spirit of Adventure": "vs10spiritadv",
+	"Star Pirates Code": "vs10starpirate",
+	"Three Star Fortune": "vs10threestar",
+	"Tic Tac Take": "vs10tictac",
+	"Mustang Trail": "vs10trail",
+	"John Hunter & the Book of Tut Respin™": "vs10tut",
+	"Big Bass Splash": "vs10txbigbass",
+	"Vampires vs Wolves": "vs10vampwolf",
+	"Mysterious Egypt": "vs10wildtut",
+	"Starz Megaways": "vs117649starz",
+	"Bigger Bass Bonanza": "vs12bbb",
+	"Bigger Bass Blizzard": "vs12bbbxmas",
+	"Club Tropicana": "vs12tropicana",
+	"Devil's 13": "vs13g",
+	"Diamond Strike": "vs15diamond",
+	"Fairytale Fortune": "vs15fairytale",
+	"Zeus vs Hades - Gods of War": "vs15godsofwar",
+	"Drago - Jewels of Fortune": "vs1600drago",
+	"Treasure Horse": "vs18mashang",
+	"Lucky Dragon Ball": "vs1ball",
+	"888 Dragons": "vs1dragon8",
+	"Tree of Riches": "vs1fortunetree",
+	"Fu Fu Fu": "vs1fufufu",
+	"Master Joker": "vs1masterjoker",
+	"Money Money Money": "vs1money",
+	"Triple Tigers": "vs1tigers",
+	"Aladdin and the Sorcerer": "vs20aladdinsorc",
+	"Fortune of Giza": "vs20amuleteg",
+	"Kingdom of Asgard™": "vs20asgard",
+	"Gates of Aztec™": "vs20aztecgates",
+	"Wild Beach Party": "vs20bchprty",
+	"Fat Panda": "vs20beefed",
+	"John Hunter and the Quest for Bermuda Riches": "vs20bermuda",
+	"Busy Bees": "vs20bl",
+	"Bonanza Gold": "vs20bonzgold",
+	"Candy Village": "vs20candvil",
+	"Cash Box": "vs20cashmachine",
+	"Chicken Drop": "vs20chickdrop",
+	"The Great Chicken Escape": "vs20chicken",
+	"Cleocatra": "vs20cleocatra",
+	"Sweet Powernudge™": "vs20clspwrndg",
+	"Sticky Bees": "vs20clustwild",
+	"Colossal Cash Zone": "vs20colcashzone",
+	"Day of Dead": "vs20daydead",
+	"The Dog House": "vs20doghouse",
+	"The Dog House Multihold™": "vs20doghousemh",
+	"Dragon Hero": "vs20drgbless",
+	"Drill that Gold": "vs20drtgold",
+	"Hot Pepper™": "vs20dugems",
+	"Cyclops Smash": "vs20earthquake",
+	"Tales of Egypt": "vs20egypt",
+	"Egyptian Fortunes": "vs20egypttrs",
+	"8 Dragons": "vs20eightdragons",
+	"Emerald King": "vs20eking",
+	"Emerald King Rainbow Road": "vs20ekingrr",
+	"Empty the Bank": "vs20emptybank",
+	"Excalibur Unleashed": "vs20excalibur",
+	"Barn Festival": "vs20farmfest",
+	"Fire Hot 20™": "vs20fh",
+	"Forge of Olympus": "vs20forge",
+	"Fruit Party 2": "vs20fparty2",
+	"Fruits of the Amazon™": "vs20framazon",
+	"Fruit Party": "vs20fruitparty",
+	"Sweet Bonanza": "vs20fruitsw",
+	"Gatot Kaca's Fury™": "vs20gatotfury",
+	"Gates of Gatot Kaca": "vs20gatotgates",
+	"Goblin Heist Powernudge": "vs20gobnudge",
+	"Lady Godiva": "vs20godiva",
+	"Rabbit Garden™": "vs20goldclust",
+	"Gems Bonanza": "vs20goldfever",
+	"Jungle Gorilla": "vs20gorilla",
+	"Hot to Burn Hold and Spin": "vs20hburnhs",
+	"Hercules and Pegasus": "vs20hercpeg",
+	"Honey Honey Honey": "vs20honey",
+	"African Elephant™": "vs20hotzone",
+	"Heist for the Golden Nuggets": "vs20hstgldngt",
+	"Jewel Rush": "vs20jewelparty",
+	"Release the Kraken": "vs20kraken",
+	"Release the Kraken 2™": "vs20kraken2",
+	"Lamp Of Infinity": "vs20lampinf",
+	"vs20lcount": "vs20lcount",
+	"Leprechaun Song": "vs20leprechaun",
+	"Leprechaun Carol": "vs20leprexmas",
+	"Lobster Bob's Crazy Crab Shack": "vs20lobcrab",
+	"Pinup Girls™": "vs20ltng",
+	"Pub Kings": "vs20lvlup",
+	"The Magic Cauldron": "vs20magicpot",
+	"Mammoth Gold Megaways™": "vs20mammoth",
+	"The Hand of Midas": "vs20midas",
+	"Mochimon™": "vs20mochimon",
+	"Wild Hop & Drop™": "vs20mparty",
+	"Pirate Golden Age™": "vs20mtreasure",
+	"Muertos Multiplier Megaways™": "vs20muertos",
+	"Clover Gold": "vs20mustanggld2",
+	"Jasmine Dreams": "vs20mvwild",
+	"Octobeer Fortunes™": "vs20octobeer",
+	"Gates of Olympus": "vs20olympgate",
+	"Pyramid Bonanza": "vs20pbonanza",
+	"Phoenix Forge": "vs20phoenixf",
+	"Piggy Bankers": "vs20piggybank",
+	"Wild West Duels": "vs20pistols",
+	"Santa's Great Gifts™": "vs20porbs",
+	"Wisdom of Athena": "vs20procount",
+	"Rainbow Gold": "vs20rainbowg",
+	"Great Rhino": "vs20rhino",
+	"Great Rhino Deluxe": "vs20rhinoluxe",
+	"Rock Vegas": "vs20rockvegas",
+	"Saiyan Mania": "vs20saiman",
+	"Santa": "vs20santa",
+	"Santa's Wonderland": "vs20santawonder",
+	"Sweet Bonanza Xmas": "vs20sbxmas",
+	"Starlight Christmas": "vs20schristmas",
+	"Shining Hot 20": "vs20sh",
+	"The Knight King™": "vs20sknights",
+	"Smugglers Cove": "vs20smugcove",
+	"Shield Of Sparta™": "vs20sparta",
+	"Spellbinding Mystery": "vs20splmystery",
+	"Starlight Princess": "vs20starlight",
+	"Starlight Princess 1000": "vs20starlightx",
+	"The Great Stick-Up": "vs20stickysymbol",
+	"Wild Bison Charge": "vs20stickywild",
+	"Sugar Rush": "vs20sugarrush",
+	"Monster Superlanche™": "vs20superlanche",
+	"Super X": "vs20superx",
+	"Sword of Ares™": "vs20swordofares",
+	"Cash Elevator": "vs20terrorv",
+	"Towering Fortunes™": "vs20theights",
+	"Treasure Wild": "vs20trsbox",
+	"Black Bull™": "vs20trswild2",
+	"The Tweety House": "vs20tweethouse",
+	"The Ultimate 5": "vs20ultim5",
+	"Down The Rails™": "vs20underground",
+	"Vegas Magic": "vs20vegasmagic",
+	"Wild Booster": "vs20wildboost",
+	"Wildman Super Bonanza": "vs20wildman",
+	"3 Buzzing Wilds": "vs20wildparty",
+	"Wild Pixies": "vs20wildpix",
+	"Greedy Wolf": "vs20wolfie",
+	"Christmas Carol Megaways": "vs20xmascarol",
+	"Caishen's Cash": "vs243caishien",
+	"Raging Bull": "vs243chargebull",
+	"Cheeky Emperor™": "vs243ckemp",
+	"Dance Party": "vs243dancingpar",
+	"Disco Lady": "vs243discolady",
+	"Emperor Caishen": "vs243empcaishen",
+	"Greek Gods": "vs243fortseren",
+	"Caishen's Gold": "vs243fortune",
+	"Koi Pond": "vs243koipond",
+	"5 Lions": "vs243lions",
+	"5 Lions Gold": "vs243lionsgold",
+	"Monkey Warrior": "vs243mwarrior",
+	"Hellvis Wild": "vs243nudge4gold",
+	"Queenie": "vs243queenie",
+	"Fire Archer™": "vs25archer",
+	"Asgard": "vs25asgard",
+	"Aztec King": "vs25aztecking",
+	"Book Of Kingdoms": "vs25bkofkngdm",
+	"Bomb Bonanza": "vs25bomb",
+	"Bounty Gold": "vs25btygold",
+	"Bull Fiesta": "vs25bullfiesta",
+	"Chilli Heat": "vs25chilli",
+	"Cash Patrol": "vs25copsrobbers",
+	"Da Vinci's Treasure": "vs25davinci",
+	"Dragon Kingdom": "vs25dragonkingdom",
+	"Dwarven Gold": "vs25dwarves",
+	"Dwarven Gold Deluxe": "vs25dwarves_new",
+	"Wild Gladiator": "vs25gladiator",
+	"Golden Ox": "vs25gldox",
+	"Gold Party": "vs25goldparty",
+	"Golden Pig": "vs25goldpig",
+	"Gold Rush": "vs25goldrush",
+	"Fruity Blast": "vs25h",
+	"Holiday Ride": "vs25holiday",
+	"Hot Fiesta": "vs25hotfiesta",
+	"Joker King": "vs25jokerking",
+	"Joker Race": "vs25jokrace",
+	"Journey to the West": "vs25journey",
+	"Aztec Blaze™": "vs25kfruit",
+	"3 Kingdoms - Battle of Red Cliffs": "vs25kingdoms",
+	"Money Mouse": "vs25mmouse",
+	"Mustang Gold": "vs25mustang",
+	"Lucky New Year": "vs25newyear",
+	"Panda's Fortune": "vs25pandagold",
+	"Panda Fortune 2": "vs25pandatemple",
+	"Peking Luck": "vs25peking",
+	"Pyramid King": "vs25pyramid",
+	"Queen of Gold": "vs25queenofgold",
+	"Heart of Rio": "vs25rio",
+	"Reel Banks™": "vs25rlbank",
+	"Hot Safari": "vs25safari",
+	"Rise of Samurai": "vs25samurai",
+	"John Hunter and the Tomb of the Scarab Queen": "vs25scarabqueen",
+	"Great Reef": "vs25sea",
+	"Secret City Gold™": "vs25spgldways",
+	"Knight Hot Spotz": "vs25spotz",
+	"The Tiger Warrior": "vs25tigerwar",
+	"Lucky New Year - Tiger Treasures": "vs25tigeryear",
+	"Vegas Nights": "vs25vegas",
+	"Wild Walker": "vs25walker",
+	"Wild Spells": "vs25wildspells",
+	"Wolf Gold": "vs25wolfgold",
+	"Gold Train": "vs3train",
+	"Buffalo King": "vs4096bufking",
+	"Jurassic Giants": "vs4096jurassic",
+	"Magician's Secrets": "vs4096magician",
+	"Mysterious": "vs4096mystery",
+	"Robber Strike": "vs4096robber",
+	"Big Juan": "vs40bigjuan",
+	"Eye of Cleopatra": "vs40cleoeye",
+	"Cosmic Cash": "vs40cosmiccash",
+	"Fire Hot 40™": "vs40firehot",
+	"Fruit Rainbow": "vs40frrainbow",
+	"Hot to Burn Extreme": "vs40hotburnx",
+	"The Wild Machine": "vs40madwheel",
+	"Pirate Gold": "vs40pirate",
+	"Pirate Gold Deluxe": "vs40pirgold",
+	"Rise Of Samurai III": "vs40samurai3",
+	"Shining Hot 40": "vs40sh",
+	"Spartan King": "vs40spartaking",
+	"Street Racer": "vs40streetracer",
+	"Voodoo Magic": "vs40voodoo",
+	"Wild Depths": "vs40wanderw",
+	"Wild West Gold": "vs40wildwest",
+	"Congo Cash": "vs432congocash",
+	"3 Genie Wishes": "vs50aladdin",
+	"Aladdin's Treasure": "vs50amt",
+	"Lucky Dragons": "vs50chinesecharms",
+	"Diamond Cascade": "vs50dmdcascade",
+	"Hercules Son of Zeus": "vs50hercules",
+	"Kraken's Sky Bounty": "vs50jucier",
+	"Juicy Fruits": "vs50juicyfr",
+	"Mighty Kong": "vs50kingkong",
+	"Might of Ra": "vs50mightra",
+	"North Guardians": "vs50northgard",
+	"Pixie Wings": "vs50pixie",
+	"Safari King": "vs50safariking",
+	"Hokkaido Wolf": "vs576hokkwolf",
+	"Wild Wild Riches": "vs576treasures",
+	"Aztec Gems": "vs5aztecgems",
+	"Dewavegas Joker's Jewels": "vs5dewajoker",
+	"Dragon Hot Hold & Spin": "vs5drhs",
+	"Dragon Kingdom - Eyes of Fire": "vs5drmystery",
+	"Fire Hot 5™": "vs5firehot",
+	"Hot to Burn": "vs5hotburn",
+	"Joker's Jewels": "vs5joker",
+	"Little Gem": "vs5littlegem",
+	"Shining Hot 5": "vs5sh",
+	"Super Joker": "vs5spjoker",
+	"Striking Hot 5™": "vs5strh",
+	"Super 7s": "vs5super7",
+	"Triple Dragons": "vs5trdragons",
+	"Ultra Hold and Spin": "vs5ultra",
+	"Ultra Burn": "vs5ultrab",
+	"Bronco Spirit": "vs75bronco",
+	"Golden Beauty": "vs75empress",
+	"Aztec Bonanza": "vs7776aztec",
+	"Aztec Treasure": "vs7776secrets",
+	"Fire 88": "vs7fire88",
+	"7 Monkeys": "vs7monkeys",
+	"7 Piggies": "vs7pigs",
+	"Hockey Attack": "vs88hockattack",
+	"Magic Journey": "vs8magicjourn",
+	"Aztec Gems Deluxe": "vs9aztecgemsdx",
+	"Master Chen's Fortune": "vs9chen",
+	"Hot Chilli": "vs9hotroll",
+	"Monkey Madness": "vs9madmonkey",
+	"Pirates Pub": "vs9outlaw",
+	"Piggy Bank Bills": "vs9piggybank",
+	"Aztec King Megaways": "vswaysaztecking",
+	"Cash Bonanza": "vswaysbankbonz",
+	"Big Bass Bonanza Megaways": "vswaysbbb",
+	"Big Bass Hold & Spinner Megaways": "vswaysbbhas",
+	"Book of Golden Sands™": "vswaysbook",
+	"Buffalo King Megaways": "vswaysbufking",
+	"Chilli Heat Megaways": "vswayschilheat",
+	"vswaysconcoll": "vswaysconcoll",
+	"Crystal Caverns Megaways": "vswayscryscav",
+	"The Dog House Megaways": "vswaysdogs",
+	"Elemental Gems Megaways": "vswayselements",
+	"Diamonds of Egypt": "vswayseternity",
+	"Floating Dragon Hold & Spin Megaways™": "vswaysfltdrg",
+	"Frogs & Bugs": "vswaysfrbugs",
+	"Spin & Score Megaways™": "vswaysfrywld",
+	"Frozen Tropics": "vswaysftropics",
+	"Fury of Odin Megaways™ ": "vswaysfuryodin",
+	"Power of Thor Megaways": "vswayshammthor",
+	"Star Bounty": "vswayshive",
+	"Gold Oasis": "vswaysincwnd",
+	"Tropical Tiki": "vswaysjkrdrop",
+	"Lucky Lightning": "vswayslight",
+	"5 Lions Megaways": "vswayslions",
+	"Legend of Heroes Megaways": "vswayslofhero",
+	"Lucky Fishing Megaways™": "vswaysluckyfish",
+	"Madame Destiny Megaways": "vswaysmadame",
+	"3 Dancing Monkeys™": "vswaysmonkey",
+	"Mystery Of The Orient": "vswaysmorient",
+	"Old Gold Miner Megaways": "vswaysoldminer",
+	"PIZZA! PIZZA? PIZZA!™": "vswayspizza",
+	"Power of Merlin Megaways": "vswayspowzeus",
+	"5 Rabbits Megaways": "vswaysrabbits",
+	"The Red Queen™": "vswaysredqueen",
+	"Great Rhino Megaways": "vswaysrhino",
+	"Rocket Blast Megaways": "vswaysrockblst",
+	"Wild Celebrity Bus Megaways™": "vswaysrsm",
+	"Rise of Samurai Megaways": "vswayssamurai",
+	"Candy Stars™": "vswaysstrwild",
+	"Cowboy Coins™": "vswaysultrcoin",
+	"Curse of the Werewolf Megaways": "vswayswerewolf",
+	"Mystic Chief": "vswayswest",
+	"Wild West Gold Megaways": "vswayswildwest",
+	"Wild Wild Bananas™": "vswayswwhex",
+	"Wild Wild Riches Megaways": "vswayswwriches",
+	"Extra Juicy Megaways": "vswaysxjuicy",
+	"Yum Yum Powerways": "vswaysyumyum",
+	"Zombie Carnival": "vswayszombcarn"
+	
+}
+
+var slot_textures = []
+
+onready var slot_containers = [
+	
+	$Slot_container1/p1,
+	$Slot_container2/p2,
+	$Slot_container3/p3,
+	$Slot_container4/p4,
+	$Slot_container5/p5,
+	$Slot_container6/p6,
+	$Slot_container7/p7,
+	$Slot_container8/p8,
+	$Slot_container9/p9,
+	$Slot_container10/p10,
+	$Slot_container11/p11,
+	$Slot_container12/p12,
+	$Slot_container13/p13,
+	$Slot_container14/p14,
+	$Slot_container15/p15,
+	$Slot_container16/p16,
+	$Slot_container17/p17,
+	$Slot_container18/p18,
+	$Slot_container19/p19,
+	$Slot_container20/p20,
+	$Slot_container21/p21,
+	$Slot_container22/p22,
+	$Slot_container23/p23,
+	$Slot_container24/p24,
+	$Slot_container25/p25,
+	$Slot_container26/p26,
+	$Slot_container27/p27,
+	$Slot_container28/p28,
+	$Slot_container29/p29,
+	$Slot_container30/p30,
+	$Slot_container31/p31,
+	$Slot_container32/p32,
+	$Slot_container33/p33,
+	$Slot_container34/p34,
+	$Slot_container35/p35,
+	$Slot_container36/p36,
+	$Slot_container37/p37
+	
+]
+
+func _load_profile_textures():
+	for i in range(373):
+		var path = "res://pck/assets/slot/pragmatic/" + str(i+1) + "a.png"
+		var texture = load(path)
+		slot_textures.append(texture)
+		
+	# Apply textures to slots in each container
+	var key_index = 0
+	for slot_container in slot_containers:
+		var slots = slot_container.get_children()
+		var slot_count = 0
+
+		for a in range(key_index, min(key_index + 10, slot_textures.size())):
+			var slot = slots[slot_count]
+			if slot is TextureButton:
+				slot.texture_normal = slot_textures[a]
+				slot_count += 1
+
+		key_index += 10
+	
+	var slot38 = $Slot_container38/p38.get_children()
+	var count38 = 0
+	for b in range(370, min(373, slot_textures.size())):
+		var slot_child = slot38[count38]
+		if slot_child is TextureButton:
+			slot_child.texture_normal = slot_textures[b]
+			count38 += 1
 
 
-
+func _load_name_from_json():
+	var keys_array = PRAGMATIC_LIST.keys()
+	
+	var key_index = 0
+	for slot_container in slot_containers:
+		var slots = slot_container.get_children()
+		var slot_count = 0
+		
+		for i in range(key_index, min(key_index + 10, keys_array.size())):
+			var slot = slots[slot_count]
+			var key = keys_array[i]
+			slot.set_name(str(key))
+			slot.connect("pressed", self, "_on_game_pressed", [slot])
+			slot_count += 1
+		
+		key_index += 10
+		
+	
+	var slot38 = $Slot_container38/p38.get_children()
+	var count38 = 0
+	for vi in range(370, min(373, keys_array.size())):
+		var slot = slot38[count38]  
+		var key = keys_array[vi]
+		slot.set_name(str(key))
+		slot.connect("pressed", self, "_on_game_pressed", [slot])
+		count38 += 1
 
 func _ready():
-	
 	# For Slot Animation
 	$Slot_Animation.play("RESET")
 	
-	$one2two.show()
+	# For Slot Slider Buttons
+	$RightButtons/Right.connect("pressed", self, "Right_Button_Pressed", [Slot_Page])
+	$LeftButtons/Left.connect("pressed", self, "Left_Button_Pressed", [Slot_Page])
 	
-	$two2three.hide()
-	
-	$three2four.hide()
-	
-	$four2five.hide()
-	
-	$five2six.hide()
-	
-	$six2seven.hide()
-	
-	$seven2eight.hide()
-	
-	$eight2nine.hide()
-	
-	$nine2eight.hide()
-	
-	$eight2seven.hide()
-	
-	$seven2six.hide()
-	
-	$six2five.hide()
-	
-	$five2four.hide()
-	
-	$four2three.hide()
-	
-	$three2two.hide()
-	
-	$two2one.hide()
+	$LeftButtons/Left.hide()
 	
 	# Waiting For Websocket Connection
 	$Backdrop.show()
@@ -165,6 +523,8 @@ func _ready():
 	http.request(url)
 	
 	_load_profile_textures()
+	
+	_load_name_from_json()
 	
 	# For Implementing Web Socket
 	_connect_websocket()
@@ -258,6 +618,10 @@ func _on_data():
 				"STATE_READY":
 					$Backdrop.hide()
 					_enabled_buttons()
+					if $Setting/SliderMusic.value == 0:
+						$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+					else:
+						$"/root/bgm".volume_db += 45
 				"STATE_PLAY":
 					$Backdrop.show()
 					_disabled_buttons()
@@ -411,7 +775,7 @@ func _on_Exit_pressed():
 #	$"/root/bgm".volume_db = -50
 #	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
 
-func _on_game_pressed(game_name,accesskey):
+func _on_game_pressed(key_name):
 	
 	$Backdrop.show()
 	_disabled_buttons()
@@ -420,13 +784,16 @@ func _on_game_pressed(game_name,accesskey):
 	# For Music
 	$"/root/bgm".volume_db = -50
 	
+	var game_name = key_name.name
+	var accesskey = PRAGMATIC_LIST[game_name]
+	
 	print(game_name,",",accesskey)
 	
 	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getplaylink"
 
 	var data = {
 	"accesskey": "",
-	"gameProvider": "pragmatic",
+	"gameProvider": "PRAGMATIC",
 	"lang": "en",
 	"game": accesskey,
 	"gameName": game_name,
@@ -461,18 +828,18 @@ func on_body_request_completed(result, response_code, headers, body):
 	print("This is Respond Jason Result : ", json_result)
 	Config.slot_url = json_result["url"]
 	print("THis is slot_link : ", Config.slot_url)
-#	OS.shell_open(Config.slot_url)
+	OS.shell_open(Config.slot_url)
 	
-	var message = {
-		"uniquekey": Config.UNIQUE,
-		"username": Config.config.user.username,
-		"sessionFor": "SECOND",
-		"stateForFirst": "",
-		"stateForSecond": "STATE_PLAY",
-		"message": Config.slot_url
-	}
-	print("This is on Slot pressed Message : ", message)
-	_send(message)
+#	var message = {
+#		"uniquekey": Config.UNIQUE,
+#		"username": Config.config.user.username,
+#		"sessionFor": "SECOND",
+#		"stateForFirst": "",
+#		"stateForSecond": "STATE_PLAY",
+#		"message": Config.slot_url
+#	}
+#	print("This is on Slot pressed Message : ", message)
+#	_send(message)
 
 
 
@@ -484,696 +851,94 @@ func _on_Timer_timeout():
 func _disabled_buttons():
 	$Exit.disabled = true
 	
-	var slot1 = $Slot_container1/p1.get_children()
-	for j in range(slot1.size()):
-		var slot = slot1[j]
-		slot.disabled = true
-	var slot2 = $Slot_container2/p2.get_children()
-	for k in range(slot2.size()):
-		var slot = slot2[k]
-		slot.disabled = true
-	var slot3 = $Slot_container3/p3.get_children()
-	for l in range(slot3.size()):
-		var slot = slot3[l]
-		slot.disabled = true
-	var slot4 = $Slot_container4/p4.get_children()
-	for m in range(slot4.size()):
-		var slot = slot4[m]
-		slot.disabled = true
-	var slot5 = $Slot_container5/p5.get_children()
-	for n in range(slot5.size()):
-		var slot = slot5[n]
-		slot.disabled = true
-	var slot6 = $Slot_container6/p6.get_children()
-	for o in range(slot6.size()):
-		var slot = slot6[o]
-		slot.disabled = true
-	var slot7 = $Slot_container7/p7.get_children()
-	for p in range(slot7.size()):
-		var slot = slot7[p]
-		slot.disabled = true
-	var slot8 = $Slot_container8/p8.get_children()
-	for q in range(slot8.size()):
-		var slot = slot8[q]
-		slot.disabled = true
-	var slot9 = $Slot_container9/p9.get_children()
-	for r in range(slot9.size()):
-		var slot = slot9[r]
-		slot.disabled = true
+	for container in slot_containers:
+		var slots = container.get_children()
+		for slot in slots:
+			if slot is TextureButton:  
+				slot.disabled = true
+				
+	var slot38 = $Slot_container38/p38.get_children()
+	for a in range(slot38.size()):
+		var slot = slot38[a]
+		if slot is TextureButton:
+			slot.disabled = true
 
 func _enabled_buttons():
 	$Exit.disabled = false
 	
-	var slot1 = $Slot_container1/p1.get_children()
-	for j in range(slot1.size()):
-		var slot = slot1[j]
-		slot.disabled = false
-	var slot2 = $Slot_container2/p2.get_children()
-	for k in range(slot2.size()):
-		var slot = slot2[k]
-		slot.disabled = false
-	var slot3 = $Slot_container3/p3.get_children()
-	for l in range(slot3.size()):
-		var slot = slot3[l]
-		slot.disabled = false
-	var slot4 = $Slot_container4/p4.get_children()
-	for m in range(slot4.size()):
-		var slot = slot4[m]
-		slot.disabled = false
-	var slot5 = $Slot_container5/p5.get_children()
-	for n in range(slot5.size()):
-		var slot = slot5[n]
-		slot.disabled = false
-	var slot6 = $Slot_container6/p6.get_children()
-	for o in range(slot6.size()):
-		var slot = slot6[o]
-		slot.disabled = false
-	var slot7 = $Slot_container7/p7.get_children()
-	for p in range(slot7.size()):
-		var slot = slot7[p]
-		slot.disabled = false
-	var slot8 = $Slot_container8/p8.get_children()
-	for q in range(slot8.size()):
-		var slot = slot8[q]
-		slot.disabled = false
-	var slot9 = $Slot_container9/p9.get_children()
-	for r in range(slot9.size()):
-		var slot = slot9[r]
-		slot.disabled = false
+	for container in slot_containers:
+		var slots = container.get_children()
+		for slot in slots:
+			if slot is TextureButton:  
+				slot.disabled = false
+				
+	var slot38 = $Slot_container38/p38.get_children()
+	for a in range(slot38.size()):
+		var slot = slot38[a]
+		if slot is TextureButton:
+			slot.disabled = false
 
 
 func _on_Websocket_timer_timeout():
 	$"/root/bgm".volume_db = -50
+	$Backdrop.hide()
 	LoadingScript.load_scene(self,"res://pck/scenes/slot_provider.tscn")
 
+#func disableButtons(names):
+#	for i in $RightButtons.get_children():
+#		if names.find(i.name) != -1:
+#			i.disabled = false
+#			i.show()
+#		else:
+#			i.disabled = true
+#			i.hide()
+#
+#
+#	for j in $LeftButtons.get_children():
+#		if names.find(j.name) != -1:
+#			j.disabled = false
+#			j.show()
+#		else:
+#			j.disabled = true
+#			j.hide()
 
-func _on_one2two_pressed():
-	$Slot_Animation.play("one2two")
-
-
-func _on_two2three_pressed():
-	$Slot_Animation.play("two2three")
-
-
-func _on_three2four_pressed():
-	$Slot_Animation.play("three2four")
-
-
-func _on_four2five_pressed():
-	$Slot_Animation.play("four2five")
-
-
-func _on_five2six_pressed():
-	$Slot_Animation.play("five2six")
-
-
-func _on_six2seven_pressed():
-	$Slot_Animation.play("six2seven")
-
-
-func _on_seven2eight_pressed():
-	$Slot_Animation.play("seven2eight")
-
-
-func _on_eight2nine_pressed():
-	$Slot_Animation.play("eight2nine")
-
-
-func _on_nine2eight_pressed():
-	$Slot_Animation.play("nine2eight")
-
-
-func _on_eight2seven_pressed():
-	$Slot_Animation.play("eight2seven")
-
-
-func _on_seven2six_pressed():
-	$Slot_Animation.play("seven2six")
-
-
-func _on_six2five_pressed():
-	$Slot_Animation.play("six2five")
-
-
-func _on_five2four_pressed():
-	$Slot_Animation.play("five2four")
-
-
-func _on_four2three_pressed():
-	$Slot_Animation.play("four2three")
-
-
-func _on_three2two_pressed():
-	$Slot_Animation.play("three2two")
-
-
-func _on_two2one_pressed():
-	$Slot_Animation.play("two2one")
-
+func Right_Button_Pressed(slot_page_no):
+	if can_press == true:
+		can_press = false
+		if slot_page_no != Slot_Page:
+			slot_page_no = Slot_Page
+		var page = str(int(slot_page_no),"to",int(slot_page_no + 1))
+		print("Animation: ",page)
+		$Slot_Animation.play(page)
+		$Cooldown.start()
+		Slot_Page += 1
+	
+func Left_Button_Pressed(slot_page_no):
+	if can_press == true:
+		can_press = false
+		if slot_page_no != Slot_Page:
+			slot_page_no = Slot_Page
+		var page = str(int(slot_page_no),"to",int(slot_page_no - 1))
+		print("Animation: ",page)
+		$Slot_Animation.play(page)
+		$Cooldown.start()
+		Slot_Page -= 1
 
 func _on_Slot_Animation_animation_finished(anim_name):
 	match anim_name:
-		
-		"one2two":
-			
-			$one2two.hide()
-			
-			$two2three.show()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.show()
-		
-		"two2three":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.show()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.show()
-			
-			$two2one.hide()
-			
-		"three2four":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.show()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.show()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"four2five":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.show()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.show()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"five2six":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.show()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.show()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"six2seven":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.show()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.show()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"seven2eight":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.show()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.show()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"eight2nine":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.show()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"nine2eight":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.show()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.show()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"eight2seven":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.show()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.show()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"seven2six":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.show()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.show()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"six2five":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.show()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.show()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"five2four":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.show()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.show()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
-			
-		"four2three":
-			
-			$one2two.hide()
-			
-			$two2three.hide()
-			
-			$three2four.show()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.show()
-			
-			$two2one.hide()
-			
-		"three2two":
-			
-			$one2two.hide()
-			
-			$two2three.show()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.show()
-			
-		"two2one":
-			
-			$one2two.show()
-			
-			$two2three.hide()
-			
-			$three2four.hide()
-			
-			$four2five.hide()
-			
-			$five2six.hide()
-			
-			$six2seven.hide()
-			
-			$seven2eight.hide()
-			
-			$eight2nine.hide()
-			
-			$nine2eight.hide()
-			
-			$eight2seven.hide()
-			
-			$seven2six.hide()
-			
-			$six2five.hide()
-			
-			$five2four.hide()
-			
-			$four2three.hide()
-			
-			$three2two.hide()
-			
-			$two2one.hide()
+		"2to1":
+			$LeftButtons/Left.hide()
+			
+		"37to38":
+			$RightButtons/Right.hide()
+			
+		"1to2":
+			$LeftButtons/Left.show()
+			
+		"38to37":
+			$RightButtons/Right.show()
+
+
+
+func _on_Cooldown_timeout():
+	can_press = true
