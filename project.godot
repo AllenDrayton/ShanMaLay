@@ -22,6 +22,7 @@ config/quit_on_go_back=false
 AudioClick="*res://start/AudioClick.tscn"
 Config="*res://start/Config.tscn"
 LoadingScript="*res://pck/scripts/LoadingScript.gd"
+Loading2="*res://pck/prefabs/Loading2.tscn"
 
 [display]
 

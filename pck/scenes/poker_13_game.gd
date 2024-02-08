@@ -124,11 +124,16 @@ func _process(delta):
 func _input(event):
 	if gameState != GameStates.play:
 		return
+		
+	if !event.position || !event:
+		return
 	
 	var touchPos = event.position
 		
 	if event is InputEventScreenTouch && event.is_pressed():
 		for i in range($CardDeck.get_child_count()):
+			if !deckCardArray[i]:
+				return
 			var pos = deckCardPosArray[i]
 			if touchPos.x > pos.x && touchPos.x < (pos.x + deckCardSpacing) && touchPos.y > pos.y && touchPos.y < (pos.y + 120):
 				selectedDeckCard = i

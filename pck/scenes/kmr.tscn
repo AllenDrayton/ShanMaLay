@@ -973,7 +973,7 @@ texture = ExtResource( 9 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 23 )
-frame = 11
+frame = 15
 playing = true
 
 [node name="Websocket_timer" type="Timer" parent="."]

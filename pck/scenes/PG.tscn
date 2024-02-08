@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://pck/scenes/PG.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=2]
@@ -17,7 +17,35 @@ size = 30
 use_filter = true
 font_data = ExtResource( 5 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=36]
+resource_name = "10to9"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container10:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( 2145, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container9:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 165 ), Vector2( 195, 165 ) ]
+}
+
+[sub_resource type="Animation" id=7]
 resource_name = "1to2"
 length = 0.4
 tracks/0/type = "value"
@@ -30,7 +58,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 170, 165 ), Vector2( 2145, 165 ) ]
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Slot_container2:rect_position")
@@ -42,50 +70,14 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1800, 165 ), Vector2( 170, 165 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -3655, 165 ), Vector2( -1800, 165 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -5545, 165 ), Vector2( -3655, 165 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slot_container5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -7405, 165 ), Vector2( -5545, 165 ) ]
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "2to1"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container1:rect_position")
+tracks/0/path = NodePath("Slot_container2:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -94,10 +86,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2145, 165 ), Vector2( 170, 165 ) ]
+"values": [ Vector2( 195, 165 ), Vector2( 2145, 165 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container2:rect_position")
+tracks/1/path = NodePath("Slot_container1:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -106,50 +98,14 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 170, 165 ), Vector2( -1800, 165 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1800, 165 ), Vector2( -3655, 165 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -3655, 165 ), Vector2( -5545, 165 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slot_container5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -5545, 165 ), Vector2( -7405, 165 ) ]
+"values": [ Vector2( -1800, 165 ), Vector2( 195, 165 ) ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "2to3"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container1:rect_position")
+tracks/0/path = NodePath("Slot_container2:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -158,10 +114,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2145, 165 ), Vector2( 4045, 165 ) ]
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container2:rect_position")
+tracks/1/path = NodePath("Slot_container3:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -170,50 +126,26 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 170, 165 ), Vector2( 2145, 165 ) ]
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
+tracks/2/path = NodePath("Slot_container1:rect_position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1800, 165 ), Vector2( 170, 165 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -3655, 165 ), Vector2( -1800, 165 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slot_container5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -5545, 165 ), Vector2( -3655, 165 ) ]
+"values": [ Vector2( -1800, 165 ) ]
 }
 
 [sub_resource type="Animation" id=8]
 resource_name = "3to2"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container1:rect_position")
+tracks/0/path = NodePath("Slot_container3:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -222,7 +154,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4045, 165 ), Vector2( 2145, 165 ) ]
+"values": [ Vector2( 195, 165 ), Vector2( 2145, 165 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Slot_container2:rect_position")
@@ -234,50 +166,14 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2145, 165 ), Vector2( 170, 165 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 170, 165 ), Vector2( -1800, 165 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1800, 165 ), Vector2( -3655, 165 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slot_container5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -3655, 165 ), Vector2( -5545, 165 ) ]
+"values": [ Vector2( -1800, 165 ), Vector2( 195, 165 ) ]
 }
 
 [sub_resource type="Animation" id=4]
 resource_name = "3to4"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container1:rect_position")
+tracks/0/path = NodePath("Slot_container3:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -286,10 +182,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4045, 165 ), Vector2( 5935, 165 ) ]
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container2:rect_position")
+tracks/1/path = NodePath("Slot_container4:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -298,43 +194,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2145, 165 ), Vector2( 4045, 165 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 170, 165 ), Vector2( 2145, 165 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1800, 165 ), Vector2( 170, 165 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slot_container5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -3655, 165 ), Vector2( -1800, 165 ) ]
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -374,71 +234,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2145, 165 ), Vector2( 170, 165 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 170, 165 ), Vector2( -1800, 165 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slot_container5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1800, 165 ), Vector2( -3655, 165 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "4to5"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container1:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 5935, 165 ), Vector2( 7825, 165 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container2:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 4045, 165 ), Vector2( 5935, 165 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2145, 165 ), Vector2( 4045, 165 ) ]
+"values": [ Vector2( -1800, 165 ), Vector2( 170, 165 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Slot_container4:rect_position")
@@ -462,14 +258,14 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1800, 165 ), Vector2( 170, 165 ) ]
+"values": [ Vector2( -1800, 165 ), Vector2( -3655, 165 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "5to4"
+[sub_resource type="Animation" id=6]
+resource_name = "4to5"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container1:rect_position")
+tracks/0/path = NodePath("Slot_container4:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -478,10 +274,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 7825, 165 ), Vector2( 5935, 165 ) ]
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container2:rect_position")
+tracks/1/path = NodePath("Slot_container5:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -490,43 +286,287 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 5935, 165 ), Vector2( 4045, 165 ) ]
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slot_container3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+
+[sub_resource type="Animation" id=10]
+resource_name = "5to4"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container5:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4045, 165 ), Vector2( 2145, 165 ) ]
+"values": [ Vector2( 160, 165 ), Vector2( 2145, 165 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slot_container4:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container4:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2145, 165 ), Vector2( 170, 165 ) ]
+"values": [ Vector2( -1800, 165 ), Vector2( 195, 165 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slot_container5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+
+[sub_resource type="Animation" id=28]
+resource_name = "5to6"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container5:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 170, 165 ), Vector2( -1800, 165 ) ]
+"values": [ Vector2( 160, 165 ), Vector2( -1800, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container6:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ), Vector2( 160, 165 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "6to5"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container6:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 165 ), Vector2( 2145, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container5:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 165 ), Vector2( 160, 165 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "6to7"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container6:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container7:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "7to6"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container7:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( 2145, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container6:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 165 ), Vector2( 195, 165 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "7to8"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container7:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container8:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "8to7"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container8:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( 2145, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container7:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 165 ), Vector2( 195, 165 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "8to9"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container8:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container9:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "9to10"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container9:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( -1800, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container10:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ), Vector2( 195, 165 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "9to8"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot_container9:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 195, 165 ), Vector2( 2145, 165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot_container8:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 165 ), Vector2( 195, 165 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -541,7 +581,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 170, 165 ) ]
+"values": [ Vector2( 195, 165 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Slot_container2:rect_position")
@@ -565,7 +605,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -3655, 165 ) ]
+"values": [ Vector2( 2145, 165 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Slot_container4:rect_position")
@@ -577,7 +617,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -5455, 165 ) ]
+"values": [ Vector2( 2145, 165 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Slot_container5:rect_position")
@@ -589,7 +629,67 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -7405, 165 ) ]
+"values": [ Vector2( 2145, 165 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Slot_container6:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Slot_container7:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Slot_container8:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Slot_container9:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Slot_container10:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2145, 165 ) ]
 }
 
 [sub_resource type="AtlasTexture" id=22]
@@ -720,9 +820,9 @@ valign = 1
 [node name="Setting" parent="." instance=ExtResource( 7 )]
 
 [node name="Slot_container1" type="VBoxContainer" parent="."]
-margin_left = 170.0
+margin_left = 195.0
 margin_top = 165.0
-margin_right = 1773.0
+margin_right = 1798.0
 margin_bottom = 775.0
 rect_min_size = Vector2( 1603, 610 )
 __meta__ = {
@@ -843,7 +943,7 @@ script = ExtResource( 6 )
 [node name="Slot_container2" type="VBoxContainer" parent="."]
 margin_left = -1800.0
 margin_top = 165.0
-margin_right = -196.996
+margin_right = -196.99
 margin_bottom = 775.0
 rect_min_size = Vector2( 1603, 610 )
 __meta__ = {
@@ -962,9 +1062,9 @@ stretch_mode = 4
 script = ExtResource( 6 )
 
 [node name="Slot_container3" type="VBoxContainer" parent="."]
-margin_left = -3655.0
+margin_left = 2145.0
 margin_top = 165.0
-margin_right = -2052.0
+margin_right = 3748.0
 margin_bottom = 775.0
 rect_min_size = Vector2( 1603, 610 )
 __meta__ = {
@@ -1083,9 +1183,9 @@ stretch_mode = 4
 script = ExtResource( 6 )
 
 [node name="Slot_container4" type="VBoxContainer" parent="."]
-margin_left = -5455.0
+margin_left = 2145.0
 margin_top = 165.0
-margin_right = -3852.0
+margin_right = 3748.0
 margin_bottom = 775.0
 rect_min_size = Vector2( 1603, 610 )
 __meta__ = {
@@ -1204,9 +1304,9 @@ stretch_mode = 4
 script = ExtResource( 6 )
 
 [node name="Slot_container5" type="VBoxContainer" parent="."]
-margin_left = -7405.0
+margin_left = 2145.0
 margin_top = 165.0
-margin_right = -5802.0
+margin_right = 3748.01
 margin_bottom = 775.0
 rect_min_size = Vector2( 1603, 610 )
 __meta__ = {
@@ -1324,15 +1424,567 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 6 )
 
+[node name="Slot_container6" type="VBoxContainer" parent="."]
+margin_left = 2145.0
+margin_top = 165.0
+margin_right = 3748.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 1603, 610 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="p" type="GridContainer" parent="Slot_container6"]
+margin_right = 1603.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 1600, 610 )
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Mahjong Ways" type="TextureButton" parent="Slot_container6/p"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Queen of Bounty" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Ways of the Qilin" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Plushie Frenzy" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Jewels of Prosperity" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Muay Thai Champion" type="TextureButton" parent="Slot_container6/p"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="The Queen\'s Banquet" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Battleground Royale" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Win Win Fish Prawn Crab" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Wild Bandito" type="TextureButton" parent="Slot_container6/p"]
+margin_left = 1320.0
+margin_top = 330.0
+margin_right = 1600.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Slot_container7" type="VBoxContainer" parent="."]
+margin_left = 2145.0
+margin_top = 165.0
+margin_right = 3748.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 1603, 610 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="p" type="GridContainer" parent="Slot_container7"]
+margin_right = 1603.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 1600, 610 )
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Santa\'s Gift Rush" type="TextureButton" parent="Slot_container7/p"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Symbols Of Egypt" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Vampire\'s Charm" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="CaiShen Wins" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Egypt\'s Book of Mystery" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Guardians of Ice & Fire" type="TextureButton" parent="Slot_container7/p"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Hood vs Wolf" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Hotpot" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Legend of Hou Yi" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Prosperity Lion" type="TextureButton" parent="Slot_container7/p"]
+margin_left = 1320.0
+margin_top = 330.0
+margin_right = 1600.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Slot_container8" type="VBoxContainer" parent="."]
+margin_left = 2145.0
+margin_top = 165.0
+margin_right = 3748.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 1603, 610 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="p" type="GridContainer" parent="Slot_container8"]
+margin_right = 1603.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 1600, 610 )
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Santa\'s Gift Rush" type="TextureButton" parent="Slot_container8/p"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Symbols Of Egypt" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Vampire\'s Charm" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="CaiShen Wins" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Egypt\'s Book of Mystery" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Guardians of Ice & Fire" type="TextureButton" parent="Slot_container8/p"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Hood vs Wolf" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Hotpot" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Legend of Hou Yi" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Prosperity Lion" type="TextureButton" parent="Slot_container8/p"]
+margin_left = 1320.0
+margin_top = 330.0
+margin_right = 1600.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Slot_container9" type="VBoxContainer" parent="."]
+margin_left = 2145.0
+margin_top = 165.0
+margin_right = 3748.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 1603, 610 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="p" type="GridContainer" parent="Slot_container9"]
+margin_right = 1603.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 1600, 610 )
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Santa\'s Gift Rush" type="TextureButton" parent="Slot_container9/p"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Symbols Of Egypt" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Vampire\'s Charm" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="CaiShen Wins" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Egypt\'s Book of Mystery" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Guardians of Ice & Fire" type="TextureButton" parent="Slot_container9/p"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Hood vs Wolf" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Hotpot" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Legend of Hou Yi" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Prosperity Lion" type="TextureButton" parent="Slot_container9/p"]
+margin_left = 1320.0
+margin_top = 330.0
+margin_right = 1600.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Slot_container10" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 2145.0
+margin_top = 165.0
+margin_right = 3748.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 1603, 610 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="p" type="GridContainer" parent="Slot_container10"]
+margin_right = 1603.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 1600, 610 )
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Santa\'s Gift Rush" type="TextureButton" parent="Slot_container10/p"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Symbols Of Egypt" type="TextureButton" parent="Slot_container10/p"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="Vampire\'s Charm" type="TextureButton" parent="Slot_container10/p"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
+[node name="CaiShen Wins" type="TextureButton" parent="Slot_container10/p"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+
 [node name="PGAnimation" type="AnimationPlayer" parent="."]
-anims/1to2 = SubResource( 2 )
-anims/2to1 = SubResource( 7 )
+anims/10to9 = SubResource( 36 )
+anims/1to2 = SubResource( 7 )
+anims/2to1 = SubResource( 2 )
 anims/2to3 = SubResource( 3 )
 anims/3to2 = SubResource( 8 )
 anims/3to4 = SubResource( 4 )
 anims/4to3 = SubResource( 9 )
 anims/4to5 = SubResource( 6 )
 anims/5to4 = SubResource( 10 )
+anims/5to6 = SubResource( 28 )
+anims/6to5 = SubResource( 29 )
+anims/6to7 = SubResource( 30 )
+anims/7to6 = SubResource( 31 )
+anims/7to8 = SubResource( 32 )
+anims/8to7 = SubResource( 33 )
+anims/8to9 = SubResource( 34 )
+anims/9to10 = SubResource( 37 )
+anims/9to8 = SubResource( 35 )
 anims/RESET = SubResource( 5 )
 
 [node name="animationControlButtons" type="Control" parent="."]
@@ -1386,7 +2038,7 @@ texture = ExtResource( 10 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 27 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="Cooldown" type="Timer" parent="."]

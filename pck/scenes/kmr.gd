@@ -182,6 +182,10 @@ func _on_data():
 				"STATE_READY":
 					$Backdrop.hide()
 					_enabled_buttons()
+					if $Setting/SliderMusic.value == 0:
+						$"/root/bgm".volume_db =  $Setting/SliderMusic.value
+					else:
+						$"/root/bgm".volume_db += 45
 				"STATE_PLAY":
 					$Backdrop.show()
 					_disabled_buttons()
@@ -346,11 +350,11 @@ func _on_game_pressed(game_name,accesskey):
 	
 	print(game_name,",",accesskey)
 	
-	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getplaylink"
+	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getgamelink"
 	
 	var data = {
 	"accesskey": "",
-	"gameProvider": "kingmaker",
+	"gameProvider": "AWC(KINGMAKER)",
 	"lang": "en",
 	"game": accesskey,
 	"gameName": game_name,

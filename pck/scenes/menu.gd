@@ -13,6 +13,8 @@ func _ready():
 	
 	# Reset The Music
 	#$"/root/bgm".volume_db = $Setting/SliderMusic.value
+	$BlackJack.disabled = true
+	$Fish.disabled = true
 	
 	if $Setting/SliderMusic.value == 0:
 		$"/root/bgm".volume_db =  $Setting/SliderMusic.value
@@ -160,5 +162,6 @@ func _on_Slot_pressed():
 	$UpperPanelAnimation.play("out")
 #	$Bg.material = blurShader
 	LoadingScript.load_scene(self, "res://pck/scenes/slot_provider.tscn")
+#	Loading2.load_scene("res://pck/scenes/slot_provider.tscn")
 	#OS.shell_open("https://shanmalay-slots-client.vercel.app/?uD="+str(username)+"&sD="+str(session))
 

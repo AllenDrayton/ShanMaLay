@@ -70,3 +70,4 @@ func _on_Exit_pressed():
 func _on_provider_pressed(provider_name):
 	$"/root/bgm".volume_db = -50
 	LoadingScript.load_scene(self, "res://pck/scenes/"+provider_name+".tscn")
+#	Loading2.load_scene("res://pck/scenes/"+provider_name+".tscn")

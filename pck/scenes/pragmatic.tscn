@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://pck/assets/menu/bg-4.jpg" type="Texture" id=1]
 [ext_resource path="res://pck/prefabs/Setting.tscn" type="PackedScene" id=2]
@@ -1989,62 +1989,6 @@ tracks/1/keys = {
 "values": [ Vector2( 195, 165 ), Vector2( 2035, 165 ) ]
 }
 
-[sub_resource type="Animation" id=98]
-resource_name = "37to38"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container37:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 195, 165 ), Vector2( -1645, 165 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container38:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2035, 165 ), Vector2( 195, 165 ) ]
-}
-
-[sub_resource type="Animation" id=99]
-resource_name = "38to37"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Slot_container37:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1645, 165 ), Vector2( 195, 165 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Slot_container38:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 195, 165 ), Vector2( 2035, 165 ) ]
-}
-
 [sub_resource type="Animation" id=37]
 resource_name = "3to2"
 length = 0.4
@@ -3970,18 +3914,6 @@ tracks/36/loop_wrap = true
 tracks/36/imported = false
 tracks/36/enabled = true
 tracks/36/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 2035, 165 ) ]
-}
-tracks/37/type = "value"
-tracks/37/path = NodePath("Slot_container38:rect_position")
-tracks/37/interp = 1
-tracks/37/loop_wrap = true
-tracks/37/imported = false
-tracks/37/enabled = true
-tracks/37/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -8568,7 +8500,7 @@ margin_bottom = 822.0
 
 [node name="p37" type="GridContainer" parent="Slot_container37"]
 margin_right = 1603.0
-margin_bottom = 610.0
+margin_bottom = 280.0
 custom_constants/vseparation = 50
 custom_constants/hseparation = 50
 columns = 5
@@ -8612,129 +8544,13 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 4 )
 
-[node name="364" type="TextureButton" parent="Slot_container37/p37"]
-margin_left = 1320.0
-margin_right = 1600.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="365" type="TextureButton" parent="Slot_container37/p37"]
-margin_top = 330.0
-margin_right = 280.0
-margin_bottom = 610.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="366" type="TextureButton" parent="Slot_container37/p37"]
-margin_left = 330.0
-margin_top = 330.0
-margin_right = 610.0
-margin_bottom = 610.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="367" type="TextureButton" parent="Slot_container37/p37"]
-margin_left = 660.0
-margin_top = 330.0
-margin_right = 940.0
-margin_bottom = 610.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="368" type="TextureButton" parent="Slot_container37/p37"]
-margin_left = 990.0
-margin_top = 330.0
-margin_right = 1270.0
-margin_bottom = 610.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="369" type="TextureButton" parent="Slot_container37/p37"]
-margin_left = 1320.0
-margin_top = 330.0
-margin_right = 1600.0
-margin_bottom = 610.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
 [node name="Label" type="Label" parent="Slot_container37"]
-margin_top = 614.0
-margin_right = 1603.0
-margin_bottom = 657.0
-custom_colors/font_color = Color( 0.933333, 0.980392, 0.0941176, 1 )
-custom_fonts/font = SubResource( 63 )
-text = "37"
-align = 1
-valign = 1
-
-[node name="Slot_container38" type="VBoxContainer" parent="."]
-margin_left = 2035.0
-margin_top = 165.0
-margin_right = 3638.0
-margin_bottom = 822.0
-
-[node name="p38" type="GridContainer" parent="Slot_container38"]
-margin_right = 1603.0
-margin_bottom = 280.0
-custom_constants/vseparation = 50
-custom_constants/hseparation = 50
-columns = 5
-
-[node name="370" type="TextureButton" parent="Slot_container38/p38"]
-margin_right = 280.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="371" type="TextureButton" parent="Slot_container38/p38"]
-margin_left = 330.0
-margin_right = 610.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="372" type="TextureButton" parent="Slot_container38/p38"]
-margin_left = 660.0
-margin_right = 940.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 280, 280 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 4 )
-
-[node name="Label" type="Label" parent="Slot_container38"]
 margin_top = 284.0
 margin_right = 1603.0
 margin_bottom = 327.0
 custom_colors/font_color = Color( 0.933333, 0.980392, 0.0941176, 1 )
 custom_fonts/font = SubResource( 63 )
-text = "38"
+text = "37"
 align = 1
 valign = 1
 
@@ -8783,7 +8599,7 @@ texture = ExtResource( 9 )
 position = Vector2( 1000, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 23 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="Websocket_timer" type="Timer" parent="."]
@@ -8849,8 +8665,6 @@ anims/35to36 = SubResource( 94 )
 anims/36to35 = SubResource( 95 )
 anims/36to37 = SubResource( 96 )
 anims/37to36 = SubResource( 97 )
-anims/37to38 = SubResource( 98 )
-anims/38to37 = SubResource( 99 )
 anims/3to2 = SubResource( 37 )
 anims/3to4 = SubResource( 36 )
 anims/4to3 = SubResource( 29 )
