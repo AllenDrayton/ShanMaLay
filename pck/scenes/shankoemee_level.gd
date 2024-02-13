@@ -1,14 +1,11 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 const music = preload("res://pck/assets/audio/music-main-background.mp3")
 const BlankMusic = preload("res://pck/assets/shankoemee/audio/EmptySound.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Exit.disabled = false
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
 	add_child(http)
@@ -95,10 +92,11 @@ func _level_selected(result, response_code, headers, body):
 
 
 func _on_Exit_pressed():
+	$Exit.disabled = true
 	Config.MUSIC.volume_db = -80
 	$AnimationPlayer.play("out")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "out":
-#		get_tree().change_scene("res://pck/prefabs/loadingScreen.tscn")
+#		get_tree().change_scene("res://pck/scenes/menu.tscn")
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")

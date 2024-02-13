@@ -95,6 +95,7 @@ func _show_card_status(status):
 		get_node("CardStatus/BG").show()
 		zaflag.texture = za_textures["5x"]
 		zaflag.show()
+		$Profile/bg.show()
 	elif status == 11:
 		get_node("CardStatus/BG/Label").text = "blav;"
 		get_node("CardStatus/BG").show()
@@ -120,16 +121,19 @@ func _show_card_status(status):
 		get_node("CardStatus/PaukGif").play("7")
 		get_node("CardStatus/BG").hide()
 		zaflag.texture = za_textures["2x"]
+		$Profile/bg.show()
 		zaflag.show()
 	elif status == 8: # 8 pauk 2x 
 		get_node("CardStatus/PaukGif").play("8")
 		get_node("CardStatus/BG").hide()
 		zaflag.texture = za_textures["2x"]
+		$Profile/bg.show()
 		zaflag.show()
 	elif status == 9: # 9 pauk 3x
 		get_node("CardStatus/PaukGif").play("9")
 		get_node("CardStatus/BG").hide()
 		zaflag.texture = za_textures["3x"]
+		$Profile/bg.show()
 		zaflag.show()
 #	else:
 #		get_node("CardStatus/BG/Label").text = str(status) + " ayguf"
@@ -144,6 +148,7 @@ func _show_bet(x):
 
 func _hide_zaFlag():
 	$Profile/ZaFlag.hide()
+	$Profile/bg.hide()
 
 func _hide_bet():
 	$Profile/Bet.visible = false

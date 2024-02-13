@@ -211,10 +211,10 @@ __meta__ = {
 }
 
 [node name="version" type="Label" parent="."]
-margin_left = 1891.0
-margin_top = 866.0
-margin_right = 1991.0
-margin_bottom = 895.0
+margin_left = 1848.0
+margin_top = 860.0
+margin_right = 1983.0
+margin_bottom = 889.0
 custom_fonts/font = SubResource( 14 )
 
 [node name="Blur" type="Area2D" parent="." groups=["ScreenTouch"]]

@@ -5,10 +5,8 @@ const profile_textures = []
 const music = preload("res://pck/assets/audio/music-main-background.mp3")
 const BlankMusic = preload("res://pck/assets/shankoemee/audio/EmptySound.ogg")
 
-# Called when the node enters the scene tree for the first time.
-
-
 func _ready():
+	
 	print("Config:",Config.config)
 	if Signals.user_mute_music == true:
 		Config.MUSIC.volume_db = -80
@@ -36,6 +34,7 @@ func _ready():
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
 	add_child(http)
+	http.timeout = 3
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	var currentMusic = $"/root/bgm".stream.resource_path.get_file().get_basename()
@@ -70,18 +69,22 @@ func _disable_buttons(disable):
 	$Bank_withdraw.disabled = disable
 	
 func _on_profile_changed(selected_texture):
-	$Profile.texture_normal = selected_texture
+	$Profile/profile.texture = selected_texture
 
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 func _update_info(result, response_code, headers, body):
-	var respond = JSON.parse(body.get_string_from_utf8()).result
-#	print(respond)
-	$Balance.text = comma_sep(respond.balance)
-	$Username.text = respond.username
-	$Nickname.text = respond.nickname
-	$Profile.texture_normal = profile_textures[int(respond.profile) - 1]
+	if response_code != 200:
+		Config.MUSIC.volume_db = -80
+		LoadingScript.load_scene(self,"res://start/conn_error.tscn")
+	else:
+		var respond = JSON.parse(body.get_string_from_utf8()).result
+	#	print(respond)
+		$Balance.text = comma_sep(respond.balance)
+		$Username.text = respond.username
+		$Nickname.text = respond.nickname
+		$Profile/profile.texture = profile_textures[int(respond.profile) - 1]
 
 
 func _on_usernameUpdate(name):
@@ -154,12 +157,6 @@ func _on_BuGyee_pressed():
 	get_tree().change_scene("res://pck/scenes/bugyee_level.tscn")
 
 
-#func _on_Bet_pressed():
-#	$AnimationPlayer.play("out")
-#	yield(get_tree().create_timer(1), "timeout")
-#	get_tree().change_scene("res://pck/scenes/bet_game.tscn")
-
-
 func _on_ShweShan_pressed():
 	_animationOut()
 	yield(get_tree().create_timer(0.5), "timeout")
@@ -212,7 +209,7 @@ func _on_dragon_tiger_respond(result, response_code, headers, body):
 			"url":res.url
 		}
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://pck/scenes/tiger_dragon_bet_game.tscn")
+		LoadingScript.load_scene(self,"res://pck/scenes/tiger_dragon_bet_game.tscn")
 
 
 func _on_ABCD_pressed():
@@ -244,12 +241,12 @@ func _on_skm_respond(result, response_code, headers, body):
 			"url":res.url
 		}
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://pck/scenes/skm_bet_game.tscn")
+		LoadingScript.load_scene(self,"res://pck/scenes/skm_bet_game.tscn")
 
 func _on_Members_pressed():
 	Config.MUSIC.volume_db = -80
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://pck/scenes/info.tscn")
+	LoadingScript.load_scene(self,"res://pck/scenes/info.tscn")
 
 func _on_bank_Transfer_pressed():
 	Config.MUSIC.volume_db = -80

@@ -17,6 +17,7 @@ region_rect = Rect2( 0, 0, 1200, 766 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 30
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=16]
@@ -113,34 +114,30 @@ align = 1
 valign = 1
 
 [node name="sugestion" type="TextureButton" parent="settingbox"]
-margin_left = 656.0
-margin_top = 216.0
-margin_right = 1000.0
-margin_bottom = 336.0
+margin_left = 638.0
+margin_top = 210.0
+margin_right = 982.0
+margin_bottom = 330.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Sprite" type="Sprite" parent="settingbox/sugestion"]
-position = Vector2( 167, 63 )
-scale = Vector2( 0.39, 0.4 )
-texture = ExtResource( 5 )
 
 [node name="logout" type="TextureButton" parent="settingbox"]
-margin_left = 640.0
-margin_top = 376.0
-margin_right = 992.0
-margin_bottom = 480.0
+margin_left = 637.0
+margin_top = 361.0
+margin_right = 980.0
+margin_bottom = 486.0
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Sprite" type="Sprite" parent="settingbox/logout"]
-position = Vector2( 180, 60 )
-scale = Vector2( 0.46, 0.45 )
-texture = ExtResource( 7 )
 
 [node name="Exit" type="TextureButton" parent="settingbox"]
 margin_left = 966.0

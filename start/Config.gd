@@ -7,13 +7,14 @@ signal musicOn
 # warning-ignore:unused_signal
 signal musicOff
 
+# warning-ignore:unused_signal
 signal show_cef
 
 var URL
 var STATE
 var MUSIC = null
 var cancel = true
-var VERSION = "1.1"
+var VERSION = "1.2.8"
 var slot_url
 var balance = 0
 var UNIQUE = ""
@@ -23,7 +24,7 @@ var config = {
 	"init_url":"http://casino909.com/app_control/shanmalay",
 	"account_url":"http://mclubskm.com:9690/api/",
 #	"account_url":"http://smlnn.com:9690/api/",
-#	"account_url":"http://localhost:9690/api/"
+#	"account_url":"http://localhost:9690/api/",
 	"mobile":{
 		"isMobile": "1",
 		"type": "true"

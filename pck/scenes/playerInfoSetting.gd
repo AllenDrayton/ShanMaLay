@@ -40,6 +40,7 @@ func _update_info(result, response_code, headers, body):
 	SetProfileGlow(profileSelected)
 	
 func SetProfileGlow(index):
+#	index = int(index) + 1
 	var button = $ProfilePanel/ScrollContainer/Container.get_node(str(index))
 	light.position = button.rect_position + Vector2(60,60)
 	light.show()

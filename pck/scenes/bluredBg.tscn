@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://blurShader.tres" type="Material" id=1]
+[ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=2]
+
+[node name="bluredBg" type="Sprite"]
+visible = false
+material = ExtResource( 1 )
+position = Vector2( 1001.5, 451.5 )
+scale = Vector2( 0.86849, 0.839815 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}

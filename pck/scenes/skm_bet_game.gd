@@ -74,10 +74,12 @@ var GameVoices = {
 	"money_win":preload("res://pck/assets/tg_tiger_voice/tg_money_win.mp3"),
 	"number_card":preload("res://pck/assets/tg_tiger_voice/tg_number_card.mp3"),
 	"card":preload("res://pck/assets/tg_tiger_voice/tg_card_sound.mp3"),
+	"blankMusic":BlankMusic,
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$exitUI.hide()
 	Config.MUSIC.stream = music
 #	$"/root/bgm".volume_db = 0
 	Config.MUSIC.play()
@@ -93,16 +95,21 @@ func _ready():
 	for i in range(4):
 		for j in range(1,10):
 			var key = str(j) + str(i)
-			var path = "res://pck/assets/common/cards/"+key+".png"
+#			var path = "res://pck/assets/common/cards/"+key+".png"
+			var path = "res://pck/assets/common/cards/PC/"+key+".png"
 			card_textures[key] = load(path)
 		var key1 = "D"+str(i)
-		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+#		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+		card_textures[key1] = load("res://pck/assets/common/cards/PC/"+key1+".png")
 		var key2 = "J"+str(i)
-		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+#		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+		card_textures[key2] = load("res://pck/assets/common/cards/PC/"+key2+".png")
 		var key3 = "Q"+str(i)
-		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+#		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+		card_textures[key3] = load("res://pck/assets/common/cards/PC/"+key3+".png")
 		var key4 = "K"+str(i)
-		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+#		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+		card_textures[key4] = load("res://pck/assets/common/cards/PC/"+key4+".png")
 	
 	for u in $CardPos.get_children():
 		var arr = []
@@ -212,6 +219,7 @@ func _start(body):
 		#Config.MUSIC.stream = BlankMusic
 		Config.MUSIC.volume_db = -80
 #		get_tree().change_scene("res://pck/scenes/menu.tscn")
+		$BackDrop.hide()
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 	
@@ -578,9 +586,16 @@ func _array_include(arr,value):
 
 func _on_Exit_pressed():
 	isExit = true
-	_playVoice("exit")
+	$exitUI.show()
+	$AnimationPlayer.play("in")
 	
 
 func _playVoice(key):
 	$Audio/GameVoice.stream = GameVoices[key]
 	$Audio/GameVoice.play()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "in":
+		yield(get_tree().create_timer(2),"timeout")
+		$AnimationPlayer.play("out")

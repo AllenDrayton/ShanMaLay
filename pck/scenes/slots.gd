@@ -3,29 +3,66 @@ extends Node2D
 var slot_1_textures = []
 var slot_2_textures = []
 
-var JILISLOTS = {
-	"Chin Shi Huang": "JILI-SLOT-003",
-	"Alibaba": "JILI-SLOT-049",
-	"Crazy Hunter": "JILI-SLOT-045",
-	"Fortune Gems": "JILI-SLOT-043",
-	"Golden Empire": "JILI-SLOT-042",
-	"Boxing King": "JILI-SLOT-031",
-	"Money Coming": "JILI-SLOT-029",
-	"Super Ace": "JILI-SLOT-027",
-	"Charge Buffalo": "JILI-SLOT-026",
-	"Dragon Treasure": "JILI-SLOT-025",
-	"Goldenbank": "JILI-SLOT-023",
-	"Fengshen": "JILI-SLOT-022",
-	"DiamondParty": "JILI-SLOT-021",
-	"FortunePig": "JILI-SLOT-019",
-	"Bao boon chin": "JILI-SLOT-016",
-	"Bubble Beauty": "JILI-SLOT-015",
-	"Crazy777": "JILI-SLOT-014",
-	"Shanghai Beauty": "JILI-SLOT-008",
-	"Mega Ace": "JILI-SLOT-051",
-	"JILI CAISHEN": "JILI-SLOT-060",
-}
+var canPress = true
 
+var SLOTPAGE = 1
+
+
+var JILISLOTS = {
+	# 0 - 10
+	"Hot Chilli": ["JILI-SLOT-002", preload("res://pck/assets/slots/assets/Hot Chilli.png")],
+	"Chin Shi Huang": ["JILI-SLOT-003", preload("res://pck/assets/slots/assets/chin shi huang.png")],
+	"War Of Dragons": ["JILI-SLOT-004", preload("res://pck/assets/slots/assets/War of Dragons.png")],
+	"Fortune Tree": ["JILI-SLOT-005", preload("res://pck/assets/slots/assets/Fortune Tree.png")],
+	"Lucky Ball": ["JILI-SLOT-006", preload("res://pck/assets/slots/assets/Lucky Ball.png")],
+	"Hyper Burst": ["JILI-SLOT-007", preload("res://pck/assets/slots/assets/Hyper Burst.png")],
+	"Shanghai Beauty": ["JILI-SLOT-008", preload("res://pck/assets/slots/assets/shenghai beauty.png")],
+	"Fa Fa Fa": ["JILI-SLOT-009", preload("res://pck/assets/slots/assets/Fa Fa Fa.png")],
+	"God Of Martial": ["JILI-SLOT-010", preload("res://pck/assets/slots/assets/God of Martial.png")],
+	"Hawaii Beauty": ["JILI-SLOT-012", preload("res://pck/assets/slots/assets/Hawaii  Beauty.png")],
+	# 10 - 20
+	"SevenSevenSeven": ["JILI-SLOT-013", preload("res://pck/assets/slots/assets/777.png")],
+	"Crazy777": ["JILI-SLOT-014", preload("res://pck/assets/slots/assets/Crazy777.png")],
+	"Bubble Beauty": ["JILI-SLOT-015", preload("res://pck/assets/slots/assets/bubble beauty.png")],
+	"Bao boon chin": ["JILI-SLOT-016", preload("res://pck/assets/slots/assets/bao boon chin.png")],
+	"Crazy FaFaFa": ["JILI-SLOT-017", preload("res://pck/assets/slots/assets/Crazy fa fa fa.png")],
+	"XiYangYang": ["JILI-SLOT-018", preload("res://pck/assets/slots/assets/XiYingYang.png")],
+	"FortunePig": ["JILI-SLOT-019", preload("res://pck/assets/slots/assets/fortune pig.png")],
+	"Candy Baby": ["JILI-SLOT-020", preload("res://pck/assets/slots/assets/Candy Baby.png")],
+	"DiamondParty": ["JILI-SLOT-021", preload("res://pck/assets/slots/assets/diamond party.png")],
+	"Fengshen": ["JILI-SLOT-022", preload("res://pck/assets/slots/assets/feng shen.png")],
+	# 20 - 30
+	"GoldenBank": ["JILI-SLOT-023", preload("res://pck/assets/slots/assets/golden bank.png")],
+	"Lucky Goldbricks": ["JILI-SLOT-024", preload("res://pck/assets/slots/assets/Lucky Goldbricks.png")],
+	"Charge Buffalo": ["JILI-SLOT-026", preload("res://pck/assets/slots/assets/charge buffalo.png")],
+	"Super Ace": ["JILI-SLOT-027", preload("res://pck/assets/slots/assets/super ace.png")],
+	"Jungle King": ["JILI-SLOT-028", preload("res://pck/assets/slots/assets/Jungle King.png")],
+	"Money Coming": ["JILI-SLOT-029", preload("res://pck/assets/slots/assets/money coming.png")],
+	"Golden Queen": ["JILI-SLOT-030", preload("res://pck/assets/slots/assets/Golden Queen.png")],
+	"Boxing King": ["JILI-SLOT-031", preload("res://pck/assets/slots/assets/boxing king.png")],
+	"Dice": ["JILI-SLOT-032", preload("res://pck/assets/slots/assets/Dice.png")],
+	"DragonTiger": ["JILI-SLOT-032", preload("res://pck/assets/slots/assets/DragonTiger.png")],
+	# 30 - 40
+	"SevenUpDown": ["JILI-SLOT-032", preload("res://pck/assets/slots/assets/SevenUpDown.png")],
+	"Lucky Number": ["JILI-SLOT-032", preload("res://pck/assets/slots/assets/Lucky Number.png")],
+#	"Matka India": ["JILI-SLOT-032", preload("res://pck/assets/slots/assets/Matka India.png")],
+	"Lucky Coming": ["JILI-SLOT-037", preload("res://pck/assets/slots/assets/Lucky Coming.png")],
+	"Pharaoh Treasure": ["JILI-SLOT-038", preload("res://pck/assets/slots/assets/Pharoah Treasure.png")],
+	"Secret Treasure": ["JILI-SLOT-039", preload("res://pck/assets/slots/assets/Secret Treasure.png")],
+	"RomaX": ["JILI-SLOT-040", preload("res://pck/assets/slots/assets/RomaX.png")],
+	"Super Rich": ["JILI-SLOT-041", preload("res://pck/assets/slots/assets/Super Rich.png")],
+	"Golden Empire": ["JILI-SLOT-042", preload("res://pck/assets/slots/assets/golden empire.png")],
+	"Fortune Gems": ["JILI-SLOT-043", preload("res://pck/assets/slots/assets/fortune gems.png")],
+	# 40 - 50
+	"Party Night": ["JILI-SLOT-044", preload("res://pck/assets/slots/assets/Party Night.png")],
+	"Crazy Hunter": ["JILI-SLOT-045", preload("res://pck/assets/slots/assets/crazy hunter.png")],
+	"Magic Lamp": ["JILI-SLOT-046", preload("res://pck/assets/slots/assets/Magic Lamp.png")],
+	"TWINWINS": ["JILI-SLOT-047", preload("res://pck/assets/slots/assets/TWINWINS.png")],
+	"Agent Ace": ["JILI-SLOT-048", preload("res://pck/assets/slots/assets/Agent Ace.png")],
+	"Alibaba": ["JILI-SLOT-049", preload("res://pck/assets/slots/assets/alibaba.png")],
+	"Medusa": ["JILI-SLOT-050", preload("res://pck/assets/slots/assets/Medusa.png")],
+}
+	
 var filepath = "user://slotList.txt"
 
 var serverTimer = Timer.new()
@@ -44,7 +81,9 @@ var arrows = {
 	"dull": preload("res://pck/assets/slots/ARROW 1.png")
 }
 
+
 func onServerTimeout():
+	$loadingScreen.hide()
 	print("Timeout: STATE_READY not received within 10 seconds")
 	LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 
@@ -54,14 +93,81 @@ func startServerTimer(waittime):
 	$loadingScreen.show()
 	disable_buttons(true)
 
+
 func _ready():
+	var keys_array = JILISLOTS.keys()
+	# slot 1
+	var slot1 = $slotContainer_1/slotProviderContainer.get_children()
+	var count1 = 0
+	for i in range(0, min(10, keys_array.size())): # 0 - 10
+		var slot = slot1[count1]  
+		var key = keys_array[i]
+		var name = key
+		slot.set_name(str(key))
+		slot.texture_normal = JILISLOTS[name][1]
+		slot.connect("pressed", self, "_on_slot_pressed", [slot])
+		count1 += 1
+	# slot 2
+	var slot2 = $slotContainer_2/slotProviderContainer.get_children()
+	var count2 = 0
+	for i in range(10, min(20, keys_array.size())): # 10 - 20
+		var slot = slot2[count2]  
+		var key = keys_array[i]
+		var name = key
+		slot.set_name(str(key))
+		slot.texture_normal = JILISLOTS[name][1]
+		slot.connect("pressed", self, "_on_slot_pressed", [slot])
+		count2 += 1
+	# slot 3
+	var slot3 = $slotContainer_3/slotProviderContainer.get_children()
+	var count3 = 0
+	for i in range(20, min(30, keys_array.size())): # 20 - 30
+		var slot = slot3[count3]  
+		var key = keys_array[i]
+		var name = key
+		slot.set_name(str(key))
+		slot.texture_normal = JILISLOTS[name][1]
+		slot.connect("pressed", self, "_on_slot_pressed", [slot])
+		count3 += 1
+	# slot 4
+	var slot4 = $slotContainer_4/slotProviderContainer.get_children()
+	var count4 = 0
+	for i in range(30, min(40, keys_array.size())): # 30 - 40
+		var slot = slot4[count4]  
+		var key = keys_array[i]
+		var name = key
+		slot.set_name(str(key))
+		slot.texture_normal = JILISLOTS[name][1]
+		slot.connect("pressed", self, "_on_slot_pressed", [slot])
+		count4 += 1
+	# slot 5
+	var slot5 = $slotContainer_5/slotProviderContainer.get_children()
+	var count5 = 0
+	for i in range(40, min(50, keys_array.size())): # 40 - 50
+		var slot = slot5[count5]  
+		var key = keys_array[i]
+		var name = key
+		slot.set_name(str(key))
+		if JILISLOTS.has(name):
+			slot.texture_normal = JILISLOTS[name][1]
+			slot.connect("pressed", self, "_on_slot_pressed", [slot])
+		else:
+			slot.texture_normal = null
+		count5 += 1
+	$loadingScreen/Bg.hide()
+	$loadingScreen.show();
 	add_child(serverTimer)
 	serverTimer.connect("timeout",self,"onServerTimeout")
 	_connect_ws()
-	$Left.disabled = true
-	$Left.texture_disabled = arrows["dull"]
-	$Left.modulate = Color(.7,.7,.7,.85)
-	_loadTextures()
+	$sliderButtons/Left.disabled = true
+	$sliderButtons/Left.texture_disabled = arrows["dull"]
+	$sliderButtons/Left.modulate = Color(.7,.7,.7,.85)
+	
+# warning-ignore:return_value_discarded
+	$sliderButtons/Left.connect("pressed",self,"_on_Left_pressed",[SLOTPAGE])
+# warning-ignore:return_value_discarded
+	$sliderButtons/Right.connect("pressed",self,"_on_Right_pressed",[SLOTPAGE])
+
 	
 	if Signals.user_mute_music == true:
 		Config.MUSIC.volume_db = -80
@@ -83,7 +189,6 @@ func _ready():
 # warning-ignore:unused_argument
 func _process(delta):
 	websocket.poll()
-	print(serverTimer.time_left)
 	
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
@@ -105,28 +210,6 @@ func comma_sep(number):
 		res += string[i]
 	return res
 
-
-
-
-func _loadTextures():
-	for i in range(10):
-		var path = "res://pck/assets/slots/assets/B" + str(i+1) + ".png"
-		var texture = load(path)
-		slot_1_textures.append(texture)
-	for ii in range(10,20):
-		var path = "res://pck/assets/slots/assets/B" + str(ii+1) + ".png"
-		var texture = load(path)
-		slot_2_textures.append(texture)
-	var slot1 = $slotContainer_1/slotProviderContainer.get_children()
-	for j in range(slot1.size()):
-		var slot = slot1[j]
-		if slot is TextureButton:
-			slot.texture_normal = slot_1_textures[j]
-	var slot2 = $slotContainer_2/slotProviderContainer.get_children()
-	for k in range(slot2.size()):
-		var slot = slot2[k]
-		if slot is TextureButton:
-			slot.texture_normal = slot_2_textures[k]
 
 
 func _clear():
@@ -155,6 +238,9 @@ func _connect_ws():
 		print("... Connecting")
 		pass
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func on_balance_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
 	$Balance.text = comma_sep(json_result["balance"])
@@ -162,6 +248,7 @@ func on_balance_request_completed(result, response_code, headers, body):
 
 func balance_update():
 	var http = HTTPRequest.new()
+# warning-ignore:shadowed_variable
 	var url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotuserconnect/getuserbalance/"+$"/root/Config".config.user.username
 	add_child(http)
 	http.connect("request_completed",self,"on_balance_request_completed")
@@ -185,8 +272,14 @@ func disable_buttons(disable):
 	$Back.disabled = disable
 	for i in $slotContainer_1/slotProviderContainer.get_children():
 		i.disabled = disable
-	for j in $slotContainer_2/slotProviderContainer.get_children():
-		j.disabled = disable
+	for ii in $slotContainer_2/slotProviderContainer.get_children():
+		ii.disabled = disable
+	for iii in $slotContainer_3/slotProviderContainer.get_children():
+		iii.disabled = disable
+	for iv in $slotContainer_4/slotProviderContainer.get_children():
+		iv.disabled = disable
+	for v in $slotContainer_5/slotProviderContainer.get_children():
+		v.disabled = disable
 
 func _on_data():
 	var message = websocket.get_peer(1).get_packet().get_string_from_utf8()
@@ -216,6 +309,10 @@ func _on_data():
 			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
 			serverTimer.stop()
 			balance_update()
+			if Signals.user_mute_music == true:
+				Config.MUSIC.volume_db = -80
+			elif Signals.user_mute_music == false:
+				Config.MUSIC.volume_db = 0
 			match res.stateForSecond:
 				"STATE_CONNECT":
 					print("connected")
@@ -315,19 +412,23 @@ func _closed(was_clean):
 
 
 # warning-ignore:unused_argument
-func _on_slot_pressed(slotName,accessKey):
-	disable_buttons(true)
-	$loadingScreen.show()
+func _on_slot_pressed(button):
+#	disable_buttons(true)
+#	$loadingScreen.show()
 	Config.MUSIC.volume_db = -80
+	var name = button.name
+	var accessKey = JILISLOTS[name][0]
+# warning-ignore:unused_variable
+#	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getplaylink"
+	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getgamelink"
+	print("Key :", accessKey, " name: ", name)
 	
-	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getplaylink"
-
 	var data = {
 	"accesskey": "",
-	"gameProvider": "awc(jili)",
+	"gameProvider": "AWC(JILI)",
 	"lang": "en",
 	"game": accessKey,
-	"gameName": accessKey,
+	"gameName": name,
 	"isMobile": Config.config["web"]["isMobile"],
 	"redirectLink": "",
 	"type": Config.config["web"]["type"],
@@ -361,6 +462,8 @@ func _on_slot_pressed(slotName,accessKey):
 func on_body_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
 	Config.slot_url = json_result["url"]
+	print("URL: ",Config.slot_url)
+	
 	var play_data = {
 		"uniquekey": Config.UNIQUE,
 		"username": Config.config.user.username,
@@ -372,6 +475,7 @@ func on_body_request_completed(result, response_code, headers, body):
 	_send_data(play_data)
 	
 
+# warning-ignore:unused_argument
 func get_parameter(parameter):
 	if OS.has_feature('JavaScript'):
 		return JavaScript.eval(""" 
@@ -380,28 +484,49 @@ func get_parameter(parameter):
 				url.searchParams.get(parameter);
 			""")
 	return null
-
-func _on_Left_pressed():
-	$slotAnimation.play("left")
-
-
-func _on_Right_pressed():
-	$slotAnimation.play("right")
+	
+func _on_Right_pressed(slotPage): # +1
+	if canPress == true:
+		canPress = false
+		if slotPage != SLOTPAGE:
+			slotPage = SLOTPAGE
+		var page = str(int(slotPage),"to",int(slotPage+1))
+		print("Animation: ",page)
+		$slotAnimation.play(page)
+		$cooldown.start()
+		SLOTPAGE += 1
+	
+func _on_Left_pressed(slotPage): # -1
+	if canPress == true:
+		canPress = false
+		if slotPage != SLOTPAGE:
+			slotPage = SLOTPAGE
+		var page = str(int(slotPage),"to",int(slotPage-1))
+		print("Animation: ",page)
+		$slotAnimation.play(page)
+		$cooldown.start()
+		SLOTPAGE -= 1
 
 
 func _on_slotAnimation_animation_finished(anim_name):
-	if anim_name == "right":
-		$Right.disabled = true
-		$Right.texture_disabled = arrows["dull"]
-		$Right.modulate = Color(.7,.7,.7,.85)
-		$Left.flip_h = true
-		$Left.disabled = false
-		$Left.modulate = Color(1,1,1,1)
-	else:
-		$Left.disabled = true
-		$Right.disabled = false
-		$Left.modulate = Color(.7,.7,.7,.85)
-		$Right.modulate = Color(1,1,1,1)
+	if anim_name == "4to5": #2
+		$sliderButtons/Right.disabled = true
+		$sliderButtons/Right.texture_disabled = arrows["dull"]
+		$sliderButtons/Right.modulate = Color(.7,.7,.7,.85)
+		$sliderButtons/Left.flip_h = true
+		$sliderButtons/Left.disabled = false
+		$sliderButtons/Left.modulate = Color(1,1,1,1)
+	elif anim_name == "5to4":
+		$sliderButtons/Right.modulate = Color(1,1,1,1)
+		$sliderButtons/Right.disabled = false
+	elif anim_name == "2to1": #1
+		$sliderButtons/Left.disabled = true
+		$sliderButtons/Right.disabled = false
+		$sliderButtons/Left.modulate = Color(.7,.7,.7,.85)
+		$sliderButtons/Right.modulate = Color(1,1,1,1)
+	elif anim_name == "1to2":
+		$sliderButtons/Left.disabled = false
+		$sliderButtons/Left.modulate = Color(1,1,1,1)
 
 
 func _on_Back_pressed():
@@ -417,3 +542,7 @@ func _on_Back_pressed():
 	_send_data(message)
 	LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 	
+
+
+func _on_cooldown_timeout():
+	canPress = true

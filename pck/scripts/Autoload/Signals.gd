@@ -22,12 +22,14 @@ signal menuMusic(data)
 signal profileChanged(selectedTexture)
 # warning-ignore:unused_signal
 signal disableButtons
+# warning-ignore:unused_signal
 signal destroyCEF
+# warning-ignore:unused_signal
 signal CEF_called(url)
+
 var user_mute_music
-
-
 var two_card_auto = false
+var slotPage = 1
 
 #var messageInput = "" # The User Message Input
 

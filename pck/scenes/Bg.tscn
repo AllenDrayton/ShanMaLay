@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=1]
+
+[node name="Bg" type="Sprite"]
+position = Vector2( 1001.5, 451.5 )
+scale = Vector2( 0.86849, 0.839815 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

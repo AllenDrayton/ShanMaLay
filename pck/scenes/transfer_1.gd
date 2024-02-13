@@ -22,7 +22,8 @@ func comma_sep(number):
 	return res
 
 func _on_Exit_pressed():
-	$transferAnimation.play("Out")
+#	$transferAnimation.play("Out")
+	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 	Config.MUSIC.volume_db = -80
 	
 	

@@ -43,6 +43,7 @@ var GameVoices = {
 	"wait_game":preload("res://pck/assets/shankoemee/audio/wait_game.ogg"),
 	"win":preload("res://pck/assets/shankoemee/audio/win.ogg"),
 	"win_effect":preload("res://pck/assets/shankoemee/audio/win_effect.mp3"),
+	"blankMusic":BlankMusic,
 }
 
 #const playerPrefab = preload("res://pck/assets/bugyee/player.tscn")
@@ -71,6 +72,7 @@ var deviceBattery
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	print(countdown)
+	$exitUI.hide()
 	$Setting/settingbox/logout.hide()
 	$TouchScreen.show()
 	$Setting/settingbox/logout.hide()
@@ -628,7 +630,8 @@ func _on_Exit_pressed():
 	}
 	send(request)
 	$MenuPanel.visible = false
-	_playVoice(GameVoices.exit)
+	$exitUI.show()
+	$AnimationPlayer.play("in")
 
 
 # ----- Emoji Functions -----
@@ -694,3 +697,9 @@ func _on_message_pressed(msg):
 
 func _on_WinflagTimer_timeout():
 	$WinDesign.hide()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "in":
+		yield(get_tree().create_timer(2),"timeout")
+		$AnimationPlayer.play("out")

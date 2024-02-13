@@ -20,8 +20,10 @@ var FISHSLOTS = {
 
 var balance
 
+
 func onServerTimeout():
-	print("Timeout: STATE_READY not received within 30 seconds")
+	$loadingScreen.hide()
+	print("Timeout: STATE_READY not received within 10 seconds")
 	LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 
 func startServerTimer(waittime):
@@ -44,6 +46,9 @@ func _connect_ws():
 		print("... Connecting")
 		pass
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func on_balance_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
 	$Balance.text = comma_sep(json_result["balance"])
@@ -71,6 +76,7 @@ func _send_data(data):
 		print("")
 
 func disable_buttons(disable):
+	$Back.disabled = disable
 	for i in $slotContainer/slotProviderContainer.get_children():
 		i.disabled = disable
 
@@ -100,6 +106,10 @@ func _on_data():
 		"STATE_READY":
 			serverTimer.stop()
 			print("READY TO GO TO SLOTTTTTTTTTTTTTTTTTTT!!!!")
+			if Signals.user_mute_music == true:
+				Config.MUSIC.volume_db = -80
+			elif Signals.user_mute_music == false:
+				Config.MUSIC.volume_db = 0
 			balance_update()
 			match res.stateForSecond:
 				"STATE_CONNECT":
@@ -200,6 +210,8 @@ func _closed(was_clean):
 	LoadingScript.load_scene(self,"res://start/conn_error.tscn")
 
 func _ready():
+	$loadingScreen/Bg.hide()
+	$loadingScreen.show()
 	add_child(serverTimer)
 	serverTimer.connect("timeout",self,"onServerTimeout")
 	_connect_ws()
@@ -213,6 +225,7 @@ func _ready():
 		Config.MUSIC.volume_db = 0
 		
 
+# warning-ignore:unused_argument
 func _process(delta):
 	websocket.poll()
 
@@ -254,14 +267,15 @@ func comma_sep(number):
 	return res
 	
 
+# warning-ignore:unused_argument
 func on_fish_slot_pressed(slotName, accessKey):
 	Config.MUSIC.volume_db = -80
 	
-	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getplaylink"
+	var postman_url = "http://redboxmm.tech:8081/acrf-qarava-slot/api/slotplayconnect/getgamelink"
 
 	var data = {
 	"accesskey": "",
-	"gameProvider": "awc(jili)",
+	"gameProvider": "AWC(JILI)",
 	"lang": "en",
 	"game": accessKey,
 	"gameName": accessKey,
@@ -291,9 +305,13 @@ func on_fish_slot_pressed(slotName, accessKey):
 	http.connect("request_completed",self,"on_body_request_completed")
 	http.request(postman_url,headers,false,HTTPClient.METHOD_POST,body)
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func on_body_request_completed(result, response_code, headers, body):
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
 	Config.slot_url = json_result["url"]
+	OS.shell_open(Config.slot_url)
 	var play_data = {
 		"uniquekey": Config.UNIQUE,
 		"username": Config.config.user.username,
@@ -317,4 +335,5 @@ func _on_Back_pressed():
 		"message": Config.slot_url
 	}
 	_send_data(quit_data)
+	LoadingScript.load_scene(self,"res://pck/scenes/menu.tscn")
 	

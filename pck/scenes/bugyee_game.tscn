@@ -1,4 +1,4 @@
-[gd_scene load_steps=258 format=2]
+[gd_scene load_steps=262 format=2]
 
 [ext_resource path="res://pck/scenes/bugyee_game.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/common/ShanMa/idle/SG1_00000.png" type="Texture" id=2]
@@ -27,7 +27,7 @@
 [ext_resource path="res://pck/prefabs/BackDrop.tscn" type="PackedScene" id=25]
 [ext_resource path="res://pck/assets/common/emoji/icons/6.png" type="Texture" id=26]
 [ext_resource path="res://pck/assets/bugyee/card-frame.png" type="Texture" id=27]
-[ext_resource path="res://pck/assets/common/cards/10.png" type="Texture" id=28]
+[ext_resource path="res://pck/assets/common/cards/PC/10.png" type="Texture" id=28]
 [ext_resource path="res://pck/assets/common/backdrop.png" type="Texture" id=29]
 [ext_resource path="res://pck/assets/bugyee/Bugyee_CardCheck.gd" type="Script" id=30]
 [ext_resource path="res://pck/assets/common/arrow_right.png" type="Texture" id=31]
@@ -35,7 +35,7 @@
 [ext_resource path="res://pck/assets/bugyeeNew/Poker Phit - ma Phit/03.png" type="Texture" id=33]
 [ext_resource path="res://pck/assets/common/emoji/icons/4.png" type="Texture" id=34]
 [ext_resource path="res://pck/assets/bugyee/Za/3x.png" type="Texture" id=35]
-[ext_resource path="res://pck/assets/common/cards/Back1.png" type="Texture" id=36]
+[ext_resource path="res://pck/assets/common/cards/PC/Back.png" type="Texture" id=36]
 [ext_resource path="res://pck/assets/common/panel-top.png" type="Texture" id=37]
 [ext_resource path="res://pck/assets/bugyee/bugyee-howto.png" type="Texture" id=38]
 [ext_resource path="res://pck/assets/common/btn-close.png" type="Texture" id=39]
@@ -235,6 +235,7 @@
 [ext_resource path="res://pck/assets/bugyeeNew/Win/win design.png" type="Texture" id=233]
 [ext_resource path="res://pck/assets/bugyeeNew/timerTexture/Untitled-4.png" type="Texture" id=234]
 [ext_resource path="res://pck/assets/bugyeeNew/timerTexture/Untitled-3.png" type="Texture" id=235]
+[ext_resource path="res://pck/assets/common/game 01.png" type="Texture" id=236]
 
 [sub_resource type="StyleBoxTexture" id=266]
 texture = ExtResource( 21 )
@@ -498,6 +499,77 @@ size = 40
 use_filter = true
 font_data = ExtResource( 9 )
 
+[sub_resource type="Animation" id=295]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("exitUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 995, 383 ) ]
+}
+
+[sub_resource type="Animation" id=296]
+resource_name = "in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("exitUI:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 1.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("exitUI:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1004, 250 ), Vector2( 995, 383 ) ]
+}
+
+[sub_resource type="Animation" id=297]
+resource_name = "out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("exitUI:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("exitUI:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 995, 383 ), Vector2( 1004, 250 ) ]
+}
+
 [node name="root" type="Node"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -582,7 +654,7 @@ position = Vector2( 1490, 80 )
 position = Vector2( 1800, 255 )
 
 [node name="6" type="Node2D" parent="PlayerPos"]
-position = Vector2( 1705, 630 )
+position = Vector2( 1705, 645 )
 
 [node name="Players" type="Node" parent="."]
 
@@ -660,36 +732,31 @@ align = 1
 valign = 1
 
 [node name="Card-frame" type="Sprite" parent="CardCheck"]
+visible = false
 texture = ExtResource( 27 )
 
 [node name="0" type="Sprite" parent="CardCheck"]
 position = Vector2( -100, -148 )
-scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 28 )
 
 [node name="1" type="Sprite" parent="CardCheck"]
 position = Vector2( 106, -148 )
-scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 28 )
 
 [node name="2" type="Sprite" parent="CardCheck"]
-position = Vector2( -205, 149 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( -205, 147 )
 texture = ExtResource( 28 )
 
 [node name="3" type="Sprite" parent="CardCheck"]
-position = Vector2( 2, 150 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 2, 148 )
 texture = ExtResource( 28 )
 
 [node name="4" type="Sprite" parent="CardCheck"]
-position = Vector2( 207, 150 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 207, 148 )
 texture = ExtResource( 28 )
 
 [node name="B0" type="Sprite" parent="CardCheck"]
 position = Vector2( -99.9999, -148 )
-scale = Vector2( 0.35, 0.35 )
 z_index = 1
 texture = ExtResource( 36 )
 
@@ -699,7 +766,6 @@ anims/hide = SubResource( 283 )
 
 [node name="B1" type="Sprite" parent="CardCheck"]
 position = Vector2( 106, -148 )
-scale = Vector2( 0.35, 0.35 )
 z_index = 1
 texture = ExtResource( 36 )
 
@@ -810,6 +876,9 @@ bus = "Effect"
 [node name="CoinContainer" type="Node" parent="."]
 
 [node name="BetPanel" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="C1" type="TextureButton" parent="BetPanel"]
 margin_left = 642.0
@@ -1156,7 +1225,7 @@ position = Vector2( 999, 121 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 288 )
 animation = "idle"
-frame = 6
+frame = 11
 playing = true
 
 [node name="Black" type="Sprite" parent="."]
@@ -1581,6 +1650,17 @@ wait_time = 1.5
 [node name="Setting" parent="." instance=ExtResource( 40 )]
 visible = false
 
+[node name="exitUI" type="Sprite" parent="."]
+position = Vector2( 995, 383 )
+scale = Vector2( 1.2, 1.2 )
+z_index = 3
+texture = ExtResource( 236 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 295 )
+anims/in = SubResource( 296 )
+anims/out = SubResource( 297 )
+
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="MenuPanel/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="MenuPanel/Rules" to="." method="_on_Rules_pressed"]
@@ -1632,3 +1712,4 @@ visible = false
 [connection signal="pressed" from="EmojiHomeToggle/EmojiToggle2" to="." method="_on_EmojiToggle2_pressed"]
 [connection signal="pressed" from="MessageHomeToggle/MessageToggle2" to="." method="_on_MessageToggle2_pressed"]
 [connection signal="timeout" from="WinflagTimer" to="." method="_on_WinflagTimer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

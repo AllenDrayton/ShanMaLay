@@ -32,7 +32,8 @@ func comma_sep(number):
 
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = -80
-	$InfoAnimation.play("Out")
+	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
+#	$InfoAnimation.play("Out")
 	
 
 func _on_bank_info_pressed():

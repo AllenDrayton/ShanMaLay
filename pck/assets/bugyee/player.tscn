@@ -454,7 +454,7 @@ scale = Vector2( 1.5, 1.5 )
 z_index = 1
 frames = SubResource( 269 )
 animation = "e1"
-frame = 2
+frame = 14
 playing = true
 
 [node name="CardPos" type="Node2D" parent="."]

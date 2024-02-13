@@ -305,30 +305,34 @@ func _load():
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	var respond = JSON.parse(body.get_string_from_utf8()).result
-#	print(respond)
-	match respond.status:
-		"ok":
-			if respond.rejoin == true :
-				_rejoin_game(respond.gameState)
-				return
-			if respond.sessionLogin :
-				var user = {"username":respond.username,"session":respond.session,"id":respond.id}
-				$"/root/Config".config.user = user
-# warning-ignore:return_value_discarded
-				get_tree().change_scene("res://pck/scenes/menu.tscn")
-			else :
-				_change_to_menu(respond.username,respond.session,respond.id)
-		"incorrect username":
-			$AlertBox._show("Username number does not exist!")
-		"incorrect password":
-			$AlertBox._show("Password incorrect " + str(respond.tryCount) + "/10")
-		"tmp lock":
-			$AlertBox._show("This account is temporary lock. Try again in " + str(respond.body.time) + " minutes")
-		"account lock":
-			$AlertBox._show("This account is lock!")
-		"device lock":
-			$AlertBox._show("This device is lock!")
+	if response_code != 200:
+		Config.MUSIC.volume_db = -80
+		LoadingScript.load_scene(self,"res://start/conn_error.tscn")
+	else:
+		var respond = JSON.parse(body.get_string_from_utf8()).result
+	#	print(respond)
+		match respond.status:
+			"ok":
+				if respond.rejoin == true :
+					_rejoin_game(respond.gameState)
+					return
+				if respond.sessionLogin :
+					var user = {"username":respond.username,"session":respond.session,"id":respond.id}
+					$"/root/Config".config.user = user
+	# warning-ignore:return_value_discarded
+					get_tree().change_scene("res://pck/scenes/menu.tscn")
+				else :
+					_change_to_menu(respond.username,respond.session,respond.id)
+			"incorrect username":
+				$AlertBox._show("Username number does not exist!")
+			"incorrect password":
+				$AlertBox._show("Password incorrect " + str(respond.tryCount) + "/10")
+			"tmp lock":
+				$AlertBox._show("This account is temporary lock. Try again in " + str(respond.body.time) + " minutes")
+			"account lock":
+				$AlertBox._show("This account is lock!")
+			"device lock":
+				$AlertBox._show("This device is lock!")
 
 func _loginBoxIn():
 	$LoginBox.show()

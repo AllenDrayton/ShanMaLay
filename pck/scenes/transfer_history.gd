@@ -8,7 +8,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Config.MUSIC.volume_db = 0
+	if Signals.user_mute_music == true:
+		Config.MUSIC.volume_db = -80
+	elif Signals.user_mute_music == false:
+		Config.MUSIC.volume_db = 0
 # warning-ignore:unused_variable
 	var request = {
 		"head":"user info"

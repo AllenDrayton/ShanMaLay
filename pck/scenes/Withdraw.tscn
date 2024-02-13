@@ -4,7 +4,7 @@
 [ext_resource path="res://pck/assets/HomeScence/icon-bottom-bar.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/menu/icon-main-back.png" type="Texture" id=3]
 [ext_resource path="res://pck/assets/Home-Withdraw/Home-Withdraw/EER1.png" type="Texture" id=4]
-[ext_resource path="res://pck/assets/Home-Withdraw/icon-withdraw-out.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/Home-Withdraw/Home-Withdraw/icon-withdraw-out.png" type="Texture" id=5]
 [ext_resource path="res://pck/scenes/Withdraw.gd" type="Script" id=6]
 [ext_resource path="res://pck/assets/Home-Member-Info/icon-withdraw-rightbg.png" type="Texture" id=7]
 [ext_resource path="res://pck/assets/Home-Member-Bank/icon-member-bank-money.png" type="Texture" id=8]
@@ -85,6 +85,7 @@ corner_detail = 10
 
 [sub_resource type="DynamicFont" id=12]
 size = 30
+use_filter = true
 font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=13]
@@ -101,6 +102,7 @@ bg_color = Color( 0.117647, 0.117647, 0.2, 1 )
 [sub_resource type="DynamicFont" id=20]
 size = 25
 outline_color = Color( 1, 1, 1, 0.117647 )
+use_filter = true
 font_data = ExtResource( 15 )
 
 [sub_resource type="StyleBoxFlat" id=21]
@@ -122,6 +124,12 @@ margin_right = 2020.0
 margin_bottom = 909.0
 script = ExtResource( 6 )
 
+[node name="Bg2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1000, 450 )
+scale = Vector2( 0.868, 0.84 )
+texture = ExtResource( 14 )
+
 [node name="withdrawAnimation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Withdraw_panel")
 anims/In = SubResource( 14 )
@@ -135,6 +143,9 @@ margin_top = -1.0
 margin_right = 2052.0
 margin_bottom = 913.0
 custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="left" type="Sprite" parent="Withdraw_panel"]
 position = Vector2( 137.825, 518.861 )
@@ -177,29 +188,25 @@ scale = Vector2( 0.4, 0.381372 )
 texture = ExtResource( 8 )
 
 [node name="withdraw" type="TextureButton" parent="Withdraw_panel"]
-margin_left = -23.0
+margin_left = -2.0
 margin_top = 168.0
-margin_right = 294.0
-margin_bottom = 289.0
+margin_right = 283.0
+margin_bottom = 287.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Withdraw_panel/withdraw"]
-position = Vector2( 163.5, 54 )
-scale = Vector2( 0.32, 0.32 )
-texture = ExtResource( 5 )
-
 [node name="withdraw2" type="TextureButton" parent="Withdraw_panel"]
-margin_left = -5.0
-margin_top = 727.0
-margin_right = 264.0
-margin_bottom = 835.0
-
-[node name="Sprite" type="Sprite" parent="Withdraw_panel/withdraw2"]
-position = Vector2( 144, 54 )
-scale = Vector2( 0.32, 0.32 )
-texture = ExtResource( 13 )
+margin_left = 6.0
+margin_top = 746.0
+margin_right = 275.0
+margin_bottom = 854.0
+texture_normal = ExtResource( 13 )
+expand = true
+stretch_mode = 4
 
 [node name="Exit" type="TextureButton" parent="Withdraw_panel"]
 anchor_top = -0.022
@@ -216,18 +223,16 @@ texture = ExtResource( 3 )
 
 [node name="confirm" type="TextureButton" parent="Withdraw_panel"]
 margin_left = 993.0
-margin_top = 752.0
-margin_right = 1294.0
-margin_bottom = 843.0
+margin_top = 744.0
+margin_right = 1314.0
+margin_bottom = 841.0
+texture_normal = ExtResource( 10 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Sprite" type="Sprite" parent="Withdraw_panel/confirm"]
-position = Vector2( 148, 42 )
-scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 10 )
 
 [node name="game_account2" type="Label" parent="Withdraw_panel"]
 margin_left = 692.0
@@ -235,7 +240,7 @@ margin_top = 185.0
 margin_right = 925.0
 margin_bottom = 246.0
 custom_fonts/font = SubResource( 12 )
-text = "လက္ရွိအသုံးျပဳဆဲပါ"
+text = "လက္ရွိအသုံးျပဳဆဲပမာဏ"
 align = 1
 valign = 1
 

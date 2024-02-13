@@ -2,19 +2,17 @@ extends Node2D
 
 const music = preload("res://pck/assets/audio/music-main-background.mp3")
 const BlankMusic = preload("res://pck/assets/shankoemee/audio/EmptySound.ogg")
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Exit.disabled = false
 	var url = $"/root/Config".config.account_url + "user_info?id=" + $"/root/Config".config.user.id
 	var http = HTTPRequest.new()
 	add_child(http)
 	http.connect("request_completed",self,"_update_info")
 	http.request(url)
 	$AnimationPlayer.play("in")
+
 
 	if Signals.user_mute_music == true:
 		Config.MUSIC.volume_db = -80
@@ -89,9 +87,11 @@ func _level_selected(result, response_code, headers, body):
 
 func _on_Exit_pressed():
 	#Config.MUSIC.stream = BlankMusic
+	$Exit.disabled = true
 	Config.MUSIC.volume_db = -80
 	$AnimationPlayer.play("out")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "out":
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
+#		get_tree().change_scene("res://pck/scenes/menu.tscn")

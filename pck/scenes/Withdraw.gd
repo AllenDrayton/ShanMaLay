@@ -41,7 +41,8 @@ func comma_sep(number):
 	
 func _on_Exit_pressed():
 	Config.MUSIC.volume_db = -80
-	$withdrawAnimation.play("Out")
+#	$withdrawAnimation.play("Out")
+	LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 # warning-ignore:return_value_discarded
 
 

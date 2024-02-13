@@ -4,7 +4,7 @@
 [ext_resource path="res://pck/assets/Home-Withdraw/Home-Withdraw/EER1.png" type="Texture" id=2]
 [ext_resource path="res://pck/assets/common/back_button.png" type="Texture" id=3]
 [ext_resource path="res://pck/assets/menu/icon-main-back.png" type="Texture" id=4]
-[ext_resource path="res://pck/assets/Home-Member-Bank/icon-member-bank-bankinfo.png" type="Texture" id=5]
+[ext_resource path="res://pck/assets/Home-Member-Info/icon-member-bank-bankinfo.png" type="Texture" id=5]
 [ext_resource path="res://pck/assets/Home-Member-Bank/icon-member-bank-info.png" type="Texture" id=6]
 [ext_resource path="res://pck/assets/Home-Withdraw/icon-withdraw-question.png" type="Texture" id=7]
 [ext_resource path="res://pck/assets/Home-Member-Bank/icon-member-bank-add.png" type="Texture" id=8]
@@ -91,18 +91,15 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 7 )
 
 [node name="bank_info" type="TextureButton" parent="Panel"]
-margin_left = 8.0
-margin_top = 272.0
-margin_right = 278.0
-margin_bottom = 391.0
+margin_top = 284.0
+margin_right = 279.0
+margin_bottom = 407.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Sprite" type="Sprite" parent="Panel/bank_info"]
-position = Vector2( 140.688, 55.625 )
-scale = Vector2( 0.33, 0.33 )
-texture = ExtResource( 5 )
 
 [node name="info" type="TextureButton" parent="Panel"]
 margin_left = 3.0

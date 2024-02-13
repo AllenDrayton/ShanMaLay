@@ -105,8 +105,10 @@ var websocket_url = ""
 
 var _client = WebSocketClient.new()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$exitUI.hide()
 	$Setting/settingbox/logout.hide()
 	Config.MUSIC.stream = music
 	Config.MUSIC.play()
@@ -129,6 +131,7 @@ func _ready():
 	# Connecting Signals
 #	Signals.connect("bet_pos_invisible", self, "_hide_bet")
 #	Signals.connect("bet_pos_visible", self, "_show_bet")
+# warning-ignore:return_value_discarded
 	Signals.connect("screenTouch", self, "_hide_every_toggle")
 	
 #	if $"/root/ws".rejoin :
@@ -165,6 +168,7 @@ func _closed(was_clean = false):
 	LoadingScript.load_scene(self,"res://start/conn_error.tscn")
 
 
+# warning-ignore:unused_argument
 func _connected(proto = ""):
 	var request = {
 		"head":"handshake",
@@ -185,6 +189,7 @@ func _on_data():
 	_on_server_respond(res)
 
 
+# warning-ignore:unused_argument
 func _process(delta):
 	_client.poll()
 
@@ -313,6 +318,7 @@ func _update_room(room):
 
 
 func _init_all():
+	$Screentouch.show()
 	for i in range(TOTAL_PLAYER):
 		var player = playerPrefab.instance()
 		player.position = $PlayerPos.get_node(str(i)).position
@@ -322,6 +328,7 @@ func _init_all():
 		#player.get_node("CardLoading").position = $PlayerPos.get_node(str(i)).position
 		
 		player.get_node("Catch").connect("pressed",self,"_on_Catch_pressed",[i])
+		
 		if i == 5 || i == 6 || i == 7 :
 			player.get_node("Catch").rect_position.x = -211
 			player.get_node("CardPos").position.x = -120
@@ -336,20 +343,20 @@ func _init_all():
 		for j in range(1,10):
 			var key = str(j) + str(i)
 #			var path = "res://pck/assets/common/cards/"+key+".png"
-			var path = "res://pck/assets/common/cards/PC/"+key+".png"
+			var path = "res://pck/assets/common/cards/PC_small/"+key+".png"
 			card_textures[key] = load(path)
 		var key1 = "D"+str(i)
 #		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
-		card_textures[key1] = load("res://pck/assets/common/cards/PC/"+key1+".png")
+		card_textures[key1] = load("res://pck/assets/common/cards/PC_small/"+key1+".png")
 		var key2 = "J"+str(i)
 #		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
-		card_textures[key2] = load("res://pck/assets/common/cards/PC/"+key2+".png")
+		card_textures[key2] = load("res://pck/assets/common/cards/PC_small/"+key2+".png")
 		var key3 = "Q"+str(i)
 #		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
-		card_textures[key3] = load("res://pck/assets/common/cards/PC/"+key3+".png")
+		card_textures[key3] = load("res://pck/assets/common/cards/PC_small/"+key3+".png")
 		var key4 = "K"+str(i)
 #		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
-		card_textures[key4] = load("res://pck/assets/common/cards/PC/"+key4+".png")
+		card_textures[key4] = load("res://pck/assets/common/cards/PC_small/"+key4+".png")
 	
 	$BetPanel.visible = false
 	$DrawBtns.visible = false
@@ -390,6 +397,7 @@ func _start(room):
 #	playersNode[v]._player_wait_countdown(count_down)
 	
 	for i in range(TOTAL_PLAYER):
+# warning-ignore:unused_variable
 		var player = players[i]
 		var v = _get_vIndex(i)
 		playersNode[v]._set_count_down(count_down)
@@ -430,6 +438,7 @@ func _first_deliver(room):
 	# Set Count Down
 	var count_down = (room.wait - room.tick) * 2
 	for i in range(TOTAL_PLAYER):
+# warning-ignore:unused_variable
 		var player = players[i]
 		var v = _get_vIndex(i)
 		playersNode[v]._set_count_down(count_down)
@@ -634,6 +643,7 @@ func _end(room):
 			playersNode[v]._set_balance(player.balance)
 		yield(get_tree().create_timer(1), "timeout")
 		for i in losers:
+# warning-ignore:unused_variable
 			var player = players[i]
 			var v = _get_vIndex(i)
 			var cards = $Cards.get_node(str(v))
@@ -658,6 +668,7 @@ func _end(room):
 			if player.winAmount > 0:
 				#$Audio/CoinMove.play()
 				$Audio/M9CoinMove.play()
+# warning-ignore:unused_variable
 			for j in range(coin_count):
 				_coin_move_from_dealer_to_player(i)
 			yield(get_tree().create_timer(0.5), "timeout")
@@ -701,6 +712,7 @@ func _check_dealer_change(room):
 		#$Audio/CoinMove.play()
 		$Audio/M9CoinMove.play()
 		var t = ceil(room.dealerBet / room.minBet)
+# warning-ignore:unused_variable
 		for i in range(t):
 			_coin_move_from_player_balance_to_dealer(room.dealerIndex)
 			yield(get_tree().create_timer(COIN_MOVE_DELAY), "timeout")
@@ -712,6 +724,7 @@ func _check_dealer_change(room):
 		#$Audio/CoinMove.play()
 		$Audio/M9CoinMove.play()
 		var t = ceil(room.dealerBet / room.minBet)
+# warning-ignore:unused_variable
 		for i in range(t):
 			_coin_move_from_player_balance_to_dealer(room.dealerIndex)
 			yield(get_tree().create_timer(COIN_MOVE_DELAY), "timeout")
@@ -733,6 +746,7 @@ func _check_player_bet_for_coin_move(room):
 			#$Audio/CoinMove.play()
 			$Audio/M9CoinMove.play()
 			var t = ceil(player.bet / room.minBet)
+# warning-ignore:unused_variable
 			for j in range(t):
 				_coin_move_from_player_balance_to_bet(i)
 				yield(get_tree().create_timer(COIN_MOVE_DELAY), "timeout")
@@ -781,6 +795,7 @@ func _coin_move_from_player_balance_to_bet(index):
 	var stack_interval = -5  # Adjust the vertical spacing between coins
 	# Calculate stacking offset based on the number of coins already in the container
 	#var stackingOffset = $CoinContainer.get_child_count() * stack_interval
+# warning-ignore:unused_variable
 	var coincount = $CoinContainer.get_child_count()
 	# Set the position of the coin, including the stacking offset
 	var target = betPos + Vector2(0, stack_interval)
@@ -1222,6 +1237,9 @@ func _on_Exit_pressed():
 	send(request)
 	$MenuHomePanel.visible = false
 	$Backdrop.visible = false
+	$exitUI.show()
+	$AnimationPlayer.play("in")
+	
 
 
 func _on_Setting_pressed():
@@ -1328,3 +1346,9 @@ func _hide_every_toggle():
 	$MessagePanel.hide()
 	$MenuHomePanel.hide()
 	$Backdrop.hide()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "in":
+		yield(get_tree().create_timer(2),"timeout")
+		$AnimationPlayer.play("out")

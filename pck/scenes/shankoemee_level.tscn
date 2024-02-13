@@ -403,7 +403,7 @@ size = 25
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 25
+size = 35
 use_filter = true
 font_data = ExtResource( 2 )
 
@@ -737,18 +737,18 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 15 )
 
-[node name="Balance_Boarder" type="Sprite" parent="."]
-position = Vector2( 1641, 83 )
+[node name="Balance_Boarder" type="Sprite" parent="." groups=["Blur"]]
+position = Vector2( 1769.24, 73.75 )
 scale = Vector2( 0.589109, 0.589109 )
 texture = ExtResource( 16 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." groups=["Blur"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1572.0
-margin_top = 59.0
-margin_right = 1722.0
-margin_bottom = 110.0
+margin_left = 1699.0
+margin_top = 56.5
+margin_right = 1849.0
+margin_bottom = 107.5
 custom_fonts/font = SubResource( 8 )
 text = "0"
 align = 1

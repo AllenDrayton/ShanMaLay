@@ -72,6 +72,7 @@ modulate_color = Color( 1, 1, 1, 0.741176 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 30
+use_filter = true
 font_data = ExtResource( 14 )
 
 [sub_resource type="StyleBoxFlat" id=23]
@@ -119,6 +120,9 @@ texture = ExtResource( 11 )
 position = Vector2( 1144, 497.5 )
 scale = Vector2( 1.38167, 1.38167 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="left" type="Sprite" parent="info_panel"]
 position = Vector2( 137.825, 518.861 )
@@ -126,56 +130,48 @@ scale = Vector2( 0.272, 0.307 )
 texture = ExtResource( 3 )
 
 [node name="bank_info" type="TextureButton" parent="info_panel"]
-margin_left = -8.0
-margin_top = 280.0
-margin_right = 280.0
-margin_bottom = 399.0
+margin_left = -13.0
+margin_top = 281.0
+margin_right = 285.0
+margin_bottom = 404.0
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Sprite" type="Sprite" parent="info_panel/bank_info"]
-position = Vector2( 141.322, 55.625 )
-scale = Vector2( 0.338501, 0.327949 )
-texture = ExtResource( 6 )
 
 [node name="info" type="TextureButton" parent="info_panel"]
-margin_left = 1.0
 margin_top = 157.0
-margin_right = 286.0
+margin_right = 285.0
 margin_bottom = 276.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite2" type="Sprite" parent="info_panel/info"]
-position = Vector2( 147.058, 55 )
-scale = Vector2( 0.335067, 0.320225 )
-texture = ExtResource( 5 )
-
 [node name="confirm" type="TextureButton" parent="info_panel"]
-margin_left = 984.0
-margin_top = 585.0
-margin_right = 1349.0
-margin_bottom = 700.0
+margin_left = 971.0
+margin_top = 571.0
+margin_right = 1295.0
+margin_bottom = 673.0
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="info_panel/confirm"]
-position = Vector2( 184, 56 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 8 )
-
 [node name="game_account2" type="Label" parent="info_panel"]
-margin_left = 436.0
-margin_top = 178.0
-margin_right = 635.0
-margin_bottom = 239.0
+margin_left = 642.0
+margin_top = 195.0
+margin_right = 841.0
+margin_bottom = 256.0
 custom_fonts/font = SubResource( 7 )
 text = "ဂိမ္းအေကာင့္:"
-align = 1
 valign = 1
 
 [node name="game_account5" type="Label" parent="info_panel"]
@@ -191,23 +187,21 @@ align = 1
 valign = 1
 
 [node name="game_account4" type="Label" parent="info_panel"]
-margin_left = 437.0
-margin_top = 425.0
-margin_right = 636.0
-margin_bottom = 486.0
+margin_left = 643.0
+margin_top = 442.0
+margin_right = 842.0
+margin_bottom = 503.0
 custom_fonts/font = SubResource( 7 )
 text = "ဖုန္းနံပါတ္:"
-align = 1
 valign = 1
 
 [node name="game_account3" type="Label" parent="info_panel"]
-margin_left = 438.0
-margin_top = 299.0
-margin_right = 637.0
-margin_bottom = 360.0
+margin_left = 644.0
+margin_top = 316.0
+margin_right = 843.0
+margin_bottom = 377.0
 custom_fonts/font = SubResource( 7 )
 text = "နာမည္အရင္း:"
-align = 1
 valign = 1
 
 [node name="question" type="TextureRect" parent="info_panel"]

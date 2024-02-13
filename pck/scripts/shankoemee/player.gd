@@ -69,12 +69,14 @@ func _ready():
 	# Connect the Signals
 	#Signals.connect("clear_auto_flag", self, "_hide_auto_flag")
 	#Signals.connect("message_sent",self,"_on_message_sent")
+# warning-ignore:return_value_discarded
 	Signals.connect("bet_pressed", self, "_bet_is_pressed")
 
 	
 	
 	_load_profile_textures()
 	visible = false
+# warning-ignore:return_value_discarded
 	$CountDown.connect("animation_finished",self,"_stop_count_down")
 	_reset()
 

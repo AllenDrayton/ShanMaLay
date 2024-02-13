@@ -18,7 +18,7 @@ func _show():
 	texture = cardTexture
 
 func _highlight():
-	scale = originalScale * 1.2
+	scale = originalScale * 1.1
 
 func _unhighlight():
 	scale = originalScale

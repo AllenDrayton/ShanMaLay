@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://pck/scenes/slots.gd" type="Script" id=1]
 [ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=2]
@@ -11,6 +11,278 @@
 [ext_resource path="res://pck/assets/HomeScence/icon-home-money.png" type="Texture" id=9]
 [ext_resource path="res://pck/assets/slots/SLOTS.png" type="Texture" id=10]
 [ext_resource path="res://pck/prefabs/loadingScreen.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=3]
+resource_name = "1to2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( -1800, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2010, 180 ), Vector2( 160, 180 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "2to1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( 2010, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 180 ), Vector2( 160, 180 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "2to3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1910, 180 ), Vector2( -3870, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( -1800, 180 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slotContainer_3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2010, 180 ), Vector2( 160, 180 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "3to2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 180 ), Vector2( 160, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -3870, 180 ), Vector2( -1912, 180 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slotContainer_3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( 2010, 180 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "3to4"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_4:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2010, 180 ), Vector2( 160, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_3:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( -1800, 180 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slotContainer_2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 180 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "4to3"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_3:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 180 ), Vector2( 160, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_4:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( 2010, 180 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "4to5"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_4:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( -1800, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_5:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2010, 180 ), Vector2( 160, 180 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slotContainer_3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 180 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "5to4"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("slotContainer_4:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1800, 180 ), Vector2( 160, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slotContainer_5:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 180 ), Vector2( 2010, 180 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -36,63 +308,43 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 2000, 148 ) ]
+"values": [ Vector2( 2010, 180 ) ]
 }
-
-[sub_resource type="Animation" id=3]
-resource_name = "left"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("slotContainer_1:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+tracks/2/type = "value"
+tracks/2/path = NodePath("slotContainer_3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1910, 180 ), Vector2( 160, 180 ) ]
+"values": [ Vector2( 2010, 180 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("slotContainer_2:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+tracks/3/type = "value"
+tracks/3/path = NodePath("slotContainer_4:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 130, 180 ), Vector2( 2000, 180 ) ]
+"values": [ Vector2( 2010, 180 ) ]
 }
-
-[sub_resource type="Animation" id=1]
-resource_name = "right"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("slotContainer_1:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+tracks/4/type = "value"
+tracks/4/path = NodePath("slotContainer_5:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 160, 180 ), Vector2( -1910, 180 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("slotContainer_2:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2000, 180 ), Vector2( 160, 180 ) ]
+"values": [ Vector2( 2010, 180 ) ]
 }
 
 [sub_resource type="DynamicFont" id=4]
@@ -112,24 +364,28 @@ __meta__ = {
 }
 
 [node name="Icon-bottom-bar" type="Sprite" parent="."]
-position = Vector2( 1014, 0 )
+position = Vector2( 998, 42.8867 )
+scale = Vector2( 0.556111, 0.665486 )
 texture = ExtResource( 6 )
 
 [node name="slotContainer_1" type="VBoxContainer" parent="."]
 margin_left = 160.0
 margin_top = 180.0
-margin_right = 1860.0
-margin_bottom = 910.0
+margin_right = 1760.0
+margin_bottom = 890.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="slotProviderContainer" type="GridContainer" parent="slotContainer_1"]
-margin_right = 1700.0
+margin_right = 1600.0
 margin_bottom = 610.0
 grow_vertical = 0
 custom_constants/vseparation = 50
 custom_constants/hseparation = 50
 columns = 5
 
-[node name="chin shit huang" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_right = 280.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 280, 280 )
@@ -138,7 +394,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="aliBaba" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili2" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 330.0
 margin_right = 610.0
 margin_bottom = 280.0
@@ -148,7 +404,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="crazy hunter" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili3" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 660.0
 margin_right = 940.0
 margin_bottom = 280.0
@@ -158,7 +414,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="fortune gems" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili4" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 990.0
 margin_right = 1270.0
 margin_bottom = 280.0
@@ -168,7 +424,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="golden empire" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili5" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 1320.0
 margin_right = 1600.0
 margin_bottom = 280.0
@@ -178,7 +434,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="boxing king" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili6" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_top = 330.0
 margin_right = 280.0
 margin_bottom = 610.0
@@ -188,7 +444,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="money coming" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili7" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 330.0
 margin_top = 330.0
 margin_right = 610.0
@@ -199,7 +455,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="superace" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili8" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 660.0
 margin_top = 330.0
 margin_right = 940.0
@@ -210,7 +466,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="charge buffalo" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili9" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 990.0
 margin_top = 330.0
 margin_right = 1270.0
@@ -221,7 +477,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="dragon treasure" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
+[node name="Hot Chili10" type="TextureButton" parent="slotContainer_1/slotProviderContainer"]
 margin_left = 1320.0
 margin_top = 330.0
 margin_right = 1600.0
@@ -233,10 +489,13 @@ stretch_mode = 4
 script = ExtResource( 5 )
 
 [node name="slotContainer_2" type="VBoxContainer" parent="."]
-margin_left = 2000.0
-margin_top = 148.0
-margin_right = 3700.0
-margin_bottom = 878.0
+margin_left = 2010.0
+margin_top = 180.0
+margin_right = 3710.03
+margin_bottom = 890.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="slotProviderContainer" type="GridContainer" parent="slotContainer_2"]
 margin_right = 1700.0
@@ -246,7 +505,7 @@ custom_constants/vseparation = 50
 custom_constants/hseparation = 50
 columns = 5
 
-[node name="golden bank" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_right = 280.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 280, 280 )
@@ -255,7 +514,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="feng shen" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili2" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 330.0
 margin_right = 610.0
 margin_bottom = 280.0
@@ -265,7 +524,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="diamond party" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili3" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 660.0
 margin_right = 940.0
 margin_bottom = 280.0
@@ -275,7 +534,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="fortune pig" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili4" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 990.0
 margin_right = 1270.0
 margin_bottom = 280.0
@@ -285,7 +544,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="bao boon shin" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili5" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 1320.0
 margin_right = 1600.0
 margin_bottom = 280.0
@@ -295,7 +554,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="bubble beauty" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili6" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_top = 330.0
 margin_right = 280.0
 margin_bottom = 610.0
@@ -305,7 +564,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="777" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili7" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 330.0
 margin_top = 330.0
 margin_right = 610.0
@@ -316,7 +575,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="shanghai beauty" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili8" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 660.0
 margin_top = 330.0
 margin_right = 940.0
@@ -327,7 +586,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="mega ace" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili9" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 990.0
 margin_top = 330.0
 margin_right = 1270.0
@@ -338,7 +597,7 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="jili caishen" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
+[node name="Hot Chili10" type="TextureButton" parent="slotContainer_2/slotProviderContainer"]
 margin_left = 1320.0
 margin_top = 330.0
 margin_right = 1600.0
@@ -349,31 +608,399 @@ expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="Left" type="TextureButton" parent="."]
-margin_left = 20.0
-margin_top = 419.0
-margin_right = 100.0
-margin_bottom = 599.0
+[node name="slotContainer_3" type="VBoxContainer" parent="."]
+margin_left = 2010.0
+margin_top = 180.0
+margin_right = 3710.08
+margin_bottom = 890.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="slotProviderContainer" type="GridContainer" parent="slotContainer_3"]
+margin_right = 1700.0
+margin_bottom = 610.0
+grow_vertical = 0
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Hot Chili" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili2" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili3" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili4" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili5" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili6" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili7" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili8" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili9" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili10" type="TextureButton" parent="slotContainer_3/slotProviderContainer"]
+margin_left = 1320.0
+margin_top = 330.0
+margin_right = 1600.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="slotContainer_4" type="VBoxContainer" parent="."]
+margin_left = 2010.0
+margin_top = 180.0
+margin_right = 3709.99
+margin_bottom = 890.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="slotProviderContainer" type="GridContainer" parent="slotContainer_4"]
+margin_right = 1699.0
+margin_bottom = 610.0
+grow_vertical = 0
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Hot Chili" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili2" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili3" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili4" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili5" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili6" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili7" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili8" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili9" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili10" type="TextureButton" parent="slotContainer_4/slotProviderContainer"]
+margin_left = 1320.0
+margin_top = 330.0
+margin_right = 1600.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="slotContainer_5" type="VBoxContainer" parent="."]
+margin_left = 2010.0
+margin_top = 180.0
+margin_right = 3709.98
+margin_bottom = 890.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="slotProviderContainer" type="GridContainer" parent="slotContainer_5"]
+margin_right = 1699.0
+margin_bottom = 610.0
+grow_vertical = 0
+custom_constants/vseparation = 50
+custom_constants/hseparation = 50
+columns = 5
+
+[node name="Hot Chili" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_right = 280.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili2" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 330.0
+margin_right = 610.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili3" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 660.0
+margin_right = 940.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili4" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 990.0
+margin_right = 1270.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili5" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 1320.0
+margin_right = 1600.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili6" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_top = 330.0
+margin_right = 280.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili7" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 330.0
+margin_top = 330.0
+margin_right = 610.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili8" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 660.0
+margin_top = 330.0
+margin_right = 940.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili9" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 990.0
+margin_top = 330.0
+margin_right = 1270.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Hot Chili10" type="TextureButton" parent="slotContainer_5/slotProviderContainer"]
+margin_left = 1320.0
+margin_top = 330.0
+margin_right = 1600.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 280, 280 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="sliderButtons" type="Control" parent="."]
+margin_left = -1912.0
+margin_top = 794.0
+margin_right = -212.0
+margin_bottom = 794.0
+
+[node name="Left" type="TextureButton" parent="sliderButtons"]
+margin_left = 1932.0
+margin_top = -375.0
+margin_right = 2012.0
+margin_bottom = -195.0
 texture_normal = ExtResource( 4 )
 expand = true
 stretch_mode = 4
 flip_h = true
 script = ExtResource( 5 )
 
-[node name="Right" type="TextureButton" parent="."]
-margin_left = 1850.0
-margin_top = 415.0
-margin_right = 1930.0
-margin_bottom = 595.0
+[node name="Right" type="TextureButton" parent="sliderButtons"]
+margin_left = 3762.0
+margin_top = -379.0
+margin_right = 3842.0
+margin_bottom = -199.0
 texture_normal = ExtResource( 4 )
 expand = true
 stretch_mode = 4
 script = ExtResource( 5 )
 
 [node name="slotAnimation" type="AnimationPlayer" parent="."]
+anims/1to2 = SubResource( 3 )
+anims/2to1 = SubResource( 1 )
+anims/2to3 = SubResource( 5 )
+anims/3to2 = SubResource( 6 )
+anims/3to4 = SubResource( 8 )
+anims/4to3 = SubResource( 7 )
+anims/4to5 = SubResource( 10 )
+anims/5to4 = SubResource( 9 )
 anims/RESET = SubResource( 2 )
-anims/left = SubResource( 3 )
-anims/right = SubResource( 1 )
 
 [node name="Balance_Boarder" type="Sprite" parent="."]
 position = Vector2( 492, 46 )
@@ -393,8 +1020,8 @@ align = 1
 valign = 1
 
 [node name="Slots" type="Sprite" parent="."]
-position = Vector2( 1820, 45 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 1787.77, 52.95 )
+scale = Vector2( 0.708163, 0.708163 )
 texture = ExtResource( 10 )
 
 [node name="Back" type="TextureButton" parent="."]
@@ -407,27 +1034,10 @@ stretch_mode = 4
 [node name="loadingScreen" parent="." instance=ExtResource( 11 )]
 visible = false
 
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/chin shit huang" to="." method="_on_slot_pressed" binds= [ "Chin Shi Huang", "JILI-SLOT-003" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/aliBaba" to="." method="_on_slot_pressed" binds= [ "Alibaba", "JILI-SLOT-049" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/crazy hunter" to="." method="_on_slot_pressed" binds= [ "Crazy Hunter", "JILI-SLOT-045" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/fortune gems" to="." method="_on_slot_pressed" binds= [ "Fortune Gems", "JILI-SLOT-043" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/golden empire" to="." method="_on_slot_pressed" binds= [ "Golden Empire", "JILI-SLOT-042" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/boxing king" to="." method="_on_slot_pressed" binds= [ "Boxing King", "JILI-SLOT-031" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/money coming" to="." method="_on_slot_pressed" binds= [ "Money Coming", "JILI-SLOT-029" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/superace" to="." method="_on_slot_pressed" binds= [ "Super Ace", "JILI-SLOT-027" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/charge buffalo" to="." method="_on_slot_pressed" binds= [ "Charge Buffalo", "JILI-SLOT-026" ]]
-[connection signal="pressed" from="slotContainer_1/slotProviderContainer/dragon treasure" to="." method="_on_slot_pressed" binds= [ "Dragon Treasure", "JILI-SLOT-025" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/golden bank" to="." method="_on_slot_pressed" binds= [ "Goldenbank", "JILI-SLOT-023" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/feng shen" to="." method="_on_slot_pressed" binds= [ "Fengshen", "JILI-SLOT-022" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/diamond party" to="." method="_on_slot_pressed" binds= [ "DiamondParty", "JILI-SLOT-021" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/fortune pig" to="." method="_on_slot_pressed" binds= [ "FortunePig", "JILI-SLOT-019" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/bao boon shin" to="." method="_on_slot_pressed" binds= [ "Bao boon chin", "JILI-SLOT-016" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/bubble beauty" to="." method="_on_slot_pressed" binds= [ "Bubble Beauty", "JILI-SLOT-015" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/777" to="." method="_on_slot_pressed" binds= [ "Crazy777", "JILI-SLOT-014" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/shanghai beauty" to="." method="_on_slot_pressed" binds= [ "Shanghai Beauty", "JILI-SLOT-008" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/mega ace" to="." method="_on_slot_pressed" binds= [ "Mega Ace", "JILI-SLOT-051" ]]
-[connection signal="pressed" from="slotContainer_2/slotProviderContainer/jili caishen" to="." method="_on_slot_pressed" binds= [ "JILI CAISHEN", "JILI-SLOT-060" ]]
-[connection signal="pressed" from="Left" to="." method="_on_Left_pressed"]
-[connection signal="pressed" from="Right" to="." method="_on_Right_pressed"]
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
 [connection signal="animation_finished" from="slotAnimation" to="." method="_on_slotAnimation_animation_finished"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

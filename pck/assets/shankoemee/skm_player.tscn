@@ -25,7 +25,7 @@
 [ext_resource path="res://pck/assets/shankoemee/LoadingFrame/DR1.png" type="Texture" id=25]
 
 [sub_resource type="DynamicFont" id=2]
-size = 18
+size = 20
 use_filter = true
 font_data = ExtResource( 19 )
 
@@ -603,7 +603,8 @@ texture = ExtResource( 1 )
 
 [node name="Panel" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 0, 91 )
+position = Vector2( 2.25, 83.5 )
+scale = Vector2( 1.1375, 1.1375 )
 z_index = 2
 texture = ExtResource( 5 )
 
@@ -632,12 +633,12 @@ align = 1
 valign = 1
 
 [node name="Bet" type="Sprite" parent="."]
-position = Vector2( 80, -180 )
+position = Vector2( 92, -155 )
 texture = ExtResource( 21 )
 
 [node name="coin" type="Sprite" parent="Bet"]
-position = Vector2( -49, 0 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( -50, 0 )
+scale = Vector2( 0.35, 0.35 )
 z_index = 1
 texture = ExtResource( 6 )
 
@@ -687,7 +688,7 @@ valign = 1
 
 [node name="CardPos" type="Node2D" parent="."]
 visible = false
-position = Vector2( 90, 20 )
+position = Vector2( 101, 20 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 2
 

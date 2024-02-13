@@ -52,12 +52,13 @@ var GameVoices = {
 	"number_card":preload("res://pck/assets/tg_tiger_voice/tg_number_card.mp3"),
 	"dragon_win":preload("res://pck/assets/tg_tiger_voice/d_.mp3"),
 	"vs":preload("res://pck/assets/tg_tiger_voice/tg_vs.mp3"),
-	"stop":preload("res://pck/assets/tg_tiger_voice/tg_stop.mp3")
+	"stop":preload("res://pck/assets/tg_tiger_voice/tg_stop.mp3"),
+	"blankMusic":BlankMusic,
 }
 
 var coinPrefab = preload("res://pck/prefabs/DragonTigerCoin.tscn")
-var cardPrefab=preload("res://pck/assets/bugyee/card.tscn")
-var card_back = preload("res://pck/assets/common/cards/back.png")
+var cardPrefab = preload("res://pck/prefabs/shankoemee/Dragon_tiger_card.tscn")
+var card_back = preload("res://pck/assets/common/cards/PC/RedBack.png")
 
 const resultTextures = {
 	"win":preload("res://pck/assets/shankoemee/win.png"),
@@ -72,6 +73,7 @@ var historyTextures = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$exitUI.hide()
 	$vs_gif.hide()
 	$tiger_gif.hide()
 	$dragon_gif.hide()
@@ -86,20 +88,39 @@ func _ready():
 #	$"/root/bgm".volume_db = 0
 #	Config.connect("musicOn",self,"musicOn")
 #	Config.connect("musicOff",self,"musicOff")
-	
+
 	for i in range(4):
-		for j in range(1,10):
-			var key = str(j) + str(i)
-			var path = "res://pck/assets/common/cards/"+key+".png"
-			card_textures[key] = load(path)
-		var key1 = "D"+str(i)
-		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
-		var key2 = "J"+str(i)
-		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
-		var key3 = "Q"+str(i)
-		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
-		var key4 = "K"+str(i)
-		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+			for j in range(1,10):
+				var key = str(j) + str(i)
+	#			var path = "res://pck/assets/common/cards/"+key+".png"
+				var path = "res://pck/assets/common/cards/PC/"+key+".png"
+				card_textures[key] = load(path)
+			var key1 = "D"+str(i)
+	#		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+			card_textures[key1] = load("res://pck/assets/common/cards/PC/"+key1+".png")
+			var key2 = "J"+str(i)
+	#		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+			card_textures[key2] = load("res://pck/assets/common/cards/PC/"+key2+".png")
+			var key3 = "Q"+str(i)
+	#		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+			card_textures[key3] = load("res://pck/assets/common/cards/PC/"+key3+".png")
+			var key4 = "K"+str(i)
+	#		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
+			card_textures[key4] = load("res://pck/assets/common/cards/PC/"+key4+".png")
+#
+#	for i in range(4):
+#		for j in range(1,10):
+#			var key = str(j) + str(i)
+#			var path = "res://pck/assets/common/cards/"+key+".png"
+#			card_textures[key] = load(path)
+#		var key1 = "D"+str(i)
+#		card_textures[key1] = load("res://pck/assets/common/cards/"+key1+".png")
+#		var key2 = "J"+str(i)
+#		card_textures[key2] = load("res://pck/assets/common/cards/"+key2+".png")
+#		var key3 = "Q"+str(i)
+#		card_textures[key3] = load("res://pck/assets/common/cards/"+key3+".png")
+#		var key4 = "K"+str(i)
+#		card_textures[key4] = load("res://pck/assets/common/cards/"+key4+".png")
 	
 	bot.append($Bots/Bot1)
 	bot.append($Bots/Bot2)
@@ -200,6 +221,7 @@ func _start(body):
 		#Config.MUSIC.stream = BlankMusic
 		Config.MUSIC.volume_db = -80
 # warning-ignore:return_value_discarded
+		$BackDrop.hide()
 		LoadingScript.load_scene(self, "res://pck/scenes/menu.tscn")
 		return
 	
@@ -220,7 +242,6 @@ func _start(body):
 	$BackDrop._hide()
 	
 	
-	
 	$C1.texture = card_back
 	$C2.texture = card_back
 	$vs_gif.show()
@@ -229,7 +250,7 @@ func _start(body):
 	_playVoice("vs")
 	yield(get_tree().create_timer(2), "timeout")
 	$vs_gif.hide()
-	$AnimationPlayer.play("in");
+	$AnimationPlayer.play("in")
 	yield(get_tree().create_timer(0.6), "timeout")
 	$C1.texture=null
 	$C2.texture=null
@@ -245,10 +266,10 @@ func _start(body):
 		var index = body.winHistory[i]
 		var rect = TextureRect.new()
 		rect.texture = historyTextures[index]
-		rect.rect_min_size = Vector2(55,50)
-		rect.rect_size = Vector2(55,50)
-		rect.margin_left=0.5
-		rect.margin_right=0.5
+		rect.rect_min_size = Vector2(55,55)
+		rect.rect_size = Vector2(55,55)
+		rect.margin_left = 0.4
+		rect.margin_right = 0.4
 		rect.expand = true
 #		rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 #		rect.rect_position = $History/HBoxContainer.rect_position
@@ -286,7 +307,7 @@ func _end(body):
 	
 	$card_gif_1.visible=false
 	$card_gif_2.visible=false
-	$C2.texture=card_back
+	$C2.texture = card_back
 	$C1.texture = card_textures[key1]
 	_playVoice("number_card")
 	yield(get_tree().create_timer(1), "timeout")
@@ -587,6 +608,12 @@ func _playVoice(key):
 	$Audio/GameVoice.play()
 
 func _on_Exit_pressed():
-	_playVoice("exit")
 	isExit = true
+	$exitUI.show()
+	$AnimationPlayer2.play("in")
 	
+
+func _on_AnimationPlayer2_animation_finished(anim_name):
+	if anim_name == "in":
+		yield(get_tree().create_timer(2),"timeout")
+		$AnimationPlayer2.play("out")

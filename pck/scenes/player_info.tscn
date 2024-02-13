@@ -17,7 +17,7 @@
 [ext_resource path="res://pck/scenes/changePW.tscn" type="PackedScene" id=15]
 [ext_resource path="res://pck/scenes/changeUsername.tscn" type="PackedScene" id=16]
 [ext_resource path="res://pck/scenes/CustomKeyboard2.tscn" type="PackedScene" id=17]
-[ext_resource path="res://pck/assets/HomeScence/image-main-background.png" type="Texture" id=18]
+[ext_resource path="res://pck/scenes/Bg.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=4]
 resource_name = "In"
@@ -33,18 +33,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.254902 ), Color( 1, 1, 1, 0.545098 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Icon-profile-box:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -159,13 +147,7 @@ margin_right = -1992.0
 margin_bottom = -896.4
 script = ExtResource( 6 )
 
-[node name="Bg" type="Sprite" parent="."]
-position = Vector2( 1001.5, 451.5 )
-scale = Vector2( 0.86849, 0.839815 )
-texture = ExtResource( 18 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Bg" parent="." instance=ExtResource( 18 )]
 
 [node name="playerInfoAnimation" type="AnimationPlayer" parent="."]
 anims/In = SubResource( 4 )
@@ -315,6 +297,9 @@ expand = true
 margin_top = -8.0
 margin_right = 0.0
 margin_bottom = -8.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="changePW" parent="." instance=ExtResource( 15 )]
 visible = false
